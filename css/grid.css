@@ -203,6 +203,7 @@ ___________________________________________ */
 	grid-template-columns: 1fr minmax(0, 1200px) 1fr;  
 }
 
+
  .grid-con { 
    display: grid;
    grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -211,6 +212,10 @@ ___________________________________________ */
    margin: 0 auto;
    padding-left: 15px;
    padding-right: 15px;
+}
+
+.full-width-grid-con > .grid-con {
+  grid-column: 2 / 3;
 }
 
 /* A keyword indicating that the property contributes nothing to the grid item's placement, indicating auto-placement, an automatic span, or a default span of 1. */
