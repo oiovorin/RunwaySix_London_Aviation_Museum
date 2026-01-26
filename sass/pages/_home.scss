@@ -1,159 +1,585 @@
-@use '../abstracts';
+@use '../abstracts' as *;
 
+// ===========================================
+// HERO SECTION
+// ===========================================
+#hero {
+    position: relative;
+    // Mobile: Smaller hero
+    height: 40vh;
+    min-height: 280px;
+    max-height: 400px;
+    background: url('../images/video-placeholder.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: flex-end;
+
+    @include tablet {
+        height: 45vh;
+        min-height: 350px;
+        max-height: 450px;
+    }
+
+    @include desktop {
+        height: 50vh;
+        min-height: 400px;
+        max-height: 500px;
+    }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba($blue, 0.3), rgba($blue, 0.6));
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 30px;
+    width: 100%;
+
+    @include tablet {
+        padding-bottom: 40px;
+    }
+
+    @include desktop {
+        padding-bottom: 50px;
+    }
+}
+
+.hero-text {
+    color: $white;
+}
+
+.hero-welcome {
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 5px;
+
+    @include tablet {
+        font-size: 16px;
+    }
+
+    @include desktop {
+        font-size: 20px;
+    }
+}
+
+.hero-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.15;
+
+    @include tablet {
+        font-size: 48px;
+    }
+
+    @include desktop {
+        font-size: 64px;
+    }
+}
+
+.hero-pause {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid $white;
+    background: transparent;
+    color: $white;
+    cursor: pointer;
+    z-index: 10;
+    @include flex-center;
+    @include transition;
+
+    @include tablet {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    &:hover {
+        background: $white;
+        color: $blue;
+    }
+}
+
+// ===========================================
+// ABOUT SECTION
+// ===========================================
 #about-museum {
+    padding: 40px 0;
+
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include desktop {
+        padding: 80px 0;
+    }
+
+    .grid-con {
+        align-items: center;
+    }
+}
+
+.about-text {
     h2 {
-        margin-top: 50px;
-        margin-bottom: 0;
-        font-size: 25px;
-        color: abstracts.$blue;
+        font-size: 24px;
+        font-weight: 600;
+        color: $blue;
+        margin-bottom: 15px;
+
+        @include tablet {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        @include desktop {
+            font-size: 36px;
+        }
     }
 
     p {
-        line-height: 32px;
-    }
+        font-size: 14px;
+        line-height: 1.7;
+        color: $text-gray;
+        margin-bottom: 20px;
 
-    .image-holder {
-        background-color: #0a275a72;
-        height: 285px;
-        text-align: center;
+        @include tablet {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
     }
-
 }
 
-.btn {
-    color: #fff;
-    background-color: abstracts.$red;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 180px;
-    text-decoration: none;
-    margin: 50px auto;
-    border-radius: 30px;
-    text-align: center;
+.about-image {
+    margin-top: 25px;
+
+    @include tablet {
+        margin-top: 0;
+    }
+
+    img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 4px;
+
+        @include tablet {
+            height: 300px;
+        }
+
+        @include desktop {
+            height: 380px;
+        }
+    }
 }
 
+// ===========================================
+// VISIT LEARN REMEMBER SECTION
+// ===========================================
 #visit-learn {
-    margin-top: 30px;
+    padding: 40px 0;
+    background-color: $light-gray;
 
-    h2 {
-        text-align: center;
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include desktop {
+        padding: 80px 0;
     }
 }
 
+// ===========================================
+// HISTORY SECTION WITH DRAGGABLE SLIDER
+// ===========================================
 #history {
-    margin-top: 50px;
+    padding: 40px 0;
 
-    h2 {
-        text-align: center;
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include desktop {
+        padding: 80px 0;
     }
 }
 
-#slider-con {
+// Slider Container - Draggable/Scrollable
+#slider-container {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    cursor: grab;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: $blue $light-gray;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    // Custom Scrollbar
+    &::-webkit-scrollbar {
+        height: 4px;
+
+        @include tablet {
+            height: 6px;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $light-gray;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $blue;
+        border-radius: 3px;
+
+        &:hover {
+            background: $blue;
+        }
+    }
 }
 
-#track {
+// Slider Track
+#slider-track {
     display: flex;
-    gap: 30px;
+    gap: 15px;
+    padding-bottom: 10px;
+
+    @include tablet {
+        gap: 20px;
+        padding-bottom: 15px;
+    }
+
+    @include desktop {
+        gap: 25px;
+    }
 }
 
+// Cards
 .card {
-    background-color: abstracts.$blue;
-    height: 330px;
-    width: 282px;
-    position: relative;
+    background-color: $blue;
+    border-radius: 6px;
+    overflow: hidden;
     flex-shrink: 0;
+    // Mobile: Smaller cards
+    width: 240px;
+    @include transition;
 
-    .card-image {
-        position: absolute;
-        height: 183px;
-        width: 257px;
-        background-color: #fff;
-        margin: 12px;
+    @include tablet {
+        width: 280px;
+        border-radius: 8px;
     }
 
-    .card-title {
-        position: absolute;
-        color: #fff;
-        margin-left: 12px;
-        margin-top: 210px;
-        font-size: 20px;
+    @include desktop {
+        width: 340px;
     }
 
-    .card-description {
-        position: absolute;
-        color: #fff;
-        margin-left: 12px;
-        margin-top: 250px;
-        font-size: 16px;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba($blue, 0.25);
+
+        @include tablet {
+            box-shadow: 0 15px 40px rgba($blue, 0.25);
+        }
+
+        .card-image img {
+            transform: scale(1.05);
+        }
     }
 }
 
-#events-blog {
-    margin-top: 80px;
-
-    h2 {
-        text-align: center;
-    }
-
-}
-
-.events-img {
-    height: 283px;
-    background-color: gray;
+.card-image {
     width: 100%;
+    height: 140px;
+    overflow: hidden;
+
+    @include tablet {
+        height: 170px;
+    }
+
+    @include desktop {
+        height: 200px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        @include transition(transform);
+        pointer-events: none; // Prevent image dragging
+    }
 }
 
-.events-info {
-    background-color: abstracts.$blue;
-    color: #fff;
-    padding: 20px;
+.card-content {
+    padding: 18px 15px 22px;
 
+    @include tablet {
+        padding: 20px 18px 25px;
+    }
 
-    p.event {
-        background-color: #fff;
-        color: abstracts.$blue;
-        border-radius: 10px;
-        text-align: center;
-        padding: 5px 15px;
-        width: 100px;
-        margin-bottom: 0;
+    @include desktop {
+        padding: 25px 20px 30px;
     }
 
     h3 {
-        margin-top: 0;
-        padding-top: 20px;
-        font-size: 24px;
+        color: $white;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+
+        @include tablet {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        @include desktop {
+            font-size: 22px;
+        }
     }
 
     p {
-        line-height: 30px;
+        color: rgba($white, 0.85);
+        font-size: 12px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+
+        @include tablet {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        @include desktop {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
     }
 }
 
-.blog-info {
-    color: abstracts.$blue;
-    padding: 20px;
+// ===========================================
+// EVENTS & BLOG SECTION
+// ===========================================
+#events-blog {
+    padding: 40px 0;
+    background-color: $light-gray;
 
-    p.blog {
-        background-color: abstracts.$blue;
-        color: #fff;
-        border-radius: 10px;
-        text-align: center;
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include desktop {
+        padding: 80px 0;
+    }
+}
+
+.event-row {
+    display: flex;
+    // Mobile: Stack vertically
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: $white;
+
+    // Tablet+: Side by side
+    @include tablet {
+        flex-direction: row;
+    }
+
+    &.reverse {
+        // Mobile: Same as normal (stacked)
+        flex-direction: column;
+
+        // Tablet+: Reverse order
+        @include tablet {
+            flex-direction: row-reverse;
+        }
+    }
+}
+
+.event-image {
+    width: 100%;
+    // Mobile: Shorter image
+    height: 180px;
+    overflow: hidden;
+
+    @include tablet {
+        width: 50%;
+        height: auto;
+        min-height: 280px;
+    }
+
+    @include desktop {
+        min-height: 320px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.event-content {
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+        width: 50%;
+        padding: 30px;
+    }
+
+    @include desktop {
+        padding: 40px 50px;
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: $blue;
+        margin-bottom: 6px;
+
+        @include tablet {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        @include desktop {
+            font-size: 28px;
+        }
+    }
+}
+
+.event-date {
+    font-size: 12px;
+    color: $blue;
+    margin-bottom: 10px;
+
+    @include tablet {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+}
+
+.event-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: $text-gray;
+    margin-bottom: 12px;
+
+    @include tablet {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+}
+
+.read-more {
+    font-size: 12px;
+    color: $blue;
+    font-weight: 500;
+    text-decoration: underline;
+    @include transition(color);
+
+    @include tablet {
+        font-size: 13px;
+    }
+
+    &:hover {
+        color: $red;
+    }
+}
+
+.blog-content {
+    background-color: $light-gray;
+}
+
+.events-cta {
+    text-align: center;
+    margin-top: 30px;
+
+    @include tablet {
+        margin-top: 40px;
+    }
+}
+
+// ===========================================
+// BUTTONS
+// ===========================================
+.btn {
+    @include button-base;
+    // Mobile: Full width buttons
+    width: 100%;
+    max-width: 200px;
+
+    @include tablet {
+        width: auto;
+        max-width: none;
+    }
+}
+
+.btn-red {
+    background-color: $red;
+    color: $white;
+
+    &:hover {
+        background-color: $red;
+        transform: translateY(-2px);
+    }
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 12px;
+
+    @include tablet {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+}
+
+// ===========================================
+// TAGS
+// ===========================================
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+    margin-bottom: 12px;
+
+    @include tablet {
         padding: 5px 15px;
-        width: 100px;
-        margin-bottom: 0;
+        font-size: 11px;
+        margin-bottom: 15px;
     }
+}
 
-     h3 {
-        margin-top: 0;
-        padding-top: 20px;
-        font-size: 24px;
-    }
+.tag-event {
+    background-color: $blue;
+    color: $white;
+}
 
-    p {
-        line-height: 30px;
-    }
+.tag-blog {
+    background-color: $red;
+    color: $white;
 }
