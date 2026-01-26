@@ -66,3 +66,50 @@ header {
         cursor: pointer;
     }
 }
+@media screen and (min-width: 768px) {
+    header {
+
+        #mob-menu,
+        #header-nav-close {
+            display: none;
+        }
+
+        #header-logo {
+            height: 50px;
+            width: auto;
+            margin-top: 20px;
+        }
+
+        #header-nav nav ul li {
+            margin: 20px 0;
+        }
+
+        #header-nav {
+            opacity: 1;
+            transform: translateX(0);
+            background-color: transparent;
+            position: static;
+            height: auto;
+            width: auto;
+            transition: none;
+        }
+
+        #header-nav nav ul {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 20px;
+        }
+
+        #header-nav nav ul li a {
+            color: #fff;
+            font-size: 16px;
+
+            &:hover {
+                padding-bottom: 3px;
+                border-bottom: 2px solid #fff;
+            }
+        }
+    }
+}
