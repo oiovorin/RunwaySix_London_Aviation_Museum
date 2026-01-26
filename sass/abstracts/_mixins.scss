@@ -1,0 +1,58 @@
+// ===================================
+// Mixins - Mobile First Approach
+// ===================================
+
+@use 'variables' as *;
+
+// ===========================================
+// MOBILE FIRST MEDIA QUERY MIXINS
+// ===========================================
+
+// Tablet and up (min-width: 768px)
+@mixin tablet {
+    @media screen and (min-width: 768px) {
+        @content;
+    }
+}
+
+// Desktop and up (min-width: 1200px)
+@mixin desktop {
+    @media screen and (min-width: 1200px) {
+        @content;
+    }
+}
+
+// ===========================================
+// UTILITY MIXINS
+// ===========================================
+
+// Flexbox Mixins
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+// Transition Mixin
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+    transition: $property $duration $timing;
+}
+
+// Button Base Mixin
+@mixin button-base {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    @include transition;
+}
