@@ -1,0 +1,158 @@
+@use '../abstracts';
+
+footer {
+    background-color: abstracts.$blue;
+    height: 760px;
+    color: #fff;
+
+    #footer-logo {
+        background-color: #fff;
+        height: 70px;
+        margin-top: 40px;
+    }
+
+    p#footer-quote {
+        line-height: 30px;
+        color: #fff;
+        font-style: italic;
+    }
+
+    hr {
+        width: 100%;
+        color: #fff;
+    }
+
+    #footer-nav {
+        display: flex;
+        gap: 125px;
+
+        h2 {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-family:  "Montserrat", sans-serif;
+        }
+
+        ul {
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+            margin: 10px 0;
+        }
+        
+        a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+        }
+    }
+
+    #address-info {
+        display: flex;
+        flex-direction: row;
+        gap: 120px;
+    }
+
+    #address, #contact-info {
+        p {
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+    }
+
+    #address a {
+        color: #fff;
+        font-size: 10px;
+
+    }
+
+    #sub-header {
+        margin-bottom: 10px;
+        margin-top: 20px;
+        font-size: 14px;
+    }
+
+    #subscribe {
+        display: flex;
+        margin: 0;
+        font-size: 12px;
+    }
+
+    #input {
+        border: 1px solid #fff;
+        padding: 10px;
+        width: 280px;
+        height: 38px;
+        margin-top: 0;
+    }
+
+    #sent {
+        border: 1px solid #fff;
+        padding: 10px;
+        background-color: #fff;
+        color: abstracts.$blue;
+        width: 150px;
+        height: 38px;
+        text-align: center;
+        margin-top: 0;
+    }
+
+    #sns h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+    }
+
+
+    .sns-icon {
+        display: flex;
+        gap: 15px;
+    }
+    
+    img.facebook {
+        height: 35px;
+    }
+
+    img.instagram {
+        height: 25px;
+        margin-top: 5px;
+    }
+
+    img.youtube {
+        height: 30px;
+        margin-top: 3px;
+        margin-left: 5px;
+    }
+
+    small {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        height: 450px;
+        
+        #footer-nav {
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        hr {
+            margin-top: 40px;
+            border: none;
+            height: 200px;
+            width: 1px;
+            background-color: #fff;
+        }
+
+        #address-info {
+            flex-direction: column;
+            gap: 50px;
+            margin-top: 40px;
+        }
+    }
+}

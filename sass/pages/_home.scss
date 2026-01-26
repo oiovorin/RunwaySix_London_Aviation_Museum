@@ -1,0 +1,175 @@
+@use '../abstracts';
+
+#hero {
+    background-color: #0a275a72;
+
+    #hero-heading {
+        color: #fff;
+        margin-top: 150px;
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 30px;
+
+        span {
+            font-size: 25px;
+        }
+    }
+}
+
+#about-museum {
+    h2 {
+        margin-top: 50px;
+        margin-bottom: 0;
+        font-size: 25px;
+        color: abstracts.$blue;
+    }
+
+    p {
+        line-height: 32px;
+    }
+
+    .image-holder {
+        background-color: #0a275a72;
+        height: 285px;
+        text-align: center;
+    }
+
+}
+
+.btn {
+    color: #fff;
+    background-color: abstracts.$red;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 180px;
+    text-decoration: none;
+    margin: 50px auto;
+    border-radius: 30px;
+    text-align: center;
+}
+
+#visit-learn {
+    margin-top: 30px;
+
+    h2 {
+        text-align: center;
+    }
+}
+
+#history {
+    margin-top: 50px;
+
+    h2 {
+        text-align: center;
+    }
+}
+
+#slider-con {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+#track {
+    display: flex;
+    gap: 30px;
+}
+
+.card {
+    background-color: abstracts.$blue;
+    height: 330px;
+    width: 282px;
+    position: relative;
+    flex-shrink: 0;
+
+    .card-image {
+        position: absolute;
+        height: 183px;
+        width: 257px;
+        background-color: #fff;
+        margin: 12px;
+    }
+
+    .card-title {
+        position: absolute;
+        color: #fff;
+        margin-left: 12px;
+        margin-top: 210px;
+        font-size: 20px;
+    }
+
+    .card-description {
+        position: absolute;
+        color: #fff;
+        margin-left: 12px;
+        margin-top: 250px;
+        font-size: 16px;
+    }
+}
+
+#events-blog {
+    margin-top: 80px;
+
+    h2 {
+        text-align: center;
+    }
+
+}
+
+.events-img {
+    height: 283px;
+    background-color: gray;
+    width: 100%;
+}
+
+.events-info {
+    background-color: abstracts.$blue;
+    color: #fff;
+    padding: 20px;
+
+
+    p.event {
+        background-color: #fff;
+        color: abstracts.$blue;
+        border-radius: 10px;
+        text-align: center;
+        padding: 5px 15px;
+        width: 100px;
+        margin-bottom: 0;
+    }
+
+    h3 {
+        margin-top: 0;
+        padding-top: 20px;
+        font-size: 24px;
+    }
+
+    p {
+        line-height: 30px;
+    }
+}
+
+.blog-info {
+    color: abstracts.$blue;
+    padding: 20px;
+
+    p.blog {
+        background-color: abstracts.$blue;
+        color: #fff;
+        border-radius: 10px;
+        text-align: center;
+        padding: 5px 15px;
+        width: 100px;
+        margin-bottom: 0;
+    }
+
+     h3 {
+        margin-top: 0;
+        padding-top: 20px;
+        font-size: 24px;
+    }
+
+    p {
+        line-height: 30px;
+    }
+}
