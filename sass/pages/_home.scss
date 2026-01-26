@@ -1,21 +1,5 @@
 @use '../abstracts';
 
-#hero {
-    background-color: #0a275a72;
-
-    #hero-heading {
-        color: #fff;
-        margin-top: 150px;
-        margin-bottom: 30px;
-        font-size: 16px;
-        line-height: 30px;
-
-        span {
-            font-size: 25px;
-        }
-    }
-}
-
 #about-museum {
     h2 {
         margin-top: 50px;
