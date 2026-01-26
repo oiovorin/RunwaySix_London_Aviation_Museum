@@ -81,39 +81,37 @@
                 <span class="line"></span>
             </div>
             
-            <div class="video-container">
-                <section id="player-container">
-                    <h3 class="hidden">London Aviation History Video Player</h3>
-                    <video controls preload="metadata" poster="images/video-placeholder.jpg">
-                        <source src="videos/video.mp4" type="video/mp4">
-                        <source src="videos/video.webm" type="video/webm">
-                        <p>You are using an older browser that does not support HTML5 Video. Please update your browser.</p>
-                    </video>
+            <section id="player-container" class="col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
+            <h2 class="hidden">London Aviation History Video Player</h2>
+        <video controls preload="metadata" poster="images/video-placeholder.jpg">
+            <source src="videos/video.mp4" type="video/mp4">
+            <source src="videos/video.webm" type="video/webm">
+            <p>You are using an older browser that does not support HTML5 Video. Please update your browser.</p>
+         </video>
 
-                    <button id="center-play-button" aria-label="play video">
-                        <i class="fa-solid fa-play"></i>
-                    </button>
+      <button id="center-play-button" aria-label="play video">
+         <i class="fa-solid fa-play" aria-label="video play"></i>
+      </button>
 
-                    <div class="video-controls hidden" id="video-controls">
-                        <button id="play-button" aria-label="video play">
-                            <i class="fa-solid fa-play"></i>
-                        </button>
-                        <button id="pause-button" aria-label="video pause">
-                            <i class="fa-solid fa-pause"></i>
-                        </button>
-                        <button id="stop-button" aria-label="video stop">
-                            <i class="fa-solid fa-stop"></i>
-                        </button>
-                        <input type="range" id="timeline" step="0.2" min="0" aria-label="change timeline of video">
-                        <i class="fa fa-volume-up"></i>
-                        <input type="range" id="change-vol" step="0.05" min="0" max="1" value="1" aria-label="change volume">
-                        <button id="full-screen" aria-label="toggle fullscreen">
-                            <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-                        </button>
-                    </div>
-                </section>
-            </div>
-        </section>
+      <div class="video-controls hidden" id="video-controls">
+        <button id="play-button" aria-label="video play">
+          <i class="fa-solid fa-play"></i>
+        </button>
+        <button id="pause-button" aria-label="video pause">
+          <i class="fa-solid fa-pause"></i>
+        </button>
+        <button id="stop-button" aria-label="video stop">
+          <i class="fa-solid fa-stop"></i>
+        </button>
+        <input type="range" id="timeline" step="0.2" min="0" aria-label="chane timeline of video">
+        <i class="fa fa-volume-up"></i>
+        <input type="range" id="change-vol" step="0.05" min="0" max="1" value="1" aria-label="change volume">
+        <button id="full-screen">
+          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+        </button>
+      </div>
+    </section>
+    </section>
 
         <!-- Aviation History & Legacy Section with Draggable Slider -->
         <section id="history">
