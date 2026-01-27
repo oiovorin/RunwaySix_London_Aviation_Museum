@@ -1,28 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Museum Homepage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>London Aviation History</title>
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script defer src="js/main.js"></script>
 </head>
-<body>
-    <header>
-        <h1>London Aviation History page</h1>
 
-    <nav>
-        <h2>Main Navigation</h2>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="london-aviation.html">London Aviation History</a></li>
-            <li><a href="battle-of-britain.html">Battle of Britain</a></li>
-            <li><a href="wartime.html">Wartime Experience</a></li>
-            <li><a href="events-blog.html">Events & Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+
+<body>
+
+    <section id="hero">
+
+     <header>
+        <h1 class="hidden">London Aviation History Page</h1>
+        <div class="grid-con">
+            <h2 class="hidden">Header Navigation</h2>
+            <a href="index.html" class="col-start-1 col-span-1 m-col-start-2 m-col-end-4" aria-label="home">
+                <img src="images/logo.svg" alt="logo" id="header-logo">
+            </a>
+
+
+            <input type="checkbox" id="hamburger">
+            <div id="mob-menu" class="col-start-4 col-end-5 m-col-auto">
+            <label for="hamburger" id="menu-show">
+                <img src="images/hamburger-menu.svg" alt="menu" class="hamburger-menu-bar">
+            </label>
+            </div>
+
+            <div id="header-nav" class="m-col-start-4 m-col-end-12 l-col-start-5 l-col-end-12">
+                <label for="hamburger" id="header-nav-close">X</label>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="london-aviation.html">History</a></li>
+                        <li><a href="wartime.html">Wartime Experience</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
+
+    <div class="grid-con">
+        <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
+            <span>London Aviation History</span>
+        </h1>
+        <p class="col-span-full" id="hero-p">
+            From early experimental flights to the foundations of military and civilian aviation, London's aviation history reflects a story of innovation, service, and ambition shaped by both local and global events.
+        </p>
+    </div>
+    </section>
+
+    <main>
+        <section class="grid-con">
+            <h2 class="col-span-full">The Beginnings of Powered Flight</h2>
+            <p class="col-span-full">details</p>
+            <p class="col-span-full timeline">1903-1909</p>
+        </section>
+
+        <section class="grid-con">
+            <h2 class="col-span-full">Aviation Comes to London</h2>
+            <p class="col-span-full">details</p>
+            <p class="col-span-full timeline">1912</p>
+        </section>
+
+        <section class="grid-con">
+            <h2 class="col-span-full">Aviation and the First World War</h2>
+            <p class="col-span-full">details</p>
+            <p class="col-span-full timeline">1914-1918</p>
+        </section>
+    </main>
+
+   <footer>
+        <div class="grid-con">
+            <div class="col-span-3 m-col-start-1 m-col-end-5">
+            <div id="footer-logo">logo</div>
+            <p id="footer-quote">
+                “Preserving the Skies. <br>
+                Honouring the Sacrifice.”</p>
+            </div>
+
+
+            <hr class="col-span-full m-col-start-5 m-col-end-6">
+        
+
+            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10" aria-label="footer navigation">
+                <div>
+                <p class="footer-nav-title">Quick Links</p>
+                <ul>
+                    <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                    <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="london-aviation.html"  aria-label="go to histry page">History</a></li>
+                    <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                </ul>
+                </div>
+
+                <div>
+                <p class="footer-nav-title">About Us</p>
+                <ul>
+                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events</a></li>
+                    <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
+                </ul>
+                </div>
+            </nav>
+
+            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-12">
+            <div id="address">
+                <p>2155 Crumlin Side Rd,<br>
+                     London, Ontario <br>
+                     N5V 3Z9, Canada.</p>
+                     <a href="#">View on GG map</a>
+            </div>
+
+            <div id="contact-info" class="col-start-3 col-end-5">
+                <p>info@427wing.com</p>
+                <p>519-455-0430</p>
+            </div>
+            </div>
+
+            <div class="col-span-full m-col-start-6 m-col-end-10">
+            <p id="sub-header">
+                SUBSCRIBE TO OUR NEWSLETTER!
+            </p>
+
+            
+            <div id="subscribe">
+            <p id="input">Enter email address</p>
+            <p id="sent">Subscribe</p>
+            </div>
+            </div>
+
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
+                <p>Social Media</p>
+                <div class="sns-icon">
+                    <img src="images/facebook.svg" class="facebook" alt="facebook icon">
+                    <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                </div>
+
+            </div>
+            
+
+
+        <small class="col-span-full">&copy; 2026 London Aviation Museum. All rights reserved.</small>
+        </div>
+    </footer>
     
 </body>
 </html>

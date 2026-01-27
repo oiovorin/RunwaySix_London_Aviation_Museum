@@ -1,0 +1,12 @@
+@use '../abstracts';
+
+#count-up {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+
+    p {
+        font-size: 30px;
+        font-weight: 800;
+    }
+}

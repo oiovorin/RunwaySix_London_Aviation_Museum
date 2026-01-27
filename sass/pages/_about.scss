@@ -1,0 +1,30 @@
+@use '../abstracts';
+
+
+#mission, #vision, #overview, #service {
+    margin: 50px 0;
+
+    h2 {
+        text-align: center;
+        color: abstracts.$blue;
+        
+    }
+}
+
+.icon-text {
+        background-color: abstracts.$blue;
+        padding: 30px 0;
+
+        .image-holder {
+            background-color: #fff;
+            height: 100px;
+            width: 100px;
+            margin: 20px auto;
+        }
+
+        p {
+            color: #fff;
+            margin: 30px;
+            text-align: center;
+        }
+    }

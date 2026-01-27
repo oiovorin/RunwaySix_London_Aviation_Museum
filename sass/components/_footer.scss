@@ -15,6 +15,7 @@ footer {
         line-height: 30px;
         color: #fff;
         font-style: italic;
+        margin-bottom: 30px;
     }
 
     hr {
@@ -26,9 +27,11 @@ footer {
         display: flex;
         gap: 125px;
 
-        h2 {
+        p.footer-nav-title {
             text-transform: uppercase;
             font-size: 14px;
+            font-family:  "Montserrat", sans-serif;
+            margin-top: 30px;
         }
 
         ul {
@@ -47,6 +50,12 @@ footer {
         }
     }
 
+    #address-info {
+        display: flex;
+        flex-direction: row;
+        gap: 120px;
+    }
+
     #address, #contact-info {
         p {
             font-size: 12px;
@@ -63,17 +72,20 @@ footer {
     #sub-header {
         margin-bottom: 10px;
         margin-top: 20px;
+        font-size: 14px;
     }
 
     #subscribe {
         display: flex;
         margin: 0;
+        font-size: 12px;
     }
 
     #input {
         border: 1px solid #fff;
         padding: 10px;
         width: 280px;
+        height: 38px;
         margin-top: 0;
     }
 
@@ -83,8 +95,14 @@ footer {
         background-color: #fff;
         color: abstracts.$blue;
         width: 150px;
+        height: 38px;
         text-align: center;
         margin-top: 0;
+    }
+
+    #sns p {
+        font-weight: 700;
+        font-size: 16px;
     }
 
 
@@ -113,4 +131,29 @@ footer {
         margin-top: 40px;
     }
 
+}
+
+@media screen and (min-width: 768px) {
+    footer {
+        height: 450px;
+        
+        #footer-nav {
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        hr {
+            margin-top: 40px;
+            border: none;
+            height: 200px;
+            width: 1px;
+            background-color: #fff;
+        }
+
+        #address-info {
+            flex-direction: column;
+            gap: 50px;
+            margin-top: 40px;
+        }
+    }
 }
