@@ -1,3 +1,4 @@
+(()=> {
 // video
 const playerCon = document.querySelector("#player-container");
 const player = document.querySelector("video");
@@ -85,3 +86,5 @@ videoControls.addEventListener("mouseleave", hideControls);
 player.addEventListener("mouseenter", showControls);
 player.addEventListener("mouseleave", hideControls);
 }
+
+})();
