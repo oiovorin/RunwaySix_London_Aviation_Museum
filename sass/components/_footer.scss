@@ -15,6 +15,7 @@ footer {
         line-height: 30px;
         color: #fff;
         font-style: italic;
+        margin-bottom: 30px;
     }
 
     hr {
@@ -26,10 +27,11 @@ footer {
         display: flex;
         gap: 125px;
 
-        h2 {
+        p.footer-nav-title {
             text-transform: uppercase;
             font-size: 14px;
             font-family:  "Montserrat", sans-serif;
+            margin-top: 30px;
         }
 
         ul {
@@ -98,8 +100,7 @@ footer {
         margin-top: 0;
     }
 
-    #sns h3 {
-        font-family: "Montserrat", sans-serif;
+    #sns p {
         font-weight: 700;
         font-size: 16px;
     }

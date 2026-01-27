@@ -16,15 +16,13 @@
     <section id="hero">
 
      <header>
-        <h1 class="hidden">London Aviation Museum About Page</h1>
         <div class="grid-con">
-            <h2 class="hidden">Header Navigation</h2>
             <a href="index.html" class="col-start-1 col-span-1 m-col-start-2 m-col-end-4" aria-label="home">
                 <img src="images/logo.svg" alt="logo" id="header-logo">
             </a>
 
 
-            <input type="checkbox" id="hamburger">
+            <input type="checkbox" id="hamburger" aria-label="mobile menu bar">
             <div id="mob-menu" class="col-start-4 col-end-5 m-col-auto">
             <label for="hamburger" id="menu-show">
                 <img src="images/hamburger-menu.svg" alt="menu" class="hamburger-menu-bar">
@@ -33,14 +31,14 @@
 
             <div id="header-nav" class="m-col-start-4 m-col-end-12 l-col-start-5 l-col-end-12">
                 <label for="hamburger" id="header-nav-close">X</label>
-                <nav>
+                <nav aria-label="Header Navigation">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="london-aviation.html">History</a></li>
-                        <li><a href="wartime.html">Wartime Experience</a></li>
-                        <li><a href="events-blog.html">Events / Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                        <li><a href="about.html" aria-label="go to about page">About</a></li>
+                        <li><a href="london-aviation.html" aria-label="go to History page">History</a></li>
+                        <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
+                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -48,11 +46,11 @@
     </header>
 
     <div class="grid-con">
-        <h2 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
+        <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
             Welcome to the<br>
             <span>London<br>
             Aviation Museum</span>
-        </h2>
+        </h1>
     </div>
     </section>
 
@@ -83,7 +81,7 @@
             
             <div class="grid-con">
             <section id="player-container" class="col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
-            <h2 class="hidden">London Aviation History Video Player</h2>
+            <h3 class="hidden">London Aviation History Video Player</h3>
         <video controls preload="metadata" poster="images/video-placeholder.jpg">
             <source src="videos/video.mp4" type="video/mp4">
             <source src="videos/video.webm" type="video/webm">
@@ -91,11 +89,11 @@
          </video>
 
       <button id="center-play-button" aria-label="play video">
-         <i class="fa-solid fa-play" aria-label="video play"></i>
+         <i class="fa-solid fa-play"></i>
       </button>
 
       <div class="video-controls hidden" id="video-controls">
-        <button id="play-button" aria-label="video play">
+        <button id="play-button"  aria-label="video play">
           <i class="fa-solid fa-play"></i>
         </button>
         <button id="pause-button" aria-label="video pause">
@@ -107,7 +105,7 @@
         <input type="range" id="timeline" step="0.2" min="0" aria-label="chane timeline of video">
         <i class="fa fa-volume-up"></i>
         <input type="range" id="change-vol" step="0.05" min="0" max="1" value="1" aria-label="change volume">
-        <button id="full-screen">
+        <button id="full-screen" aria-label="full screen mode">
           <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
         </button>
       </div>
@@ -132,7 +130,7 @@
                             <div class="card-content">
                                 <h3>London Aviation History</h3>
                                 <p>Early aviation development and local contributions.</p>
-                                <a href="london-aviation.html" class="btn btn-red btn-small">Explore</a>
+                                <a href="london-aviation.html" class="btn btn-red btn-small" aria-label="learn more about london ab=viation history">Explore</a>
                             </div>
                         </div>
 
@@ -143,7 +141,7 @@
                             <div class="card-content">
                                 <h3>The Battle of Britain</h3>
                                 <p>London's role and sacrifices during WWII.</p>
-                                <a href="battle-of-britain.html" class="btn btn-red btn-small">Explore</a>
+                                <a href="battle-of-britain.html" class="btn btn-red btn-small" aria-label="learn more about battle of britain">Explore</a>
                             </div>
                         </div>
 
@@ -154,7 +152,7 @@
                             <div class="card-content">
                                 <h3>Wartime Experience</h3>
                                 <p>Training, service, and the realities of wartime aviation during WWII.</p>
-                                <a href="wartime.html" class="btn btn-red btn-small">Explore</a>
+                                <a href="wartime.html" class="btn btn-red btn-small" aria-label="learn more about wartime experience">Explore</a>
                             </div>
                         </div>
                     </div>
@@ -180,7 +178,7 @@
                     <h3>Remembrance Day</h3>
                     <p class="event-date">November 11, 2026</p>
                     <p class="event-description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a href="#" class="read-more">Read More →</a>
+                    <a href="#" class="read-more" aria-label="read more about Remembrance Day">Read More →</a>
                 </div>
             </div>
 
@@ -194,7 +192,7 @@
                     <h3>427 Wing: A Local Legacy</h3>
                     <p class="event-date">Publish Date: MM/DD/YYYY</p>
                     <p class="event-description"><em>The origins and ongoing role of 427 (London) Wing within the RCAF Association.</em></p>
-                    <a href="#" class="read-more">Read More →</a>
+                    <a href="#" class="read-more" aria-label="read more about 427 Wing: A Local Legacy">Read More →</a>
                 </div>
             </div>
 
@@ -208,12 +206,12 @@
                     <h3>Remembrance Day</h3>
                     <p class="event-date">November 11, 2026</p>
                     <p class="event-description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a href="#" class="read-more">Read More →</a>
+                    <a href="#" class="read-more" aria-label="read more about Remembrance Dayy">Read More →</a>
                 </div>
             </div>
 
             <div class="events-cta">
-                <a href="events-blog.html" class="btn btn-red">See All</a>
+                <a href="events-blog.html" class="btn btn-red" aria-label="see all events & blog">See All</a>
             </div>
         </section>
     </main>
@@ -234,22 +232,22 @@
             <hr class="col-span-full m-col-start-5 m-col-end-6">
         
 
-            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10">
+            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10" aria-label="footer navigation">
                 <div>
-                <h2>Quick Links</h2>
+                <p class="footer-nav-title">Quick Links</p>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="london-aviation.html">History</a></li>
-                    <li><a href="wartime.html">Wartime Experience</a></li>
+                    <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                    <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="london-aviation.html"  aria-label="go to histry page">History</a></li>
+                    <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
                 </ul>
                 </div>
 
                 <div>
-                <h2>About Us</h2>
+                <p class="footer-nav-title">About Us</p>
                 <ul>
-                    <li><a href="events-blog.html">Events</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events</a></li>
+                    <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
                 </ul>
                 </div>
             </nav>
@@ -281,7 +279,7 @@
             </div>
 
             <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
-                <h3>Social Media</h3>
+                <p>Social Media</p>
                 <div class="sns-icon">
                     <img src="images/facebook.svg" class="facebook" alt="facebook icon">
                     <img src="images/instagram.svg" class="instagram" alt="instagram icon">
