@@ -1,0 +1,142 @@
+@use '../abstracts' as *;
+
+// ===========================================
+// CONTACT INFORMATION SECTION
+// ===========================================
+
+#contact {
+    margin-top: 50px;
+}
+
+#museum-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+
+    @include tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 50px auto;
+    }
+
+    @include desktop {
+        gap: 80px;
+    }
+
+    .icon-text {
+        background-color: $blue;
+        padding: 30px 0;
+
+        @include tablet {
+            width: 210px;
+            height: 240px;
+            padding: 15px;
+        }
+
+        @include desktop {
+            width: 300px;
+        }
+
+        .contact-icon {
+            width: 80px;
+            margin: 10px auto;
+        }
+
+        h3 {
+            color: #fff;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        p {
+            color: #fff;
+            margin: 10px;
+            text-align: center;
+        }
+    }
+}
+
+// ===========================================
+// CONTACT FORM SECTION
+// ===========================================
+
+#contct-form-bg {
+    background-color: $blue;
+    margin-bottom: 100px;
+
+    .form-label {
+        display: flex;
+        flex-direction: column;
+
+        @include tablet {
+            margin-top: 50px;
+        }
+    }
+
+    #name-input label {
+        margin-top: 50px;
+
+        @include tablet {
+            margin-top: 5px;
+        }
+    }
+
+    label {
+        color: #fff;
+        font-size: 18px;
+        margin: 5px 0;
+    }
+
+
+    .input-box {
+        height: 40px;
+        margin-bottom: 20px;
+    }
+
+    #alart {
+        font-size: 14px;
+        color: #fff;
+        font-style: italic;
+        font-weight: 300;
+        margin: 10px 0;
+    }
+
+    #submit-btn {
+        background-color: $red;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+        padding: 20px 80px;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 20px auto 50px auto;
+    }
+}
+
+// ===========================================
+// FAQ SECTION
+// ===========================================
+
+#faq-bg {
+    background-color: $blue;
+    margin-bottom: 100px;
+
+    details {
+        background-color: #fff;
+        margin: 15px 0;
+        padding: 15px 10px;
+        font-size: 16px;
+        color: $blue;
+
+        &:first-child {
+            margin-top: 50px;
+        }
+
+        &:last-child {
+            margin-bottom: 50px;
+        }
+    }
+}
