@@ -16,15 +16,13 @@
     <section id="hero">
 
      <header>
-        <h1 class="hidden">London Aviation History Page</h1>
         <div class="grid-con">
-            <h2 class="hidden">Header Navigation</h2>
             <a href="index.html" class="col-start-1 col-span-1 m-col-start-2 m-col-end-4" aria-label="home">
                 <img src="images/logo.svg" alt="logo" id="header-logo">
             </a>
 
 
-            <input type="checkbox" id="hamburger">
+            <input type="checkbox" id="hamburger" aria-label="mobile menu bar">
             <div id="mob-menu" class="col-start-4 col-end-5 m-col-auto">
             <label for="hamburger" id="menu-show">
                 <img src="images/hamburger-menu.svg" alt="menu" class="hamburger-menu-bar">
@@ -33,12 +31,14 @@
 
             <div id="header-nav" class="m-col-start-4 m-col-end-12 l-col-start-5 l-col-end-12">
                 <label for="hamburger" id="header-nav-close">X</label>
-                <nav>
+                <nav aria-label="Header Navigation">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="london-aviation.html">History</a></li>
-                        <li><a href="wartime.html">Wartime Experience</a></li>
+                        <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                        <li><a href="about.html" aria-label="go to about page">About</a></li>
+                        <li><a href="london-aviation.html" aria-label="go to History page">History</a></li>
+                        <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
+                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
                     </ul>
                 </nav>
             </div>
