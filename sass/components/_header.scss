@@ -70,7 +70,7 @@ header {
         color: #fff;
         display: flex;
         justify-content: end;
-        margin-right: 80px;
+        margin-right: 20px;
         margin-top: 15px;
         cursor: pointer;
     }
@@ -142,10 +142,10 @@ header {
             height: auto;
             width: auto;
             transition: none;
+            margin-top: 10px;
         
             nav ul {
             display: flex;
-            align-items: center;
             justify-content: flex-end;
             gap: 20px;
 
@@ -179,9 +179,22 @@ header {
         }
 }
 
+
+
     #history-nav {
         position: relative;
         padding: 0 50px;
+
+        .history-con {
+            display: flex;
+            gap: 8px;
+        }
+
+        .submenu-toggle img {
+            width: 10px;
+            margin-top: 10px;
+        }
+
     }
 
     #history-sub {

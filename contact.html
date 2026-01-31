@@ -15,33 +15,55 @@
 
      <header>
         <div class="grid-con">
+
+            <div id="sub-header" class="m-col-start-7 m-col-end-11 l-col-start-8 l-col-end-11">
+                <nav>
+                    <ul>
+                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
+                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div> 
+
             <a href="index.html" class="col-start-1 col-span-1 m-col-start-2 m-col-end-4" aria-label="home">
                 <img src="images/logo.svg" alt="logo" id="header-logo">
             </a>
 
 
             <input type="checkbox" id="hamburger" aria-label="mobile menu bar">
-            <div id="mob-menu" class="col-start-4 col-end-5 m-col-auto">
+            <div id="mob-menu" class="col-start-4 col-end-5 m-col-srart-1 m-col-end-12">
             <label for="hamburger" id="menu-show">
                 <img src="images/hamburger-menu.svg" alt="menu" class="hamburger-menu-bar">
             </label>
             </div>
 
-            <div id="header-nav" class="m-col-start-4 m-col-end-12 l-col-start-5 l-col-end-12">
+
+            <div id="header-nav" class="l-col-start-5 l-col-end-12">
                 <label for="hamburger" id="header-nav-close">X</label>
                 <nav aria-label="Header Navigation">
                     <ul>
-                        <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                        <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
                         <li><a href="about.html" aria-label="go to about page">About</a></li>
-                        <li><a href="london-aviation.html" aria-label="go to History page">History</a></li>
+                        <li id="history-nav">
+                            <div class="history-con">
+                                <a href="london-aviation.html" aria-label="go to History page">History</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="history-sub">
+                                <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
+                            </ul>
+                        </li>
                         <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
-                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
-                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                        <li class="tablet-hide"><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
+                        <li class="tablet-hide"><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
 
     <div class="grid-con">
         <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
