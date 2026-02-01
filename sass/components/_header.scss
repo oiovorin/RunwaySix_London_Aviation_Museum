@@ -1,5 +1,13 @@
 @use '../abstracts';
 
+// ===========================================
+// HEADER NAV 
+// ===========================================
+
+#sub-header {
+    display: none;
+}
+
 header {
 
     #header-logo,
@@ -20,25 +28,8 @@ header {
     }
 
 
-    #header-nav nav ul {
-        list-style: none;
-    }
-
-    #header-nav nav ul li a {
-        text-decoration: none;
-        color: #fff;
-        font-size: 32px;
-        font-weight: 900;
-        transform: scale(1);
-        transition: scale 0.3s ease-in-out;
-    }
-
-    #header-nav nav ul li {
-        margin: 25px 0;
-    }
-
     #header-nav {
-        position: fixed;
+         position: fixed;
         top: 0;
         right: 0;
         height: 100vh;
@@ -47,6 +38,24 @@ header {
         opacity: 0;
         transform: translateX(100%);
         z-index: 900;
+
+        nav ul {
+            list-style: none;
+
+            li {
+                margin: 25px 50px;
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    font-size: 25px;
+                    font-weight: 600;
+                    transform: scale(1);
+                    transition: scale 0.3s ease-in-out;
+                }
+            }
+
+        }
     }
 
     input#hamburger:checked~#header-nav {
@@ -56,20 +65,24 @@ header {
     }
 
     #header-nav-close {
-        font-weight: 900;
+        font-weight: 500;
         font-size: 32px;
         color: #fff;
         display: flex;
         justify-content: end;
-        margin-right: 30px;
-        margin-top: 30px;
+        margin-right: 20px;
+        margin-top: 15px;
         cursor: pointer;
     }
 }
 
+// ===========================================
+// HERO 
+// ===========================================
+
 #hero {
     background-color: #0a275a72;
-    height: 340px;
+    height: 350px;
 
     #hero-heading {
         color: #fff;
@@ -88,7 +101,26 @@ header {
     }
 }
 
-@media screen and (min-width: 768px) {
+// ===========================================
+// INLINE HEADER NAV
+// ===========================================
+
+@media screen and (min-width: 1200px) {
+    #sub-header {
+        display: block;
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            background-color: abstracts.$beige;
+            padding: 5px 10px 5px 15px;
+
+            li a {
+                color: abstracts.$text-gray;
+                font-weight: 600;
+            }
+        }
+    }
     header {
 
         #mob-menu,
@@ -102,10 +134,6 @@ header {
             margin-top: 20px;
         }
 
-        #header-nav nav ul li {
-            margin: 20px 0;
-        }
-
         #header-nav {
             opacity: 1;
             transform: translateX(0);
@@ -114,36 +142,80 @@ header {
             height: auto;
             width: auto;
             transition: none;
-        }
-
-        #header-nav nav ul {
+            margin-top: 10px;
+        
+            nav ul {
             display: flex;
-            gap: 40px;
-            align-items: center;
             justify-content: flex-end;
-            margin-right: 20px;
-        }
+            gap: 20px;
 
-        #header-nav nav ul li a {
-            color: #fff;
-            font-size: 16px;
 
-            &:hover {
-                padding-bottom: 3px;
-                border-bottom: 2px solid #fff;
+            li {
+                margin: 20px 0;
+                
+            
+                a {
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: 600;
+
+                    &:hover {
+                        padding-bottom: 3px;
+                        border-bottom: 2px solid #fff;
+                    }
+                }
+            
             }
+
+            li#home {
+                margin-right: 50px;
+            }
+
         }
+            .tablet-hide {
+                display: none;
+            }
+
+        }
+}
+
+
+
+    #history-nav {
+        position: relative;
+        padding: 0 50px;
+
+        .history-con {
+            display: flex;
+            gap: 8px;
+        }
+
+        .submenu-toggle img {
+            width: 10px;
+            margin-top: 10px;
+        }
+
+    }
+
+    #history-sub {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: abstracts.$blue;
+        padding: 10px 15px;
+        z-index: 1000;
+    }
+
+    li#history-nav:hover > #history-sub {
+         display: block !important;
     }
 
     #hero {
-    background-color: #0a275a72;
-    height: 450px;
+    height: 500px;
 
     #hero-heading {
-        color: #fff;
         margin-top: 220px;
-        font-size: 16px;
-        line-height: 30px;
 
         span {
             font-size: 35px;
@@ -151,8 +223,8 @@ header {
     }
 
     #hero-p {
-        color: #fff;
         margin-top: 0;
+        padding-bottom: 50px;
     }
 }
 }

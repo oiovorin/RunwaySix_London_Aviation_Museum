@@ -15,33 +15,55 @@
 
       <header>
         <div class="grid-con">
+
+            <div id="sub-header" class="m-col-start-7 m-col-end-11 l-col-start-8 l-col-end-11">
+                <nav>
+                    <ul>
+                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
+                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div> 
+
             <a href="index.html" class="col-start-1 col-span-1 m-col-start-2 m-col-end-4" aria-label="home">
                 <img src="images/logo.svg" alt="logo" id="header-logo">
             </a>
 
 
             <input type="checkbox" id="hamburger" aria-label="mobile menu bar">
-            <div id="mob-menu" class="col-start-4 col-end-5 m-col-auto">
+            <div id="mob-menu" class="col-start-4 col-end-5 m-col-srart-1 m-col-end-12">
             <label for="hamburger" id="menu-show">
                 <img src="images/hamburger-menu.svg" alt="menu" class="hamburger-menu-bar">
             </label>
             </div>
 
-            <div id="header-nav" class="m-col-start-4 m-col-end-12 l-col-start-5 l-col-end-12">
+
+            <div id="header-nav" class="l-col-start-5 l-col-end-12">
                 <label for="hamburger" id="header-nav-close">X</label>
                 <nav aria-label="Header Navigation">
                     <ul>
-                        <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                        <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
                         <li><a href="about.html" aria-label="go to about page">About</a></li>
-                        <li><a href="london-aviation.html" aria-label="go to History page">History</a></li>
+                        <li id="history-nav">
+                            <div class="history-con">
+                                <a href="london-aviation.html" aria-label="go to History page">History</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="history-sub">
+                                <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
+                            </ul>
+                        </li>
                         <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
-                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
-                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                        <li class="tablet-hide"><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
+                        <li class="tablet-hide"><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
+
 
     <div class="grid-con">
         <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
@@ -52,30 +74,64 @@
     </section>
 
     <main>
-        <section class="grid-con" id="mission">
-            <h2 class="col-start-2 col-end-4 m-col-span-full">Our Mission</h2>
+        <section class="section-header">
+            <span class="line"></span>
+                <h2>Our Mission</h2>
+                <span class="line"></span>
+        </section>
 
-            <div class="col-span-full icon-text">
-                <div class="image-holder"></div>
-                <p>To preserve and share London's aviation heritage, honouring the men and women who trained, served, and sacrificed, while ensuring their stories and legacy remain accessible to the public.</p>
+        <div id="mission">
+            <div class="grid-con">
+                <div class="col-span-full icon-text">
+                    <div class="image-holder"></div>
+                    <p>To preserve and share London's aviation heritage, honouring the men and women who trained, served, and sacrificed, while ensuring their stories and legacy remain accessible to the public.</p>
+                </div>
             </div>
+        </div>
+
+        <section class="section-header">
+            <span class="line"></span>
+                <h2>Our Vision</h2>
+                <span class="line"></span>
         </section>
 
-        <section class="grid-con" id="vision">
-            <h2 class="col-start-2 col-end-4 m-col-span-full">Our Vision</h2>
-            <div class="col-span-full icon-text">
-                <div class="image-holder"></div>
-                <p>To be a place of remembrance, learning, and community connection—both physically and digitally—where London's aviation history continues to inform and inspire future generations.</p>
+        <div id="vision">
+            <div class="grid-con">
+                <div class="col-span-full icon-text">
+                    <div class="image-holder"></div>
+                    <p>To be a place of remembrance, learning, and community connection—both physically and digitally—where London's aviation history continues to inform and inspire future generations.</p>
+                </div>
             </div>
+        </div>
+
+        <section class="section-header">
+            <span class="line"></span>
+                <h2>Historical Overview</h2>
+                <span class="line"></span>
         </section>
 
-        <section id="overview" class="grid-con">
-            <h2 class="col-start-2 col-end-4 m-col-span-full">Historical Overview</h2>
+        <div class="grid-con" id="museum-timeline">
+            <div class="image-holder col-span-full m-col-start-2 m-col-end-7"></div>
+            <div class="col-span-full m-col-start-7 m-col-end-12">
+                <h3>Wartime Origins</h3>
+                <p>Construction of the Airmen's Canteen and active service during the Second World War at RCAF Station Crumlin.</p>
+            </div>
+        </div>
+
+        <section class="section-header">
+            <span class="line"></span>
+                <h2>Service · Memory · Legacy</h2>
+                <span class="line"></span>
         </section>
 
-        <section id="service" class="grid-con">
-            <h2 class="col-start-2 col-end-4 m-col-span-full">Service · Memory · Legacy</h2>
-        </section>
+        <div class="grid-con" id="legacy">
+            <div class="image-holder col-span-full m-col-start-2 m-col-end-7"></div>
+            <div class="col-span-full m-col-start-7 m-col-end-12">
+                <h3>RCAF Station Crumlin</h3>
+                <p>Before becoming the London Aviation Museum, this location formed part of RCAF Station Crumlin at what was then known as Crumlin Airport, which opened in June 1940. During the Second World War, the base supported Canada's wartime aviation efforts and daily military life.</p>
+            </div>
+        </div>
+
     </main>
     
 

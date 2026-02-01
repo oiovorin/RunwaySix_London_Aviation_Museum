@@ -1,4 +1,6 @@
-(()=> {
+
+(() => {
+
 // video
 const playerCon = document.querySelector("#player-container");
 const player = document.querySelector("video");
