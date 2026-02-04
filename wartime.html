@@ -6,6 +6,7 @@
     <title>Wartime Experience</title>
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <script type="module" src="js/main.js"></script>
 </head>
 <body>
      <section id="hero">
@@ -43,12 +44,13 @@
                         <li><a href="about.html" aria-label="go to about page">About</a></li>
                         <li id="history-nav">
                             <div class="history-con">
-                                <a href="london-aviation.html" aria-label="go to History page">History</a>
+                                <a>History</a>
                                 <div class="submenu-toggle">
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
                             </div>
-                            <ul id="history-sub">
+                            <ul id="history-sub" class="hidden">
+                                <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
                                 <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
                             </ul>
                         </li>
