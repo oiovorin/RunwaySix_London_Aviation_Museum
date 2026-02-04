@@ -74,6 +74,25 @@ header {
         margin-top: 15px;
         cursor: pointer;
     }
+
+    #history-nav {
+        cursor: pointer;
+    }
+
+    .history-con {
+            display: flex;
+            gap: 8px;
+
+            a {
+                padding-bottom: 10px;
+            }
+        }
+
+        .submenu-toggle img {
+            width: 15px;
+            margin-top: 20px;
+        }
+
 }
 
 // ===========================================
@@ -117,7 +136,7 @@ header {
 
             li a {
                 color: abstracts.$text-gray;
-                font-weight: 600;
+                font-weight: 500;
             }
         }
     }
@@ -151,18 +170,19 @@ header {
 
 
             li {
-                margin: 20px 0;
+                margin: 20px 0 0 0;
+
+                &:hover {
+                        padding-bottom: 3px;
+                        border-bottom: 2px solid #fff;
+                    }
                 
             
                 a {
                     color: #fff;
                     font-size: 16px;
-                    font-weight: 600;
+                    font-weight: 500;
 
-                    &:hover {
-                        padding-bottom: 3px;
-                        border-bottom: 2px solid #fff;
-                    }
                 }
             
             }
@@ -182,12 +202,19 @@ header {
 
 
     #history-nav {
-        position: relative;
         padding: 0 50px;
+
+        &:hover {
+            border-bottom: none !important;
+        }
 
         .history-con {
             display: flex;
             gap: 8px;
+
+            a {
+                padding-bottom: 10px;
+            }
         }
 
         .submenu-toggle img {
@@ -201,10 +228,25 @@ header {
         display: none !important;
         position: absolute;
         top: 100%;
-        left: 0;
-        background-color: abstracts.$blue;
-        padding: 10px 15px;
+        left: 47%;
+        background-color: #0a275a85;
+        backdrop-filter: blur(50px);
+        border-radius: 10px;
         z-index: 1000;
+
+        li {
+            text-align: center;
+            border-bottom: 1px solid rgba(150, 150, 150, 0.187);
+            padding: 5px 15px 20px 15px;
+            transition: transform 0.3s ease-in-out;
+
+            &:hover {
+                padding-bottom: 20px !important;
+                border-bottom: 1px solid rgba(150, 150, 150, 0.187) !important;
+                transform: scale(1.05);
+            }
+
+        }
     }
 
     li#history-nav:hover > #history-sub {

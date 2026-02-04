@@ -6,7 +6,7 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script defer src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
     <title>Battle of Britain Page</title>
 </head>
 <body>
@@ -46,12 +46,13 @@
                         <li><a href="about.html" aria-label="go to about page">About</a></li>
                         <li id="history-nav">
                             <div class="history-con">
-                                <a href="london-aviation.html" aria-label="go to History page">History</a>
+                                <a>History</a>
                                 <div class="submenu-toggle">
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
                             </div>
-                            <ul id="history-sub">
+                            <ul id="history-sub" class="hidden">
+                                <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
                                 <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
                             </ul>
                         </li>
