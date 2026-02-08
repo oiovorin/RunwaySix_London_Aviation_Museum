@@ -13,9 +13,9 @@ html {
 
 body {
     font-size: 14px; // Mobile base font size
-    color: $text-gray;
+    color: $chacoal;
     line-height: 1.6;
-    background-color: $white;
+    background-color: #fff;
 
     @include tablet {
         font-size: 15px;
