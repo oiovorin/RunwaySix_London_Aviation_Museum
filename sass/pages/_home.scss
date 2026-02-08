@@ -149,10 +149,11 @@
     @include tablet {
         gap: 20px;
         padding-bottom: 15px;
+        justify-content: center;
     }
 
     @include desktop {
-        gap: 25px;
+        gap: 30px;
     }
 }
 
@@ -326,12 +327,13 @@
         min-height: 180px;
         overflow: hidden;
         position: relative;
-        order: 2;
+        
     
         @include tablet {
             width: 50%;
             height: auto;
             min-height: 280px;
+            order: 2;
         }
     
         @include desktop {
@@ -428,7 +430,9 @@
 }
 
 .blog-content-reverse {
+    @include tablet {
     order: 1;
+    }
 }
 
 .events-cta {
