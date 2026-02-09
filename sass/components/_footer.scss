@@ -1,7 +1,7 @@
 @use '../abstracts';
 
 footer {
-    background-color: abstracts.$blue;
+    background-color: abstracts.$aviation_blue;
     height: 760px;
     color: #fff;
 
@@ -69,7 +69,7 @@ footer {
 
     }
 
-    #sub-header {
+    #subscription-header {
         margin-bottom: 10px;
         margin-top: 20px;
         font-size: 14px;
@@ -93,7 +93,7 @@ footer {
         border: 1px solid #fff;
         padding: 10px;
         background-color: #fff;
-        color: abstracts.$blue;
+        color: abstracts.$aviation_blue;
         width: 150px;
         height: 38px;
         text-align: center;

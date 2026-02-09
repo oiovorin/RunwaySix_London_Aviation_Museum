@@ -22,7 +22,7 @@
     h2 {
         font-size: 24px;
         font-weight: 600;
-        color: $blue;
+        color: $aviation_blue;
         margin-bottom: 15px;
 
         @include tablet {
@@ -38,7 +38,7 @@
     p {
         font-size: 14px;
         line-height: 1.7;
-        color: $text-gray;
+        color: $chacoal;
         margin-bottom: 20px;
 
         @include tablet {
@@ -77,7 +77,6 @@
 // ===========================================
 #visit-learn {
     padding: 40px 0;
-    background-color: $light-gray;
 
     @include tablet {
         padding: 60px 0;
@@ -112,7 +111,7 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: $blue $light-gray;
+    scrollbar-color: $military_green;
 
     &:active {
         cursor: grabbing;
@@ -128,16 +127,15 @@
     }
 
     &::-webkit-scrollbar-track {
-        background: $light-gray;
         border-radius: 3px;
     }
 
     &::-webkit-scrollbar-thumb {
-        background: $blue;
+        background: $aviation_blue;
         border-radius: 3px;
 
         &:hover {
-            background: $blue;
+            background: $aviation_blue;
         }
     }
 }
@@ -151,16 +149,17 @@
     @include tablet {
         gap: 20px;
         padding-bottom: 15px;
+        justify-content: center;
     }
 
     @include desktop {
-        gap: 25px;
+        gap: 30px;
     }
 }
 
 // Cards
 .card {
-    background-color: $blue;
+    background-color: $military_green;
     border-radius: 6px;
     overflow: hidden;
     flex-shrink: 0;
@@ -179,10 +178,10 @@
 
     &:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba($blue, 0.25);
+        box-shadow: 0 10px 30px rgba($military_green, 0.25);
 
         @include tablet {
-            box-shadow: 0 15px 40px rgba($blue, 0.25);
+            box-shadow: 0 15px 40px rgba($military_green, 0.25);
         }
 
         .card-image img {
@@ -205,8 +204,9 @@
     }
 
     img {
-        width: 100%;
-        height: 100%;
+        width: 90%;
+        height: 90%;
+        margin: 10px auto;
         object-fit: cover;
         @include transition(transform);
         pointer-events: none; // Prevent image dragging
@@ -225,7 +225,7 @@
     }
 
     h3 {
-        color: $white;
+        color: #fff;
         font-size: 18px;
         font-weight: 600;
         margin-bottom: 8px;
@@ -241,7 +241,7 @@
     }
 
     p {
-        color: rgba($white, 0.85);
+        color: rgba(#fff, 0.85);
         font-size: 12px;
         line-height: 1.5;
         margin-bottom: 15px;
@@ -264,7 +264,6 @@
 // ===========================================
 #events-blog {
     padding: 40px 0;
-    background-color: $light-gray;
 
     @include tablet {
         padding: 60px 0;
@@ -281,13 +280,14 @@
     flex-direction: column;
     max-width: 1200px;
     margin: 0 auto;
-    background-color: $white;
+    background-color: #fff;
 
     // Tablet+: Side by side
     @include tablet {
         flex-direction: row;
     }
 }
+
 
 .event-image {
     width: 100%;
@@ -304,7 +304,7 @@
     @include desktop {
         min-height: 320px;
     }
-
+        
     img {
         width: 100%;
         height: 100%;
@@ -321,6 +321,41 @@
         }
     }
 }
+
+.event-image-reverse {
+        width: 100%;
+        min-height: 180px;
+        overflow: hidden;
+        position: relative;
+        
+    
+        @include tablet {
+            width: 50%;
+            height: auto;
+            min-height: 280px;
+            order: 2;
+        }
+    
+        @include desktop {
+            min-height: 320px;
+        }
+
+        img {
+        width: 100%;
+        height: 100%;
+        min-height: 180px; // Ensure minimum height on mobile
+        object-fit: cover;
+        display: block;
+
+        @include tablet {
+            min-height: 280px;
+        }
+
+        @include desktop {
+            min-height: 320px;
+        }
+    }
+    }
 
 .event-content {
     padding: 20px 15px;
@@ -340,7 +375,7 @@
     h3 {
         font-size: 20px;
         font-weight: 600;
-        color: $blue;
+        color: $aviation_blue;
         margin-bottom: 6px;
 
         @include tablet {
@@ -356,7 +391,7 @@
 
 .event-date {
     font-size: 12px;
-    color: $blue;
+    color: $aviation_blue;
     margin-bottom: 10px;
 
     @include tablet {
@@ -368,7 +403,7 @@
 .event-description {
     font-size: 13px;
     line-height: 1.6;
-    color: $text-gray;
+    color: $chacoal;
     margin-bottom: 12px;
 
     @include tablet {
@@ -380,7 +415,7 @@
 
 .read-more {
     font-size: 12px;
-    color: $blue;
+    color: $aviation_blue;
     font-weight: 500;
     text-decoration: underline;
     @include transition(color);
@@ -390,12 +425,14 @@
     }
 
     &:hover {
-        color: $red;
+        color: $heritage_red;
     }
 }
 
-.blog-content {
-    background-color: $light-gray;
+.blog-content-reverse {
+    @include tablet {
+    order: 1;
+    }
 }
 
 .events-cta {
@@ -423,11 +460,11 @@
 }
 
 .btn-red {
-    background-color: $red;
-    color: $white;
+    background-color: $heritage_red;
+    color:#fff;
 
     &:hover {
-        background-color: $red;
+        background-color: $heritage_red;
         transform: translateY(-2px);
     }
 }
@@ -464,11 +501,11 @@
 }
 
 .tag-event {
-    background-color: $blue;
-    color: $white;
+    background-color: $aviation_blue;
+    color: #fff;
 }
 
 .tag-blog {
-    background-color: $red;
-    color: $white;
+    background-color: $heritage_red;
+    color: #fff;
 }
