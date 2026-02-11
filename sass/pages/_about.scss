@@ -9,11 +9,11 @@
     margin: 50px 0;
 }
 #mission, #vision {
-    background-color: $blue;
+    background-color: $aviation_blue;
 }
 
 .icon-text {
-        background-color: $blue;
+        background-color: $aviation_blue;
         padding: 30px 0;
 
         .image-holder {
@@ -21,6 +21,7 @@
             height: 100px;
             width: 100px;
             margin: 20px auto;
+
         }
 
         p {
@@ -34,17 +35,27 @@
 // HISTORICAL OVERVIEW SECTION
 // ===========================================
 
-#museum-timeline, #legacy {
+#museum-timeline {
 
     .image-holder {
         background-color: #0a275a72;
         height: 200px;
         width: 380px;
         margin: 20px auto;
+
+        @include tablet {
+                height:130px;
+                width: 230px;
+            }
+
+        @include desktop {
+          height: 200px;
+          width: 380px; 
+        }
     }
 
     h3 {
-        color: $blue;
+        color: $aviation_blue;
         text-align: center;
         font-size: 20px;
     }
@@ -53,4 +64,88 @@
         text-align: center;
         padding: 20px 35px;
     }
+}
+
+#museum-timeline {
+    position: relative;
+    display: block;
+    margin-bottom: 50px;
+
+    @include tablet {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+p.era {
+    color: #fff;
+    background-color: $heritage_red;
+    padding: 10px 15px !important;
+    width: 160px;
+    text-align: center;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+}
+
+#legacy {
+    display: block;
+
+    .image-holder {
+        background-color: $archive_beige;
+        height: 200px;
+        width: 400px;
+        margin: 20px auto;
+
+        @include tablet {
+            width: 300px;
+        }
+
+        @include desktop {
+            width: 400px;
+        }
+    }
+
+}
+
+.legacy-card {
+    text-align: center;
+    background-color: $military_green;
+    color: #fff;
+    padding: 30px 10px;
+
+    .title-text {
+        @include tablet {
+            margin-top: 30px;
+        }
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        margin-bottom: 60px;
+    }
+}
+
+.legacy-even {
+    background-color: transparent;
+    color: $chacoal;
+
+    .image-holder {
+        background-color: $chacoal !important;
+    
+        @include tablet {
+            order: 2;
+        }
+    }
+
+    .title-text {
+        @include tablet {
+            order: 1;
+        }
+    }
+
 }
