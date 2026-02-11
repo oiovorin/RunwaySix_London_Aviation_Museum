@@ -4,7 +4,7 @@
 // HEADER NAV 
 // ===========================================
 
-#sub-header {
+#top-header {
     display: none;
 }
 
@@ -125,7 +125,7 @@ header {
 // ===========================================
 
 @media screen and (min-width: 1200px) {
-    #sub-header {
+    #top-header {
         display: block;
         ul {
             display: flex;
