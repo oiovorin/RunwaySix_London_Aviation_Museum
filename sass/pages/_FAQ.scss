@@ -1,0 +1,30 @@
+@use '../abstracts' as *;
+
+// ===========================================
+// FAQ SECTION
+// ===========================================
+.section-header {
+    margin-top: 90px;
+}
+
+
+#faq-bg {
+    background-color: $aviation_blue;
+    margin-bottom: 100px;
+
+    details {
+        background-color: #fff;
+        margin: 15px 0;
+        padding: 15px 10px;
+        font-size: 16px;
+        color: $aviation_blue;
+
+        &:first-child {
+            margin-top: 50px;
+        }
+
+        &:last-child {
+            margin-bottom: 50px;
+        }
+    }
+}
