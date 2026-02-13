@@ -9,7 +9,7 @@
     <script type="module" src="js/main.js"></script>
     <title>London Aviation Museum Events/Blog Page</title>
 </head>
-<body>
+<body class="beige-bg">
 
     <section id="hero">
 
@@ -73,13 +73,64 @@
     </section>
 
     <main>
-        <section class="grid-con">
-            <h2 class="col-span-full">Events</h2>
-        </section>
+        <div>
+            <div id="category-btn">
+                <button>All</button>
+                <button>Events</button>
+                <button>Blog</button>
+                <button>WWII</button>
+                <button>RCAF</button>
+                <button>Local History</button>
+                <button>Education</button>
+                <button>Community</button>
+            </div>
+        </div>
 
-        <section class="grid-con">
-            <h2 class="col-span-full">Blog</h2>
-        </section>
+        <div id="top-template" class="grid-con">
+            <!-- change this div to template -->
+            <div id="top-events-left" class="col-span-full m-col-start-1 m-col-end-7">
+                <img>
+                <div class="detail">
+                    <span class="tag tag-event">EVENT</span>
+                    <h2 class="title">Remembrance Day:<br>
+                        Honouring RCAF Airmen</h2>
+                    <p class="date">November 11</p>
+                    <p class="description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
+                    <a class="event-link" href="#">Read More</a>
+                </div>
+            </div>
+
+            <!-- (different color veersion) change to template -->
+            <div id="top-events-right" class="col-span-full m-col-start-7 m-col-end-13">
+                <img>
+                <div class="detail">
+                    <span class="tag tag-blog">BLOG</span>
+                    <h2 class="title">Remembrance Day:<br>
+                        Honouring RCAF Airmen</h2>
+                    <p class="date">November 11</p>
+                    <p class="description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
+                    <a class="event-link" href="#">Read More</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- template for small event / blog card -->
+        <div id="more-events" class="grid-con">
+            <div class="event-card col-span-full m-col-span-6 l-col-span-6">
+                <div class="image-tag">
+                    <span class="label">EVENT</span>
+                    <img>
+                </div>
+
+                <div class="more-details">
+                    <h2 class="title">Veterans' Week at the Museum</h2>
+                    <p class="date">Early November</p>
+                    <p class="description">A week of reflection, stories, and exhibits honouring Canadian veterans and RCAF service members.</p>
+                    <a class="event-link" href="#">Read More</a>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer>
