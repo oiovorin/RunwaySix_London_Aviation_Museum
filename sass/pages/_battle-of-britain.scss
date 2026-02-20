@@ -138,3 +138,67 @@
 .selected-date.selected {
     display: grid;
 }
+
+#loss {
+    margin: 100px auto;
+
+    div {
+        margin: 0 auto;
+
+        h3 {
+            color: $aviation_blue;
+            padding-bottom: 5px;
+            border-bottom: 2px solid $aviation_blue;
+            margin-bottom: 10px;
+        }
+
+        span {
+            font-weight: 500;
+        }
+    }
+}
+
+#honor-slide {
+    margin: 100px auto;
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+
+    .pilot-card {
+        background-color: $aviation_blue;
+        padding: 25px;
+        width: 220px;
+        
+        &:hover {
+            transform: scale(1.05);
+            transition: all .3s ease-in-out;
+        }
+
+        img {
+            width: 170px;
+            height: 260px;
+            background-color: $chacoal;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-family: "Libre Baskerville", serif;
+            font-style: italic;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-align: center;
+            display: block;
+            margin: 0 15px;
+        }
+    }
+}
