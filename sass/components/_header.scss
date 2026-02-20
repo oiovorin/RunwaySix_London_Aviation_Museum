@@ -133,12 +133,18 @@ header {
             margin-top: 20px;
         }
 
-        #history-sub li a {
-            font-size: 20px !important;
-            width: 350px;
+        #history-sub li {
+            &:first-child {
+                margin-top: 10px !important;
+            }
+        
+            a {
+                font-size: 20px !important;
+                
 
-            @include desktop {
-                font-size: 16px !important;
+                @include desktop {
+                    font-size: 16px !important;
+                }
             }
         }
 
@@ -251,11 +257,12 @@ header {
 
 
     #history-nav {
-        padding: 0 50px 5px 50px;
+        padding: 0 50px 10px 50px;
 
         a {
             &:hover {
             border-bottom: none !important;
+            padding-bottom: 10px !important;
         }
     }
 
