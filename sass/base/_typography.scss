@@ -20,7 +20,7 @@
         flex: 1;
         max-width: 100px;
         height: 1px;
-        background-color: $aviation_blue;
+        background-color: $chacoal;
 
         @include tablet {
             max-width: 200px;
@@ -34,7 +34,7 @@
     h2 {
         font-size: 22px;
         font-weight: 600;
-        color: $aviation_blue;
+        color: $chacoal;
         text-align: center;
 
         @include tablet {
