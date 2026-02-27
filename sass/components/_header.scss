@@ -10,9 +10,18 @@
 
 header {
 
-    #header-logo {
-        width: 200px;
-        margin-top: 20px;
+    #header-logo img {
+        width: 150px;
+        margin-top: 30px;
+
+        @include tablet {
+            width: 200px;
+        }
+
+        @include desktop {
+            width: 230px;
+            margin-top: 10px;
+        }
     }
 
     #mob-menu {
@@ -136,6 +145,10 @@ header {
         #history-sub li {
             &:first-child {
                 margin-top: 10px !important;
+
+                @include desktop {
+                    margin-top: 0 !important;
+                }
             }
         
             a {
@@ -286,22 +299,20 @@ header {
         display: none !important;
         position: absolute;
         top: 100%;
-        left: 47%;
-        background-color: #0a275a85;
-        backdrop-filter: blur(50px);
-        border-radius: 10px;
+        left: 43%;
+        background-color: $aviation_blue;
         z-index: 1000;
 
         li {
             text-align: center;
             border-bottom: 1px solid rgba(150, 150, 150, 0.187);
-            padding: 5px 15px 30px 15px;
             transition: transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            margin-top: 0 !important;
 
+            
             &:hover {
-                padding-bottom: 20px !important;
-                border-bottom: 1px solid rgba(150, 150, 150, 0.187) !important;
-                transform: scale(1.05);
+                transform: scale(1.03);
             }
 
 
