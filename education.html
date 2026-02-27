@@ -9,11 +9,11 @@
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
 </head>
-<body>
+<body data-page="education">
 
     <section id="hero">
 
-      <header>
+     <header>
         <div class="grid-con">
 
             <div id="top-header" class="l-col-start-8 l-col-end-11">
@@ -25,8 +25,12 @@
                 </nav>
             </div> 
 
-            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1" aria-label="home">
-                <img src="images/lam_logo_light.svg" alt="logo" id="header-logo">
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-2" aria-label="home">
+                 <picture id="header-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg" alt="logo">
+                     <source media="(min-width:300px)" src="images/light_logo_mobile.svg" alt="logo">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
             </a>
 
             <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
