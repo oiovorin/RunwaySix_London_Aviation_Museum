@@ -1,175 +1,511 @@
-@use '../abstracts';
+@use '../abstracts' as *;
+// ===========================================
+// ABOUT SECTION
+// ===========================================
+#about-museum {
+    padding: 40px 0;
 
-#hero {
-    background-color: #0a275a72;
+    @include tablet {
+        padding: 60px 0;
+    }
 
-    #hero-heading {
-        color: #fff;
-        margin-top: 150px;
-        margin-bottom: 30px;
-        font-size: 16px;
-        line-height: 30px;
+    @include desktop {
+        padding: 80px 0;
+    }
 
-        span {
-            font-size: 25px;
+    .grid-con {
+        align-items: center;
+    }
+}
+
+.about-text {
+    h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: $aviation_blue;
+        margin-bottom: 15px;
+
+        @include tablet {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        @include desktop {
+            font-size: 36px;
+        }
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.7;
+        color: $chacoal;
+        margin-bottom: 20px;
+
+        @include tablet {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 25px;
         }
     }
 }
 
-#about-museum {
-    h2 {
-        margin-top: 50px;
-        margin-bottom: 0;
-        font-size: 25px;
-        color: abstracts.$blue;
+.about-image {
+    margin-top: 25px;
+
+    @include tablet {
+        margin-top: 0;
     }
 
-    p {
-        line-height: 32px;
-    }
+    img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 4px;
 
-    .image-holder {
-        background-color: #0a275a72;
-        height: 285px;
-        text-align: center;
-    }
+        @include tablet {
+            height: 300px;
+        }
 
+        @include desktop {
+            height: 380px;
+        }
+    }
 }
 
-.btn {
-    color: #fff;
-    background-color: abstracts.$red;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    width: 180px;
-    text-decoration: none;
-    margin: 50px auto;
-    border-radius: 30px;
-    text-align: center;
-}
-
+// ===========================================
+// VISIT LEARN REMEMBER SECTION
+// ===========================================
 #visit-learn {
-    margin-top: 30px;
+    padding: 40px 0;
 
-    h2 {
-        text-align: center;
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include desktop {
+        padding: 80px 0;
     }
 }
 
+// ===========================================
+// HISTORY SECTION WITH DRAGGABLE SLIDER
+// ===========================================
 #history {
-    margin-top: 50px;
+    padding: 40px 0;
 
-    h2 {
-        text-align: center;
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include desktop {
+        padding: 80px 0;
     }
 }
 
-#slider-con {
+// Slider Container - Draggable/Scrollable
+#slider-container {
     width: 100%;
     overflow-x: auto;
     overflow-y: hidden;
+    cursor: grab;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: $military_green;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    // Custom Scrollbar
+    &::-webkit-scrollbar {
+        height: 4px;
+
+        @include tablet {
+            height: 6px;
+        }
+    }
+
+    &::-webkit-scrollbar-track {
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $aviation_blue;
+        border-radius: 3px;
+
+        &:hover {
+            background: $aviation_blue;
+        }
+    }
 }
 
-#track {
+// Slider Track
+#slider-track {
     display: flex;
-    gap: 30px;
+    gap: 15px;
+    padding-bottom: 10px;
+
+    @include tablet {
+        gap: 20px;
+        padding-bottom: 15px;
+        justify-content: center;
+    }
+
+    @include desktop {
+        gap: 30px;
+    }
 }
 
+// Cards
 .card {
-    background-color: abstracts.$blue;
-    height: 330px;
-    width: 282px;
-    position: relative;
+    background-color: $military_green;
+    border-radius: 6px;
+    overflow: hidden;
     flex-shrink: 0;
+    // Mobile: Smaller cards
+    width: 240px;
+    @include transition;
 
-    .card-image {
-        position: absolute;
-        height: 183px;
-        width: 257px;
-        background-color: #fff;
-        margin: 12px;
+    @include tablet {
+        width: 280px;
+        border-radius: 8px;
     }
 
-    .card-title {
-        position: absolute;
-        color: #fff;
-        margin-left: 12px;
-        margin-top: 210px;
-        font-size: 20px;
+    @include desktop {
+        width: 340px;
     }
 
-    .card-description {
-        position: absolute;
-        color: #fff;
-        margin-left: 12px;
-        margin-top: 250px;
-        font-size: 16px;
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba($military_green, 0.25);
+
+        @include tablet {
+            box-shadow: 0 15px 40px rgba($military_green, 0.25);
+        }
+
+        .card-image img {
+            transform: scale(1.05);
+        }
     }
 }
 
-#events-blog {
-    margin-top: 80px;
-
-    h2 {
-        text-align: center;
-    }
-
-}
-
-.events-img {
-    height: 283px;
-    background-color: gray;
+.card-image {
     width: 100%;
+    height: 140px;
+    overflow: hidden;
+
+    @include tablet {
+        height: 170px;
+    }
+
+    @include desktop {
+        height: 200px;
+    }
+
+    img {
+        width: 90%;
+        height: 90%;
+        margin: 10px auto;
+        object-fit: cover;
+        @include transition(transform);
+        pointer-events: none; // Prevent image dragging
+    }
 }
 
-.events-info {
-    background-color: abstracts.$blue;
-    color: #fff;
-    padding: 20px;
+.card-content {
+    padding: 18px 15px 22px;
 
+    @include tablet {
+        padding: 20px 18px 25px;
+    }
 
-    p.event {
-        background-color: #fff;
-        color: abstracts.$blue;
-        border-radius: 10px;
-        text-align: center;
-        padding: 5px 15px;
-        width: 100px;
-        margin-bottom: 0;
+    @include desktop {
+        padding: 25px 20px 30px;
     }
 
     h3 {
-        margin-top: 0;
-        padding-top: 20px;
-        font-size: 24px;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 8px;
+
+        @include tablet {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        @include desktop {
+            font-size: 22px;
+        }
     }
 
     p {
-        line-height: 30px;
+        color: rgba(#fff, 0.85);
+        font-size: 12px;
+        line-height: 1.5;
+        margin-bottom: 15px;
+
+        @include tablet {
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        @include desktop {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
     }
 }
 
-.blog-info {
-    color: abstracts.$blue;
-    padding: 20px;
+// ===========================================
+// EVENTS & BLOG SECTION
+// ===========================================
+#events-blog {
+    padding: 40px 0;
 
-    p.blog {
-        background-color: abstracts.$blue;
-        color: #fff;
-        border-radius: 10px;
-        text-align: center;
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include desktop {
+        padding: 80px 0;
+    }
+}
+
+.event-row {
+    display: flex;
+    // Mobile: Stack vertically
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+
+    // Tablet+: Side by side
+    @include tablet {
+        flex-direction: row;
+    }
+}
+
+
+.event-image {
+    width: 100%;
+    min-height: 180px;
+    overflow: hidden;
+    position: relative;
+
+    @include tablet {
+        width: 50%;
+        height: auto;
+        min-height: 280px;
+    }
+
+    @include desktop {
+        min-height: 320px;
+    }
+        
+    img {
+        width: 100%;
+        height: 100%;
+        min-height: 180px; // Ensure minimum height on mobile
+        object-fit: cover;
+        display: block;
+
+        @include tablet {
+            min-height: 280px;
+        }
+
+        @include desktop {
+            min-height: 320px;
+        }
+    }
+}
+
+.event-image-reverse {
+        width: 100%;
+        min-height: 180px;
+        overflow: hidden;
+        position: relative;
+        
+    
+        @include tablet {
+            width: 50%;
+            height: auto;
+            min-height: 280px;
+            order: 2;
+        }
+    
+        @include desktop {
+            min-height: 320px;
+        }
+
+        img {
+        width: 100%;
+        height: 100%;
+        min-height: 180px; // Ensure minimum height on mobile
+        object-fit: cover;
+        display: block;
+
+        @include tablet {
+            min-height: 280px;
+        }
+
+        @include desktop {
+            min-height: 320px;
+        }
+    }
+    }
+
+.event-content {
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include tablet {
+        width: 50%;
+        padding: 30px;
+    }
+
+    @include desktop {
+        padding: 40px 50px;
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: 600;
+        color: $aviation_blue;
+        margin-bottom: 6px;
+
+        @include tablet {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        @include desktop {
+            font-size: 28px;
+        }
+    }
+}
+
+.event-date {
+    font-size: 12px;
+    color: $aviation_blue;
+    margin-bottom: 10px;
+
+    @include tablet {
+        font-size: 13px;
+        margin-bottom: 12px;
+    }
+}
+
+.event-description {
+    font-size: 13px;
+    line-height: 1.6;
+    color: $chacoal;
+    margin-bottom: 12px;
+
+    @include tablet {
+        font-size: 14px;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+}
+
+.read-more {
+    font-size: 12px;
+    color: $aviation_blue;
+    font-weight: 500;
+    text-decoration: underline;
+    @include transition(color);
+
+    @include tablet {
+        font-size: 13px;
+    }
+
+    &:hover {
+        color: $heritage_red;
+    }
+}
+
+.blog-content-reverse {
+    @include tablet {
+    order: 1;
+    }
+}
+
+.events-cta {
+    text-align: center;
+    margin-top: 30px;
+
+    @include tablet {
+        margin-top: 40px;
+    }
+}
+
+// ===========================================
+// BUTTONS
+// ===========================================
+.btn {
+    @include button-base;
+    // Mobile: Full width buttons
+    width: 100%;
+    max-width: 200px;
+
+    @include tablet {
+        width: auto;
+        max-width: none;
+    }
+}
+
+.btn-red {
+    background-color: $heritage_red;
+    color:#fff;
+
+    &:hover {
+        background-color: $heritage_red;
+        transform: translateY(-2px);
+    }
+}
+
+.btn-small {
+    padding: 8px 20px;
+    font-size: 12px;
+
+    @include tablet {
+        padding: 10px 25px;
+        font-size: 13px;
+    }
+}
+
+// ===========================================
+// TAGS
+// ===========================================
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+    margin-bottom: 12px;
+
+    @include tablet {
         padding: 5px 15px;
-        width: 100px;
-        margin-bottom: 0;
+        font-size: 11px;
+        margin-bottom: 15px;
     }
+}
 
-     h3 {
-        margin-top: 0;
-        padding-top: 20px;
-        font-size: 24px;
-    }
+.tag-event {
+    background-color: $archive_beige;
+    color: $aviation_blue;
+}
 
-    p {
-        line-height: 30px;
-    }
+.tag-blog {
+    background-color: $aviation_blue;
+    color: #fff;
 }

@@ -1,0 +1,52 @@
+
+@use '../abstracts' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-size: 14px; // Mobile base font size
+    color: $chacoal;
+    line-height: 1.6;
+    background-color: #fff;
+
+    @include tablet {
+        font-size: 15px;
+    }
+
+    @include desktop {
+        font-size: 16px;
+    }
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    font-family: inherit;
+}
+
+.hidden {
+    display: none !important;
+}

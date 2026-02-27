@@ -1,0 +1,41 @@
+@use '../abstracts' as *;
+
+#privacy-policy {
+    .section-header {
+        margin-top: 100px;
+    }
+
+    p {
+        color: $aviation_blue;
+        font-weight: 400;
+
+        @include tablet {
+            font-size: 18px;
+        }
+
+
+        @include desktop {
+            font-size: 20px;
+        }
+    }
+
+    ul li {
+        list-style: disc;
+        color: $aviation_blue;
+        margin: 10px auto 5px 15px;
+
+        @include tablet {
+            font-size: 18px;
+        }
+
+
+        @include desktop {
+            font-size: 20px;
+        }
+    }
+
+    .button {
+        margin-top: 100px;
+        margin-bottom: 150px;
+    }
+}
