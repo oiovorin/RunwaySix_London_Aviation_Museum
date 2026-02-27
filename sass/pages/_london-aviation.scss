@@ -1,7 +1,98 @@
-@use '../abstracts';
+@use '../abstracts' as *;
+
+#timeline-line {
+    height: 8300px;
+    width: 2px;
+    background-color: #315C77;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+
+    @include tablet {
+        height: 7700px;
+    }
+}
 
 .timeline {
+    background-color: $aviation_blue;
+    color: #fff;
+    margin: 20px auto;
+    padding: 10px 40px;
+    font-size: 18px;
     font-family: "Libre Baskerville", serif;
-    font-size: 25px;
-    font-weight: 800;
+    font-style: italic;
+
+    @include tablet {
+        margin: 80px auto;
+        font-size: 22px;
+    }
+
+    @include desktop {
+        font-size: 30px;
+    }
+}
+
+.time-card.text-first {
+    background-color: #fff;
+    margin: 150px 20px;
+
+    @include tablet {
+        background-color: transparent;
+        margin: 100px 20px;
+    }
+
+    .card-img {
+        height: 300px;
+        width: max-content;
+
+        @include tablet {
+            order: 2;
+            margin: auto 30px
+        }
+    }
+
+    .timeline-text {
+        @include tablet {
+            order: 1;
+            margin: auto 30px
+        }
+    }
+}
+
+    .time-card {
+    background-color: #fff;
+    margin: 150px 20px;
+
+    @include tablet {
+        background-color: transparent;
+    }
+
+    .card-img {
+        height: 300px;
+        width: max-content;
+
+        @include tablet {
+            margin: auto 30px
+        }
+    }
+
+    .timeline-text {
+        @include tablet {
+            margin: auto 30px
+        }
+    }
+
+    .card-title {
+        color: $aviation_blue;
+        margin: 10px auto;
+    }
+
+    .card-description {
+        margin: 0 auto 25px auto;
+
+        span {
+            font-weight: 500;
+        }
+    }
 }
