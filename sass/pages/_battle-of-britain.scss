@@ -1,12 +1,204 @@
-@use '../abstracts';
+@use '../abstracts' as *;
 
-#count-up {
+#battle-intro {
+    margin: 100px auto;
+
+    #battle-quote {
+        span {
+            font-size: 25px;
+            font-weight: 400;
+        }
+    }
+
+    #quote-from {
+        font-style: italic;
+        margin-top: 10px;
+    }
+}
+
+#battle-phases {
+    margin: 100px auto;
+
+    .phase-card {
+
+        img {
+            background-color: $chacoal;
+            height: 260px;
+        }
+
+        &.blue {
+
+        .phase {
+            padding-left: 15px;
+            margin-bottom: 10px;
+            border-left: 2px solid $aviation_blue;
+            color: $aviation_blue;
+            font-size: 16px;
+        }
+
+        p.phase-detail {
+            color: #fff;
+            background-color: $aviation_blue;
+            padding: 15px;
+            line-height: 22px;
+            height: 255px;
+        }
+    }
+
+    &.green {
+        .phase {
+            padding-left: 15px;
+            margin-bottom: 10px;
+            border-left: 2px solid $military_green;
+            color: $military_green;
+            font-size: 16px;
+        }
+        
+        p.phase-detail {
+            color: #fff;
+            background-color: $military_green;
+            padding: 15px;
+            line-height: 22px;
+            height: 255px;
+        }
+    }
+    }
+}
+
+#date-selection {
+    margin: 100px auto;
+
+    #select-button-list {
+        display: flex;
+        justify-content: space-around;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        
+
+        button {
+            width: 15px;
+            height: 15px;
+            border-radius: 30px;
+            background-color: rgba(128, 128, 128, 0.814);
+            cursor: pointer;
+        }
+
+        button.active {
+            background-color: $aviation_blue;
+        }
+    }
+    }
+}
+
+.selected-date {
+    display: none;
+    margin-bottom: 100px;
+    position: relative;
+
+    .date {
+        color: $aviation_blue;
+        font-size: 55px;
+        font-weight: 600;
+        font-family: "Libre Baskerville", serif;
+        line-height: 60px;
+        margin-left: 20px;
+
+        span {
+            font-size: 100px;
+        }
+    }
+
+    img {
+            width: 490px;
+            height: 330px;
+            background-color: $chacoal;
+            position: absolute;
+            left: 30%;
+            top: 10%;
+        }
+
+    .title {
+        margin-top: 300px;
+        text-align: center;
+        font-size: 18px;
+        font-family: "Libre Baskerville", serif;
+        margin-bottom: 15px;
+    }
+
+    .detail {
+        text-align: center;
+    }
+}
+
+.selected-date.selected {
+    display: grid;
+}
+
+#loss {
+    margin: 100px auto;
+
+    div {
+        margin: 0 auto;
+
+        h3 {
+            color: $aviation_blue;
+            padding-bottom: 5px;
+            border-bottom: 2px solid $aviation_blue;
+            margin-bottom: 10px;
+        }
+
+        span {
+            font-weight: 500;
+        }
+    }
+}
+
+#honor-slide {
+    margin: 100px auto;
     display: flex;
+    gap: 50px;
     justify-content: center;
-    gap: 100px;
 
-    p {
-        font-size: 30px;
-        font-weight: 800;
+    .pilot-card {
+        background-color: $aviation_blue;
+        padding: 25px;
+        width: 220px;
+        
+        &:hover {
+            transform: scale(1.05);
+            transition: all .3s ease-in-out;
+        }
+
+        img {
+            width: 170px;
+            height: 260px;
+            background-color: $chacoal;
+            margin-bottom: 15px;
+        }
+
+        .title {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .name {
+            font-family: "Libre Baskerville", serif;
+            font-style: italic;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        a {
+            text-align: center;
+            display: block;
+            margin: 0 15px;
+        }
     }
 }

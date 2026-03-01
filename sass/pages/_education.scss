@@ -1,0 +1,118 @@
+@use '../abstracts' as *;
+
+#education-intro {
+    margin: 100px auto;
+    background-color: $aviation_blue;
+    color: #fff;
+
+    div {
+        padding-top: 30px;
+    }
+
+    img {
+        width: 150px;
+        height: 150px;
+        background-color: #fff;
+        margin: 30px auto;
+    }
+
+    #education-text {
+        margin: 30px 0 70px 0;
+    }
+}
+
+#education-download, #tresure-hant {
+    background-color: $military_green;
+    color: #fff;
+
+    img {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            margin: 30px auto;
+
+            @include tablet {
+                order: 3;
+            }
+        }
+
+    #download-title, #tresure-title {
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        margin: 20px 0;
+
+        @include tablet {
+                order: 1;
+            }
+    }
+
+    .text {
+        @include tablet {
+                order: 2;
+            }
+    }
+
+    ul li {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    #download, #tresure {
+        margin: 30px 0;
+        font-size: 18px;
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+
+        @include tablet {
+                order: 4;
+            }
+    }
+
+    .button {
+        margin-bottom: 50px;
+
+        @include tablet {
+                order: 5;
+            }
+    }
+}
+
+#virtual-museum {
+    margin: 100px auto;
+}
+
+#virtual-museum,#classroom-session {
+
+    img {
+            width: 150px;
+            height: 150px;
+            background-color: $aviation_blue;
+            margin: 30px auto;
+        }
+
+    #virtual-title, #classroom-title {
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    ul li {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+
+    #virtual, #classroom {
+        margin: 30px 0;
+        font-size: 18px;
+        font-weight: 700;
+        font-style: italic;
+        text-align: center;
+    }
+
+    .button {
+        margin-bottom: 50px;
+    }
+}
