@@ -10,9 +10,8 @@
     }
 
     img {
-        width: 150px;
-        height: 150px;
-        background-color: #fff;
+        width: 100px;
+        height: auto;
         margin: 30px auto;
     }
 
@@ -21,14 +20,22 @@
     }
 }
 
+#tresure-hant img {
+    width: 80px !important;
+    height: auto;
+    @include tablet {
+        margin-left: 20px;
+    }
+}
+
+
 #education-download, #tresure-hant {
     background-color: $military_green;
     color: #fff;
 
     img {
-            width: 150px;
-            height: 150px;
-            background-color: #fff;
+            width: 130px;
+            height: auto;
             margin: 30px auto;
 
             @include tablet {
@@ -86,9 +93,8 @@
 #virtual-museum,#classroom-session {
 
     img {
-            width: 150px;
-            height: 150px;
-            background-color: $aviation_blue;
+            width: 120px;
+            height: auto;
             margin: 30px auto;
         }
 
