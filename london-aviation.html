@@ -7,18 +7,20 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script type="module" src="js/main.js"></script>
 </head>
 
 
-<body>
+<body data-page="london-aviation">
 
-    <section id="hero">
+    <section class="hero-loop-video">
 
-     <header>
+    <header>
         <div class="grid-con">
 
-            <div id="sub-header" class="m-col-start-7 m-col-end-11 l-col-start-8 l-col-end-11">
+            <div id="top-header" class="l-col-start-8 l-col-end-11">
                 <nav>
                     <ul>
                         <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
@@ -27,21 +29,21 @@
                 </nav>
             </div> 
 
-            <a href="index.html" class="col-start-1 col-span-1 m-col-start-2 m-col-end-4" aria-label="home">
-                <img src="images/logo.svg" alt="logo" id="header-logo">
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-2" aria-label="home">
+                 <picture id="header-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg" alt="logo">
+                     <source media="(min-width:300px)" src="images/light_logo_mobile.svg" alt="logo">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
             </a>
 
-
-            <input type="checkbox" id="hamburger" aria-label="mobile menu bar">
-            <div id="mob-menu" class="col-start-4 col-end-5 m-col-srart-1 m-col-end-12">
-            <label for="hamburger" id="menu-show">
-                <img src="images/hamburger-menu.svg" alt="menu" class="hamburger-menu-bar">
-            </label>
+            <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
-
             <div id="header-nav" class="l-col-start-5 l-col-end-12">
-                <label for="hamburger" id="header-nav-close">X</label>
                 <nav aria-label="Header Navigation">
                     <ul>
                         <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
@@ -79,89 +81,251 @@
     </section>
 
     <main>
-        <section class="grid-con">
-            <h2 class="col-span-full">The Beginnings of Powered Flight</h2>
-            <p class="col-span-full">details</p>
-            <p class="col-span-full timeline">1903-1909</p>
+
+        <div id="timeline-main">
+
+        <div id="timeline-line">
+            <div id="timeline-progress"></div>
+        </div>
+
+        <section class="full-width-grid-con timeline-item" id="timeline-item1">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-3 m-col-span-3 l-col-start-3 l-col-span-3 timeline">1903-1909</p>
+        </div>
+
+        <div class="time-card text-first grid-con">
+            <img class="card-img col-span-full m-col-start-7 m-colspan-7 l-col-start-7 l-col-start-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+            <h2 class="card-title">The Beginnings of Powered Flight</h2>
+            <p class="card-description">Successful powered flight in North America began in <span>1903</span> with the Wright Brothers. Soon after, aviation pioneers such as <span>Glenn Curtiss</span> joined the <span>Aerial Experiment Association (AEA)</span>, founded by <span>Alexander Graham Bell</span> and <span>J. A. D. McCurdy</span>, to design and build experimental aircraft<br><br>
+            In <span>February 1909</span>, the <span>Silver Dart</span>, piloted by McCurdy, flew at Baddeck, Nova Scotia, becoming the <span>first powered, controlled flight in Canada and the British Empire.</span> Designed by a Canadian and powered by a Curtiss engine, the Silver Dart marked a turning point in aviation history.</p>
+            </div>
+
+        </div>
         </section>
 
-        <section class="grid-con">
-            <h2 class="col-span-full">Aviation Comes to London</h2>
-            <p class="col-span-full">details</p>
-            <p class="col-span-full timeline">1912</p>
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-8 m-col-span-3 timeline">1912</p>
+        </div>
+
+        <div class="time-card grid-con">
+            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+            <h2 class="card-title">Aviation Comes to London</h2>
+            <p class="card-description">Many Londoners saw their first aircraft on <span>May 25, 1912</span>, when <span>Beckwith Havens</span> flew a <span>Curtiss Model E</span> over the city after taking off from <span>Carling Heights</span>, near present-day Wolseley Barracks.<br><br>
+                Later that summer, thousands gathered at <span>Port Stanley</span> to watch a <span>Wright-Burgess hydroplane</span>, flown by Walter Brookins, perform repeated flights. These early “pusher-style” aircraft featured rear-mounted propellers that pushed the aircraft through the air.</p>
+                </div>
+
+        </div>
         </section>
 
-        <section class="grid-con">
-            <h2 class="col-span-full">Aviation and the First World War</h2>
-            <p class="col-span-full">details</p>
-            <p class="col-span-full timeline">1914-1918</p>
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-3 m-col-span-3 timeline">1914-1918</p>
+        </div>
+
+        <div class="time-card text-first grid-con">
+            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+            <h2 class="card-title">Aviation and the First World War</h2>
+            <p class="card-description">The First World War rapidly transformed aviation from experimental flight into a military necessity. Aircraft were adapted for reconnaissance, training, and combat, accelerating technological development.<br><br>
+            The <span>Curtiss JN-4 “Jenny”</span> became the standard training aircraft used by flying schools operated in Canada by the <span>Royal Flying Corps (RFC)</span>. An estimated <span>13,000 Canadians</span> served in the RFC or the Royal Navy Air Service, many of whom trained on these aircraft.</p>
+            </div>
+
+        </div>
         </section>
+
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-8 m-col-span-3 timeline">1918</p>
+        </div>
+
+        <div class="time-card grid-con">
+            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+            <h2 class="card-title">A Military Landing in London</h2>
+            <p class="card-description">In <span>1918,  Captain V. P. Cronyn</span>, a decorated Canadian flying ace with at least seven confirmed victories, flew an aircraft from Beamsville and landed at <span>Wolseley Barracks</span> in London. This marked one of the earliest direct connections between London and military aviation.<br><br>
+            Cronyn and other wartime pilots believed aviation would continue to develop in Canada beyond the war, shaping both military and civilian flight in the years ahead.</p>
+            </div>
+
+        </div>
+        </section>
+
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-3 m-col-span-3 timeline">1920-1924</p>
+        </div>
+
+        <div class="time-card text-first grid-con">
+            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+            <h2 class="card-title">Toward a National Air Force</h2>
+            <p class="card-description">Following the war, a non-permanent <span>Canadian Air Force (CAF)</span> was created in <span>1920</span>. Pilots were assigned civilian duties such as forest fire patrols, aerial mapping, and coastal surveillance to maintain flying proficiency.<br><br>
+            In <span>1923</span>, the <span>Department of National Defence</span> assumed control of aviation in Canada. One year later, <span>Major-General J. H. MacBrien</span> established a permanent air force modeled on Britain's Royal Air Force. This force became the <span>Royal Canadian Air Force (RCAF)</span>, adopting the motto Per Ardua ad Astra—“Through Adversity to the Stars.”</p>
+            </div>
+        </div>
+        </section>
+
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-8 m-col-span-3 timeline">1927</p>
+        </div>
+
+        <div class="time-card grid-con">
+            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+            <h2 class="card-title">Public Fascination and the London-to-London Flight</h2>
+            <p class="card-description">Public enthusiasm for aviation surged after <span>Charles Lindbergh's</span> transatlantic flight in 1927. Inspired by this achievement, <span>Carling Brewery</span> offered a <span>$25,000 prize</span> for a flight from <span>London, Ontario to London, England</span>.<br><br>
+            Veteran pilots <span>Captain Terrence Tully</span> and <span>Lieutenant James Medcalf</span> departed London on <span>September 1, 1927</span>, flying a Stinson Detroiter. After refuelling in Harbour Grace, Newfoundland, the aircraft disappeared over the Atlantic. The prize money was later placed in trust for their families.</p>
+            </div>
+
+        </div>
+        </section>
+
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-3 m-col-span-3 timeline">1928</p>
+        </div>
+
+        <div class="time-card text-first grid-con">
+            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+            <h2 class="card-title">London's First Airport</h2>
+            <p class="card-description">Efforts to establish a permanent airport led to the formation of the <span>London Airfield Company</span>, chaired by <span>Ernest Moore</span>, after a city by-law to purchase land was defeated.<br><br>
+            London's first airport officially opened on <span>August 24, 1928, near Lambeth</span>. The <span>London Flying Club</span>, founded by many war veterans and open to both men and women, became the airport's primary tenant, supporting training and civilian aviation.</p>
+            </div>
+
+        </div>
+        </section>
+
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full m-col-start-8 m-col-span-3 timeline">1930s-1942</p>
+        </div>
+
+        <div class="time-card grid-con">
+            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+            <h2 class="card-title">Transition and Closure</h2>
+            <p class="card-description">The Lambeth airfield remained in use through the <span>1930s</span>, even after plans for a new airport were underway. In <span>1942</span>, the site was closed when a <span>listening station</span> was established nearby to intercept <span>German submarine communications in the Gulf of St. Lawrence</span>.<br><br>
+            After the land was sold, the <span>London Airfield Company</span> was dissolved in 1949, bringing this chapter of local aviation to a close.</p>
+            </div>
+
+        </div>
+        </section>
+
+        <section class="full-width-grid-con timeline-item">
+        <div class="grid-con timeline-er">
+            <div class="timeline-dot"></div>
+            <p class="col-span-full text-first m-col-start-3 m-col-span-3 timeline">1939-1940</p>
+        </div>
+
+        <div class="time-card text-first grid-con">
+            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/" alt="add alt text">
+            <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+            <h2 class="card-title">Crumlin Airport and the<br>
+            Approach of War</h2>
+            <p class="card-description">As Canada prepared for expanded national air travel, the federal government planned a <span>Trans-Canada airway</span>, supported by the creation of <span>Trans-Canada Airlines (TCA)</span>.<br><br>
+            Construction of a new airport along <span>Crumlin Sideroad</span> began on <span>September 9, 1939</span>, one day before Canada entered the Second World War. The airport became part of the <span>British Commonwealth Air Training Plan</span>, with the <span>No. 3 Elementary Flying Training School</span> opening on <span>June 24, 1940</span>.<br><br>
+            The <span>new airpor</span>t officially opened on  <span>July 27, 1940</span>, marking the beginning of London's role in wartime aviation training and national air transportation.</p>
+            </div>
+        </div>
+        </section>
+        </div>
+
+        
     </main>
 
-   <footer>
+  <footer>
         <div class="grid-con">
-            <div class="col-span-3 m-col-start-1 m-col-end-5">
-            <div id="footer-logo">logo</div>
+            <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <picture id="footer-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg" alt="logo">
+                     <source media="(min-width:300px)" src="images/light_logo_mobile.svg" alt="logo">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
             </div>
-
-
-            <hr class="col-span-full m-col-start-5 m-col-end-6">
         
 
-            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10" aria-label="footer navigation">
+            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10 l-col-start-5 l-col-end-10" aria-label="footer navigation">
                 <div>
                 <p class="footer-nav-title">Quick Links</p>
                 <ul>
                     <li><a href="index.html" aria-label="go to home page">Home</a></li>
-                    <li><a href="about.html" aria-label="go to about page">About</a></li>
                     <li><a href="london-aviation.html"  aria-label="go to histry page">History</a></li>
                     <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                    <li><a href="FAQ.html" aria-label="go to FAQ page">FAQ</a></li>
+                    <li><a href="privacy-policy.html" aria-label="go to Privacy Policy page">Privacy Policy</a></li>
                 </ul>
                 </div>
 
                 <div>
                 <p class="footer-nav-title">About Us</p>
                 <ul>
-                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events</a></li>
+                    <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
                     <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
                 </ul>
                 </div>
             </nav>
 
-            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-12">
+            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-13">
             <div id="address">
+                <img src="images/location.svg" alt="location icon">
                 <p>2155 Crumlin Side Rd,<br>
                      London, Ontario <br>
-                     N5V 3Z9, Canada.</p>
-                     <a href="#">View on GG map</a>
+                     N5V 3Z9, Canada.<br>
+                     <a href="https://maps.app.goo.gl/JNsXHgoJZcLPed5u6">View on GG map</a></p>
             </div>
 
             <div id="contact-info" class="col-start-3 col-end-5">
-                <p>info@427wing.com</p>
-                <p>519-455-0430</p>
+                <div class="footer-contact-icon">
+                    <img src="images/email.svg" alt="email icon">
+                    <p>info@427wing.com</p>
+                </div>
+                <div class="footer-contact-icon">
+                    <img src="images/phone.svg" alt="phone icon">
+                    <p>519-455-0430</p>
+                </div>
             </div>
             </div>
 
-            <div class="col-span-full m-col-start-6 m-col-end-10">
-            <p id="sub-header">
+            <p id="subscription-header" class="col-span-full m-col-start-6 m-col-end-10">
                 SUBSCRIBE TO OUR NEWSLETTER!
             </p>
 
             
+            <div class="col-span-full m-col-start-6 m-col-end-10">
             <div id="subscribe">
-            <p id="input">Enter email address</p>
-            <p id="sent">Subscribe</p>
+            <input type="text" id="emain-subscription" name="emain-subscription" placeholder="Enter email address">
+             <input type="submit" value="Submit" id="subscribe-btn">
+            </div>
+
+            <div id="agree">
+            <input type="checkbox">
+            <p>I have read and accept the <a href="privacy-policy.html">Plivacy Policy. *</a>
+            </p>
             </div>
             </div>
 
-            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-12">
                 <p>Social Media</p>
                 <div class="sns-icon">
                     <img src="images/facebook.svg" class="facebook" alt="facebook icon">
                     <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    <img src="images/x.svg" class="x" alt="x icon">
                     <img src="images/youtube.svg" class="youtube" alt="youtube icon">
                 </div>
 
@@ -169,7 +333,7 @@
             
 
 
-        <small class="col-span-full">&copy; 2026 London Aviation Museum. All rights reserved.</small>
+        <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
     

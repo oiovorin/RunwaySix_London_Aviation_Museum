@@ -16,6 +16,10 @@
     .grid-con {
         align-items: center;
     }
+
+    .button {
+        padding: 10px 30px;
+    }
 }
 
 .about-text {
@@ -58,17 +62,8 @@
 
     img {
         width: 100%;
-        height: 220px;
         object-fit: cover;
         border-radius: 4px;
-
-        @include tablet {
-            height: 300px;
-        }
-
-        @include desktop {
-            height: 380px;
-        }
     }
 }
 
@@ -91,14 +86,26 @@
 // HISTORY SECTION WITH DRAGGABLE SLIDER
 // ===========================================
 #history {
-    padding: 40px 0;
+    padding-top: 40px;
 
     @include tablet {
-        padding: 60px 0;
+        padding-top: 60px;
     }
 
     @include desktop {
-        padding: 80px 0;
+        padding-top: 80px;
+    }
+
+    .section-header {
+        margin-bottom: 60px;
+
+        @include tablet {
+            margin-bottom: 80px;
+        }
+
+        @include desktop {
+            margin-top: 100px;
+        }
     }
 }
 
@@ -164,11 +171,11 @@
     overflow: hidden;
     flex-shrink: 0;
     // Mobile: Smaller cards
-    width: 240px;
+    width: 280px;
     @include transition;
 
     @include tablet {
-        width: 280px;
+        width: 230px;
         border-radius: 8px;
     }
 
@@ -192,7 +199,7 @@
 
 .card-image {
     width: 100%;
-    height: 140px;
+    height: 200px;
     overflow: hidden;
 
     @include tablet {
@@ -231,7 +238,7 @@
         margin-bottom: 8px;
 
         @include tablet {
-            font-size: 20px;
+            font-size: 15px;
             margin-bottom: 10px;
         }
 
@@ -257,20 +264,37 @@
             margin-bottom: 20px;
         }
     }
+
+    .button {
+        padding: 8px 20px;
+        margin: 0 30px;
+        text-align: center;
+        display: block;
+
+
+    }
+
+    .button.battle-of-britain {
+        margin-top: 32px;
+
+        @include tablet {
+            margin-top: 40px;
+        }
+    }
 }
 
 // ===========================================
 // EVENTS & BLOG SECTION
 // ===========================================
 #events-blog {
-    padding: 40px 0;
+    padding: 60px 0;
 
     @include tablet {
-        padding: 60px 0;
+        padding: 80px 0;
     }
 
     @include desktop {
-        padding: 80px 0;
+        padding: 100px 0;
     }
 }
 
@@ -278,9 +302,25 @@
     display: flex;
     // Mobile: Stack vertically
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: $aviation_blue;
+    color: #fff;
+
+    // Tablet+: Side by side
+    @include tablet {
+        flex-direction: row;
+    }
+}
+
+.event-row-reverse {
+    display: flex;
+    // Mobile: Stack vertically
+    flex-direction: column;
+    max-width: 1600px;
     margin: 0 auto;
     background-color: #fff;
+    color: $aviation_blue;
 
     // Tablet+: Side by side
     @include tablet {
@@ -296,7 +336,7 @@
     position: relative;
 
     @include tablet {
-        width: 50%;
+        width: 40%;
         height: auto;
         min-height: 280px;
     }
@@ -330,7 +370,7 @@
         
     
         @include tablet {
-            width: 50%;
+            width: 40%;
             height: auto;
             min-height: 280px;
             order: 2;
@@ -355,7 +395,9 @@
             min-height: 320px;
         }
     }
-    }
+
+}
+    
 
 .event-content {
     padding: 20px 15px;
@@ -364,7 +406,7 @@
     justify-content: center;
 
     @include tablet {
-        width: 50%;
+        width: 60%;
         padding: 30px;
     }
 
@@ -375,7 +417,6 @@
     h3 {
         font-size: 20px;
         font-weight: 600;
-        color: $aviation_blue;
         margin-bottom: 6px;
 
         @include tablet {
@@ -387,11 +428,26 @@
             font-size: 28px;
         }
     }
+
+    .read-more {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 500;
+    text-decoration: underline;
+    @include transition(color);
+
+    @include tablet {
+        font-size: 13px;
+    }
+
+    &:hover {
+        color: $heritage_red;
+    }
+}
 }
 
 .event-date {
     font-size: 12px;
-    color: $aviation_blue;
     margin-bottom: 10px;
 
     @include tablet {
@@ -403,7 +459,6 @@
 .event-description {
     font-size: 13px;
     line-height: 1.6;
-    color: $chacoal;
     margin-bottom: 12px;
 
     @include tablet {
@@ -413,7 +468,10 @@
     }
 }
 
-.read-more {
+
+.blog-content-reverse {
+
+    .read-more {
     font-size: 12px;
     color: $aviation_blue;
     font-weight: 500;
@@ -429,12 +487,11 @@
     }
 }
 
-.blog-content-reverse {
     @include tablet {
     order: 1;
     }
-}
 
+}
 .events-cta {
     text-align: center;
     margin-top: 30px;
@@ -442,42 +499,12 @@
     @include tablet {
         margin-top: 40px;
     }
-}
 
-// ===========================================
-// BUTTONS
-// ===========================================
-.btn {
-    @include button-base;
-    // Mobile: Full width buttons
-    width: 100%;
-    max-width: 200px;
-
-    @include tablet {
-        width: auto;
-        max-width: none;
+    .button {
+        padding: 10px 30px;
     }
 }
 
-.btn-red {
-    background-color: $heritage_red;
-    color:#fff;
-
-    &:hover {
-        background-color: $heritage_red;
-        transform: translateY(-2px);
-    }
-}
-
-.btn-small {
-    padding: 8px 20px;
-    font-size: 12px;
-
-    @include tablet {
-        padding: 10px 25px;
-        font-size: 13px;
-    }
-}
 
 // ===========================================
 // TAGS
@@ -501,11 +528,11 @@
 }
 
 .tag-event {
-    background-color: $aviation_blue;
-    color: #fff;
+    background-color: $archive_beige;
+    color: $aviation_blue;
 }
 
 .tag-blog {
-    background-color: $heritage_red;
+    background-color: $aviation_blue;
     color: #fff;
 }

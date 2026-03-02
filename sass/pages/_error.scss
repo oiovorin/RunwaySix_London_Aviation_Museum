@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+#error-page {
+    color: #fff;
+    margin-bottom: 100px;
+
+    @include desktop {
+        margin-bottom: 180px;
+    }
+
+
+#error {
+
+    display: flex;
+    margin: 100px auto 0 auto;
+
+    p {
+        font-size: 100px;
+        font-family: "Libre Baskerville", serif;
+
+        @include desktop {
+            font-size: 150px;
+        }
+    }
+
+    img {
+        width: 130px;
+
+        @include desktop {
+            width: 180px;
+        }
+    }
+}
+
+#subline {
+    text-align: center;
+    font-size: 21px;
+    margin-bottom: 5px;
+
+    @include desktop {
+        font-size: 30px;
+        margin-top: -20px;
+    }
+}
+
+#error-detail {
+    text-align: center;
+    margin-bottom: 25px;
+}
+}
