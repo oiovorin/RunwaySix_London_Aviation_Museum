@@ -1,12 +1,15 @@
 import { header } from "./modules/header.js";
 import { videoplayer } from "./modules/videoplayer.js";
 import { selectDate } from "./modules/battle-of-britain.js";
+import { timeline } from "./modules/timeline.js";
+import { carousel } from "./modules/about.js";
 
 if(document.body.dataset.page === "home") {
   header();
   videoplayer();
 } else if (document.body.dataset.page === "about") {
     header();
+    carousel();
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
     selectDate();
@@ -22,6 +25,7 @@ if(document.body.dataset.page === "home") {
     header();
 } else if (document.body.dataset.page === "london-aviation") {
     header();
+    timeline();
 } else if (document.body.dataset.page === "privacy-policy") {
     header();
 } else if (document.body.dataset.page === "wartime") {
