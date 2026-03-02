@@ -1,0 +1,337 @@
+@use '../abstracts' as *;
+
+#map {
+    position: relative;
+    margin: 200px auto;
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+// general map button styling
+.map-button {
+    width: 35px;
+    height: 35px;
+    border-radius: 30px;
+    background-color: $heritage_red;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+// general map pop up item styling
+.popup-item {
+    position: relative;
+    background-color: $aviation_blue;
+    padding: 30px;
+    width: 360px;
+    margin: 50px auto;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 15px;
+        background: $aviation_blue;
+
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+
+    img {
+        width: 300px;
+        height: 200px;
+        background-color: $chacoal;
+    }
+
+    h2 {
+        color: #fff;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    p {
+       color: #fff;
+       text-align: center; 
+    }
+}
+
+
+// position for each item
+.map-button[data-target="port-albert"] {
+    position: absolute;
+    top: 5%;
+    left: 37%;
+}
+
+#port-albert {
+    position: absolute;
+    top: -88%;
+    left: 17%;
+    display: none;
+}
+
+.map-button[data-target="goderich"] {
+    position: absolute;
+    top: 12%;
+    left: 35%;
+}
+
+#goderich {
+    position: absolute;
+    top: -81%;
+    left: 15%;
+    display: none;
+}
+
+.map-button[data-target="clinton"] {
+    position: absolute;
+    top: 18%;
+    left: 39%;
+}
+
+#clinton {
+    position: absolute;
+    top: -80%;
+    left: 19%;
+    display: none;
+}
+
+.map-button[data-target="centralia"] {
+    position: absolute;
+    top: 35%;
+    left: 37%;
+}
+
+#centralia {
+    position: absolute;
+    top: -58%;
+    left: 17%;
+    display: none;
+}
+
+.map-button[data-target="guelph"] {
+    position: absolute;
+    top: 23%;
+    left: 59%;
+}
+
+#guelph {
+    position: absolute;
+    top: -70%;
+    left: 39%;
+    display: none;
+}
+
+.map-button[data-target="london"] {
+    position: absolute;
+    top: 43%;
+    left: 46%;
+}
+
+#london {
+    position: absolute;
+    top: -55%;
+    left: 26%;
+    display: none;
+}
+
+.map-button[data-target="windsor"] {
+    position: absolute;
+    top: 90%;
+    left: 9%;
+}
+
+#windsor {
+    position: absolute;
+    top: -3%;
+    left: -11%;
+    display: none;
+}
+
+.map-button[data-target="fingal"] {
+    position: absolute;
+    top: 65%;
+    left: 40%;
+}
+
+#fingal {
+    position: absolute;
+    top: -28%;
+    left: 20%;
+    display: none;
+}
+
+.map-button[data-target="st-thomas"] {
+    position: absolute;
+    top: 60%;
+    left: 45%;
+}
+
+#st-thomas {
+    position: absolute;
+    top: -33%;
+    left: 25%;
+    display: none;
+
+}
+.map-button[data-target="aylmer"] {
+    position: absolute;
+    top: 55%;
+    left: 52%;
+}
+
+#aylmer {
+    position: absolute;
+    top: -38%;
+    left: 32%;
+    display: none;
+}
+
+.map-button[data-target="jarvis"] {
+    position: absolute;
+    top: 57%;
+    left: 64%;
+}
+
+#jarvis {
+    position: absolute;
+    display: none;
+}
+
+.map-button[data-target="hagersville"] {
+    position: absolute;
+    top: 51%;
+    left: 68%;
+}
+
+.map-button[data-target="dunnville"] {
+    position: absolute;
+    top: 53%;
+    left: 76%;
+}
+
+.map-button[data-target="st-catharines"] {
+    position: absolute;
+    top: 40%;
+    left: 85%;
+}
+
+.map-button[data-target="mount-hope"] {
+    position: absolute;
+    top: 38%;
+    left: 68%;
+}
+
+.map-button[data-target="brantford"] {
+    position: absolute;
+    top: 45%;
+    left: 63%;
+}
+
+
+// slideshow
+
+#slide-bg {
+  margin: 150px auto;
+  background-color: $aviation_blue;
+  color: white;
+}
+
+.top-slide-text {
+    padding: 20px 50px 0px 50px;
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
+.bottom-slide-text {
+    padding: 20px 50px 50px 50px;
+    text-align: end;
+
+    h2 {
+        font-size: 30px;
+    }
+}
+
+.slideshow-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#top-slideshow {
+  padding-top: 50px;
+  display: flex;
+  gap: 30px;
+  animation: topSlideshow 50s linear infinite;
+  margin-bottom: 30px;
+}
+
+#bottom-slideshow {
+  padding-bottom: 50px;
+  display: flex;
+  gap: 30px;
+  justify-content: end;
+  align-items: end;
+  animation: bottomSlideshow 50s linear infinite;
+}
+
+.top-slideshow-img img, .bottom-slideshow-img img {
+  border: 10px solid #fff;
+  flex-shrink: 0;
+  width: 210px;
+  height: 150px;
+  background-color: $chacoal;
+
+  @include tablet {
+    width: 280px;
+    height: 200px;
+  }
+}
+
+.top-slideshow-img {
+  color: black;
+}
+
+@keyframes topSlideshow {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-1100px);
+  }
+}
+
+@keyframes bottomSlideshow {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(1100px);
+  }
+}
+
+// central air craft
+.central-air {
+    margin-bottom: 100px;
+
+    p {
+        background-color: $military_green;
+        padding: 80px 40px;
+        margin: auto;
+    }
+
+    img {
+        width: 675px;
+        height: 380px;
+        background-color: $chacoal;
+    }
+}

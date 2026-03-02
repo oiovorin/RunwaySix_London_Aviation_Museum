@@ -9,13 +9,13 @@
     <script type="module" src="js/main.js"></script>
     <title>London Aviation Museum Contact Page</title>
 </head>
-<body class="blue-bg">
+<body class="blue-bg" data-page="error">
 
 
-     <header>
+   <header>
         <div class="grid-con">
 
-            <div id="top-header" class="l-col-start-8 l-col-end-11">
+            <div id="top-header" class="l-col-start-9 l-col-end-12">
                 <nav>
                     <ul>
                         <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
@@ -24,8 +24,12 @@
                 </nav>
             </div> 
 
-            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1" aria-label="home">
-                <img src="images/lam_logo_light.svg" alt="logo" id="header-logo">
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-2" aria-label="home">
+                 <picture id="header-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg" alt="logo">
+                     <source media="(min-width:300px)" src="images/light_logo_mobile.svg" alt="logo">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
             </a>
 
             <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
@@ -38,7 +42,17 @@
                 <nav aria-label="Header Navigation">
                     <ul>
                         <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
-                        <li><a href="about.html" aria-label="go to about page">About</a></li>
+                        <li id="about-nav">
+                            <div class="about-con">
+                                <a>About</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="about-sub" class="hidden">
+                                <li><a href="education.html" aria-label="go to History page">Education</a></li>
+                            </ul>
+                        </li>
                         <li id="history-nav">
                             <div class="history-con">
                                 <a>History</a>
@@ -79,70 +93,87 @@
         
     </main>
 
-    <footer>
+     <footer>
         <div class="grid-con">
-            <div class="col-span-3 m-col-start-1 m-col-end-5">
-            <div id="footer-logo">logo</div>
+            <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <picture id="footer-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg" alt="logo">
+                     <source media="(min-width:300px)" src="images/light_logo_mobile.svg" alt="logo">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
             </div>
-
-
-            <hr class="col-span-full m-col-start-5 m-col-end-6">
         
 
-            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10" aria-label="footer navigation">
+            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10 l-col-start-5 l-col-end-10" aria-label="footer navigation">
                 <div>
                 <p class="footer-nav-title">Quick Links</p>
                 <ul>
                     <li><a href="index.html" aria-label="go to home page">Home</a></li>
-                    <li><a href="about.html" aria-label="go to about page">About</a></li>
                     <li><a href="london-aviation.html"  aria-label="go to histry page">History</a></li>
                     <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                    <li><a href="FAQ.html" aria-label="go to FAQ page">FAQ</a></li>
+                    <li><a href="privacy-policy.html" aria-label="go to Privacy Policy page">Privacy Policy</a></li>
                 </ul>
                 </div>
 
                 <div>
                 <p class="footer-nav-title">About Us</p>
                 <ul>
-                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events</a></li>
+                    <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
                     <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
                 </ul>
                 </div>
             </nav>
 
-            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-12">
+            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-13">
             <div id="address">
+                <img src="images/location.svg" alt="location icon">
                 <p>2155 Crumlin Side Rd,<br>
                      London, Ontario <br>
-                     N5V 3Z9, Canada.</p>
-                     <a href="#">View on GG map</a>
+                     N5V 3Z9, Canada.<br>
+                     <a href="https://maps.app.goo.gl/JNsXHgoJZcLPed5u6">View on GG map</a></p>
             </div>
 
             <div id="contact-info" class="col-start-3 col-end-5">
-                <p>info@427wing.com</p>
-                <p>519-455-0430</p>
+                <div class="footer-contact-icon">
+                    <img src="images/email.svg" alt="email icon">
+                    <p>info@427wing.com</p>
+                </div>
+                <div class="footer-contact-icon">
+                    <img src="images/phone.svg" alt="phone icon">
+                    <p>519-455-0430</p>
+                </div>
             </div>
             </div>
 
-            <div class="col-span-full m-col-start-6 m-col-end-10">
-            <p id="sub-header">
+            <p id="subscription-header" class="col-span-full m-col-start-6 m-col-end-10">
                 SUBSCRIBE TO OUR NEWSLETTER!
             </p>
 
             
+            <div class="col-span-full m-col-start-6 m-col-end-10">
             <div id="subscribe">
-            <p id="input">Enter email address</p>
-            <p id="sent">Subscribe</p>
+            <input type="text" id="emain-subscription" name="emain-subscription" placeholder="Enter email address">
+             <input type="submit" value="Submit" id="subscribe-btn">
+            </div>
+
+            <div id="agree">
+            <input type="checkbox">
+            <p>I have read and accept the <a href="privacy-policy.html">Plivacy Policy. *</a>
+            </p>
             </div>
             </div>
 
-            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-12">
                 <p>Social Media</p>
                 <div class="sns-icon">
                     <img src="images/facebook.svg" class="facebook" alt="facebook icon">
                     <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    <img src="images/x.svg" class="x" alt="x icon">
                     <img src="images/youtube.svg" class="youtube" alt="youtube icon">
                 </div>
 
@@ -150,7 +181,7 @@
             
 
 
-        <small class="col-span-full">&copy; 2026 London Aviation Museum. All rights reserved.</small>
+        <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
 </body>

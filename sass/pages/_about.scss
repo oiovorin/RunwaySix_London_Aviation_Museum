@@ -5,27 +5,103 @@
 // ===========================================
 
 
-#mission, #vision, #overview, #service {
+#overview, #service {
     margin: 50px 0;
 }
-#mission, #vision {
-    background-color: $aviation_blue;
+
+#mission-value {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+        margin: auto 50px;
+        flex-direction: row;
+    }
+
+    @include desktop {
+        margin: auto 150px;
+    }
 }
 
-.icon-text {
+#mission {
         background-color: $aviation_blue;
         padding: 30px 0;
+        width: 100%;
+        border-radius: 10px;
+        height: 310px;
 
-        .image-holder {
-            background-color: #fff;
-            height: 100px;
-            width: 100px;
-            margin: 20px auto;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            
+            width: 0;
+            height: 0;
+            
+            border-left: 30px solid transparent;
+            border-right: 30px solid transparent;
+            border-top: 30px solid $aviation_blue; 
 
+            @include tablet {
+                bottom: auto;
+                left: auto;
+                transform: none;
+
+                right: 48%;
+                top: 83%;
+                transform: translateY(-50%);
+
+                border-top: 30px solid transparent;
+                border-bottom: 30px solid transparent;
+                border-left: 30px solid $aviation_blue;
+
+                border-right: none;
+            }
+
+            @include desktop {
+                right: 48%;
+                top: 91%;
+            }
+        }
+
+        @include tablet {
+            width: 50%;
+            height: 385px;
+        }
+
+        img {
+            width: 75px;
+            height: auto;
+            margin: 30px auto;
         }
 
         p {
             color: #fff;
+            margin: 30px;
+            text-align: center;
+        }
+    }
+
+    #vision {
+        background-color: #fff;
+        padding: 30px 0;
+        width: 100%;
+        border-radius: 10px;
+
+        @include tablet {
+            width: 50%;
+        }
+
+        img {
+            width: 75px;
+            height: auto;
+            margin: 30px auto;
+        }
+
+        p {
+            color: $aviation_blue;
             margin: 30px;
             text-align: center;
         }
@@ -90,62 +166,102 @@ p.era {
 }
 
 #legacy {
-    display: block;
+    margin: 100px auto 100px auto;
 
-    .image-holder {
-        background-color: $archive_beige;
-        height: 200px;
-        width: 400px;
-        margin: 20px auto;
+    #img-con {
+        position: relative;
+        margin: 20px auto 0 auto;
+        width: 100%;
+        height: 260px;
 
-        @include tablet {
-            width: 300px;
-        }
-
-        @include desktop {
-            width: 400px;
-        }
-    }
-
-}
-
-.legacy-card {
-    text-align: center;
-    background-color: $military_green;
-    color: #fff;
-    padding: 30px 10px;
-
-    .title-text {
-        @include tablet {
-            margin-top: 30px;
-        }
-    }
-
-    h3 {
-        font-size: 20px;
-    }
-
-    p {
-        margin-bottom: 60px;
-    }
-}
-
-.legacy-even {
-    background-color: transparent;
-    color: $chacoal;
-
-    .image-holder {
-        background-color: $chacoal !important;
-    
         @include tablet {
             order: 2;
         }
-    }
 
-    .title-text {
-        @include tablet {
-            order: 1;
+
+        img {
+            background-color: rgba(128, 128, 128, 0.399);
+            width: 370px;
+            height: 240px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+
+            @include desktop {
+                width: 400px;
+                height: 280px;
+            }
+        }
+
+        img.active {
+            opacity: 1;
         }
     }
 
+    #text-con {
+        position: relative;
+        height: 210px;
+        width: 100%;
+        margin: 10px auto;
+
+        @include tablet {
+            order: 1;
+        }
+
+        .title-text {
+            width: 100%;
+            position: absolute;
+            opacity: 0;
+            transition: all .3s ease-in-out;
+
+            h3 {
+            color: $aviation_blue;
+            font-size: 20px;
+            text-align: center;
+
+            @include desktop {
+                font-size: 26px;
+            }
+            }
+
+            p {
+                text-align: center;
+                margin: 5px 40px;
+            }
+
+            
+        }
+        .title-text.active {
+                opacity: 1;
+            }
+
+
+    }
+
+    .legacy-btn {
+        display: flex;
+        justify-content: center;
+
+        @include tablet {
+            order: 3;
+        }
+
+        button {
+            padding: 8px 20px;
+            font-size: 18px;
+            cursor: pointer;
+
+            @include desktop {
+                margin-top: 30px;
+                margin-left: 50px;
+            }
+        }
+
+    }
 }
+
+
+
