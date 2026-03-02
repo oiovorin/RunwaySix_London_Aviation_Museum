@@ -14,7 +14,7 @@
  <header>
         <div class="grid-con">
 
-            <div id="top-header" class="l-col-start-8 l-col-end-11">
+            <div id="top-header" class="l-col-start-9 l-col-end-12">
                 <nav>
                     <ul>
                         <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
@@ -41,7 +41,17 @@
                 <nav aria-label="Header Navigation">
                     <ul>
                         <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
-                        <li><a href="about.html" aria-label="go to about page">About</a></li>
+                        <li id="about-nav">
+                            <div class="about-con">
+                                <a>About</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="about-sub" class="hidden">
+                                <li><a href="education.html" aria-label="go to History page">Education</a></li>
+                            </ul>
+                        </li>
                         <li id="history-nav">
                             <div class="history-con">
                                 <a>History</a>
