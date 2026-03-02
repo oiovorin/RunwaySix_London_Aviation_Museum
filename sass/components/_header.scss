@@ -4,6 +4,11 @@
 // HEADER NAV 
 // ===========================================
 
+.blue-header {
+    background-color: $aviation_blue;
+    padding-bottom: 10px;
+}
+
 #top-header {
     display: none;
 }
@@ -20,7 +25,7 @@ header {
 
         @include desktop {
             width: 230px;
-            margin-top: 10px;
+            margin-top: 0;
         }
     }
 
@@ -161,6 +166,43 @@ header {
             }
         }
 
+         #about-nav {
+        cursor: pointer;
+        }
+
+        .about-con {
+            display: flex;
+            gap: 8px;
+
+            a {
+                padding-bottom: 10px;
+            }
+        }
+
+        .submenu-toggle img {
+            width: 15px;
+            margin-top: 20px;
+        }
+
+        #about-sub li {
+            &:first-child {
+                margin-top: 10px !important;
+
+                @include desktop {
+                    margin-top: 0 !important;
+                }
+            }
+        
+            a {
+                font-size: 20px !important;
+                
+
+                @include desktop {
+                    font-size: 16px !important;
+                }
+            }
+        }
+
 }
 
 // ===========================================
@@ -201,6 +243,7 @@ header {
 @media screen and (min-width: 1200px) {
     #top-header {
         display: block;
+        justify-self: end;
 
         ul {
             display: flex;
@@ -246,6 +289,10 @@ header {
 
                 &:first-child {
                     margin-top: 20px;
+                    
+                    a {
+                        margin-left: auto;
+                    }
                 }
             
                 a {
@@ -262,7 +309,7 @@ header {
             }
 
             li#home {
-                margin-right: 50px;
+                margin-right: 20px;
             }
 
         }
@@ -276,7 +323,7 @@ header {
 
 
     #history-nav {
-        padding: 0 50px 10px 50px;
+        padding: 0 40px 10px 40px;
 
         a {
             &:hover {
@@ -285,7 +332,7 @@ header {
         }
     }
 
-        .history-con {
+        .history-con{
             display: flex;
             gap: 8px;
 
@@ -296,7 +343,7 @@ header {
 
         .submenu-toggle img {
             width: 10px;
-            margin-top: 10px;
+            margin-top: 11px;
         }
 
     }
@@ -325,7 +372,61 @@ header {
         }
     }
 
+    #about-nav {
+        padding: 0 30px 10px 40px;
+
+        a {
+            &:hover {
+            border-bottom: none !important;
+            padding-bottom: 10px !important;
+        }
+    }
+
+        .about-con{
+            display: flex;
+            gap: 8px;
+
+            a {
+                padding-bottom: 10px;
+            }
+        }
+
+        .submenu-toggle img {
+            width: 10px;
+            margin-top: 11px;
+        }
+
+    }
+
+    #about-sub {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 28%;
+        background-color: $aviation_blue;
+        z-index: 1000;
+
+        li {
+            text-align: center;
+            border-bottom: 1px solid rgba(150, 150, 150, 0.187);
+            transition: transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            margin-top: 0 !important;
+
+            
+            &:hover {
+                transform: scale(1.03);
+            }
+
+
+        }
+    }
+
     li#history-nav:hover > #history-sub {
+         display: block !important;
+    }
+
+    li#about-nav:hover > #about-sub {
          display: block !important;
     }
 
