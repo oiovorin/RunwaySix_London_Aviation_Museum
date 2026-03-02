@@ -168,8 +168,9 @@ header {
 // ===========================================
 
 .hero-loop-video {
-    background-color: #0a275a72;
-    height: 350px;
+    background-image: url(../images/home-hero.png);
+    background-size: cover;
+    background-position: center;
 
     #hero-heading {
         color: #fff;
@@ -185,6 +186,11 @@ header {
     #hero-p {
         color: #fff;
         margin-top: 0;
+        padding-bottom: 50px;
+
+        @include desktop {
+            padding-bottom: 80px;
+        }
     }
 }
 
