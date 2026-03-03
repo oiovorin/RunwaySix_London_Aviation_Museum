@@ -3,6 +3,7 @@ import { videoplayer } from "./modules/videoplayer.js";
 import { selectDate } from "./modules/battle-of-britain.js";
 import { timeline } from "./modules/timeline.js";
 import { carousel } from "./modules/about.js";
+import { timelineCarousel } from "./modules/history.js";
 
 if(document.body.dataset.page === "home") {
   header();
@@ -26,6 +27,7 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "london-aviation") {
     header();
     timeline();
+    timelineCarousel();
 } else if (document.body.dataset.page === "privacy-policy") {
     header();
 } else if (document.body.dataset.page === "wartime") {

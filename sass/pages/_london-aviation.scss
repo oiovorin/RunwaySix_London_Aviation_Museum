@@ -1,5 +1,11 @@
 @use '../abstracts' as *;
 
+.history-hero-bg {
+    background-image: url(../images/history-hero.png);
+    width: 100%;
+    height: 600px;
+}
+
 
 #timeline-main {
     margin-top: 80px;
@@ -16,7 +22,7 @@
     left: 50%;
     top: 0;
     z-index: -2;
-    margin-top: 400px;
+    margin-top: 670px;
 
     @include tablet {
         height: 6050px;
@@ -169,4 +175,48 @@
         }
     }
 }
+}
+
+// carousel desktop style
+.timeline-carousel {
+    @include desktop {
+        height: 300px;
+        width: 340px;
+        position: relative;
+        display: flex;
+        gap: 350px;
+    }
+
+    @include tablet {
+            margin: auto 30px;
+            order: 2;
+        }
+
+    .card-img {
+        height: 300px;
+        width: 340px;
+        object-fit: cover;
+        position: absolute;
+        opacity: 0;
+        transition: all .3s ease-in-out;
+    }
+
+    .card-img.active {
+        opacity: 1;
+    }
+
+    button {
+        color: $heritage_red;
+        padding: 5px;
+        height: 30px;
+        margin: auto;
+        border: 1px solid $heritage_red;
+        cursor: pointer;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            color: #fff;
+            background-color: $heritage_red;
+        }
+    }
 }

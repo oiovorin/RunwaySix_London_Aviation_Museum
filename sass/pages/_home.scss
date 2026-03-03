@@ -1,4 +1,86 @@
 @use '../abstracts' as *;
+
+// ===========================================
+// HERO VIDEO
+// ===========================================
+.hero-loop-video {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    video {
+       width: 300%;
+
+       @include tablet {
+        width: 150%;
+       }
+
+       @include desktop {
+        width: 110%;
+       }
+
+    }
+}
+
+// ===========================================
+// HERO TEXT
+// ===========================================
+
+#home-hero-text {
+    height: 200px;
+    margin-bottom: 540px;
+    margin-left: 20px;
+
+    @include desktop {
+        margin-bottom: 500px;
+        margin-left: 30px;
+    }
+
+
+    #hero-heading {
+        color: #fff;
+        margin-top: 250px;
+        font-size: 23px;
+        line-height: 30px;
+        line-height: 50px;
+
+        @include tablet {
+            font-size: 25px;
+        }
+
+        span {
+            font-size: 45px;
+
+            @include tablet {
+                font-size: 48px;
+            }
+        }
+    }
+
+    #hero-p {
+        color: #fff;
+        margin-top: 0;
+        padding-bottom: 20px;
+        font-size: 18px;
+
+        @include tablet {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+    }
+
+    a {
+        font-size: 18px;
+        margin: 10px 150px 0 0;
+        width: 220px;
+        padding: 10px 20px;
+    }
+}
+
+
+
 // ===========================================
 // ABOUT SECTION
 // ===========================================
@@ -307,6 +389,10 @@
     background-color: $aviation_blue;
     color: #fff;
 
+        &:hover .event-image img{
+            transform: scale(1.05);
+        }
+
     // Tablet+: Side by side
     @include tablet {
         flex-direction: row;
@@ -321,6 +407,10 @@
     margin: 0 auto;
     background-color: #fff;
     color: $aviation_blue;
+
+    &:hover .event-image-reverse img{
+            transform: scale(1.05);
+        }
 
     // Tablet+: Side by side
     @include tablet {
@@ -351,6 +441,8 @@
         min-height: 180px; // Ensure minimum height on mobile
         object-fit: cover;
         display: block;
+        transform: scale(1);
+        transition: all .3s ease-in-out;
 
         @include tablet {
             min-height: 280px;
@@ -386,6 +478,8 @@
         min-height: 180px; // Ensure minimum height on mobile
         object-fit: cover;
         display: block;
+        transform: scale(1);
+        transition: all .3s ease-in-out;
 
         @include tablet {
             min-height: 280px;

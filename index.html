@@ -13,7 +13,11 @@
 
 <body data-page="home">
 
-    <section class="hero-loop-video">
+    <div class="hero-loop-video">
+        <video autoplay loop muted playsinline>
+            <source src="videos/Main-Looping_video.mp4" type="video/mp4">
+        </video>
+    </div>
 
     <header>
         <div class="grid-con">
@@ -27,7 +31,7 @@
                 </nav>
             </div> 
 
-            <a href="index.html" class="col-start-1 col-span-3 m-col-start-2" aria-label="home">
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
                  <picture id="header-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg" alt="logo">
                      <source media="(min-width:300px)" src="images/light_logo_mobile.svg" alt="logo">
@@ -77,16 +81,17 @@
         </div>
     </header>
 
-    <div class="grid-con">
-        <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
+    <div class="grid-con" id="home-hero-text">
+        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13">
             Welcome to the<br>
             <span>London Aviation Museum</span>
         </h1>
-        <p id="hero-p" class="col-span-full m-col-start-2 m-col-end-7">
+        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12">
             Discover the stories that shaped the skies, through the lens of service and sacrifice.
         </p>
+        <a href="#" class="button col-span-full">Explore Museum &#x25B6;</a>
     </div>
-    </section>
+    
 
     <main>
         <!-- About Section -->
@@ -116,7 +121,7 @@
             <div class="grid-con">
             <section id="player-container" class="col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
             <h3 class="hidden">London Aviation History Video Player</h3>
-        <video controls preload="metadata" poster="images/video-placeholder.jpg">
+        <video controls preload="metadata" poster="images/video-placeholder.png">
             <source src="videos/video.mp4" type="video/mp4">
             <source src="videos/video.webm" type="video/webm">
             <p>You are using an older browser that does not support HTML5 Video. Please update your browser.</p>
