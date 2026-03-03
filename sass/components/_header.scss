@@ -4,15 +4,30 @@
 // HEADER NAV 
 // ===========================================
 
+.blue-header {
+    background-color: $aviation_blue;
+    padding-bottom: 10px;
+}
+
 #top-header {
     display: none;
 }
 
 header {
 
-    #header-logo {
-        width: 200px;
-        margin-top: 20px;
+    #header-logo img {
+        width: 150px;
+        margin-top: 30px;
+
+        @include tablet {
+            width: 230px;
+            margin-left: 20px;
+        }
+
+        @include desktop {
+            width: 230px;
+            margin-top: 0;
+        }
     }
 
     #mob-menu {
@@ -136,6 +151,47 @@ header {
         #history-sub li {
             &:first-child {
                 margin-top: 10px !important;
+
+                @include desktop {
+                    margin-top: 0 !important;
+                }
+            }
+        
+            a {
+                font-size: 20px !important;
+                
+
+                @include desktop {
+                    font-size: 16px !important;
+                }
+            }
+        }
+
+         #about-nav {
+        cursor: pointer;
+        }
+
+        .about-con {
+            display: flex;
+            gap: 8px;
+
+            a {
+                padding-bottom: 10px;
+            }
+        }
+
+        .submenu-toggle img {
+            width: 15px;
+            margin-top: 20px;
+        }
+
+        #about-sub li {
+            &:first-child {
+                margin-top: 10px !important;
+
+                @include desktop {
+                    margin-top: 0 !important;
+                }
             }
         
             a {
@@ -150,30 +206,7 @@ header {
 
 }
 
-// ===========================================
-// HERO 
-// ===========================================
 
-#hero {
-    background-color: #0a275a72;
-    height: 350px;
-
-    #hero-heading {
-        color: #fff;
-        margin-top: 150px;
-        font-size: 16px;
-        line-height: 30px;
-
-        span {
-            font-size: 25px;
-        }
-    }
-
-    #hero-p {
-        color: #fff;
-        margin-top: 0;
-    }
-}
 
 // ===========================================
 // INLINE HEADER NAV
@@ -182,6 +215,7 @@ header {
 @media screen and (min-width: 1200px) {
     #top-header {
         display: block;
+        justify-self: end;
 
         ul {
             display: flex;
@@ -227,6 +261,10 @@ header {
 
                 &:first-child {
                     margin-top: 20px;
+                    
+                    a {
+                        margin-left: auto;
+                    }
                 }
             
                 a {
@@ -243,7 +281,7 @@ header {
             }
 
             li#home {
-                margin-right: 50px;
+                margin-right: 20px;
             }
 
         }
@@ -257,7 +295,7 @@ header {
 
 
     #history-nav {
-        padding: 0 50px 10px 50px;
+        padding: 0 40px 10px 40px;
 
         a {
             &:hover {
@@ -266,7 +304,7 @@ header {
         }
     }
 
-        .history-con {
+        .history-con{
             display: flex;
             gap: 8px;
 
@@ -277,7 +315,7 @@ header {
 
         .submenu-toggle img {
             width: 10px;
-            margin-top: 10px;
+            margin-top: 11px;
         }
 
     }
@@ -286,22 +324,70 @@ header {
         display: none !important;
         position: absolute;
         top: 100%;
-        left: 47%;
-        background-color: #0a275a85;
-        backdrop-filter: blur(50px);
-        border-radius: 10px;
+        left: 43%;
+        background-color: $aviation_blue;
         z-index: 1000;
 
         li {
             text-align: center;
             border-bottom: 1px solid rgba(150, 150, 150, 0.187);
-            padding: 5px 15px 30px 15px;
             transition: transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            margin-top: 0 !important;
 
+            
             &:hover {
-                padding-bottom: 20px !important;
-                border-bottom: 1px solid rgba(150, 150, 150, 0.187) !important;
-                transform: scale(1.05);
+                transform: scale(1.03);
+            }
+
+
+        }
+    }
+
+    #about-nav {
+        padding: 0 30px 10px 40px;
+
+        a {
+            &:hover {
+            border-bottom: none !important;
+            padding-bottom: 10px !important;
+        }
+    }
+
+        .about-con{
+            display: flex;
+            gap: 8px;
+
+            a {
+                padding-bottom: 10px;
+            }
+        }
+
+        .submenu-toggle img {
+            width: 10px;
+            margin-top: 11px;
+        }
+
+    }
+
+    #about-sub {
+        display: none !important;
+        position: absolute;
+        top: 100%;
+        left: 28%;
+        background-color: $aviation_blue;
+        z-index: 1000;
+
+        li {
+            text-align: center;
+            border-bottom: 1px solid rgba(150, 150, 150, 0.187);
+            transition: transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            margin-top: 0 !important;
+
+            
+            &:hover {
+                transform: scale(1.03);
             }
 
 
@@ -309,6 +395,10 @@ header {
     }
 
     li#history-nav:hover > #history-sub {
+         display: block !important;
+    }
+
+    li#about-nav:hover > #about-sub {
          display: block !important;
     }
 
