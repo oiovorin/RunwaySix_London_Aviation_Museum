@@ -16,6 +16,8 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
     selectDate();
+} else if (document.body.dataset.page === "book-of-remembrance") {
+    header();
 } else if (document.body.dataset.page === "contact") {
     header();
 } else if (document.body.dataset.page === "education") {
