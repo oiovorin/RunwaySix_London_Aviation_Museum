@@ -1,3 +1,206 @@
-@forward 'home';
-@forward 'contact';
-@forward 'home';
+@use '../abstracts' as *;
+
+// ===========================================
+// CATEGORY CHANGE BUTTON
+// ===========================================
+
+#category-btn {
+    display: flex;
+    justify-content: space-between;
+    background-color: $aviation_blue;
+
+    button {
+        background-color: $aviation_blue;
+        color: #fff;
+        font-size: 16px;
+        padding: 5px 8px;
+        cursor: pointer;
+
+
+        @include tablet {
+            padding: 10px 15px;
+            font-size: 18px;
+
+            &:first-child {
+                padding-left: 30px;
+            }
+
+            &:last-child {
+                padding-right: 30px;
+            }
+        }
+    }
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: fit-content;
+    margin-bottom: 12px;
+
+    @include tablet {
+        padding: 5px 15px;
+        font-size: 11px;
+        margin-bottom: 15px;
+    }
+}
+
+// ===========================================
+// EVENT / BLOG TEMPLATE STYLING
+// ===========================================
+
+#top-events-left {
+    background-color: $aviation_blue;
+    padding-bottom: 15px;
+
+    img {
+        width: 100vw;
+        height: 350px;
+    }
+
+    .detail {
+        margin: 10px;
+
+
+        .title {
+            color: #fff;
+            font-size: 20px;
+            line-height: 40px;
+        }
+
+        .date {
+            color: #fff;
+            font-size: 15px;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .description {
+            color: #fff;
+            font-size: 16px;
+            line-height: 30px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tag-event {
+            margin-top: 10px;
+        }
+
+        .event-link {
+            color: #fff;
+            font-size: 14px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #fff;
+        }
+    }
+}
+
+#top-events-right {
+    background-color: #fff;
+
+    img {
+        width: 100vw;
+        height: 350px;
+    }
+
+    .detail {
+        margin: 10px;
+
+
+        .title {
+            color: $aviation_blue;
+            font-size: 20px;
+            line-height: 40px;
+        }
+
+        .date {
+            color: $aviation_blue;
+            font-size: 15px;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .description {
+            color: $aviation_blue;
+            font-size: 16px;
+            line-height: 30px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tag-event {
+            margin-top: 10px;
+        }
+
+        .event-link {
+            color: $aviation_blue;
+            font-size: 14px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid $aviation_blue;
+        }
+    }
+}
+
+// ===========================================
+// EVENT CARD STYLING
+// ===========================================
+#more-events {
+    margin-top: 80px;
+
+    .event-card {
+        background-color: #fff;
+        display: flex;
+        padding: 20px;
+        gap: 20px;
+
+        .image-tag {
+        flex: 0 0 180px;
+        
+
+        .label {
+            background-color: $aviation_blue;
+            color: #fff;
+            display: block;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        img {
+            width: 180px;
+            height: 200px;
+            background-color: $chacoal;
+        }
+    }
+
+    .more-details {
+        margin-top: 20px;
+
+        .title {
+            font-size: 22px;
+        }
+
+        .date {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .description {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .event-link {
+            font-size: 14px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid $chacoal;
+        }
+    }
+
+    }
+}

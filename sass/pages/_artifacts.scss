@@ -1,0 +1,86 @@
+@use '../abstracts' as *;
+
+// ===========================================
+// 3D SECTION
+// ===========================================
+
+.hero-artifacts {
+    background-image: url(../images/hero-artifacts.png);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.artifact-3d-section {
+    margin-top: 100px;
+    img{
+        background-color: $chacoal;
+        height: 237px;
+        margin-bottom: 50px;
+
+        @include tablet {
+            height: 350px;
+            margin-bottom: 100px;
+        }
+        @include desktop {
+            height: 500px;
+        }
+    }
+}
+
+.btn-art{
+    font-weight: 600;
+    font-size: large;
+    font-family: 'Libre Baskerville';
+    color: $aviation_blue;
+    text-decoration: none;
+    background-color: $archive_beige;
+    border: 3px solid $aviation_blue;
+    border-radius: 30px;
+    padding: 5px 50px;
+    margin: auto;
+    
+    @include tablet{
+        margin-bottom: 70px;
+    }
+    @include desktop{
+        font-size: 30px;
+        padding: 5px 80px;
+    }
+    &:hover {
+        color: #fff;
+        background-color: $aviation_blue;
+    }
+}
+
+section.grid-con > a.btn-art:nth-of-type(3),
+section.grid-con > a.btn-art:nth-of-type(4) {
+  margin-top: 10px;
+  @include tablet{
+    margin-top: 0;
+  }
+}
+
+// ===========================================
+// ARTIFACT SECTION
+// ===========================================
+
+.artifact-section {
+    margin-bottom: 10px;
+    color: $aviation_blue;
+    img{
+        background-color: $chacoal;
+        height: 200px;
+        margin-top: 50px;
+        margin-bottom: 20px;
+        @include desktop{
+            height: 300px;
+        }
+    }
+    &:last-child p { 
+    margin-bottom: 200px;
+    }   
+    @include desktop{
+        font-size: 20px;
+    }
+}
