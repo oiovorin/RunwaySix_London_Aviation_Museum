@@ -11,9 +11,13 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "about") {
     header();
     carousel();
+} else if (document.body.dataset.page === "artifacts") {
+    header();
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
     selectDate();
+} else if (document.body.dataset.page === "book-of-remembrance") {
+    header();
 } else if (document.body.dataset.page === "contact") {
     header();
 } else if (document.body.dataset.page === "education") {
