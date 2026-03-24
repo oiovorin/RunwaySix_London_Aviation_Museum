@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Artifacts</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script type="module" src="js/main.js"></script>
-    <title>London Aviation Museum Events/Blog Page</title>
+    <title>London Aviation Museum Aircraft Page</title>
 </head>
-<body class="beige-bg" data-page="events-blog">
 
-    <section  class="hero-loop-video">
 
-   <header>
+<body data-page="artifacts">
+    <section class="hero-artifacts">
+    <header>
         <div class="grid-con">
 
             <div id="top-header" class="l-col-start-9 l-col-end-12">
@@ -25,7 +26,7 @@
                 </nav>
             </div> 
 
-            <a href="index.html" class="col-start-1 col-span-3 m-col-start-2" aria-label="home">
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
                  <picture id="header-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
@@ -45,7 +46,7 @@
                         <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
                         <li id="about-nav">
                             <div class="about-con">
-                                <a>About</a>
+                                <a href="about.html">About</a>
                                 <div class="submenu-toggle">
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
@@ -77,75 +78,93 @@
         </div>
     </header>
 
-    <div class="grid-con">
-        <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
-            <span>Events & Blog</span>
+    <div class="grid-con" id="hero-text">
+        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13">
+            <span>Aritifacts</span>
         </h1>
+        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12">
+            Explore a collection of artifacts that serve as silent witnesses to history. From weathered flight jackets to recovered aircraft fragments, each piece preserves the memory of service, sacrifice, and dedication, honouring the lives and stories behind the London Aviation Museum.
+        </p>
     </div>
     </section>
 
     <main>
-        <div>
-            <div id="category-btn">
-                <button>All</button>
-                <button>Events</button>
-                <button>Blog</button>
-                <button>WWII</button>
-                <button>RCAF</button>
-                <button>Local History</button>
-                <button>Education</button>
-                <button>Community</button>
-            </div>
-        </div>
-
-        <div id="top-template" class="grid-con">
-            <!-- change this div to template -->
-            <div id="top-events-left" class="col-span-full m-col-start-1 m-col-end-7">
+        <!-- 3D Model Section -->
+        <section class="grid-con">
+            <h2 class="hidden">Aritifacts Gallery</h2>
+            <div class="col-span-full m-col-start-2 m-col-end-12 artifact-3d-section">
                 <img src="images/" alt="alt text here">
-                <div class="detail">
-                    <span class="tag tag-event">EVENT</span>
-                    <h2 class="title">Remembrance Day:<br>
-                        Honouring RCAF Airmen</h2>
-                    <p class="date">November 11</p>
-                    <p class="description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a class="event-link" href="#">Read More</a>
-                </div>
             </div>
+            <a href="#" class=" btn-art col-span-2 m-col-start-1">Medals</a>
+            <a href="#" class=" btn-art col-span-2 m-col-start-4">Medals</a>
+            <a href="#" class=" btn-art col-span-2 m-col-start-7">Medals</a>
+            <a href="#" class="btn-art col-span-2 col-start-3 m-col-start-10">Medals</a>
+        </section>
 
-            <!-- (different color veersion) change to template -->
-            <div id="top-events-right" class="col-span-full m-col-start-7 m-col-end-13">
+        <!-- Artifacts Gallery -->
+        <section class="grid-con">
+            <div class="col-start-2 col-end-4 m-col-start-1 m-col-end-5 artifact-section">
                 <img src="images/" alt="alt text here">
-                <div class="detail">
-                    <span class="tag tag-blog">BLOG</span>
-                    <h2 class="title">Remembrance Day:<br>
-                        Honouring RCAF Airmen</h2>
-                    <p class="date">November 11</p>
-                    <p class="description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a class="event-link" href="#">Read More</a>
-                </div>
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
             </div>
-        </div>
-
-
-        <!-- template for small event / blog card -->
-        <div id="more-events" class="grid-con">
-            <div class="event-card col-span-full m-col-span-6 l-col-span-6">
-                <div class="image-tag">
-                    <span class="label">EVENT</span>
-                    <img src="images/" alt="alt text here">
-                </div>
-
-                <div class="more-details">
-                    <h2 class="title">Veterans' Week at the Museum</h2>
-                    <p class="date">Early November</p>
-                    <p class="description">A week of reflection, stories, and exhibits honouring Canadian veterans and RCAF service members.</p>
-                    <a class="event-link" href="#">Read More</a>
-                </div>
+            <div class="col-start-2 col-end-4 m-col-start-5 m-col-end-9 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
             </div>
-        </div>
+            <div class="col-start-2 col-end-4 m-col-start-9 m-col-end-13 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+            <div class="col-start-2 col-end-4 m-col-start-1 m-col-end-5 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+            <div class="col-start-2 col-end-4 m-col-start-5 m-col-end-9 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+            <div class="col-start-2 col-end-4 m-col-start-9 m-col-end-13 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div><div class="col-start-2 col-end-4 m-col-start-1 m-col-end-5 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+            <div class="col-start-2 col-end-4 m-col-start-5 m-col-end-9 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+            <div class="col-start-2 col-end-4 m-col-start-9 m-col-end-13 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div><div class="col-start-2 col-end-4 m-col-start-1 m-col-end-5 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+            <div class="col-start-2 col-end-4 m-col-start-5 m-col-end-9 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+            <div class="col-start-2 col-end-4 m-col-start-9 m-col-end-13 artifact-section">
+                <img src="images/" alt="alt text here">
+                <h3>Name of Artifact</h3>
+                <p>Date:</p>
+            </div>
+        </section>
     </main>
 
-   <footer>
+     <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
                 <picture id="footer-logo">
