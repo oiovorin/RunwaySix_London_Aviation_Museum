@@ -17,6 +17,7 @@ if(document.body.dataset.page === "home") {
     header();
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
+    selectDate();
 } else if (document.body.dataset.page === "pilot") {
     header();
     selectDate();
