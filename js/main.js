@@ -4,6 +4,8 @@ import { selectDate } from "./modules/battle-of-britain.js";
 import { timeline } from "./modules/timeline.js";
 import { carousel } from "./modules/about.js";
 import { timelineCarousel } from "./modules/history.js";
+import { selectLocation } from "./modules/warime.js";
+import { moveMap } from "./modules/warime.js";
 
 if(document.body.dataset.page === "home") {
   header();
@@ -15,6 +17,7 @@ if(document.body.dataset.page === "home") {
     header();
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
+    selectDate();
 } else if (document.body.dataset.page === "pilot") {
     header();
     selectDate();
@@ -38,4 +41,6 @@ if(document.body.dataset.page === "home") {
     header();
 } else if (document.body.dataset.page === "wartime") {
     header();
+    selectLocation();
+    moveMap();
 }
