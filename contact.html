@@ -76,8 +76,63 @@
     </header>
 
     <main>
-        
 
+        <section class="section-header" id="contact">
+            <span class="line"></span>
+                <h2>Contact Information</h2>
+                <span class="line"></span>
+        </section>
+
+        <div class="grid-con" id="museum-info">
+            <div class="col-span-full icon-text">
+                <img src="images/location.svg" alt="icon of location" class="contact-icon">
+                <h3>Address</h3>
+                <p>2155 Crumlin Side Rd, London, Ontario N5V 3Z9, Canada.</p>
+            </div>
+
+            <div class="col-span-full icon-text">
+                <img src="images/email.svg" alt="icon of email" class="contact-icon">
+                <h3>Email</h3>
+                <p>info@427wing.com</p>
+            </div>
+
+            <div class="col-span-full icon-text">
+                <img src="images/phone.svg" alt="icon of phone" class="contact-icon">
+                <h3>Phone</h3>
+                <p>519-455-0430</p>
+            </div>
+        </div>
+
+        <section class="section-header">
+            <span class="line"></span>
+                <h2>Send Us a Message</h2>
+                <span class="line"></span>
+        </section>
+
+        <div id="contct-form-bg">
+            <form action="/action_page.php" class="grid-con">
+                <div class="form-label col-span-full m-col-start-2 m-col-end-7" id="name-input">
+                    <label for="name" class="input-title">Full Name:</label>
+                    <input type="text" id="name" name="name" class="input-box" placeholder="Your Full Name">
+                </div>
+
+                <div class="form-label col-span-full m-col-start-7 m-col-end-12">
+                    <label for="email" class="input-title">Email: </label>
+                    <input type="text" id="email" name="email" class="input-box" placeholder="Your Email Address">
+                </div>
+
+                <label for="subject" class="input-title col-span-full m-col-start-2 m-col-end-12">Subject: </label>
+                <input type="text" id="subject" name="subject" class="input-box col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Subject">
+
+                <label for="message" class="input-title col-span-full m-col-start-2 m-col-end-12">Your Message: </label>
+                <textarea id="message" name="message" rows="12" cols="50" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Write Your Message..."></textarea>
+
+                <p id="alart" class="col-span-full m-col-start-2 m-col-end-12">* Please fill in all required fields before submit!</p>
+
+                <input type="submit" value="Submit" id="submit-btn" class="col-span-full m-col-start-9 m-col-end-12 l-col-start-10 l-col-end-12 button">
+            </form>
+        </div>
+        
     </main>
     
 
