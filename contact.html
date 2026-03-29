@@ -6,6 +6,7 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History Education Page</title>
 </head>
@@ -110,27 +111,45 @@
         </section>
 
         <div id="contct-form-bg">
-            <form action="/action_page.php" class="grid-con">
-                <div class="form-label col-span-full m-col-start-2 m-col-end-7" id="name-input">
-                    <label for="name" class="input-title">Full Name:</label>
-                    <input type="text" id="name" name="name" class="input-box" placeholder="Your Full Name">
-                </div>
+            <form id="contactForm" @submit.prevent="submitForm">
+        <label for="firstName">First Name: <span class="required">*</span></label>
+        <p class="field-error" v-if="errors.firstName">{{errors.firstName}}</p>
+        <input type="text" id="firstName" v-model="formData.firstName">
 
-                <div class="form-label col-span-full m-col-start-7 m-col-end-12">
-                    <label for="email" class="input-title">Email: </label>
-                    <input type="text" id="email" name="email" class="input-box" placeholder="Your Email Address">
-                </div>
+        <label for="lastName">Last Name: <span class="required">*</span></label>
+        <p class="field-error" v-if="errors.lastName">{{errors.lastName}}</p>
+        <input type="text" id="lastName" v-model="formData.lastName">
 
-                <label for="subject" class="input-title col-span-full m-col-start-2 m-col-end-12">Subject: </label>
-                <input type="text" id="subject" name="subject" class="input-box col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Subject">
+        <label for="email">Email: <span class="required">*</span></label>
+        <p class="field-error" v-if="errors.email">{{errors.email}}</p>
+        <input type="email" id="email" v-model="formData.email">
 
-                <label for="message" class="input-title col-span-full m-col-start-2 m-col-end-12">Your Message: </label>
-                <textarea id="message" name="message" rows="12" cols="50" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Write Your Message..."></textarea>
+        <label for="testAnswer">What is 4+4 (Type the number) <span class="required">*</span></label>
+        <p class="field-error" v-if="errors.testAnswer">{{errors.testAnswer}}</p>
+        <input type="number" id="testAnswer" v-model="formData.testAnswer">
 
-                <p id="alart" class="col-span-full m-col-start-2 m-col-end-12">* Please fill in all required fields before submit!</p>
+        <label for="message">Message: <span class="required">*</span></label>
+        <p class="field-error" v-if="errors.message">{{errors.message}}</p>
+        <textarea id="message" v-model="formData.message"></textarea>
 
-                <input type="submit" value="Submit" id="submit-btn" class="col-span-full m-col-start-9 m-col-end-12 l-col-start-10 l-col-end-12 button">
-            </form>
+        <input type="text" id="honeypot" v-model="formData.honeypot">
+
+        <button :class="{'buttonCircle': submitted, 'button': true}" type="submit">
+          <div class="container">
+            <span class="tick">
+              <svg v-if="submitted" width="58" height="45" viewBox="0 0 58 45" xmlns="http://www.w3.org/2000/svg">
+              <path fill="#fff" fill-rule="nonzero"
+              d="M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65" />
+              </svg>
+              <span v-else>{{buttonText}}</span>
+            </span>
+          </div>
+        </button>
+        <p class="field-error" v-if="errors.general">{{errors.general}}</p>
+        <div v-if="responseMessage">
+          {{responseMessage}}
+        </div>
+      </form>
         </div>
         
     </main>
