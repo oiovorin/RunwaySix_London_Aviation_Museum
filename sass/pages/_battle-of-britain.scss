@@ -1,0 +1,364 @@
+@use '../abstracts' as *;
+
+.bofb-hero-bg {
+    background-image: url(../images/bofb-hero.png);
+    width: 100%;
+    height: 600px;
+}
+
+#battle-intro {
+    margin: 100px auto;
+
+    img {
+        margin: 0 auto;
+    }
+
+    #battle-quote {
+        order: 2;
+        margin: 30px auto;
+        span {
+            font-size: 25px;
+            font-weight: 400;
+        }
+
+        @include desktop {
+            order: 1;
+            margin: 0;
+        }
+    }
+
+    #quote-from {
+        order: 1;
+        font-style: italic;
+        margin: 10px auto 0 auto;
+
+        @include desktop {
+            order: 2;
+        }
+    }
+}
+
+#battle-phases {
+    margin: 100px auto;
+
+    .phase-card {
+        margin: 50px auto;
+        width: 350px;
+
+        @include desktop {
+            width: auto;
+        }
+
+        img {
+            background-color: $chacoal;
+            height: 260px;
+        }
+
+        &.blue {
+
+        .phase {
+            padding-left: 15px;
+            margin-bottom: 10px;
+            border-left: 2px solid $aviation_blue;
+            color: $aviation_blue;
+            font-size: 16px;
+        }
+
+        p.phase-detail {
+            color: #fff;
+            background-color: $aviation_blue;
+            padding:20px 15px;
+            line-height: 22px;
+            min-height: 150px;
+            
+            @include tablet {
+                min-height: 200px;
+            }
+
+            @include desktop {
+                min-height: 258px;
+            }
+        }
+    }
+
+    &.green {
+        .phase {
+            padding-left: 15px;
+            margin-bottom: 10px;
+            border-left: 2px solid $military_green;
+            color: $military_green;
+            font-size: 16px;
+        }
+        
+        p.phase-detail {
+            color: #fff;
+            background-color: $military_green;
+            padding: 20px 15px;
+            line-height: 22px;
+            min-height: 150px;
+            
+            @include tablet {
+                min-height: 200px;
+            }
+
+            @include desktop {
+                min-height: 258px;
+            }
+        }
+    }
+    }
+}
+
+#date-selection {
+    display: none;
+    margin: 100px auto;
+
+    @include tablet {
+        display: block;
+    }
+
+    #select-button-list {
+        display: flex;
+        justify-content: space-around;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        
+
+        button {
+            width: 15px;
+            height: 15px;
+            border-radius: 30px;
+            background-color: rgba(128, 128, 128, 0.814);
+            cursor: pointer;
+        }
+
+        button.active {
+            background-color: $aviation_blue;
+        }
+    }
+    }
+}
+
+.selected-date {
+    display: none;
+    margin-bottom: 50px;
+    position: relative;
+
+    @include tablet {
+        margin-bottom: 100px;
+    }
+
+    .date {
+        color: $aviation_blue;
+        font-size: 55px;
+        font-weight: 600;
+        font-family: "Libre Baskerville", serif;
+        line-height: 60px;
+        margin-left: 20px;
+        text-align: center;
+
+        @include tablet {
+            text-align: auto;
+            z-index: 2;
+        }
+
+
+        span {
+            font-size: 60px;
+            @include tablet {
+                font-size: 100px;
+            }
+        }
+
+        br {
+            display: none;
+
+            @include tablet {
+                display: block;
+            }
+        }
+    }
+
+    img {
+        margin: 30px auto;
+
+            @include tablet {
+                width: 490px;
+                height: 330px;
+                margin-top: -20px;
+                z-index: 1;
+            }
+        }
+
+    .title {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 18px;
+        font-family: "Libre Baskerville", serif;
+        margin-bottom: 15px;
+
+    }
+
+    .detail {
+        text-align: center;
+        min-height: 100px;
+    }
+    
+}
+
+.selected-date.selected {
+    display: grid;
+}
+
+#mobile-select-carousel {
+    @include tablet {
+        display: none;
+    }
+
+    #mobile-button-list {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+
+            button {
+                width: 15px;
+                height: 15px;
+                border-radius: 30px;
+                background-color: rgba(128, 128, 128, 0.814);
+                cursor: pointer;
+            }
+
+            button.active {
+                background-color: $aviation_blue;
+            }
+        }
+
+        #mobile-arrow {
+            margin: 30px auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+
+
+            button {
+                margin: 0;
+                padding: 5px 15px;
+                font-size: 20px;
+            }
+        }
+}
+
+#loss {
+    margin: 20px auto;
+
+    @include desktop {
+        margin: 100px auto;
+    }
+
+    div {
+        margin: 20px;
+
+        @include tablet {
+            margin: 0 auto;
+        }
+
+        h3 {
+            color: $aviation_blue;
+            padding-bottom: 5px;
+            border-bottom: 2px solid $aviation_blue;
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        span {
+            font-weight: 500;
+        }
+    }
+}
+
+#honor-slide {
+    margin: 100px auto;
+
+    @include desktop {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 30px;
+    }
+
+    .pilot-card {
+        background-color: $aviation_blue;
+        padding: 25px;
+        display: flex;
+        margin: 40px;
+        gap: 40px;
+
+        @include tablet {
+            margin: 20px;
+        }
+        
+        @include desktop {
+            flex-direction: column;
+            gap: 5px;
+            margin: 0;
+
+        }
+        
+        &:hover {
+            transform: scale(1.05);
+            transition: all .3s ease-in-out;
+        }
+
+        img {
+            width: 140px;
+            height: 160px;
+            
+            @include desktop {
+                width: 180px;
+                height: 300px;
+                margin-bottom: 15px;
+            }
+        }
+
+        .title {
+            color: #fff;
+            margin-bottom: 5px;
+            font-size: 16px;
+
+            @include desktop {
+                text-align: center;
+            }
+        }
+
+        .name {
+            font-family: "Libre Baskerville", serif;
+            font-style: italic;
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 20px;
+
+            @include desktop {
+                text-align: center;
+            }
+        }
+
+        a {
+            display: block;
+            margin: 40px 5px 0 5px;
+
+            @include desktop {
+                text-align: center;
+                margin: 0 5px;
+            }
+        }
+    }
+}
