@@ -6,10 +6,11 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History Education Page</title>
 </head>
-<body data-page="pilot">
+<body data-page="contact">
 
     <header class="blue-header">
         <div class="grid-con">
@@ -109,28 +110,51 @@
                 <span class="line"></span>
         </section>
 
-        <div id="contct-form-bg">
-            <form action="/action_page.php" class="grid-con">
-                <div class="form-label col-span-full m-col-start-2 m-col-end-7" id="name-input">
-                    <label for="name" class="input-title">Full Name:</label>
-                    <input type="text" id="name" name="name" class="input-box" placeholder="Your Full Name">
-                </div>
+        <div id="app">
+            <div id="contct-form-bg" class="full-width-grid-con">
+            <form id="contactForm" @submit.prevent="submitForm" class="grid-con">
+            <div class="input-flex col-span-full m-col-start-2 m-col-span-5">
+            <label>Full Name:</label>
+            <input type="text" id="fullName" v-model="formData.fullName" placeholder="Your Full Name">
+            <p class="field-error" v-if="errors.fullName"><span class="error-icon">!</span> {{errors.fullName}}</p>
+            </div>
 
-                <div class="form-label col-span-full m-col-start-7 m-col-end-12">
-                    <label for="email" class="input-title">Email: </label>
-                    <input type="text" id="email" name="email" class="input-box" placeholder="Your Email Address">
-                </div>
+            <div class="input-flex col-span-full m-col-span-5">
+            <label for="email">Email:</label>
+            <input type="email" id="email" v-model="formData.email" placeholder="Your Email Address">
+            <p class="field-error" v-if="errors.email"><span class="error-icon">!</span> {{errors.email}}</p>
+            </div>
 
-                <label for="subject" class="input-title col-span-full m-col-start-2 m-col-end-12">Subject: </label>
-                <input type="text" id="subject" name="subject" class="input-box col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Subject">
+            <label for="subject" class="col-span-full m-col-start-2 m-col-end-12">Subject:</label>
+            <input type="text" id="subject" v-model="formData.subject" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Subject">
+            <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.subject" ><span class="error-icon">!</span> {{errors.subject}}</p>
 
-                <label for="message" class="input-title col-span-full m-col-start-2 m-col-end-12">Your Message: </label>
-                <textarea id="message" name="message" rows="12" cols="50" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Write Your Message..."></textarea>
+            <label for="message" class="col-span-full m-col-start-2 m-col-end-12">Message:</label>
+            <textarea id="message" v-model="formData.message" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Write Your Message...."></textarea>
+            <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.message"><span class="error-icon">!</span> {{errors.message}}</p>
 
-                <p id="alart" class="col-span-full m-col-start-2 m-col-end-12">* Please fill in all required fields before submit!</p>
+            <input type="text" id="honeypot" v-model="formData.honeypot" class="hidden">
 
-                <input type="submit" value="Submit" id="submit-btn" class="col-span-full m-col-start-9 m-col-end-12 l-col-start-10 l-col-end-12 button">
-            </form>
+            <p class="fail col-span-full m-col-start-2 m-col-end-12" v-if="errors.general"><span class="error-icon">!</span> {{errors.general}}</p>
+            <div v-if="responseMessage" class="fail col-span-full m-col-start-2 m-col-end-12">
+            {{responseMessage}}
+            </div>
+
+            <div class="col-span-full m-col-start-2 m-col-end-12">
+               <button :class="{'buttonCircle': submitted, 'button': true}" type="submit">
+                    <div class="container">
+                        <span class="tick">
+                        <svg v-if="submitted" width="58" height="45" viewBox="0 0 58 45" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#fff" fill-rule="nonzero"
+                        d="M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65" />
+                        </svg>
+                        <span v-else>{{buttonText}}</span>
+                        </span>
+                    </div>
+        </button>
+        </div>
+        </form>
+    </div>
         </div>
         
     </main>
