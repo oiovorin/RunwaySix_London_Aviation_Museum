@@ -1,12 +1,11 @@
 export function form () {
     const emptyForm = function() {
     return {
-        firstName: '',
-        lastName: '',
+        fullName: '',
         email: '',
+        subject: '',
         message: '',
-        honeypot: '',
-        testAnswer:''
+        honeypot: ''
     }
 }
 
@@ -16,7 +15,7 @@ const app = Vue.createApp({
             formData: emptyForm(),
             responseMessage: '',
             errors: {},
-            buttonText: "Submit Message",
+            buttonText: "Submit",
             submitted: false
         }
     },
