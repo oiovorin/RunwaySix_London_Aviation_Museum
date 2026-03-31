@@ -1,35 +1,41 @@
 export function timelineCarousel () {
-    const timelineImages = document.querySelectorAll(".timeline-carousel .card-img");
-    const preBtn = document.querySelector(".prev");
-    const nextBtn = document.querySelector(".next");
+    const carousels = document.querySelectorAll(".carousel");
 
-    let currentIndex = 0;
+    carousels.forEach((carousel) => {
+        const timelineImages = carousel.querySelectorAll(".card-img");
+        const preBtn = carousel.querySelector(".prev");
+        const nextBtn = carousel.querySelector(".next");
+    
 
-    function showItem () {
-        timelineImages.forEach(image => {
-            image.classList.remove("active");
-            });
-            timelineImages[currentIndex].classList.add("active");
-    }
+        let currentIndex = 0;
 
-    function nextImg () {
-        currentIndex++;
-        if(currentIndex >= timelineImages.length) {
-            currentIndex = 0;
+        function showItem () {
+            timelineImages.forEach(image => {
+                image.classList.remove("active");
+                });
+                timelineImages[currentIndex].classList.add("active");
         }
 
-        showItem(currentIndex);
-    }
+        function nextImg () {
+            currentIndex++;
+            if(currentIndex >= timelineImages.length) {
+                currentIndex = 0;
+            }
 
-    function prevImg () {
-        currentIndex--;
-        if(currentIndex < 0) {
-        currentIndex = timelineImages.length - 1;
+            showItem(currentIndex);
         }
 
-        showItem(currentIndex);
-    }
+        function prevImg () {
+            currentIndex--;
+            if(currentIndex < 0) {
+            currentIndex = timelineImages.length - 1;
+            }
 
-    nextBtn.addEventListener("click", nextImg);
-    preBtn.addEventListener("click", prevImg);
+            showItem(currentIndex);
+        }
+
+        nextBtn.addEventListener("click", nextImg);
+        preBtn.addEventListener("click", prevImg);
+    });
+    
 }

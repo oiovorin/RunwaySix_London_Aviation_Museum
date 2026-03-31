@@ -4,6 +4,11 @@
 // MISSION SECTION
 // ===========================================
 
+.about-hero-bg {
+    background-image: url(../images/home-hero.png);
+    width: 100%;
+    height: 600px;
+}
 
 #overview, #service {
     margin: 50px 0;
@@ -33,7 +38,7 @@
         &::after {
             content: "";
             position: absolute;
-            bottom: -15px;
+            bottom: -260px;
             left: 50%;
             transform: translateX(-50%);
             
@@ -50,7 +55,7 @@
                 transform: none;
 
                 right: 48%;
-                top: 83%;
+                top: 118%;
                 transform: translateY(-50%);
 
                 border-top: 30px solid transparent;
@@ -61,8 +66,12 @@
             }
 
             @include desktop {
-                right: 48%;
-                top: 91%;
+                right: 49%;
+                top: 118%;
+
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-left: 20px solid $aviation_blue;
             }
         }
 
