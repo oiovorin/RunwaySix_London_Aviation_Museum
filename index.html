@@ -7,6 +7,7 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.8.4/plyr.css" />
     <script type="module" src="js/main.js"></script>
     <title>London Aviation Museum Home Page</title>
 </head>
@@ -123,37 +124,13 @@
             
             <div class="grid-con">
             <section id="player-container" class="col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
-            <h3 class="hidden">London Aviation History Video Player</h3>
-        <video controls preload="metadata" poster="images/video-placeholder.png">
-            <source src="videos/video.mp4" type="video/mp4">
-            <source src="videos/video.webm" type="video/webm">
-            <p>You are using an older browser that does not support HTML5 Video. Please update your browser.</p>
-         </video>
-
-      <button id="center-play-button" aria-label="play video">
-         <i class="fa-solid fa-play"></i>
-      </button>
-
-      <div class="video-controls hidden" id="video-controls">
-        <button id="play-button"  aria-label="video play">
-          <i class="fa-solid fa-play"></i>
-        </button>
-        <button id="pause-button" aria-label="video pause">
-          <i class="fa-solid fa-pause"></i>
-        </button>
-        <button id="stop-button" aria-label="video stop">
-          <i class="fa-solid fa-stop"></i>
-        </button>
-        <input type="range" id="timeline" step="0.2" min="0" aria-label="chane timeline of video">
-        <i class="fa fa-volume-up"></i>
-        <input type="range" id="change-vol" step="0.05" min="0" max="1" value="1" aria-label="change volume">
-        <button id="full-screen" aria-label="full screen mode">
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-        </button>
-      </div>
-    </section>
-    </div>
-    </section>
+                <h3 class="hidden">London Aviation History Video Player</h3>
+                <div class="plyr__video-embed" id="player">
+                    <iframe src="https://player.vimeo.com/video/1178915965?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LAM-Documentary-final-video"></iframe>
+                </div>
+            </section>
+            </div>
+        </section>
 
         <!-- Aviation History & Legacy Section with Draggable Slider -->
         <section id="history">
@@ -352,5 +329,10 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+    <script src="https://cdn.plyr.io/3.8.4/plyr.js"></script>
+
+    <script>
+    const player = new Plyr("#player");
+    </script>
 </body>
 </html>

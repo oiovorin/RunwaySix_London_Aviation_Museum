@@ -1,5 +1,4 @@
 import { header } from "./modules/header.js";
-import { videoplayer } from "./modules/videoplayer.js";
 import { selectDate } from "./modules/battle-of-britain.js";
 import { timeline } from "./modules/timeline.js";
 import { carousel } from "./modules/about.js";
@@ -8,9 +7,9 @@ import { selectLocation } from "./modules/warime.js";
 import { moveMap } from "./modules/warime.js";
 import { form } from "./modules/contact.js";
 
+
 if(document.body.dataset.page === "home") {
   header();
-  videoplayer();
 } else if (document.body.dataset.page === "about") {
     header();
     carousel();
