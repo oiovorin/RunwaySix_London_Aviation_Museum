@@ -1,49 +1,125 @@
-@use '../abstracts';
+@use '../abstracts' as *;
 
 // ===========================================
 // HEADER NAV 
 // ===========================================
+
+.blue-header {
+    background-color: $aviation_blue;
+    padding-bottom: 10px;
+}
 
 #top-header {
     display: none;
 }
 
 header {
+    z-index: 1;
+    position: relative;
 
-    #header-logo,
-    #menu-show img {
-        height: 30px;
-        width: auto;
-        margin-top: 20px;
+    #header-logo img {
+        width: 150px;
+        margin-top: 30px;
+
+        @include tablet {
+            width: 230px;
+            margin-left: 20px;
+        }
+
+        @include desktop {
+            width: 230px;
+            margin-top: 0;
+        }
     }
 
-    #menu-show {
-        display: flex;
-        justify-content: end;
+    // mobile menu bar
+    #mob-menu {
+        width: 40px;
+        height: 26px;
+        position: relative;
+        border: none;
+        background: none;
         cursor: pointer;
+        margin-top: 40px;
+        display: flex;
+        justify-content: flex-end;
+        margin-left: auto;
+
+        span {
+            position: absolute;
+            height: 3px;
+            background-color: #fff;
+            transition: 0.4s;
+            text-align: end;
+            right: 0;
+            z-index: 900;
+
+            &:nth-child(1) {
+                top: 0;
+                width: 100%;
+            }
+            &:nth-child(2) {
+                top: 11.5px;
+                width: 80%;
+                right: 0;
+            }
+            &:nth-child(3) {
+                bottom: 0;
+                width: 100%;
+            }
+
+            
+        }
     }
 
-    input#hamburger {
-        display: none;
+    #mob-menu {
+        &.active {
+            span {
+                &:nth-child(1) {
+                    transform: rotate(45deg);
+                    top: 11.5px;
+                }
+
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+
+                &:nth-child(3) {
+                    transform: rotate(-45deg);
+                    top: 11.5px;
+                    bottom: auto;
+                }
+            }
+        }
     }
 
 
+    // navigation link
     #header-nav {
-         position: fixed;
+        position: fixed;
         top: 0;
         right: 0;
         height: 100vh;
-        width: 100vw;
-        background-color: abstracts.$aviation_blue;
+        width: 80vw;
+        background-color: #315c77ef;
         opacity: 0;
         transform: translateX(100%);
-        z-index: 900;
+
+        &.active {
+            transform: translateX(0);
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
 
         nav ul {
             list-style: none;
 
             li {
-                margin: 25px 50px;
+                margin: 25px auto 25px 50px;
+
+                &:first-child {
+                    margin-top: 120px;
+                }
 
                 a {
                     text-decoration: none;
@@ -52,34 +128,75 @@ header {
                     font-weight: 600;
                     transform: scale(1);
                     transition: scale 0.3s ease-in-out;
+                    position: relative;
+                    text-decoration: none;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -5px;
+                        width: 100%;
+                        height: 2px;
+                        background: #fff;
+
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: scaleX(1);
+                    }
                 }
             }
 
         }
-    }
-
-    input#hamburger:checked~#header-nav {
-        transform: translateX(0);
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-    }
-
-    #header-nav-close {
-        font-weight: 500;
-        font-size: 32px;
-        color: #fff;
-        display: flex;
-        justify-content: end;
-        margin-right: 20px;
-        margin-top: 15px;
-        cursor: pointer;
-    }
+    }    
 
     #history-nav {
         cursor: pointer;
     }
 
     .history-con {
+            display: flex;
+            gap: 8px;
+            padding-bottom: 10px;
+
+            a {
+                position: relative;
+            }
+        }
+
+        .submenu-toggle img {
+            width: 15px;
+            margin-top: 20px;
+        }
+
+        #history-sub li {
+            &:first-child {
+                margin-top: 10px !important;
+
+                @include desktop {
+                    margin-top: 0 !important;
+                }
+            }
+        
+            a {
+                font-size: 20px !important;
+                
+
+                @include desktop {
+                    font-size: 16px !important;
+                }
+            }
+        }
+
+         #about-nav {
+        cursor: pointer;
+        }
+
+        .about-con {
             display: flex;
             gap: 8px;
 
@@ -93,30 +210,42 @@ header {
             margin-top: 20px;
         }
 
+        #about-sub li {
+            &:first-child {
+                margin-top: 10px !important;
+
+                @include desktop {
+                    margin-top: 0 !important;
+                }
+            }
+        
+            a {
+                font-size: 20px !important;
+                
+
+                @include desktop {
+                    font-size: 16px !important;
+                }
+            }
+        }
+
 }
 
 // ===========================================
-// HERO 
+// HERO IMAGE
 // ===========================================
 
-#hero {
-    background-color: #0a275a72;
-    height: 350px;
-
+#hero-text {
+    z-index: 2;
+    margin-top: 180px;
     #hero-heading {
         color: #fff;
-        margin-top: 150px;
-        font-size: 16px;
-        line-height: 30px;
-
-        span {
-            font-size: 25px;
-        }
+        font-size: 40px;
     }
 
     #hero-p {
         color: #fff;
-        margin-top: 0;
+        font-size: 18px;
     }
 }
 
@@ -127,30 +256,49 @@ header {
 @media screen and (min-width: 1200px) {
     #top-header {
         display: block;
+        justify-self: end;
+
         ul {
             display: flex;
             align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
             gap: 30px;
-            background-color: abstracts.$archive_beige;
-            padding: 5px 10px 5px 15px;
+            background-color: $archive_beige;
+            padding: 5px 10px;
+            width: 230px;
 
             li a {
-                color: abstracts.$chacoal;
+                color: $chacoal;
                 font-weight: 500;
+                position: relative;
+                text-decoration: none;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -5px;
+                        width: 100%;
+                        height: 2px;
+                        background: $chacoal;
+
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: scaleX(1);
+                    }
             }
         }
     }
+
     header {
 
-        #mob-menu,
-        #header-nav-close {
+        #mob-menu {
             display: none;
-        }
-
-        #header-logo {
-            height: 50px;
-            width: auto;
-            margin-top: 20px;
         }
 
         #header-nav {
@@ -172,23 +320,24 @@ header {
             li {
                 margin: 20px 0 0 0;
 
-                &:hover {
-                        padding-bottom: 3px;
-                        border-bottom: 2px solid #fff;
+                &:first-child {
+                    margin-top: 20px;
+                    
+                    a {
+                        margin-left: auto;
                     }
-                
+                }
             
                 a {
                     color: #fff;
                     font-size: 16px;
                     font-weight: 500;
-
                 }
             
             }
 
             li#home {
-                margin-right: 50px;
+                margin-right: 20px;
             }
 
         }
@@ -199,59 +348,123 @@ header {
         }
 }
 
+    #about-sub,#history-sub {
+            display: flex !important;
+        }
+
 
 
     #history-nav {
-        padding: 0 50px;
+        padding: 0 40px 0px 40px;
 
-        &:hover {
+        a {
+            &:hover {
             border-bottom: none !important;
+            padding-bottom: 0px !important;
         }
+    }
 
-        .history-con {
+        .history-con{
             display: flex;
             gap: 8px;
-
-            a {
-                padding-bottom: 10px;
-            }
         }
 
         .submenu-toggle img {
             width: 10px;
-            margin-top: 10px;
+            margin-top: 11px;
         }
 
     }
 
     #history-sub {
-        display: none !important;
         position: absolute;
         top: 100%;
-        left: 47%;
-        background-color: #0a275a85;
-        backdrop-filter: blur(50px);
-        border-radius: 10px;
-        z-index: 1000;
+        left: 43%;
+        background-color: $aviation_blue;
+        z-index: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 0 !important;
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
 
         li {
             text-align: center;
             border-bottom: 1px solid rgba(150, 150, 150, 0.187);
-            padding: 5px 15px 20px 15px;
             transition: transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            margin-top: 0 !important;
 
             &:hover {
-                padding-bottom: 20px !important;
-                border-bottom: 1px solid rgba(150, 150, 150, 0.187) !important;
-                transform: scale(1.05);
+                transform: scale(1.03);
             }
-
         }
     }
 
     li#history-nav:hover > #history-sub {
-         display: block !important;
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
     }
+
+    #about-nav {
+        padding: 0 30px 0px 40px;
+
+        a {
+            &:hover {
+            border-bottom: none !important;
+            padding-bottom: 0px !important;
+        }
+    }
+
+        .about-con{
+            display: flex;
+            gap: 8px;
+        }
+
+        .submenu-toggle img {
+            width: 10px;
+            margin-top: 11px;
+        }
+
+    }
+
+    #about-sub {
+        position: absolute;
+        top: 100%;
+        left: 28%;
+        background-color: $aviation_blue;
+        z-index: 1000;
+
+        opacity: 0;
+        transform: translateY(-10px);
+        pointer-events: none;
+
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        li {
+            text-align: center;
+            border-bottom: 1px solid rgba(150, 150, 150, 0.187);
+            transition: transform 0.3s ease-in-out;
+            padding: 10px 15px;
+            margin-top: 0 !important;
+
+            &:hover {
+                transform: scale(1.03);
+            }
+        }
+    }
+
+    /* hover state */
+    li#about-nav:hover > #about-sub {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+
 
     #hero {
     height: 500px;

@@ -1,5 +1,9 @@
 @use '../abstracts' as *;
 
-.beige-bg {
+.blue-bg {
+    background-color: $aviation_blue;
+}
+
+body {
     background-color: $archive_beige;
 }

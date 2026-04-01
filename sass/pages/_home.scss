@@ -1,4 +1,89 @@
 @use '../abstracts' as *;
+
+// ===========================================
+// HERO VIDEO
+// ===========================================
+.hero-loop-video {
+    position: absolute;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    video {
+       width: 300%;
+
+       @include tablet {
+        width: 180%;
+       }
+
+       @include desktop {
+        width: 110%;
+       }
+
+    }
+}
+
+// ===========================================
+// HERO TEXT
+// ===========================================
+
+#home-hero-text {
+    position: relative;
+    height: 200px;
+    margin-bottom: 540px;
+    margin-left: 20px;
+
+    @include desktop {
+        margin-bottom: 570px;
+    }
+
+
+    #hero-heading {
+        color: #fff;
+        margin-top: 250px;
+        font-size: 23px;
+        line-height: 30px;
+        line-height: 50px;
+
+
+        @include tablet {
+            font-size: 25px;
+        }
+
+        span {
+            font-size: 45px;
+
+            @include tablet {
+                font-size: 48px;
+            }
+        }
+    }
+
+    #hero-p {
+        color: #fff;
+        margin-top: 0;
+        padding-bottom: 20px;
+        font-size: 18px;
+        margin-right: 20px;
+
+        @include tablet {
+            margin-top: 15px;
+            font-size: 20px;
+        }
+
+    }
+
+    a {
+        font-size: 18px;
+        margin: 10px 150px 0 0;
+        width: 220px;
+        padding: 10px 20px;
+    }
+}
+
+
+
 // ===========================================
 // ABOUT SECTION
 // ===========================================
@@ -16,7 +101,11 @@
     .grid-con {
         align-items: center;
     }
-}
+
+    .button {
+        padding: 10px 30px;
+    }
+
 
 .about-text {
     h2 {
@@ -40,6 +129,7 @@
         line-height: 1.7;
         color: $chacoal;
         margin-bottom: 20px;
+        order: 2;
 
         @include tablet {
             font-size: 15px;
@@ -47,30 +137,27 @@
             margin-bottom: 25px;
         }
     }
+
 }
 
-.about-image {
-    margin-top: 25px;
-
-    @include tablet {
-        margin-top: 0;
-    }
-
-    img {
-        width: 100%;
-        height: 220px;
-        object-fit: cover;
-        border-radius: 4px;
+    a {
+        margin-top: 20px;
 
         @include tablet {
-            height: 300px;
-        }
-
-        @include desktop {
-            height: 380px;
+            margin-top: 0px;
         }
     }
+
+    .about-image {
+        margin-top: 25px;
+
+    @include tablet {
+        margin-top: 40px;
+    }
+
 }
+}
+
 
 // ===========================================
 // VISIT LEARN REMEMBER SECTION
@@ -91,14 +178,26 @@
 // HISTORY SECTION WITH DRAGGABLE SLIDER
 // ===========================================
 #history {
-    padding: 40px 0;
+    padding-top: 40px;
 
     @include tablet {
-        padding: 60px 0;
+        padding-top: 60px;
     }
 
     @include desktop {
-        padding: 80px 0;
+        padding-top: 80px;
+    }
+
+    .section-header {
+        margin-bottom: 60px;
+
+        @include tablet {
+            margin-bottom: 80px;
+        }
+
+        @include desktop {
+            margin-top: 100px;
+        }
     }
 }
 
@@ -106,12 +205,13 @@
 #slider-container {
     width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     cursor: grab;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
     scrollbar-color: $military_green;
+    padding-top: 20px;
 
     &:active {
         cursor: grabbing;
@@ -154,6 +254,7 @@
 
     @include desktop {
         gap: 30px;
+        justify-content: center;
     }
 }
 
@@ -164,16 +265,25 @@
     overflow: hidden;
     flex-shrink: 0;
     // Mobile: Smaller cards
-    width: 240px;
+    width: 280px;
     @include transition;
-
-    @include tablet {
-        width: 280px;
-        border-radius: 8px;
-    }
 
     @include desktop {
         width: 340px;
+    }
+
+    .card-image {
+        width: 90%;
+        height: 170px;
+        overflow: hidden;
+        margin: 10px auto;
+
+        img {
+            object-fit: cover;
+            display: block;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
     }
 
     &:hover {
@@ -190,28 +300,6 @@
     }
 }
 
-.card-image {
-    width: 100%;
-    height: 140px;
-    overflow: hidden;
-
-    @include tablet {
-        height: 170px;
-    }
-
-    @include desktop {
-        height: 200px;
-    }
-
-    img {
-        width: 90%;
-        height: 90%;
-        margin: 10px auto;
-        object-fit: cover;
-        @include transition(transform);
-        pointer-events: none; // Prevent image dragging
-    }
-}
 
 .card-content {
     padding: 18px 15px 22px;
@@ -231,7 +319,7 @@
         margin-bottom: 8px;
 
         @include tablet {
-            font-size: 20px;
+            font-size: 15px;
             margin-bottom: 10px;
         }
 
@@ -257,20 +345,41 @@
             margin-bottom: 20px;
         }
     }
+
+    .button {
+        padding: 10px 20px;
+        margin: 0 30px;
+        text-align: center;
+        display: block;
+
+
+    }
+
+    .button.battle-of-britain {
+        margin-top: 32px;
+
+        @include tablet {
+            margin-top: 15px;
+        }
+
+        @include desktop {
+            margin-top: 40px;
+        }
+    }
 }
 
 // ===========================================
 // EVENTS & BLOG SECTION
 // ===========================================
 #events-blog {
-    padding: 40px 0;
+    padding: 60px 0;
 
     @include tablet {
-        padding: 60px 0;
+        padding: 80px 0;
     }
 
     @include desktop {
-        padding: 80px 0;
+        padding: 100px 0;
     }
 }
 
@@ -278,9 +387,33 @@
     display: flex;
     // Mobile: Stack vertically
     flex-direction: column;
-    max-width: 1200px;
+    max-width: 1600px;
+    margin: 0 auto;
+    background-color: $aviation_blue;
+    color: #fff;
+
+        &:hover .event-image img{
+            transform: scale(1.05);
+        }
+
+    // Tablet+: Side by side
+    @include tablet {
+        flex-direction: row;
+    }
+}
+
+.event-row-reverse {
+    display: flex;
+    // Mobile: Stack vertically
+    flex-direction: column;
+    max-width: 1600px;
     margin: 0 auto;
     background-color: #fff;
+    color: $aviation_blue;
+
+    &:hover .event-image-reverse img{
+            transform: scale(1.05);
+        }
 
     // Tablet+: Side by side
     @include tablet {
@@ -296,7 +429,7 @@
     position: relative;
 
     @include tablet {
-        width: 50%;
+        width: 40%;
         height: auto;
         min-height: 280px;
     }
@@ -311,6 +444,8 @@
         min-height: 180px; // Ensure minimum height on mobile
         object-fit: cover;
         display: block;
+        transform: scale(1);
+        transition: all .3s ease-in-out;
 
         @include tablet {
             min-height: 280px;
@@ -330,7 +465,7 @@
         
     
         @include tablet {
-            width: 50%;
+            width: 40%;
             height: auto;
             min-height: 280px;
             order: 2;
@@ -346,6 +481,8 @@
         min-height: 180px; // Ensure minimum height on mobile
         object-fit: cover;
         display: block;
+        transform: scale(1);
+        transition: all .3s ease-in-out;
 
         @include tablet {
             min-height: 280px;
@@ -355,7 +492,9 @@
             min-height: 320px;
         }
     }
-    }
+
+}
+    
 
 .event-content {
     padding: 20px 15px;
@@ -364,7 +503,7 @@
     justify-content: center;
 
     @include tablet {
-        width: 50%;
+        width: 60%;
         padding: 30px;
     }
 
@@ -375,7 +514,6 @@
     h3 {
         font-size: 20px;
         font-weight: 600;
-        color: $aviation_blue;
         margin-bottom: 6px;
 
         @include tablet {
@@ -387,11 +525,46 @@
             font-size: 28px;
         }
     }
+
+    .read-more {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 500;
+    @include transition(color);
+    position: relative;
+    text-decoration: none;
+    width: 85px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: $heritage_red;
+
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
+
+    @include tablet {
+        font-size: 13px;
+    }
+
+    &:hover {
+        color: $heritage_red;
+    }
+}
 }
 
 .event-date {
     font-size: 12px;
-    color: $aviation_blue;
     margin-bottom: 10px;
 
     @include tablet {
@@ -403,7 +576,6 @@
 .event-description {
     font-size: 13px;
     line-height: 1.6;
-    color: $chacoal;
     margin-bottom: 12px;
 
     @include tablet {
@@ -413,11 +585,14 @@
     }
 }
 
-.read-more {
+
+.blog-content-reverse {
+
+    .read-more {
     font-size: 12px;
     color: $aviation_blue;
     font-weight: 500;
-    text-decoration: underline;
+    text-decoration: none;
     @include transition(color);
 
     @include tablet {
@@ -429,12 +604,11 @@
     }
 }
 
-.blog-content-reverse {
     @include tablet {
     order: 1;
     }
-}
 
+}
 .events-cta {
     text-align: center;
     margin-top: 30px;
@@ -442,42 +616,12 @@
     @include tablet {
         margin-top: 40px;
     }
-}
 
-// ===========================================
-// BUTTONS
-// ===========================================
-.btn {
-    @include button-base;
-    // Mobile: Full width buttons
-    width: 100%;
-    max-width: 200px;
-
-    @include tablet {
-        width: auto;
-        max-width: none;
+    .button {
+        padding: 10px 30px;
     }
 }
 
-.btn-red {
-    background-color: $heritage_red;
-    color:#fff;
-
-    &:hover {
-        background-color: $heritage_red;
-        transform: translateY(-2px);
-    }
-}
-
-.btn-small {
-    padding: 8px 20px;
-    font-size: 12px;
-
-    @include tablet {
-        padding: 10px 25px;
-        font-size: 13px;
-    }
-}
 
 // ===========================================
 // TAGS
