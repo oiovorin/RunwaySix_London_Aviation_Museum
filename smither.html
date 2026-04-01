@@ -7,13 +7,12 @@
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script type="module" src="js/main.js"></script>
-    <title>London Aviation Museum Events/Blog Page</title>
+    <title>London Aviation History About Page</title>
 </head>
-<body class="beige-bg" data-page="events-blog">
+<body data-page="pilot">
 
-    <section  class="hero-loop-video">
 
-   <header>
+      <header class="blue-header">
         <div class="grid-con">
 
             <div id="top-header" class="l-col-start-9 l-col-end-12">
@@ -25,7 +24,7 @@
                 </nav>
             </div> 
 
-            <a href="index.html" class="col-start-1 col-span-3 m-col-start-2" aria-label="home">
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
                  <picture id="header-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
@@ -45,7 +44,7 @@
                         <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
                         <li id="about-nav">
                             <div class="about-con">
-                                <a>About</a>
+                                <a href="about.html">About</a>
                                 <div class="submenu-toggle">
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
@@ -77,75 +76,71 @@
         </div>
     </header>
 
+   <main>
+
     <div class="grid-con">
-        <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
-            <span>Events & Blog</span>
-        </h1>
+
+        <a href="battle-of-britain.html" class="col-span-full" id="back-to-bofb">← Back to Pilots of Honour</a>
+
+        <h1 class="col-span-full">Flying Officer Ross Smither</h1>
+
+        <img class="pilot-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5">
+
+        <div class="pilot-bio col-span-full m-col-start-6 m-col-end-13 l-col-start-5 l-col-end-13">
+            <h2>Military Service Record:</h2>
+            <p><span>Full Name: </span>Ross Smither</p>
+            <p><span>Born: </span>November 12, 1912 - London, Ontario, Canada</p>
+            <p><span>Force: </span> Royal Canadian Air Force (RAF Fighter Command, 1940)</p>
+            <p><span>Service Number: </span>C/1594</p>
+            <p><span>Rank: </span>Flying Officer (later Flight Lieutenant)</p>
+            <p><span>Squadrons: </span>No. 1 (RCAF) Squadron (later No. 401 Squadron)</p>
+            <p><span>Aircraft Flown: </span>Hawker Hurricane Mk I </p>
+            <p><span>Date of Death: </span>September 15, 1940</p>
+        </div>
     </div>
-    </section>
 
-    <main>
-        <div>
-            <div id="category-btn">
-                <button>All</button>
-                <button>Events</button>
-                <button>Blog</button>
-                <button>WWII</button>
-                <button>RCAF</button>
-                <button>Local History</button>
-                <button>Education</button>
-                <button>Community</button>
-            </div>
-        </div>
-
-        <div id="top-template" class="grid-con">
-            <!-- change this div to template -->
-            <div id="top-events-left" class="col-span-full m-col-start-1 m-col-end-7">
-                <img src="images/" alt="alt text here">
-                <div class="detail">
-                    <span class="tag tag-event">EVENT</span>
-                    <h2 class="title">Remembrance Day:<br>
-                        Honouring RCAF Airmen</h2>
-                    <p class="date">November 11</p>
-                    <p class="description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a class="event-link" href="#">Read More</a>
+        <div class="grid-con">
+            <div class="pilot-img-gallary col-span-full">
+                <div class="pilot-img-item">
+                    <img class="first">
+                    <p>Badge of No. 1 Squadron,<br>Royal Air Force.</p>
                 </div>
-            </div>
-
-            <!-- (different color veersion) change to template -->
-            <div id="top-events-right" class="col-span-full m-col-start-7 m-col-end-13">
-                <img src="images/" alt="alt text here">
-                <div class="detail">
-                    <span class="tag tag-blog">BLOG</span>
-                    <h2 class="title">Remembrance Day:<br>
-                        Honouring RCAF Airmen</h2>
-                    <p class="date">November 11</p>
-                    <p class="description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a class="event-link" href="#">Read More</a>
+                <div class="pilot-img-item">
+                    <img class="second">
+                    <p>Grave of F/O Ross Smither, <br>Brookwood Military <br>Cemetery, Surrey, England</p>
+                </div>
+                <div class="pilot-img-item">
+                    <img class="third">
+                    <p>Hawker Hurricane Mk I </p>
                 </div>
             </div>
         </div>
 
+        <article class="grid-con additional-info">
+            <h2 class="col-span-full">Additional Information:</h2>
+            
+            <div class="col-span-full">
+                <h3>Early Service and Training</h3>
+                <p>Ross Smither was born in London, Ontario, on 12 November 1912. He served two years in the militia before joining the Royal Canadian Air Force in 1930 as a fitter.<br>He later qualified as an air gunner before applying for pilot training. His progression through multiple roles within the RCAF reflects the varied responsibilities undertaken by pre-war airmen, eventually leading to his qualification as a pilot.</p>
 
-        <!-- template for small event / blog card -->
-        <div id="more-events" class="grid-con">
-            <div class="event-card col-span-full m-col-span-6 l-col-span-6">
-                <div class="image-tag">
-                    <span class="label">EVENT</span>
-                    <img src="images/" alt="alt text here">
-                </div>
+                <h3>Deployment to Britain, 1940</h3>
+                <p>In June 1940, Smither was posted overseas with No. 1 (RCAF) Squadron, the first Canadian fighter squadron to be deployed to the United Kingdom. The squadron arrived on 21 June 1940 and was based at RAF Northolt.<br>At this time, Britain faced the threat of invasion, and the squadron was integrated into RAF Fighter Command, taking part in the air defence of southern England.</p>
 
-                <div class="more-details">
-                    <h2 class="title">Veterans' Week at the Museum</h2>
-                    <p class="date">Early November</p>
-                    <p class="description">A week of reflection, stories, and exhibits honouring Canadian veterans and RCAF service members.</p>
-                    <a class="event-link" href="#">Read More</a>
-                </div>
+                <h3>Battle of Britain Operations</h3>
+                <p>During the Battle of Britain, Smither participated in operational sorties against German aircraft.<br>On 31 August 1940, he damaged a Messerschmitt Bf 109.<br>On 4 September 1940, he destroyed a Messerschmitt Bf 110 and damaged another during aerial combat.<br>These engagements took place during a period of sustained air fighting, as RAF Fighter Command defended airfields and key infrastructure from repeated Luftwaffe attacks.</p>
+                
+                <h3>Final Mission - 15 September 1940</h3>
+                <p>On 15 September 1940, now widely known as “Battle of Britain Day,” Smither took off from RAF Northolt flying Hawker Hurricane P3876 on an operational sortie.<br>During combat over the Tunbridge Wells area, his aircraft was engaged by Messerschmitt Bf 109 fighters. He was shot down and killed in action during the engagement.<br>This date marked one of the most significant days of the Battle of Britain, with large-scale air combat over southern England.</p>
+
+                <h3>Burial and Legacy</h3>
+                <p>Flying Officer Ross Smither is buried at Brookwood Military Cemetery, Surrey, England.<br>He is remembered as one of the Canadian pilots who took part in the Battle of Britain, serving in the defence of the United Kingdom during a critical period of the Second World War.</p>
             </div>
-        </div>
-    </main>
+        </article>
 
-   <footer>
+   </main>
+    
+
+     <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
                 <picture id="footer-logo">

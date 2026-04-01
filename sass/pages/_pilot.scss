@@ -1,0 +1,144 @@
+@use '../abstracts' as *;
+
+#back-to-bofb {
+    margin-top: 20px;
+    margin-left: -10px;
+}
+
+h1 {
+    color: $aviation_blue;
+    margin: 50px 0;
+    font-size: 28px;
+
+    @include tablet {
+        font-size: 40px;
+    }
+}
+
+.pilot-image {
+    background-color: gray;
+    border: 20px solid $aviation_blue;
+    height: 510px;
+    width: 300px;
+    margin: auto;
+
+    @include tablet {
+        height: 490px;
+        width: 310px;
+    }
+}
+
+.pilot-bio {
+    margin: 40px auto;
+
+    @include tablet {
+        margin: auto;
+    }
+
+    h2 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 30px;
+    }
+    
+    p {
+        border-bottom: 1px solid $aviation_blue;
+        padding: 10px 0;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+.pilot-img-gallary {
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 100px;
+    flex-direction: column;
+
+    @include tablet {
+        flex-direction: row;
+    }
+
+    .pilot-img-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto;
+
+        p {
+            margin-top: 20px;
+            text-align: center;
+        }
+    }
+
+    img {
+        background-color: gray;
+    }
+}
+
+// ------------------------------------------ delete this when I add image ------------------------------------------ ///
+.first {
+            height: 290px;
+            width: 290px;
+
+            @include tablet {
+                width: 200px;
+                height: 200px;
+            }
+
+            @include desktop {
+                height: 290px;
+                width: 290px;
+            }
+        }
+
+.second {
+            height: 290px;
+            width: 195px;
+
+            @include tablet {
+                height: 200px;
+                width: 105px;
+            }
+
+            @include desktop {
+                height: 290px;
+                width: 195px;
+            }
+        }
+
+.third {
+            height: 290px;
+            width: 430px;
+
+            @include tablet {
+                height: 200px;
+                width: 340px;
+            }
+
+            @include desktop {
+                height: 290px;
+                width: 430px;
+            }
+        }
+
+
+.additional-info {
+    margin: 50px auto;
+
+    h2 {
+        font-family: "Montserrat", sans-serif;
+        margin: 20px 0;
+        font-size: 30px;
+    }
+
+    h3 {
+        font-family: "Montserrat", sans-serif;
+    }
+
+    p {
+        margin-bottom: 30px;
+    }
+}

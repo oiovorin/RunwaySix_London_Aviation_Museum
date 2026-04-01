@@ -4,6 +4,12 @@
 // CONTACT INFORMATION SECTION
 // ===========================================
 
+.contact-hero-bg {
+    background-image: url(../images/contact-hero.png);
+    width: 100%;
+    height: 600px;
+}
+
 #contact {
     margin-top: 50px;
 }
@@ -47,7 +53,7 @@
             color: #fff;
             text-align: center;
             font-family: "Montserrat", sans-serif;
-            font-weight: 800;
+            font-weight: 600;
             font-size: 18px;
         }
 
@@ -64,24 +70,72 @@
 // ===========================================
 
 #contct-form-bg {
-    background-color: $aviation_blue;
+    background-color: $military_green;
     margin-bottom: 100px;
 
-    .form-label {
-        display: flex;
-        flex-direction: column;
+    form {
+        margin: 50px auto;
 
-        @include tablet {
-            margin-top: 50px;
+        input {
+            height: 40px;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            min-height: 195px;
+            margin-bottom: 15px;
+        }
+
+        .input-flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field-error {
+            position: relative;
+            background-color: #fff;
+            font-size: 14px;
+            padding: 5px 10px;
+            margin-right: 40px;
+            border: 2px solid $heritage_red;
+
+            span {
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                background-color: $heritage_red;
+                padding: 1px 7px;
+                border-radius: 100px;
+                margin: 0 2px 5px 2px;
+            }
+
+             &::before {
+                content: "";
+                position: absolute;
+                top: -27px;
+                left: 8px;
+                width: 24px;
+                height: 27px;
+                background: $heritage_red;
+                clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -23px;
+                left: 10px;
+                width: 20px;
+                height: 24px;
+                background: #fff;
+                clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+            }
         }
     }
 
-    #name-input label {
-        margin-top: 50px;
-
-        @include tablet {
-            margin-top: 5px;
-        }
+    .fail {
+        color: #fff;
+        font-weight: 500;
     }
 
     label {
@@ -90,29 +144,47 @@
         margin: 5px 0;
     }
 
-
-    .input-box {
-        height: 40px;
-        margin-bottom: 20px;
+    input::placeholder {
+        color: gray;
+        font-family: "Montserrat", sans-serif;
+        padding-left: 10px;
     }
 
-    #alart {
-        font-size: 14px;
-        color: #fff;
-        font-style: italic;
-        font-weight: 300;
-        margin: 10px 0;
+    textarea::placeholder {
+        color: gray;
+        font-family: "Montserrat", sans-serif;
+        padding-left: 10px;
+        padding-top: 10px;
     }
 
-    #submit-btn {
-        background-color: $heritage_red;
-        color: #fff;
-        border: none;
-        border-radius: 30px;
-        padding: 20px 80px;
-        font-size: 20px;
-        font-weight: 800;
-        margin: 20px auto 50px auto;
-    }
+    [v-cloak] {
+  display: none;
+}
+
+.button svg {
+    max-width: 30px;
+    transition: all .5s;
+}
+  
+.buttonCircle {
+    width: 80px;
+    height: 80px;
+    background: mediumseagreen;
+    border-radius: 50%;
+    border: none;
+}
+
+.button, .tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    appearance: none;
+}
+
+.tick {
+    font-size: 20px;
+    padding: 10px 20px;
+}
 }
 
