@@ -57,10 +57,16 @@
             font-size: 18px;
         }
 
-        p {
+        a {
             color: #fff;
             margin: 10px;
             text-align: center;
+            display: block;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                font-weight: 500;
+            }
         }
     }
 }
@@ -79,11 +85,14 @@
         input {
             height: 40px;
             margin-bottom: 15px;
+            padding-left: 10px;
         }
 
         textarea {
             min-height: 195px;
             margin-bottom: 15px;
+            padding-left: 10px;
+            padding-top: 10px;
         }
 
         .input-flex {
@@ -147,14 +156,11 @@
     input::placeholder {
         color: gray;
         font-family: "Montserrat", sans-serif;
-        padding-left: 10px;
     }
 
     textarea::placeholder {
         color: gray;
         font-family: "Montserrat", sans-serif;
-        padding-left: 10px;
-        padding-top: 10px;
     }
 
     [v-cloak] {

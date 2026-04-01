@@ -88,19 +88,19 @@
             <div class="col-span-full icon-text">
                 <img src="images/location.svg" alt="icon of location" class="contact-icon">
                 <h3>Address</h3>
-                <p>2155 Crumlin Side Rd, London, Ontario N5V 3Z9, Canada.</p>
+                <a href="https://maps.app.goo.gl/JNsXHgoJZcLPed5u6">2155 Crumlin Side Rd, London, Ontario N5V 3Z9, Canada.</a>
             </div>
 
             <div class="col-span-full icon-text">
                 <img src="images/email.svg" alt="icon of email" class="contact-icon">
                 <h3>Email</h3>
-                <p>info@427wing.com</p>
+                <a href="mailto:info@427wing.com">info@427wing.com</a>
             </div>
 
             <div class="col-span-full icon-text">
                 <img src="images/phone.svg" alt="icon of phone" class="contact-icon">
                 <h3>Phone</h3>
-                <p>519-455-0430</p>
+                <a href="tel:+5194550430">519-455-0430</a>
             </div>
         </div>
 
@@ -114,14 +114,14 @@
             <div id="contct-form-bg" class="full-width-grid-con">
             <form id="contactForm" @submit.prevent="submitForm" class="grid-con">
             <div class="input-flex col-span-full m-col-start-2 m-col-span-5">
-            <label>Full Name:</label>
-            <input type="text" id="fullName" v-model="formData.fullName" placeholder="Your Full Name">
+            <label>Your Full Name:</label>
+            <input type="text" id="fullName" v-model="formData.fullName" placeholder="Enter Full Name">
             <p class="field-error" v-if="errors.fullName"><span class="error-icon">!</span> {{errors.fullName}}</p>
             </div>
 
             <div class="input-flex col-span-full m-col-span-5">
             <label for="email">Email:</label>
-            <input type="email" id="email" v-model="formData.email" placeholder="Your Email Address">
+            <input type="email" id="email" v-model="formData.email" placeholder="Enter Email Address">
             <p class="field-error" v-if="errors.email"><span class="error-icon">!</span> {{errors.email}}</p>
             </div>
 
