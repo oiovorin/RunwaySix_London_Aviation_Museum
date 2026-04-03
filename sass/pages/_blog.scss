@@ -1,33 +1,88 @@
 @use '../abstracts' as *;
 
+.event-hero-bg {
+    background-image: url(../images/event-hero.png);
+    width: 100%;
+    height: 600px;
+}
+
 // ===========================================
 // CATEGORY CHANGE BUTTON
 // ===========================================
 
 #category-btn {
+    margin-top: 50px;
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #ffffff6a transparent;
     background-color: $aviation_blue;
+    padding: 10px 15px;
+    justify-content: flex-start;
+
+    @include tablet {
+        gap: 30px;
+    }
+
+    @include desktop {
+        justify-content: center;
+    }
 
     button {
+        flex: 0 0 auto;
         background-color: $aviation_blue;
+        border: none;
         color: #fff;
         font-size: 16px;
-        padding: 5px 8px;
+        padding: 8px 16px;
         cursor: pointer;
-
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        transition: all .3s ease-in-out;
 
         @include tablet {
-            padding: 10px 15px;
             font-size: 18px;
+            padding: 10px 25px;
+        }
 
-            &:first-child {
-                padding-left: 30px;
+
+        // separator line
+        &:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 100%;
+            background-color: #fff;
+
+            @include tablet {
+                right: -20px;
             }
 
-            &:last-child {
-                padding-right: 30px;
+            @include desktop {
+                right: -18px;
             }
+        }
+
+        // hover (optional)
+        &:hover {
+            font-weight: 600;
+        }
+
+        // active state (optional)
+        &.active {
+            background-color: #fff;
+            color: $aviation_blue;
+            border-radius: 20px;
         }
     }
 }

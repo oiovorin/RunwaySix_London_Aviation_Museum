@@ -6,17 +6,16 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
-    <title>London Aviation Museum Contact Page</title>
+    <title>London Aviation History Education Page</title>
 </head>
-<body>
+<body data-page="contact">
 
-    <section id="hero">
-
-    <header>
+    <header class="blue-header">
         <div class="grid-con">
 
-            <div id="top-header" class="l-col-start-8 l-col-end-11">
+            <div id="top-header" class="l-col-start-9 l-col-end-12">
                 <nav>
                     <ul>
                         <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
@@ -25,8 +24,12 @@
                 </nav>
             </div> 
 
-            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1" aria-label="home">
-                <img src="images/lam_logo_light.svg" alt="logo" id="header-logo">
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
+                 <picture id="header-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
             </a>
 
             <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
@@ -39,7 +42,17 @@
                 <nav aria-label="Header Navigation">
                     <ul>
                         <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
-                        <li><a href="about.html" aria-label="go to about page">About</a></li>
+                        <li id="about-nav">
+                            <div class="about-con">
+                                <a>About</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="about-sub" class="hidden">
+                                <li><a href="education.html" aria-label="go to History page">Education</a></li>
+                            </ul>
+                        </li>
                         <li id="history-nav">
                             <div class="history-con">
                                 <a>History</a>
@@ -50,6 +63,8 @@
                             <ul id="history-sub" class="hidden">
                                 <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
                                 <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
+                                <li><a href="artifacts.html" aria-label="go to artifacts page">Artifacts</a></li>
+                                <li><a href="book_of_rem.html" aria-label="go to Book of Remembrance page">Book of Remembrance</a></li>
                             </ul>
                         </li>
                         <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
@@ -60,17 +75,6 @@
             </div>
         </div>
     </header>
-
-
-    <div class="grid-con">
-        <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
-            <span>Contact</span>
-        </h1>
-        <p id="hero-p" class="col-span-full m-col-start-2 m-col-end-7">
-            If you have questions about the London Aviation Museum, our exhibitions, or the website, please get in touch. We're happy to assist and connect with our community.
-        </p>
-    </div>
-    </section>
 
     <main>
 
@@ -84,19 +88,19 @@
             <div class="col-span-full icon-text">
                 <img src="images/location.svg" alt="icon of location" class="contact-icon">
                 <h3>Address</h3>
-                <p>2155 Crumlin Side Rd, London, Ontario N5V 3Z9, Canada.</p>
+                <a href="https://maps.app.goo.gl/JNsXHgoJZcLPed5u6">2155 Crumlin Side Rd, London, Ontario N5V 3Z9, Canada.</a>
             </div>
 
             <div class="col-span-full icon-text">
                 <img src="images/email.svg" alt="icon of email" class="contact-icon">
                 <h3>Email</h3>
-                <p>info@427wing.com</p>
+                <a href="mailto:info@427wing.com">info@427wing.com</a>
             </div>
 
             <div class="col-span-full icon-text">
                 <img src="images/phone.svg" alt="icon of phone" class="contact-icon">
                 <h3>Phone</h3>
-                <p>519-455-0430</p>
+                <a href="tel:+5194550430">519-455-0430</a>
             </div>
         </div>
 
@@ -106,73 +110,62 @@
                 <span class="line"></span>
         </section>
 
-        <div id="contct-form-bg">
-            <form action="/action_page.php" class="grid-con">
-                <div class="form-label col-span-full m-col-start-2 m-col-end-7" id="name-input">
-                    <label for="name" class="input-title">Full Name:</label>
-                    <input type="text" id="name" name="name" class="input-box">
-                </div>
+        <div id="app">
+            <div id="contct-form-bg" class="full-width-grid-con">
+            <form id="contactForm" @submit.prevent="submitForm" class="grid-con">
+            <div class="input-flex col-span-full m-col-start-2 m-col-span-5">
+            <label>Your Full Name:</label>
+            <input type="text" id="fullName" v-model="formData.fullName" placeholder="Enter Full Name">
+            <p class="field-error" v-if="errors.fullName"><span class="error-icon">!</span> {{errors.fullName}}</p>
+            </div>
 
-                <div class="form-label col-span-full m-col-start-7 m-col-end-12">
-                    <label for="email" class="input-title">Email: </label>
-                    <input type="text" id="email" name="email" class="input-box">
-                </div>
+            <div class="input-flex col-span-full m-col-span-5">
+            <label for="email">Email:</label>
+            <input type="email" id="email" v-model="formData.email" placeholder="Enter Email Address">
+            <p class="field-error" v-if="errors.email"><span class="error-icon">!</span> {{errors.email}}</p>
+            </div>
 
-                <label for="subject" class="input-title col-span-full m-col-start-2 m-col-end-12">Subject: </label>
-                <input type="text" id="subject" name="subject" class="input-box col-span-full m-col-start-2 m-col-end-12">
+            <label for="subject" class="col-span-full m-col-start-2 m-col-end-12">Subject:</label>
+            <input type="text" id="subject" v-model="formData.subject" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Subject">
+            <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.subject" ><span class="error-icon">!</span> {{errors.subject}}</p>
 
-                <label for="message" class="input-title col-span-full m-col-start-2 m-col-end-12">Your Message: </label>
-                <textarea id="message" name="message" rows="12" cols="50" class="col-span-full m-col-start-2 m-col-end-12"></textarea>
+            <label for="message" class="col-span-full m-col-start-2 m-col-end-12">Message:</label>
+            <textarea id="message" v-model="formData.message" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Write Your Message...."></textarea>
+            <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.message"><span class="error-icon">!</span> {{errors.message}}</p>
 
-                <p id="alart" class="col-span-full m-col-start-2 m-col-end-12">* Please fill in all required fields before submit!</p>
+            <input type="text" id="honeypot" v-model="formData.honeypot" class="hidden">
 
-                <input type="submit" value="Submit" id="submit-btn" class="col-span-full">
-            </form>
+            <p class="fail col-span-full m-col-start-2 m-col-end-12" v-if="errors.general"><span class="error-icon">!</span> {{errors.general}}</p>
+            <div v-if="responseMessage" class="fail col-span-full m-col-start-2 m-col-end-12">
+            {{responseMessage}}
+            </div>
+
+            <div class="col-span-full m-col-start-2 m-col-end-12">
+               <button :class="{'buttonCircle': submitted, 'button': true}" type="submit">
+                    <div class="container">
+                        <span class="tick">
+                        <svg v-if="submitted" width="58" height="45" viewBox="0 0 58 45" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#fff" fill-rule="nonzero"
+                        d="M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65" />
+                        </svg>
+                        <span v-else>{{buttonText}}</span>
+                        </span>
+                    </div>
+        </button>
         </div>
-
-        <section class="section-header">
-            <span class="line"></span>
-                <h2>FAQ</h2>
-                <span class="line"></span>
-        </section>
-
-        <div id="faq-bg">
-            <div class="grid-con" id="dropdown-menu">
-                 <details class="col-span-full m-col-start-2 m-col-end-12">
-                  <summary>Is the London Aviation Museum currently open to visitors?</summary>
-                  <p>Meseum is currentry closed. The renovation is scheduled to be completed in xxxx.</p>
-                  </details>
-
-                <details class="col-span-full m-col-start-2 m-col-end-12">
-                  <summary>Where is the museum located?</summary>
-                  <p>2155 Crumlin Side Rd, London, Ontario N5V 3Z9, Canada.</p>
-                </details>
-
-                <details class="col-span-full m-col-start-2 m-col-end-12">
-                  <summary>Can I visit the Airman's Canteen?</summary>
-                  <p>Yes you can.</p>
-                </details>
-
-                <details class="col-span-full m-col-start-2 m-col-end-12">
-                  <summary>How can I learn more about London's aviation history?</summary>
-                  <p>Museum is currently closed. Please explor this site and find information.</p>
-                </details>
-
-                <details class="col-span-full m-col-start-2 m-col-end-12">
-                  <summary>Who operates the museum?</summary>
-                  <p>427 Wing, Royal Canadian AirForce Association</p>
-                </details>
-                </div>
+        </form>
+    </div>
         </div>
         
     </main>
+    
 
-     <footer>
+    <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
                 <picture id="footer-logo">
-                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg" alt="logo">
-                     <source media="(min-width:300px)" src="images/light_logo_mobile.svg" alt="logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
                      <img src="images/light_logo_mobile.svg" alt="logo">
                 </picture>
             <p id="footer-quote">
