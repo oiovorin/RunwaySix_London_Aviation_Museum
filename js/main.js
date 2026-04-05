@@ -8,28 +8,36 @@ import { timelineCarousel } from "./modules/history.js";
 import { selectLocation } from "./modules/warime.js";
 import { moveMap } from "./modules/warime.js";
 import { form } from "./modules/contact.js";
-import { aboutAnimation } from "./modules/about.js";
+import { aboutAnimation } from "./modules/gsap.js";
+import { sectionTitle } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
   header();
+  sectionTitle();
 } else if (document.body.dataset.page === "about") {
     header();
     carousel();
     aboutAnimation();
+    sectionTitle();
 } else if (document.body.dataset.page === "artifacts") {
     header();
+    sectionTitle();
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
     selectDate();
+    sectionTitle();
 } else if (document.body.dataset.page === "pilot") {
     header();
     selectDate();
+    sectionTitle();
 } else if (document.body.dataset.page === "book-of-remembrance") {
     header();
+    sectionTitle();
 } else if (document.body.dataset.page === "contact") {
     header();
     form();
+    sectionTitle();
 } else if (document.body.dataset.page === "education") {
     header();
 } else if (document.body.dataset.page === "error") {
@@ -38,14 +46,17 @@ if(document.body.dataset.page === "home") {
     header();
 } else if (document.body.dataset.page === "FAQ") {
     header();
+    sectionTitle();
 } else if (document.body.dataset.page === "london-aviation") {
     header();
     timeline();
     timelineCarousel();
+    sectionTitle();
 } else if (document.body.dataset.page === "privacy-policy") {
     header();
 } else if (document.body.dataset.page === "wartime") {
     header();
     selectLocation();
     moveMap();
+    sectionTitle();
 }
