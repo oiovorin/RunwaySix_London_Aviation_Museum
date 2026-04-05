@@ -543,3 +543,67 @@ export function ArtifactsAnimation () {
         });
 
 }
+
+export function remPilotAnimation () {
+
+     const backToRem = document.querySelector("#back-to-rem");
+
+        gsap.from(backToRem,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+    const remPilotImage = document.querySelector(".rem-pilot-image");
+
+        gsap.from(remPilotImage,  {
+            opacity: 0,
+            y: 50,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+
+   const remPilotName = document.querySelector("#rem-pilot-name");
+
+    gsap.from(remPilotName, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: remPilotName,
+            start: "top 90%"
+        }
+    });
+
+    const pilotInfo = document.querySelector(".pilot-info");
+
+    gsap.from(pilotInfo, {
+    opacity: 0,
+    x: -50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: pilotInfo,
+            start: "top 80%"
+        }
+    });
+
+    const correctInfo = document.querySelector("#correct-info");
+
+    gsap.from(correctInfo, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: correctInfo,
+            start: "top 80%",
+        }
+        });
+
+}
