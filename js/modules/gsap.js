@@ -173,8 +173,93 @@ export function bofbAnimation () {
         scrollTrigger: {
             trigger: "#honor-slide",
             start: "top 80%",
-            toggleActions: "play none none none",
-            markers: true
+            toggleActions: "play none none none"
         }
         });
+}
+
+export function educationAnimation () {
+    const educationIntro = document.querySelector("#education-intro");
+
+        gsap.from(educationIntro,  {
+            opacity: 0,
+            y:100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: educationIntro,
+                start: "top 80%"
+            }
+    })
+
+    const IntroText = document.querySelector("#intro-text");
+
+        gsap.from(IntroText,  {
+            opacity: 0,
+            y:100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: IntroText,
+                start: "top 85%"
+            }
+    })
+
+    const educationDownload = document.querySelector("#education-download");
+
+        gsap.from(educationDownload,  {
+            opacity: 0,
+            x: -100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: educationDownload,
+                start: "top 85%"
+            }
+    })
+
+    const virtualMuseum = document.querySelector("#virtual-museum");
+
+        gsap.from(virtualMuseum,  {
+            opacity: 0,
+            x: 100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: virtualMuseum,
+                start: "top 85%"
+            }
+    })
+
+    const tresureHant = document.querySelector("#tresure-hant");
+
+        gsap.from(tresureHant,  {
+            opacity: 0,
+            x: -100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: tresureHant,
+                start: "top 85%"
+            }
+    })
+
+    const classroomSession = document.querySelector("#classroom-session");
+
+        gsap.from(classroomSession,  {
+            opacity: 0,
+            x: 100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: classroomSession,
+                start: "top 85%"
+            }
+    })
 }

@@ -11,6 +11,7 @@ import { form } from "./modules/contact.js";
 import { aboutAnimation } from "./modules/gsap.js";
 import { sectionTitle } from "./modules/gsap.js";
 import { bofbAnimation } from "./modules/gsap.js";
+import { educationAnimation } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -42,6 +43,8 @@ if(document.body.dataset.page === "home") {
     sectionTitle();
 } else if (document.body.dataset.page === "education") {
     header();
+    sectionTitle();
+    educationAnimation();
 } else if (document.body.dataset.page === "error") {
     header();
 } else if (document.body.dataset.page === "events-blog") {
