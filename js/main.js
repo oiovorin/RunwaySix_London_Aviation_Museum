@@ -12,6 +12,7 @@ import { aboutAnimation } from "./modules/gsap.js";
 import { sectionTitle } from "./modules/gsap.js";
 import { bofbAnimation } from "./modules/gsap.js";
 import { educationAnimation } from "./modules/gsap.js";
+import { faqAnimation } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -52,6 +53,7 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "FAQ") {
     header();
     sectionTitle();
+    faqAnimation();
 } else if (document.body.dataset.page === "london-aviation") {
     header();
     timeline();

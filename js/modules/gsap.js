@@ -263,3 +263,19 @@ export function educationAnimation () {
             }
     })
 }
+
+export function faqAnimation () {
+    const faq = document.querySelector("#faq-bg");
+
+        gsap.from(faq,  {
+            opacity: 0,
+            y: 100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: faq,
+                start: "top 85%"
+            }
+    })
+}
