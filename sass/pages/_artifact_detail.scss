@@ -1,0 +1,96 @@
+@use '../abstracts' as *;
+
+#back-to-artifacts {
+    margin-top: 20px;
+    margin-left: -10px;
+    width: 130px;
+    position: relative;
+    text-decoration: none;
+
+    @include tablet {
+        width: 140px;
+    }
+
+    @include desktop {
+        width: 150px;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+        width: 100%;
+        height: 1px;
+        background: $chacoal;
+
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+    }
+}
+
+#artifact-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 50px;
+
+    #img-con {
+        position: relative;
+        width: 180px;
+            height: 150px;
+        img {
+            position: absolute;
+            opacity: 0;
+            width: 180px;
+            height: 150px;
+            background-color: pink;
+            transition: all .3s ease-in-out;
+        }
+
+        img.active {
+            opacity: 1;
+        }
+    }
+
+    .artifact-gallery-arrow {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+}
+
+.about-artifact {
+    p {
+        padding: 5px 0;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}
+
+
+#artifact-gallery {
+    margin-bottom: 100px;
+
+    .artifact-item {
+        img {
+            background-color: $chacoal;
+        }
+
+        p {
+            text-align: center;
+            color: $aviation_blue;
+            font-family: "Libre Baskerville", serif;
+            font-weight: 500;
+        }
+    }
+}
