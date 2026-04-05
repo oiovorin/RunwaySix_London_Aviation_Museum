@@ -478,3 +478,68 @@ export function contactAnimation () {
         ease: "power2.out"
         });
 }
+
+export function ArtifactsAnimation () {
+
+     const backToArtifacts = document.querySelector("#back-to-artifacts");
+
+        gsap.from(backToArtifacts,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+    const artifactName = document.querySelector("#artifact-name");
+
+        gsap.from(artifactName,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+
+   const artifactImage = document.querySelector("#artifact-image");
+
+    gsap.from(artifactImage, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: artifactImage,
+            start: "top 85%"
+        }
+    });
+
+    const aboutArtifact = document.querySelector(".about-artifact");
+
+    gsap.from(aboutArtifact, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: aboutArtifact,
+            start: "top 80%"
+        }
+    });
+
+    const artifactImgGallary = document.querySelectorAll("#artifact-gallery .artifact-item");
+
+    gsap.from(artifactImgGallary, {
+        opacity: 0,
+        y: 100,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#artifact-gallery",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+}

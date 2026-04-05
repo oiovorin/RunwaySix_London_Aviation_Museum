@@ -8,7 +8,7 @@ import { timelineCarousel } from "./modules/history.js";
 import { selectLocation } from "./modules/warime.js";
 import { moveMap } from "./modules/warime.js";
 import { form } from "./modules/contact.js";
-import { aboutAnimation } from "./modules/gsap.js";
+import { aboutAnimation, ArtifactsAnimation } from "./modules/gsap.js";
 import { sectionTitle } from "./modules/gsap.js";
 import { bofbAnimation } from "./modules/gsap.js";
 import { educationAnimation } from "./modules/gsap.js";
@@ -16,6 +16,7 @@ import { faqAnimation } from "./modules/gsap.js";
 import { homeAnimation } from "./modules/gsap.js";
 import { londonPilotsAnimation } from "./modules/gsap.js";
 import { contactAnimation } from "./modules/gsap.js";
+import { artifactCarousel } from "./modules/artifact.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -27,6 +28,11 @@ if(document.body.dataset.page === "home") {
     carousel();
     aboutAnimation();
     sectionTitle();
+} else if (document.body.dataset.page === "artifact-detail") {
+    header();
+    sectionTitle();
+    artifactCarousel();
+    ArtifactsAnimation();
 } else if (document.body.dataset.page === "artifacts") {
     header();
     sectionTitle();
