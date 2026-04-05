@@ -14,6 +14,7 @@ import { bofbAnimation } from "./modules/gsap.js";
 import { educationAnimation } from "./modules/gsap.js";
 import { faqAnimation } from "./modules/gsap.js";
 import { homeAnimation } from "./modules/gsap.js";
+import { londonPilotsAnimation } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -35,8 +36,8 @@ if(document.body.dataset.page === "home") {
     bofbAnimation();
 } else if (document.body.dataset.page === "pilot") {
     header();
-    selectDate();
     sectionTitle();
+    londonPilotsAnimation();
 } else if (document.body.dataset.page === "book-of-remembrance") {
     header();
     sectionTitle();
@@ -66,6 +67,5 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "wartime") {
     header();
     selectLocation();
-    moveMap();
     sectionTitle();
 }

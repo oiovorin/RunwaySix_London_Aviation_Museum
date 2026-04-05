@@ -323,7 +323,7 @@ export function homeAnimation () {
             }
     })
 
-const allRows = document.querySelectorAll(".event-row, .event-row-reverse");
+    const allRows = document.querySelectorAll(".event-row, .event-row-reverse");
 
     const tl = gsap.timeline({
     scrollTrigger: {
@@ -349,4 +349,105 @@ const allRows = document.querySelectorAll(".event-row, .event-row-reverse");
     });
 
     });
+}
+
+export function londonPilotsAnimation () {
+
+     const backToBofb = document.querySelector("#back-to-bofb");
+
+        gsap.from(backToBofb,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: backToBofb,
+                start: "top 85%"
+            }
+    })
+
+    const pilotName = document.querySelector("#pilot-name");
+
+        gsap.from(pilotName,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: pilotName,
+                start: "top 85%"
+            }
+    })
+
+
+   const pilotImage = document.querySelector(".pilot-image");
+
+    gsap.from(pilotImage, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: pilotImage,
+            start: "top 85%"
+        }
+    });
+
+    const pilotBio = document.querySelector(".pilot-bio");
+
+    gsap.from(pilotBio, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: pilotBio,
+            start: "top 80%"
+        }
+    });
+
+    const pilotImgGallary = document.querySelectorAll(".pilot-img-gallary .pilot-img-item");
+
+    gsap.from(pilotImgGallary, {
+        opacity: 0,
+        y: 100,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: ".pilot-img-gallary",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+        const additionalHeader = document.querySelector("#additional-info h2");
+
+        gsap.from(additionalHeader, {
+        opacity: 0,
+        y: 80,
+        duration: 0.8,
+        stagger: 0.25,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: additionalHeader,
+            start: "top 80%"
+        }
+        });
+       const additionalItems = document.querySelectorAll("#additional-info .additional-item");
+       
+
+        gsap.from(additionalItems, {
+        opacity: 0,
+        y: 80,
+        duration: 0.8,
+        stagger: 0.25,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "#additional-info",
+            start: "top 30%",
+            toggleActions: "play none none none"
+        }
+        });
 }
