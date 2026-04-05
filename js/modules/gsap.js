@@ -279,3 +279,74 @@ export function faqAnimation () {
             }
     })
 }
+
+export function homeAnimation () {
+    const aboutMuseum = document.querySelector("#about-museum");
+
+        gsap.from(aboutMuseum,  {
+            opacity: 0,
+            y: 100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: aboutMuseum,
+                start: "top 85%"
+            }
+    })
+
+    const playerContainer = document.querySelector("#player-container");
+
+        gsap.from(playerContainer,  {
+            opacity: 0,
+            y: 100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: playerContainer,
+                start: "top 85%"
+            }
+    })
+
+    const sliderContainer = document.querySelector("#slider-container");
+
+        gsap.from(sliderContainer,  {
+            opacity: 0,
+            y: 100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: sliderContainer,
+                start: "top 85%"
+            }
+    })
+
+const allRows = document.querySelectorAll(".event-row, .event-row-reverse");
+
+    const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: allRows[0],
+        start: "top 80%",
+        toggleActions: "play none none none"
+    }
+    });
+
+    allRows.forEach(function (row) {
+
+    let direction = 100;
+
+    if (row.classList.contains("event-row-reverse")) {
+        direction = -100;
+    }
+
+    tl.from(row, {
+        opacity: 0,
+        x: direction,
+        duration: 0.5,
+        ease: "power2.out"
+    });
+
+    });
+}

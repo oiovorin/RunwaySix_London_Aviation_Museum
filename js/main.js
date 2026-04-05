@@ -13,11 +13,13 @@ import { sectionTitle } from "./modules/gsap.js";
 import { bofbAnimation } from "./modules/gsap.js";
 import { educationAnimation } from "./modules/gsap.js";
 import { faqAnimation } from "./modules/gsap.js";
+import { homeAnimation } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
   header();
   sectionTitle();
+  homeAnimation();
 } else if (document.body.dataset.page === "about") {
     header();
     carousel();
