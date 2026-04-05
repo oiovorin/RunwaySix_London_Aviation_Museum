@@ -10,6 +10,7 @@ import { moveMap } from "./modules/warime.js";
 import { form } from "./modules/contact.js";
 import { aboutAnimation } from "./modules/gsap.js";
 import { sectionTitle } from "./modules/gsap.js";
+import { bofbAnimation } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -27,6 +28,7 @@ if(document.body.dataset.page === "home") {
     header();
     selectDate();
     sectionTitle();
+    bofbAnimation();
 } else if (document.body.dataset.page === "pilot") {
     header();
     selectDate();

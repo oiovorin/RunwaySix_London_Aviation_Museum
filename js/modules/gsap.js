@@ -72,7 +72,109 @@ export function aboutAnimation () {
       scrollTrigger: {
             trigger: legacy,
             start: "top 85%",
-            end: "top 80%"
         }
     })
+}
+
+export function bofbAnimation () {
+    const battleIntro = document.querySelector("#battle-intro");
+
+    gsap.from(battleIntro,  {
+        opacity: 0,
+        y:100,
+        ease: "power1.out",
+      duration: 0.8,
+      stagger: 1,
+      scrollTrigger: {
+            trigger: battleIntro,
+            start: "top 80%",
+            markers: true
+        }
+    })
+
+    const battlePhaseItems = document.querySelectorAll("#battle-phases .phase-card");
+
+    gsap.from(battlePhaseItems, {
+        opacity: 0,
+        y: 100,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#battle-phases",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+        const dateSelection = document.querySelector("#date-selection");
+
+        gsap.from(dateSelection,  {
+            opacity: 0,
+            y:100,
+            ease: "power1.out",
+            duration: 0.8,
+            stagger: 1,
+            scrollTrigger: {
+                trigger: dateSelection,
+                start: "top 80%",
+                markers: true
+            }
+    })
+
+    const defaultContent = document.querySelector(".selected-date.selected");
+
+    gsap.from(defaultContent.children, {
+    opacity: 0,
+    y: 30,
+    duration: 0.6,
+    stagger: 0.1,
+    ease: "power2.out",
+    scrollTrigger: {
+        trigger: defaultContent,
+        start: "top 80%",
+    }
+    });
+
+    const loss = document.querySelector("#loss");
+    const lossNumber = document.querySelectorAll("#loss .number");
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: "#loss",
+            start: "top 80%",
+            once: true
+        }
+        });
+
+        tl.from(loss, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6
+        });
+
+        lossNumber.forEach(lossNumber => {
+
+        tl.from(lossNumber, {
+             innerText: 0, 
+             duration: 1, 
+             snap: "innerText"
+            }, 0
+        );
+        });
+
+     
+    const honorPilots = document.querySelectorAll("#honor-slide .pilot-card");
+
+    gsap.from(honorPilots, {
+        opacity: 0,
+        y: 100,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#honor-slide",
+            start: "top 80%",
+            toggleActions: "play none none none",
+            markers: true
+        }
+        });
 }
