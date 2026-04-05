@@ -15,6 +15,7 @@ import { educationAnimation } from "./modules/gsap.js";
 import { faqAnimation } from "./modules/gsap.js";
 import { homeAnimation } from "./modules/gsap.js";
 import { londonPilotsAnimation } from "./modules/gsap.js";
+import { contactAnimation } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -45,6 +46,7 @@ if(document.body.dataset.page === "home") {
     header();
     form();
     sectionTitle();
+    contactAnimation();
 } else if (document.body.dataset.page === "education") {
     header();
     sectionTitle();
