@@ -451,3 +451,30 @@ export function londonPilotsAnimation () {
         }
         });
 }
+
+export function contactAnimation () {
+    const contactform = document.querySelector("#app");
+
+        gsap.from(contactform, {
+        opacity: 0,
+        y: 80,
+        duration: 0.8,
+        stagger: 0.25,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: contactform,
+            start: "top 80%"
+        }
+        });
+
+        const contactInfo = document.querySelectorAll("#museum-info .icon-text");
+       
+
+        gsap.from(contactInfo, {
+        opacity: 0,
+        y: 80,
+        duration: 0.8,
+        stagger: 0.25,
+        ease: "power2.out"
+        });
+}
