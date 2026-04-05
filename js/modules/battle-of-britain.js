@@ -6,6 +6,15 @@ export function selectDate () {
     const prevBtn = document.querySelector("#mobile-arrow #previous");
     const nextBtn = document.querySelector("#mobile-arrow #next");
 
+    function animateContent(target) {
+        gsap.from(target, {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            ease: "power2.out"
+        });
+    }
+
     let currentIndex = 0;
 
     function buttonSelect () {
@@ -22,6 +31,8 @@ export function selectDate () {
 
         targetContent.classList.add("selected");
         this.classList.add("active");
+
+        animateContent(targetContent);
         
     }
 
@@ -40,6 +51,8 @@ export function selectDate () {
         mobTargetContent.classList.add("selected");
 
         mobButtons[currentIndex].classList.add("active");
+
+        animateContent(targetContent);
     }
 
     function nextDate () {

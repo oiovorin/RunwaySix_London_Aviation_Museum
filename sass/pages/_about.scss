@@ -34,11 +34,13 @@
         width: 100%;
         border-radius: 10px;
         height: 310px;
+        position: relative;
+
 
         &::after {
             content: "";
             position: absolute;
-            bottom: -260px;
+            bottom: -15px;
             left: 50%;
             transform: translateX(-50%);
             
@@ -54,20 +56,20 @@
                 left: auto;
                 transform: none;
 
-                right: 48%;
-                top: 118%;
+                left: 333px;
+                top: 200px;
                 transform: translateY(-50%);
 
-                border-top: 30px solid transparent;
-                border-bottom: 30px solid transparent;
-                border-left: 30px solid $aviation_blue;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                border-left: 20px solid $aviation_blue;
 
                 border-right: none;
             }
 
             @include desktop {
-                right: 49%;
-                top: 118%;
+                left: 495px;
+                top: 190px;
 
                 border-top: 20px solid transparent;
                 border-bottom: 20px solid transparent;

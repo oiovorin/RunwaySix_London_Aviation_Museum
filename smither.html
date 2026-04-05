@@ -6,6 +6,8 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
 </head>
@@ -82,7 +84,7 @@
 
         <a href="battle-of-britain.html" class="col-span-full" id="back-to-bofb">← Back to Pilots of Honour</a>
 
-        <h1 class="col-span-full">Flying Officer Ross Smither</h1>
+        <h1 id="pilot-name" class="col-span-full">Flying Officer Ross Smither</h1>
 
         <img class="pilot-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5">
 
@@ -116,22 +118,30 @@
             </div>
         </div>
 
-        <article class="grid-con additional-info">
+        <article class="grid-con" id="additional-info">
             <h2 class="col-span-full">Additional Information:</h2>
             
-            <div class="col-span-full">
+            <div class="col-span-full additional-item">
                 <h3>Early Service and Training</h3>
                 <p>Ross Smither was born in London, Ontario, on 12 November 1912. He served two years in the militia before joining the Royal Canadian Air Force in 1930 as a fitter.<br>He later qualified as an air gunner before applying for pilot training. His progression through multiple roles within the RCAF reflects the varied responsibilities undertaken by pre-war airmen, eventually leading to his qualification as a pilot.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Deployment to Britain, 1940</h3>
                 <p>In June 1940, Smither was posted overseas with No. 1 (RCAF) Squadron, the first Canadian fighter squadron to be deployed to the United Kingdom. The squadron arrived on 21 June 1940 and was based at RAF Northolt.<br>At this time, Britain faced the threat of invasion, and the squadron was integrated into RAF Fighter Command, taking part in the air defence of southern England.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Battle of Britain Operations</h3>
                 <p>During the Battle of Britain, Smither participated in operational sorties against German aircraft.<br>On 31 August 1940, he damaged a Messerschmitt Bf 109.<br>On 4 September 1940, he destroyed a Messerschmitt Bf 110 and damaged another during aerial combat.<br>These engagements took place during a period of sustained air fighting, as RAF Fighter Command defended airfields and key infrastructure from repeated Luftwaffe attacks.</p>
+            </div>
                 
+            <div class="col-span-full additional-item">
                 <h3>Final Mission - 15 September 1940</h3>
                 <p>On 15 September 1940, now widely known as “Battle of Britain Day,” Smither took off from RAF Northolt flying Hawker Hurricane P3876 on an operational sortie.<br>During combat over the Tunbridge Wells area, his aircraft was engaged by Messerschmitt Bf 109 fighters. He was shot down and killed in action during the engagement.<br>This date marked one of the most significant days of the Battle of Britain, with large-scale air combat over southern England.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Burial and Legacy</h3>
                 <p>Flying Officer Ross Smither is buried at Brookwood Military Cemetery, Surrey, England.<br>He is remembered as one of the Canadian pilots who took part in the Battle of Britain, serving in the defence of the United Kingdom during a critical period of the Second World War.</p>
             </div>
@@ -140,7 +150,7 @@
    </main>
     
 
-     <footer>
+    <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
                 <picture id="footer-logo">
@@ -170,6 +180,7 @@
                 <p class="footer-nav-title">About Us</p>
                 <ul>
                     <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="education.html" aria-label="go to about page">Education</a></li>
                     <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
                     <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
                 </ul>
@@ -188,11 +199,11 @@
             <div id="contact-info" class="col-start-3 col-end-5">
                 <div class="footer-contact-icon">
                     <img src="images/email.svg" alt="email icon">
-                    <p>info@427wing.com</p>
+                    <a href="mailto:info@427wing.com">info@427wing.com</a>
                 </div>
                 <div class="footer-contact-icon">
                     <img src="images/phone.svg" alt="phone icon">
-                    <p>519-455-0430</p>
+                    <a href="tel:+5194550430">519-455-0430</a>
                 </div>
             </div>
             </div>
@@ -215,13 +226,21 @@
             </div>
             </div>
 
-            <div id="sns" class="col-span-full m-col-start-10 m-col-end-12">
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
                 <p>Social Media</p>
                 <div class="sns-icon">
-                    <img src="images/facebook.svg" class="facebook" alt="facebook icon">
-                    <img src="images/instagram.svg" class="instagram" alt="instagram icon">
-                    <img src="images/x.svg" class="x" alt="x icon">
-                    <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    <a href="https://www.facebook.com/427winglondon/">
+                        <img src="images/facebook.svg" class="facebook" alt="facebook icon">
+                    </a>
+                    <a href="https://www.instagram.com/427wing/">
+                        <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    </a>
+                    <a href="http://www.427wing.com">
+                        <img src="images/x.svg" class="x" alt="x icon">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8qWGIbfAr5cjSucEIKPpJw">
+                        <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    </a>
                 </div>
 
             </div>
