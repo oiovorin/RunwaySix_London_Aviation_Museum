@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 import { header } from "./modules/header.js";
 import { selectDate } from "./modules/battle-of-britain.js";
 import { timeline } from "./modules/timeline.js";
@@ -6,6 +8,7 @@ import { timelineCarousel } from "./modules/history.js";
 import { selectLocation } from "./modules/warime.js";
 import { moveMap } from "./modules/warime.js";
 import { form } from "./modules/contact.js";
+import { aboutAnimation } from "./modules/about.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -13,6 +16,7 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "about") {
     header();
     carousel();
+    aboutAnimation();
 } else if (document.body.dataset.page === "artifacts") {
     header();
 } else if (document.body.dataset.page === "battle-of-britain") {
