@@ -7,8 +7,8 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation Museum History Page</title>
 </head>
@@ -110,13 +110,15 @@
             <p class="col-span-full m-col-start-3 m-col-span-3 l-col-start-3 l-col-span-3 timeline">1903-1909</p>
         </div>
 
-        <div class="time-card text-first grid-con">
-            <div class="timeline-carousel col-span-full m-col-start-7 m-col-span-7 l-col-start-7 l-col-span-6">
+        <div class="time-card grid-con text-first">
+            <div class="carousel col-span-full m-col-start-7 m-col-span-7 l-col-start-7 l-col-span-6">
                 <button class="prev">&lt;</button>
-                <img class="card-img active" src="images/history1.png" alt="add alt text">
-                <img class="card-img" src="images/history1-2.png" alt="add alt text">
-                <img class="card-img" src="images/history1-3.png" alt="add alt text">
-                <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history1.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
                 <button class="next">&gt;</button>
             </div>
             <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
@@ -135,7 +137,16 @@
         </div>
 
         <div class="time-card grid-con">
-            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/history2.png" alt="add alt text">
+            <div class="carousel col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
             <h2 class="card-title">Aviation Comes to London</h2>
             <p class="card-description">Many Londoners saw their first aircraft on <span>May 25, 1912</span>, when <span>Beckwith Havens</span> flew a <span>Curtiss Model E</span> over the city after taking off from <span>Carling Heights</span>, near present-day Wolseley Barracks.<br><br>
@@ -151,8 +162,17 @@
             <p class="col-span-full m-col-start-3 m-col-span-3 timeline">1914-1918</p>
         </div>
 
-        <div class="time-card text-first grid-con">
-            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/history3.png" alt="add alt text">
+        <div class="time-card grid-con text-first">
+            <div class="carousel col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
             <h2 class="card-title">Aviation and the First World War</h2>
             <p class="card-description">The First World War rapidly transformed aviation from experimental flight into a military necessity. Aircraft were adapted for reconnaissance, training, and combat, accelerating technological development.<br><br>
@@ -169,7 +189,16 @@
         </div>
 
         <div class="time-card grid-con">
-            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/history4.png" alt="add alt text">
+            <div class="carousel col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history4.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
             <h2 class="card-title">A Military Landing in London</h2>
             <p class="card-description">In <span>1918,  Captain V. P. Cronyn</span>, a decorated Canadian flying ace with at least seven confirmed victories, flew an aircraft from Beamsville and landed at <span>Wolseley Barracks</span> in London. This marked one of the earliest direct connections between London and military aviation.<br><br>
@@ -185,8 +214,17 @@
             <p class="col-span-full m-col-start-3 m-col-span-3 timeline">1920-1924</p>
         </div>
 
-        <div class="time-card text-first grid-con">
-            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/history5.png" alt="add alt text">
+        <div class="time-card grid-con text-first">
+            <div class="carousel col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history5.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
             <h2 class="card-title">Toward a National Air Force</h2>
             <p class="card-description">Following the war, a non-permanent <span>Canadian Air Force (CAF)</span> was created in <span>1920</span>. Pilots were assigned civilian duties such as forest fire patrols, aerial mapping, and coastal surveillance to maintain flying proficiency.<br><br>
@@ -202,7 +240,16 @@
         </div>
 
         <div class="time-card grid-con">
-            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/history6.png" alt="add alt text">
+            <div class="carousel col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history6.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
             <h2 class="card-title">Public Fascination and the London-to-London Flight</h2>
             <p class="card-description">Public enthusiasm for aviation surged after <span>Charles Lindbergh's</span> transatlantic flight in 1927. Inspired by this achievement, <span>Carling Brewery</span> offered a <span>$25,000 prize</span> for a flight from <span>London, Ontario to London, England</span>.<br><br>
@@ -218,8 +265,17 @@
             <p class="col-span-full m-col-start-3 m-col-span-3 timeline">1928</p>
         </div>
 
-        <div class="time-card text-first grid-con">
-            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/history7.png" alt="add alt text">
+        <div class="time-card grid-con text-first">
+            <div class="carousel col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history7.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
             <h2 class="card-title">London's First Airport</h2>
             <p class="card-description">Efforts to establish a permanent airport led to the formation of the <span>London Airfield Company</span>, chaired by <span>Ernest Moore</span>, after a city by-law to purchase land was defeated.<br><br>
@@ -236,7 +292,16 @@
         </div>
 
         <div class="time-card grid-con">
-            <img class="card-img col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6" src="images/history8.png" alt="add alt text">
+           <div class="carousel col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history8.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6">
             <h2 class="card-title">Transition and Closure</h2>
             <p class="card-description">The Lambeth airfield remained in use through the <span>1930s</span>, even after plans for a new airport were underway. In <span>1942</span>, the site was closed when a <span>listening station</span> was established nearby to intercept <span>German submarine communications in the Gulf of St. Lawrence</span>.<br><br>
@@ -249,11 +314,20 @@
         <section class="full-width-grid-con timeline-item">
         <div class="grid-con timeline-er">
             <div class="timeline-dot"></div>
-            <p class="col-span-full text-first m-col-start-3 m-col-span-3 timeline">1939-1940</p>
+            <p class="col-span-full m-col-start-3 m-col-span-3 timeline">1939-1940</p>
         </div>
 
         <div class="time-card text-first grid-con">
-            <img class="card-img col-span-full m-col-start-7 m-col-span-6 l-col-start-7 l-col-span-6" src="images/history9.png" alt="add alt text">
+            <div class="carousel col-span-full m-col-start-7 m-col-span-7 l-col-start-7 l-col-span-6">
+                <button class="prev">&lt;</button>
+                <div class="timeline-carousel">
+                    <img class="card-img active" src="images/history9.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-2.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-3.png" alt="add alt text">
+                    <img class="card-img" src="images/history1-4.png" alt="add alt text">
+                </div>
+                <button class="next">&gt;</button>
+            </div>
             <div class="timeline-text col-span-full m-col-start-1 m-col-span-6 l-col-start-1 l-col-span-6">
             <h2 class="card-title">Crumlin Airport and the<br>
             Approach of War</h2>
@@ -268,7 +342,7 @@
         
     </main>
 
-  <footer>
+ <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
                 <picture id="footer-logo">
@@ -298,6 +372,7 @@
                 <p class="footer-nav-title">About Us</p>
                 <ul>
                     <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="education.html" aria-label="go to about page">Education</a></li>
                     <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
                     <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
                 </ul>
@@ -316,11 +391,11 @@
             <div id="contact-info" class="col-start-3 col-end-5">
                 <div class="footer-contact-icon">
                     <img src="images/email.svg" alt="email icon">
-                    <p>info@427wing.com</p>
+                    <a href="mailto:info@427wing.com">info@427wing.com</a>
                 </div>
                 <div class="footer-contact-icon">
                     <img src="images/phone.svg" alt="phone icon">
-                    <p>519-455-0430</p>
+                    <a href="tel:+5194550430">519-455-0430</a>
                 </div>
             </div>
             </div>
@@ -343,13 +418,21 @@
             </div>
             </div>
 
-            <div id="sns" class="col-span-full m-col-start-10 m-col-end-12">
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
                 <p>Social Media</p>
                 <div class="sns-icon">
-                    <img src="images/facebook.svg" class="facebook" alt="facebook icon">
-                    <img src="images/instagram.svg" class="instagram" alt="instagram icon">
-                    <img src="images/x.svg" class="x" alt="x icon">
-                    <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    <a href="https://www.facebook.com/427winglondon/">
+                        <img src="images/facebook.svg" class="facebook" alt="facebook icon">
+                    </a>
+                    <a href="https://www.instagram.com/427wing/">
+                        <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    </a>
+                    <a href="http://www.427wing.com">
+                        <img src="images/x.svg" class="x" alt="x icon">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8qWGIbfAr5cjSucEIKPpJw">
+                        <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    </a>
                 </div>
 
             </div>

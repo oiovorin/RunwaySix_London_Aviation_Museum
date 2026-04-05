@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Museum Homepage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/grid.css" rel="stylesheet">
@@ -9,21 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.8.4/plyr.css" />
     <script type="module" src="js/main.js"></script>
-    <title>London Aviation Museum Home Page</title>
+    <title>London Aviation History About Page</title>
 </head>
+<body data-page="pilot">
 
 
-<body data-page="home">
-
-    <div class="hero-loop-video">
-        <video autoplay loop muted playsinline>
-            <source src="videos/Main-Looping_video.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <header>
+      <header class="blue-header">
         <div class="grid-con">
 
             <div id="top-header" class="l-col-start-9 l-col-end-12">
@@ -60,7 +51,7 @@
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
                             </div>
-                            <ul id="about-sub">
+                            <ul id="about-sub" class="hidden">
                                 <li><a href="education.html" aria-label="go to History page">Education</a></li>
                             </ul>
                         </li>
@@ -71,7 +62,7 @@
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
                             </div>
-                            <ul id="history-sub">
+                            <ul id="history-sub" class="hidden">
                                 <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
                                 <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
                                 <li><a href="artifacts.html" aria-label="go to artifacts page">Artifacts</a></li>
@@ -87,158 +78,77 @@
         </div>
     </header>
 
-    <div class="grid-con" id="home-hero-text">
-        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13 l-col-start-2 l-col-end-12">
-            Welcome to the<br>
-            <span>London Aviation Museum</span>
-        </h1>
-        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12 l-col-start-2 l-col-end-12">
-            Discover the stories that shaped the skies, through the lens of service and sacrifice.
-        </p>
-        <a href="artifacts.html" class="button col-span-full l-col-start-2 l-col-end-12">Explore Artifacts &#x25B6;</a>
+   <main>
+
+    <div class="grid-con">
+
+        <a href="battle-of-britain.html" class="col-span-full" id="back-to-bofb">← Back to Pilots of Honour</a>
+
+        <h1 id="pilot-name" class="col-span-full">Flying Officer Robert R. Smith</h1>
+
+        <img class="pilot-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5">
+
+        <div class="pilot-bio col-span-full m-col-start-6 m-col-end-13 l-col-start-5 l-col-end-13">
+            <h2>Military Service Record:</h2>
+            <p><span>Full Name: </span>Robert Rutherford Smith</p>
+            <p><span>Born: </span>August 17, 1915 - London, Ontario, Canada</p>
+            <p><span>Force: </span> Royal Air Force</p>
+            <p><span>Service Number: </span>41665/C94080</p>
+            <p><span>Rank: </span>Flying Officer (later Flight Lieutenant)</p>
+            <p><span>Squadrons: </span>No. 229 Squadron RAF</p>
+            <p><span>Aircraft Flown: </span>Hawker Hurricane Mk I </p>
+            <p><span>Decorations: </span>Distinguished Flying Cross (February 23, 1943)</p>
+            <p><span>Date of Death: </span>November 17, 1965</p>
+        </div>
     </div>
-    
 
-    <main>
-        <!-- About Section -->
-        <section id="about-museum">
-            <div class="grid-con">
-                <div class="about-text col-span-full m-col-start-2 m-col-end-7 l-col-start-2 l-col-end-6">
-                    <h2>About the Museum</h2>
-                    <p>
-                        The London Aviation Museum preserves and shares the aviation history of London, Ontario. Closely connected to the legacy of RCAF Station Crumlin and the historic Airman's Canteen, the museum highlights the city's role in the British Commonwealth Air Training Plan and honours local Royal Canadian Air Force members who served during the Second World War, ensuring their contributions are remembered for future generations.
-                    </p>
+        <div class="grid-con">
+            <div class="pilot-img-gallary col-span-full">
+                <div class="pilot-img-item">
+                    <img class="first">
+                    <p>Badge of No. 229 Squadron,<br>Royal Air Force.</p>
                 </div>
-                <div class="about-image col-span-full m-col-start-7 m-col-end-13 l-col-start-7 l-col-end-12">
-                    <img src="images/restaurant.png" alt="Museum Interior">
+                <div class="pilot-img-item">
+                    <img class="second">
+                    <p>Distinguished Flying Cross <br>(DFC).</p>
                 </div>
-
-                <a href="about.html" class=" col-span-full m-col-start-2 m-col-end-4 l-col-start-2 l-col-end-4 button">Learn More</a>
+                <div class="pilot-img-item">
+                    <img class="third">
+                    <p>Supermarine Spitfire Mk I </p>
+                </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Visit Learn Remember Section with Video Player -->
-        <section id="visit-learn">
-            <div class="section-header">
-                <span class="line"></span>
-                <h2>Visit · Learn · Remember</h2>
-                <span class="line"></span>
-            </div>
+        <article class="grid-con" id="additional-info">
+            <h2 class="col-span-full">Additional Information:</h2>
             
-            <div class="grid-con">
-            <section id="player-container" class="col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
-                <h3 class="hidden">London Aviation History Video Player</h3>
-                <div class="plyr__video-embed" id="player">
-                    <iframe src="https://player.vimeo.com/video/1178915965?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LAM-Documentary-final-video"></iframe>
-                </div>
-            </section>
-            </div>
-        </section>
-
-        <!-- Aviation History & Legacy Section with Draggable Slider -->
-        <section id="history">
-            <div class="section-header">
-                <span class="line"></span>
-                <h2>Aviation History & Legacy</h2>
-                <span class="line"></span>
-            </div>
-            <div class="grid-con">
-                <div id="slider-container" class="col-span-full">
-                    <div id="slider-track">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="images/home-history.png" alt="London Aviation History">
-                            </div>
-                            <div class="card-content">
-                                <h3>London Aviation History</h3>
-                                <p>Early aviation development and local contributions.</p>
-                                <a href="london-aviation.html" class="button" aria-label="learn more about london ab=viation history">Explore</a>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="images/home-battle.png" alt="The Battle of Britain">
-                            </div>
-                            <div class="card-content">
-                                <h3>The Battle of Britain</h3>
-                                <p>London's role and sacrifices during WWII.</p>
-                                <a href="battle-of-britain.html" class="button battle-of-britain" aria-label="learn more about battle of britain">Explore</a>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="images/home-wartime.png" alt="Wartime Experience">
-                            </div>
-                            <div class="card-content">
-                                <h3>Wartime Experience</h3>
-                                <p>Training, service, and the realities of wartime aviation during WWII.</p>
-                                <a href="wartime.html" class="button" aria-label="learn more about wartime experience">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Events & Blog Section -->
-        <section id="events-blog">
-            <div class="section-header">
-                <span class="line"></span>
-                <h2>Events & Blog</h2>
-                <span class="line"></span>
+            <div class="col-span-full additional-item">
+                <h3>Early Royal Air Force Service</h3>
+                <p>Robert R. Smith was born in London, Ontario, on 17 August 1915. He joined the Royal Air Force on a short service commission in May 1938.<br>On 6 October 1939, he was posted to No. 229 Squadron at RAF Digby when the unit was re-formed as part of the expansion of Fighter Command prior to large-scale air operations in Europe.</p>
             </div>
 
-            <!-- Event 1 - Image Left -->
-            <div class="event-row">
-                <div class="event-image">
-                    <img src="images/event1.png" alt="Remembrance Day">
-                </div>
-                <div class="event-content">
-                    <span class="tag tag-event">EVENT</span>
-                    <h3>Remembrance Day</h3>
-                    <p class="event-date">November 11, 2026</p>
-                    <p class="event-description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a href="#" class="read-more" aria-label="read more about Remembrance Day">Read More →</a>
-                </div>
+            <div class="col-span-full additional-item">
+                <h3>Operations in France and Dunkirk, 1940</h3>
+                <p>During the German invasion of France, Smith took part in operations over northern France and the Channel.<br>On 29 May 1940, during the evacuation at Dunkirk (Operation Dynamo), he probably destroyed a Messerschmitt Bf 109. On 1 June, he destroyed one Junkers Ju 87 and probably a second during combat operations.<br>These engagements took place during the intense air fighting that accompanied the evacuation of Allied forces from France.</p>
             </div>
 
-            <!-- Event 2 -->
-            <div class="event-row-reverse">
-                <div class="event-image-reverse">
-                    <img src="images/event2.png" alt="427 Wing">
-                </div>
-                <div class="event-content blog-content-reverse">
-                    <span class="tag tag-blog">BLOG</span>
-                    <h3>427 Wing: A Local Legacy</h3>
-                    <p class="event-date">Publish Date: MM/DD/YYYY</p>
-                    <p class="event-description"><em>The origins and ongoing role of 427 (London) Wing within the RCAF Association.</em></p>
-                    <a href="#" class="read-more" aria-label="read more about 427 Wing: A Local Legacy">Read More →</a>
-                </div>
+            <div class="col-span-full additional-item">
+                <h3>Battle of Britain</h3>
+                <p>During the Battle of Britain, Smith continued to serve with No. 229 Squadron.<br>On 11 September 1940, he claimed a Heinkel He 111 probably destroyed. On 15 September, he was shot down while attacking formations of Dornier Do 17 and Messerschmitt Bf 110 aircraft over Sevenoaks. He baled out of Hurricane V6616 with leg wounds.<br>During the same engagement, he damaged a Messerschmitt Bf 109.</p>
+            </div>
+                
+            <div class="col-span-full additional-item">
+                <h3>Service in North Africa and Captivity</h3>
+                <p>Smith later served in the Western Desert campaign in North Africa, flying Curtiss Kittyhawk aircraft with No. 112 Squadron.<br>During operations in this theatre, he was shot down and captured, becoming a prisoner of war.</p>
             </div>
 
-            <!-- Event 2 - Image Left -->
-            <div class="event-row">
-                <div class="event-image">
-                    <img src="images/event3.png" alt="Remembrance Day">
-                </div>
-                <div class="event-content">
-                    <span class="tag tag-event">EVENT</span>
-                    <h3>Remembrance Day</h3>
-                    <p class="event-date">November 11, 2026</p>
-                    <p class="event-description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a href="#" class="read-more" aria-label="read more about Remembrance Dayy">Read More →</a>
-                </div>
+            <div class="col-span-full additional-item">
+                <h3>Later Life and Legacy</h3>
+                <p>Smith survived the Second World War. He was awarded the Distinguished Flying Cross (DFC) in recognition of his operational service.<br>Flying Officer Robert R. Smith is remembered as one of the Canadian pilots who served with the Royal Air Force during the early years of the war, taking part in operations over France, the Battle of Britain, and later in North Africa.</p>
             </div>
+        </article>
 
-            <div class="events-cta">
-                <a href="events-blog.html" class="button" aria-label="see all events & blog">See All</a>
-            </div>
-        </section>
-    </main>
-
-
+   </main>
     
 
    <footer>
@@ -341,10 +251,5 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
-    <script src="https://cdn.plyr.io/3.8.4/plyr.js"></script>
-
-    <script>
-    const player = new Plyr("#player");
-    </script>
 </body>
 </html>
