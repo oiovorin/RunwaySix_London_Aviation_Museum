@@ -18,6 +18,7 @@ import { londonPilotsAnimation } from "./modules/gsap.js";
 import { contactAnimation } from "./modules/gsap.js";
 import { artifactCarousel } from "./modules/artifact.js";
 import { remPilotAnimation } from "./modules/gsap.js";
+import { postAnimation } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -66,6 +67,9 @@ if(document.body.dataset.page === "home") {
     header();
 } else if (document.body.dataset.page === "events-blog") {
     header();
+} else if (document.body.dataset.page === "post") {
+    header();
+    postAnimation();
 } else if (document.body.dataset.page === "FAQ") {
     header();
     sectionTitle();

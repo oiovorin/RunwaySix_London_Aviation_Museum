@@ -87,8 +87,7 @@ export function bofbAnimation () {
       stagger: 1,
       scrollTrigger: {
             trigger: battleIntro,
-            start: "top 80%",
-            markers: true
+            start: "top 80%"
         }
     })
 
@@ -116,8 +115,7 @@ export function bofbAnimation () {
             stagger: 1,
             scrollTrigger: {
                 trigger: dateSelection,
-                start: "top 80%",
-                markers: true
+                start: "top 80%"
             }
     })
 
@@ -537,6 +535,127 @@ export function ArtifactsAnimation () {
         stagger: 0.3,
         scrollTrigger: {
             trigger: "#artifact-gallery",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+}
+
+export function postAnimation () {
+
+     const backToEventsBlog = document.querySelector("#back-to-events_blog");
+
+        gsap.from(backToEventsBlog,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+    const postTitle = document.querySelector("#post-title");
+
+        gsap.from(postTitle,  {
+            opacity: 0,
+            y: 50,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+
+   const postCategory = document.querySelector("#post-category");
+
+    gsap.from(postCategory, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: postCategory,
+            start: "top 90%"
+        }
+    });
+
+
+    const postInfo = document.querySelectorAll("#post-info .info");
+
+    gsap.from(postInfo, {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#post-info",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+    const eventImage = document.querySelector(".event-image");
+
+    gsap.from(eventImage, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: eventImage,
+            start: "top 80%"
+        }
+    });
+
+    const aboutPost = document.querySelector("#about-post");
+
+    gsap.from(aboutPost, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: aboutPost,
+            start: "top 80%",
+        }
+        });
+
+    const contactCta = document.querySelector("#contact-cta");
+
+    gsap.from(contactCta, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.8,
+        scrollTrigger: {
+            trigger: contactCta,
+            start: "top 80%"
+        }
+        });
+
+        
+
+        const share = document.querySelector("#share");
+
+    gsap.from(share, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: share,
+            start: "top 90%"
+        }
+    });
+
+    const otherPost = document.querySelectorAll("#others .other-post");
+
+    gsap.from(otherPost, {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#others",
             start: "top 80%",
             toggleActions: "play none none none"
         }
