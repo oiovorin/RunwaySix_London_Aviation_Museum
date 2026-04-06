@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Museum Homepage</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/grid.css" rel="stylesheet">
@@ -9,21 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
-    <link rel="stylesheet" href="https://cdn.plyr.io/3.8.4/plyr.css" />
     <script type="module" src="js/main.js"></script>
-    <title>London Aviation Museum Home Page</title>
+    <title>London Aviation History About Page</title>
 </head>
+<body data-page="post">
 
 
-<body data-page="home">
-
-    <div class="hero-loop-video">
-        <video autoplay loop muted playsinline>
-            <source src="videos/Main-Looping_video.mp4" type="video/mp4">
-        </video>
-    </div>
-
-    <header>
+      <header class="blue-header">
         <div class="grid-con">
 
             <div id="top-header" class="l-col-start-9 l-col-end-12">
@@ -60,7 +51,7 @@
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
                             </div>
-                            <ul id="about-sub">
+                            <ul id="about-sub" class="hidden">
                                 <li><a href="education.html" aria-label="go to History page">Education</a></li>
                             </ul>
                         </li>
@@ -71,7 +62,7 @@
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
                             </div>
-                            <ul id="history-sub">
+                            <ul id="history-sub" class="hidden">
                                 <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
                                 <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
                                 <li><a href="artifacts.html" aria-label="go to artifacts page">Artifacts</a></li>
@@ -87,158 +78,79 @@
         </div>
     </header>
 
-    <div class="grid-con" id="home-hero-text">
-        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13 l-col-start-2 l-col-end-12">
-            Welcome to the<br>
-            <span>London Aviation Museum</span>
-        </h1>
-        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12 l-col-start-2 l-col-end-12">
-            Discover the stories that shaped the skies, through the lens of service and sacrifice.
-        </p>
-        <a href="artifacts.html" class="button col-span-full l-col-start-2 l-col-end-12">Explore Artifacts &#x25B6;</a>
+   <main>
+
+    <div class="grid-con">
+
+        <a href="events-blog.html" class="col-span-full" id="back-to-events_blog">← Back to Events & Blogs</a>
+
+        <h1 id="post-title" class="col-span-full">Remembrance Day:<br>
+            Honouring RACF Airmen</h1>
+        
+        <div class="col-span-full" id="post-category">
+            <p class="category">EVENT</p>
+            <p class="publish-date">Published April 7, 2026</p>
+        </div>
+
+        <div class="col-span-full" id="post-info">
+            <div id="evnet-date" class="info">
+                <img src="images/calendar-fill.svg" alt="calendar icon">
+                <p><span>Date: </span>November 11, 2026</p>
+            </div>
+
+            <div id="evnet-time" class="info">
+                <img src="images/time-fill.svg" alt="time icon">
+                <p><span>Time: </span>10:00 AM - 5:00 PM</p>
+            </div>
+
+            <div id="evnet-location" class="info">
+                <img src="images/map-pin-fill.svg" alt="map pin icon">
+                <p><span>Location: </span>London Aviation Museum</p>
+            </div>
+        </div>
+
+        <img class="event-image col-span-full">
+
+        <div id="about-post" class="col-span-full">
+            <h2>About the Event</h2>
+            <p>Remembrance Day is dedicated to commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during the Second World War.<br><br>
+            Held at the London Aviation Museum, this event brings together visitors, historians, and members of the community to reflect on the contributions of those who served. It highlights the role of the Royal Canadian Air Force and the experiences of local airmen who took part in the air war.<br><br>
+            Through a combination of remembrance activities and historical interpretation, the event offers an opportunity to honour their legacy and better understand the impact of their service during a critical period of the war.</p>
+        </div>
+
+        <a href="contact.html" class="button col-span-full" id="contact-cta">Contact Us</a>
     </div>
-    
 
-    <main>
-        <!-- About Section -->
-        <section id="about-museum">
-            <div class="grid-con">
-                <div class="about-text col-span-full m-col-start-2 m-col-end-7 l-col-start-2 l-col-end-6">
-                    <h2>About the Museum</h2>
-                    <p>
-                        The London Aviation Museum preserves and shares the aviation history of London, Ontario. Closely connected to the legacy of RCAF Station Crumlin and the historic Airman's Canteen, the museum highlights the city's role in the British Commonwealth Air Training Plan and honours local Royal Canadian Air Force members who served during the Second World War, ensuring their contributions are remembered for future generations.
-                    </p>
-                </div>
-                <div class="about-image col-span-full m-col-start-7 m-col-end-13 l-col-start-7 l-col-end-12">
-                    <img src="images/restaurant.png" alt="Museum Interior">
-                </div>
+    <div class="grid-con" id="share">
+        <h2 class="col-span-full m-col-start-1 m-col-end-5">Share this Event:</h2>
+        <div id="sns-icon" class="col-span-full m-col-start-11 m-col-end-13">
+            <a href="https://www.facebook.com/427winglondon/">
+                <img src="images/blue_facbook.svg" class="facebook" alt="facebook icon">
+            </a>
+            <a href="https://www.instagram.com/427wing/">
+                <img src="images/instagram-blue.svg" class="instagram" alt="instagram icon">
+            </a>
+            <a href="http://www.427wing.com">
+                <img src="images/x-blue.svg" class="x" alt="x icon">
+            </a>
+        </div>
 
-                <a href="about.html" class=" col-span-full m-col-start-2 m-col-end-4 l-col-start-2 l-col-end-4 button">Learn More</a>
-            </div>
-        </section>
+        <hr class="col-span-full">
+    </div>
 
-        <!-- Visit Learn Remember Section with Video Player -->
-        <section id="visit-learn">
-            <div class="section-header">
-                <span class="line"></span>
-                <h2>Visit · Learn · Remember</h2>
-                <span class="line"></span>
-            </div>
-            
-            <div class="grid-con">
-            <section id="player-container" class="col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
-                <h3 class="hidden">London Aviation History Video Player</h3>
-                <div class="plyr__video-embed" id="player">
-                    <iframe src="https://player.vimeo.com/video/1178915965?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LAM-Documentary-final-video"></iframe>
-                </div>
-            </section>
-            </div>
-        </section>
+    <div class="grid-con" id="others">
+        <h2 class="col-span-full">Relared Events</h2>
 
-        <!-- Aviation History & Legacy Section with Draggable Slider -->
-        <section id="history">
-            <div class="section-header">
-                <span class="line"></span>
-                <h2>Aviation History & Legacy</h2>
-                <span class="line"></span>
-            </div>
-            <div class="grid-con">
-                <div id="slider-container" class="col-span-full">
-                    <div id="slider-track">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="images/home-history.png" alt="London Aviation History">
-                            </div>
-                            <div class="card-content">
-                                <h3>London Aviation History</h3>
-                                <p>Early aviation development and local contributions.</p>
-                                <a href="london-aviation.html" class="button" aria-label="learn more about london ab=viation history">Explore</a>
-                            </div>
-                        </div>
+        <div class="other-post col-span-full m-col-span-4">
+            <img src="images/" alt="">
+            <h3>Battle of Britain Commemoration</h3>
+            <p id="event-date">September 21, 2026</p>
+            <p id="description">Honouring the courage of RCAF pilots who played a vital role in the defence of Britain.</p>
+            <a href="#" class="read-more" aria-label="read more about ">Read More →</a>
+        </div>
+    </div>
 
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="images/home-battle.png" alt="The Battle of Britain">
-                            </div>
-                            <div class="card-content">
-                                <h3>The Battle of Britain</h3>
-                                <p>London's role and sacrifices during WWII.</p>
-                                <a href="battle-of-britain.html" class="button battle-of-britain" aria-label="learn more about battle of britain">Explore</a>
-                            </div>
-                        </div>
-
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="images/home-wartime.png" alt="Wartime Experience">
-                            </div>
-                            <div class="card-content">
-                                <h3>Wartime Experience</h3>
-                                <p>Training, service, and the realities of wartime aviation during WWII.</p>
-                                <a href="wartime.html" class="button" aria-label="learn more about wartime experience">Explore</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Events & Blog Section -->
-        <section id="events-blog">
-            <div class="section-header">
-                <span class="line"></span>
-                <h2>Events & Blog</h2>
-                <span class="line"></span>
-            </div>
-
-            <!-- Event 1 - Image Left -->
-            <div class="event-row">
-                <div class="event-image">
-                    <img src="images/event1.png" alt="Remembrance Day">
-                </div>
-                <div class="event-content">
-                    <span class="tag tag-event">EVENT</span>
-                    <h3>Remembrance Day</h3>
-                    <p class="event-date">November 11, 2026</p>
-                    <p class="event-description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a href="#" class="read-more" aria-label="read more about Remembrance Day">Read More →</a>
-                </div>
-            </div>
-
-            <!-- Event 2 -->
-            <div class="event-row-reverse">
-                <div class="event-image-reverse">
-                    <img src="images/event2.png" alt="427 Wing">
-                </div>
-                <div class="event-content blog-content-reverse">
-                    <span class="tag tag-blog">BLOG</span>
-                    <h3>427 Wing: A Local Legacy</h3>
-                    <p class="event-date">Publish Date: MM/DD/YYYY</p>
-                    <p class="event-description"><em>The origins and ongoing role of 427 (London) Wing within the RCAF Association.</em></p>
-                    <a href="#" class="read-more" aria-label="read more about 427 Wing: A Local Legacy">Read More →</a>
-                </div>
-            </div>
-
-            <!-- Event 2 - Image Left -->
-            <div class="event-row">
-                <div class="event-image">
-                    <img src="images/event3.png" alt="Remembrance Day">
-                </div>
-                <div class="event-content">
-                    <span class="tag tag-event">EVENT</span>
-                    <h3>Remembrance Day</h3>
-                    <p class="event-date">November 11, 2026</p>
-                    <p class="event-description">Commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during World War II.</p>
-                    <a href="#" class="read-more" aria-label="read more about Remembrance Day">Read More →</a>
-                </div>
-            </div>
-
-            <div class="events-cta">
-                <a href="events-blog.html" class="button" aria-label="see all events & blog">See All</a>
-            </div>
-        </section>
-    </main>
-
-
+   </main>
     
 
    <footer>
@@ -341,10 +253,5 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
-    <script src="https://cdn.plyr.io/3.8.4/plyr.js"></script>
-
-    <script>
-    const player = new Plyr("#player");
-    </script>
 </body>
 </html>
