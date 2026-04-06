@@ -19,6 +19,8 @@ import { contactAnimation } from "./modules/gsap.js";
 import { artifactCarousel } from "./modules/artifact.js";
 import { remPilotAnimation } from "./modules/gsap.js";
 import { postAnimation } from "./modules/gsap.js";
+import { artifactVueApp } from "./modules/vue_app.js";
+import { artifactVueDetailApp } from "./modules/vue_app.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -32,12 +34,11 @@ if(document.body.dataset.page === "home") {
     sectionTitle();
 } else if (document.body.dataset.page === "artifact-detail") {
     header();
-    sectionTitle();
-    artifactCarousel();
-    ArtifactsAnimation();
+    artifactVueDetailApp();
 } else if (document.body.dataset.page === "artifacts") {
     header();
     sectionTitle();
+    artifactVueApp();
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
     selectDate();
