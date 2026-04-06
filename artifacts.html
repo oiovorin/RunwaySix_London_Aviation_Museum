@@ -83,7 +83,7 @@
 
     <div class="grid-con" id="hero-text">
         <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13">
-            <span>Aritifacts</span>
+            <span>Artifacts</span>
         </h1>
         <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12">
             Explore a collection of artifacts that serve as silent witnesses to history. From weathered flight jackets to recovered aircraft fragments, each piece preserves the memory of service, sacrifice, and dedication, honouring the lives and stories behind the London Aviation Museum.
@@ -102,7 +102,8 @@
                 <div v-else-if="artifactsError" class="artifacts-error col-span-full">
                     <p>{{ artifactsError }}</p>
                 </div>
-                    <div v-else class="artifact-card col-span-full m-col-span-4" v-for="artifact in artifactsData" :key="artifact.id">
+                <template v-else>
+                    <div class="artifact-card col-span-full m-col-span-4" v-for="artifact in artifactsData" :key="artifact.id">
                         <a :href="'artifact_detail.html?id=' + artifact.id" class="artifact-card-link">
                         <div class="img-con">
                             <img class="artifact-img" :src="artifact.image_path" :alt="artifact.name">
@@ -110,6 +111,7 @@
                         <h3>{{ artifact.name }}</h3>
                         </a>
                     </div>
+                </template>
             </section>
         </div>
     </main>

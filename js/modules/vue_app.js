@@ -217,3 +217,267 @@ export function artifactVueDetailApp() {
         });
     app.mount("#artifact-detail-app");
 }
+
+export function eventsBlogVueApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                eventsBlogData: [],
+                loadingEventsBlog: true,
+                eventsBlogError: null
+            };
+        },
+        created() {
+            this.getEventsBlog();
+        },
+        methods: {
+            getEventsBlog() {
+                this.eventsBlogError = null;
+                fetch("http://127.0.0.1:8000/api/events-blogs")
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch the artifacts.");
+                        }
+                        return res.json();
+                    })
+                    .then(eventsBlog => {
+                        this.eventsBlogData = eventsBlog;
+                    })
+                    .catch(err => {
+                        this.eventsBlogError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingEventsBlog = false;
+
+                        this.$nextTick(() => {
+                            gsap.from(".post-card", {
+                                opacity: 0,
+                                y: 24,
+                                duration: 0.7,
+                                stagger: 0.3,
+                                ease: "power2.out"
+                            });
+                        });
+                    });
+            },
+            formatDate(dateStr) {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                });
+            }
+        
+        }
+    });
+    app.mount("#events-blog-app");
+}
+
+export function eventsBlogVueDetailApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                selectedEventsBlog: null,
+                loadingEventsBlogDetails: true,
+                eventsBlogDetailsError: null,
+                relatedEventsBlog: [],  
+            };
+        },
+        created() {
+            this.getEventsBlogById();
+            this.getRelatedEventsBlog(); 
+        },
+        methods: {
+            getEventsBlogById() {
+                // take id from URL
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get("id");
+
+                if (!id) {
+                    this.eventsBlogDetailsError = "Failed to fetch the selected post.";
+                    this.loadingEventsBlogDetails = false;
+                    return;
+                }
+
+                fetch(`http://127.0.0.1:8000/api/events-blogs/${id}`)
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch post details.");
+                        }
+                        return res.json();
+                    })
+                    .then(eventsBlog => {
+
+                        this.selectedEventsBlog = {
+                            title: eventsBlog.title || "NOT available",
+                            postType: eventsBlog.post_type || "NOT available",
+                            eventDate: eventsBlog.event_date || "NOT available",
+                            eventTime: eventsBlog.evnet_time || "NOT available",
+                            location: eventsBlog.location || "NOT available",
+                            description: eventsBlog.description || "NOT available",
+                            content: eventsBlog.content || "NOT available",
+                            imagePath: eventsBlog.image_path || "",
+                            publishedDate: eventsBlog.created_at || ""
+                        };
+                    })
+                    .catch(err => {
+                        this.eventsBlogDetailsError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingEventsBlogDetails = false;
+                    });
+            },
+
+            formatDate(dateStr) {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                });
+            },
+
+            // get other posts
+            getRelatedEventsBlog() {        
+                const params = new URLSearchParams(window.location.search);
+                const currentId = Number(params.get("id"));
+
+                fetch("http://127.0.0.1:8000/api/events-blogs")
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch post.");
+                        }
+                        return res.json();
+                    })
+                    .then(eventsBlog => {
+                        this.relatedEventsBlog = eventsBlog.filter(eventsBlog => eventsBlog.id !== currentId);
+                    })
+                    .catch(err => {
+                        console.error(err.message);
+                    })
+                    .finally(() => {
+                        this.$nextTick(() => {
+                            const backToEventsBlog = document.querySelector("#back-to-events_blog");
+
+                            gsap.from(backToEventsBlog,  {
+                                opacity: 0,
+                                x: -30,
+                                ease: "power1.out",
+                                duration: 1,
+                                stagger: 1
+                            })
+
+                            const postTitle = document.querySelector("#post-title");
+
+                            gsap.from(postTitle,  {
+                                opacity: 0,
+                                y: 50,
+                                ease: "power1.out",
+                                duration: 1,
+                                stagger: 1
+                            })
+
+
+                            const postCategory = document.querySelector("#post-category");
+
+                            gsap.from(postCategory, {
+                            opacity: 0,
+                            y: 50,
+                            ease: "power1.out",
+                            duration: 1,
+                            scrollTrigger: {
+                                    trigger: postCategory,
+                                    start: "top 90%"
+                                }
+                            });
+
+
+                            const postInfo = document.querySelectorAll("#post-info .info");
+
+                            gsap.from(postInfo, {
+                                opacity: 0,
+                                y: 50,
+                                duration: 0.6,
+                                stagger: 0.3,
+                                scrollTrigger: {
+                                    trigger: "#post-info",
+                                    start: "top 80%",
+                                    toggleActions: "play none none none"
+                                }
+                                });
+
+                            const eventImage = document.querySelector(".event-image");
+
+                            gsap.from(eventImage, {
+                            opacity: 0,
+                            y: 50,
+                            ease: "power1.out",
+                            duration: 1,
+                            scrollTrigger: {
+                                    trigger: eventImage,
+                                    start: "top 80%"
+                                }
+                            });
+
+                            const aboutPost = document.querySelector("#about-post");
+
+                            gsap.from(aboutPost, {
+                                opacity: 0,
+                                y: 50,
+                                duration: 1,
+                                stagger: 0.3,
+                                scrollTrigger: {
+                                    trigger: aboutPost,
+                                    start: "top 80%",
+                                }
+                                });
+
+                            const contactCta = document.querySelector("#contact-cta");
+
+                            gsap.from(contactCta, {
+                                opacity: 0,
+                                y: 50,
+                                duration: 1,
+                                stagger: 0.8,
+                                scrollTrigger: {
+                                    trigger: contactCta,
+                                    start: "top 80%"
+                                }
+                                });
+
+                        
+                            const share = document.querySelector("#share");
+
+                            gsap.from(share, {
+                            opacity: 0,
+                            y: 50,
+                            ease: "power1.out",
+                            duration: 1,
+                            scrollTrigger: {
+                                    trigger: share,
+                                    start: "top 90%"
+                                }
+                            });
+
+                            const otherPost = document.querySelectorAll("#others .other-post");
+
+                            gsap.from(otherPost, {
+                                opacity: 0,
+                                y: 50,
+                                duration: 0.6,
+                                stagger: 0.3,
+                                scrollTrigger: {
+                                    trigger: "#others",
+                                    start: "top 80%",
+                                    toggleActions: "play none none none"
+                                }
+                            });
+
+                        });
+                    });
+            },
+        }
+    });  
+    app.mount("#post-detail-app");
+}

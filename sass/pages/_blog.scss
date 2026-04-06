@@ -92,9 +92,14 @@
 // EVENT / BLOG TEMPLATE STYLING
 // ===========================================
 
-#top-events-left {
+#events-blog-app {
+    margin-bottom: 100px;
+}
+
+.post-card {
     background-color: $aviation_blue;
     padding-bottom: 15px;
+    margin: 20px 0;
 
     img {
         width: 100vw;
@@ -135,6 +140,11 @@
             font-size: 14px;
             padding-bottom: 5px;
             border-bottom: 1px solid #fff;
+
+            &:hover {
+                font-weight: 600;
+                transition: all .3s ease-in-out;
+            }
         }
     }
 }
