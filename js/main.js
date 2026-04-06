@@ -21,6 +21,7 @@ import { remPilotAnimation } from "./modules/gsap.js";
 import { postAnimation } from "./modules/gsap.js";
 import { artifactVueApp } from "./modules/vue_app.js";
 import { artifactVueDetailApp } from "./modules/vue_app.js";
+import { eventsBlogVueApp } from "./modules/vue_app.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -68,6 +69,7 @@ if(document.body.dataset.page === "home") {
     header();
 } else if (document.body.dataset.page === "events-blog") {
     header();
+    eventsBlogVueApp();
 } else if (document.body.dataset.page === "post") {
     header();
     postAnimation();

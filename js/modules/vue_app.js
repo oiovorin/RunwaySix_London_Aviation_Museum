@@ -217,3 +217,52 @@ export function artifactVueDetailApp() {
         });
     app.mount("#artifact-detail-app");
 }
+
+export function eventsBlogVueApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                eventsBlogData: [],
+                loadingEventsBlog: true,
+                eventsBlogError: null
+            };
+        },
+        created() {
+            this.getEventsBlog();
+        },
+        methods: {
+            getEventsBlog() {
+                this.eventsBlogError = null;
+                fetch("http://127.0.0.1:8000/api/events-blogs")
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch the artifacts.");
+                        }
+                        return res.json();
+                    })
+                    .then(eventsBlog => {
+                        this.eventsBlogData = eventsBlog;
+                    })
+                    .catch(err => {
+                        this.eventsBlogError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingEventsBlog = false;
+
+                        this.$nextTick(() => {
+                            gsap.from(".post-card", {
+                                opacity: 0,
+                                y: 24,
+                                duration: 0.7,
+                                stagger: 0.3,
+                                ease: "power2.out"
+                            });
+                        });
+                    });
+            }
+        
+        }
+    });
+    app.mount("#events-blog-app");
+}
+
