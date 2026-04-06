@@ -75,10 +75,11 @@
 }
 
 #about-post {
-    margin: 50px auto;
+    margin: 50px 0;
 
-    h2 {
-        margin: 10px 0;
+    h3 {
+        margin: 50px 0 5px 0;
+        font-size: 24px;
     }
 }
 
@@ -89,6 +90,7 @@
         @include tablet {
         margin:30px 0;
     }
+
     }
 
     #sns-icon {

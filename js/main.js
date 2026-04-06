@@ -22,6 +22,7 @@ import { postAnimation } from "./modules/gsap.js";
 import { artifactVueApp } from "./modules/vue_app.js";
 import { artifactVueDetailApp } from "./modules/vue_app.js";
 import { eventsBlogVueApp } from "./modules/vue_app.js";
+import { eventsBlogVueDetailApp } from "./modules/vue_app.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -72,7 +73,7 @@ if(document.body.dataset.page === "home") {
     eventsBlogVueApp();
 } else if (document.body.dataset.page === "post") {
     header();
-    postAnimation();
+    eventsBlogVueDetailApp();
 } else if (document.body.dataset.page === "FAQ") {
     header();
     sectionTitle();

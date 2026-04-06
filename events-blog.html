@@ -116,7 +116,7 @@
                         <div class="detail">
                             <span class="tag tag-event">{{ eventsBlog.post_type }}</span>
                             <h2 class="title">{{ eventsBlog.title }}</h2>
-                            <p class="date">{{ eventsBlog.event_date }}</p>
+                            <p class="date">{{ formatDate(eventsBlog.event_date) }}</p>
                             <p class="description">{{ eventsBlog.description }}</p>
                             <a class="event-link" :href="'post.html?id=' + eventsBlog.id">Read More</a>
                         </div>
@@ -124,24 +124,6 @@
             </template>
         </div>
     </div>
-
-
-        <!-- template for small event / blog card -->
-        <div id="more-events" class="grid-con">
-            <div class="event-card col-span-full m-col-span-6 l-col-span-6">
-                <div class="image-tag">
-                    <span class="label">EVENT</span>
-                    <img src="images/" alt="alt text here">
-                </div>
-
-                <div class="more-details">
-                    <h2 class="title">Veterans' Week at the Museum</h2>
-                    <p class="date">Early November</p>
-                    <p class="description">A week of reflection, stories, and exhibits honouring Canadian veterans and RCAF service members.</p>
-                    <a class="event-link" href="#">Read More</a>
-                </div>
-            </div>
-        </div>
     </main>
 
   <footer>
