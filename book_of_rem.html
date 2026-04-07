@@ -142,8 +142,8 @@
                     <p>{{ remembrancesError }}</p>
                 </div>
                 <template v-else>
-                    <template v-if="remembrances">
-                    <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-start-1 m-col-end-7">
+                    <template v-for="remembrances in remembrancesData" :key="remembrances.id">
+                    <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-span-6">
                         <div class="bor-pilot-info">
                             <h3>{{ remembrances.full_name }}</h3>
                             <p><span>Rank:</span>{{ remembrances.rank_title }}</p>
