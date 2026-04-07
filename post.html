@@ -151,12 +151,14 @@
     <div class="grid-con" id="others">
         <h2 class="col-span-full">Relared Events</h2>
 
-        <div class="other-post col-span-full m-col-span-4" v-for="eventsBlog in relatedEventsBlog" :key="eventsBlog.id">
-            <img :src="eventsBlog.image_path" :alt="eventsBlog.title">
-            <h3>{{eventsBlog.title }}</h3>
-            <p id="event-date">{{ eventsBlog.eventDate }}</p>
-            <p id="description">{{ eventsBlog.description }}</p>
-            <a :href="'post.html?id=' + eventsBlog.id" class="read-more" :alt="eventsBlog.title">Read More →</a>
+        <div class="post-gallery col-span-full">
+            <div class="other-post" v-for="eventsBlog in relatedEventsBlog" :key="eventsBlog.id">
+                <img :src="eventsBlog.image_path" :alt="eventsBlog.title">
+                <h3>{{eventsBlog.title }}</h3>
+                <p id="event-date">{{ eventsBlog.eventDate }}</p>
+                <p id="description">{{ eventsBlog.description }}</p>
+                <a :href="'post.html?id=' + eventsBlog.id" class="read-more" :alt="eventsBlog.title">Read More →</a>
+            </div>
         </div>
     </div>
     </div>

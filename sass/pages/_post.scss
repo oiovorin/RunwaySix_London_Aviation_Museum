@@ -193,3 +193,27 @@
 }
 
 }
+
+.post-gallery {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: visible;
+    cursor: grab;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding-bottom: 30px;
+    gap: 30px;
+
+    &:active {
+        cursor: grabbing;
+    }
+
+    .other-post {
+        flex: 0 0 auto;
+        width: 300px;
+        
+    }
+}
