@@ -174,6 +174,20 @@ export function bofbAnimation () {
             toggleActions: "play none none none"
         }
         });
+
+        const modelDefault = document.querySelector(".model-card.active");
+
+        gsap.from(modelDefault.children, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: modelDefault,
+            start: "top 80%",
+        }
+        });
 }
 
 export function educationAnimation () {

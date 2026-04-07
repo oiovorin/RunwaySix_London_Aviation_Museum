@@ -23,6 +23,7 @@ import { artifactVueApp } from "./modules/vue_app.js";
 import { artifactVueDetailApp } from "./modules/vue_app.js";
 import { eventsBlogVueApp } from "./modules/vue_app.js";
 import { eventsBlogVueDetailApp } from "./modules/vue_app.js";
+import { modelCarousel } from "./modules/battle-of-britain.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -46,6 +47,7 @@ if(document.body.dataset.page === "home") {
     selectDate();
     sectionTitle();
     bofbAnimation();
+    modelCarousel();
 } else if (document.body.dataset.page === "pilot") {
     header();
     sectionTitle();
