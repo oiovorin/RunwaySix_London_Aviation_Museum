@@ -1,9 +1,21 @@
 @use '../abstracts' as *;
 
 .history-hero-bg {
-    background-image: url(../images/history-hero.png);
+    background-image: url(../images/m-history-hero.jpg);
     width: 100%;
-    height: 600px;
+    height: 800px;
+
+    @include tablet {
+        height: 700px;
+    }
+
+    @include desktop {
+        background-image: url(../images/l-history-hero.jpg);
+    }
+}
+
+#hero-text {
+    margin-left: 20px;
 }
 
 
