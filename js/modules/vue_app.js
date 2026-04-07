@@ -481,3 +481,170 @@ export function eventsBlogVueDetailApp() {
     });  
     app.mount("#post-detail-app");
 }
+
+export function borVueApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                remembrancesData: [],
+                loadingRemembrances: true,
+                remembrancesError: null
+            };
+        },
+        created() {
+            this.getRemembrances();
+        },
+        methods: {
+            getRemembrances() {
+                this.remembrancesError = null;
+                fetch("http://127.0.0.1:8000/api/remembrances")
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch the pilots of remembrance.");
+                        }
+                        return res.json();
+                    })
+                    .then(remembrances => {
+                        this.remembrancesData = remembrances;
+                    })
+                    .catch(err => {
+                        this.remembrancesError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingRemembrances = false;
+
+                        this.$nextTick(() => {
+                            gsap.fromTo(".bor-title-text",
+                                { opacity: 0, y: 16 },
+                                {
+                                    opacity: 1,
+                                    y: 0,
+                                    duration: 0.4,
+                                    stagger: 0.08,
+                                    ease: "power3.out"
+                                }
+                            );
+                        });
+                    });
+            }
+        
+        }
+    });
+    app.mount("#bor-app");
+}
+
+export function remembrancesVueDetailApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                selectedRemembrances: null,
+                loadingRemembrancesDetails: true,
+                remembrancesDetailsError: null,
+                relatedRemembrances: [],  
+            };
+        },
+        created() {
+            this.getRemembrancesById();
+        },
+        methods: {
+            getRemembrancesById() {
+                // take id from URL
+                const params = new URLSearchParams(window.location.search);
+                const id = params.get("id");
+
+                if (!id) {
+                    this.remembrancesDetailsError = "Failed to fetch the selected post.";
+                    this.loadingRemembrancesDetails = false;
+                    return;
+                }
+
+                fetch(`http://127.0.0.1:8000/api/remembrances/${id}`)
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch remembrances details.");
+                        }
+                        return res.json();
+                    })
+                    .then(remembrances => {
+
+                        this.selectedRemembrances = {
+                            fullName: remembrances.full_name || "NOT available",
+                            rankTitle: remembrances.rank_title || "Unknown",
+                            branch: remembrances.branch || "Unknown",
+                            squadron: remembrances.squadron || "Unknown",
+                            imagePath: remembrances.image_path || ""
+                        };
+                    })
+                    .catch(err => {
+                        this.remembrancesDetailsError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingRemembrancesDetails = false;
+
+                        this.$nextTick(() => {
+                              const backToRem = document.querySelector("#back-to-rem");
+
+                                gsap.from(backToRem,  {
+                                    opacity: 0,
+                                    x: -30,
+                                    ease: "power1.out",
+                                    duration: 1,
+                                    stagger: 1
+                            })
+
+                            const remPilotImage = document.querySelector(".rem-pilot-image");
+
+                                gsap.from(remPilotImage,  {
+                                    opacity: 0,
+                                    y: 50,
+                                    ease: "power1.out",
+                                    duration: 1,
+                                    stagger: 1
+                            })
+
+
+                        const remPilotName = document.querySelector("#rem-pilot-name");
+
+                            gsap.from(remPilotName, {
+                            opacity: 0,
+                            y: 50,
+                            ease: "power1.out",
+                            duration: 1,
+                            scrollTrigger: {
+                                    trigger: remPilotName,
+                                    start: "top 90%"
+                                }
+                            });
+
+                            const pilotInfo = document.querySelector(".pilot-info");
+
+                            gsap.from(pilotInfo, {
+                            opacity: 0,
+                            x: -50,
+                            ease: "power1.out",
+                            duration: 1,
+                            scrollTrigger: {
+                                    trigger: pilotInfo,
+                                    start: "top 80%"
+                                }
+                            });
+
+                            const correctInfo = document.querySelector("#correct-info");
+
+                            gsap.from(correctInfo, {
+                                opacity: 0,
+                                y: 50,
+                                duration: 1,
+                                stagger: 0.3,
+                                scrollTrigger: {
+                                    trigger: correctInfo,
+                                    start: "top 80%",
+                                }
+                                });
+                        });
+                    });     
+            },
+        }
+    });  
+    app.mount("#bor-detail-app");
+}

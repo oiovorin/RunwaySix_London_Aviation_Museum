@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Artifacts</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation Museum Book of Remembrance Page</title>
@@ -91,6 +94,18 @@
     </section>
 
     <main>
+
+        <div id="digital-book" class="grid-con">
+            <a href="https://heyzine.com/flip-book/5c2627e65b.html" class="col-span-full m-col-span-6">
+                <p>Vol 1:</p>
+                <img src="images/vol1.png" alt="Digital Book of Remembrance Vol 1">
+            </a>
+
+            <a href="https://heyzine.com/flip-book/622334b75d.html" class="col-span-full m-col-span-6">
+                <p>Vol 2:</p>
+                <img src="images/vol2.png" alt="Digital Book of Remembrance Vol 2">
+            </a>
+        </div>
         <!-- Search Engine -->
         <section id="search-egn">
             <h2 class="hidden">Search Specific Pilot</h2>
@@ -117,103 +132,32 @@
         </section>
 
         <!-- Book of Remembrance Display -->
+         <div id="bor-app">
         <section class="grid-con">
-            <div class="bor-title-text m-col-start-1 m-col-end-7">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF                        
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
+            <h2 class="hidden">Book of Remembrance Pilot List</h2>
+            <div v-if="loadingRemembrances" class="loader col-span-full">
+                    <img src="images/loader.svg" alt="Loading Artifacts">
                 </div>
-            </div>
+                <div v-else-if="remembrancesError" class="remembrances-error col-span-full">
+                    <p>{{ remembrancesError }}</p>
+                </div>
+                <template v-else>
+                    <template v-for="remembrances in remembrancesData" :key="remembrances.id">
+                    <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-span-6">
+                        <div class="bor-pilot-info">
+                            <h3>{{ remembrances.full_name }}</h3>
+                            <p><span>Rank:</span>{{ remembrances.rank_title }}</p>
+                            <p><span>Branch:</span>{{ remembrances.branch }}</p>
+                            <p><span>Squadron:</span>{{ remembrances.squadron }}</p>                       
+                        </div>
+                        <p class="learn-more">&#8599;</p>
+                    </a>
+                </template>
+            </template>
 
-            <div class="bor-title-text m-col-start-7 m-col-end-13">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
-                </div>
-            </div>
-
-            <div class="bor-title-text m-col-start-1 m-col-end-7">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF                        
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
-                </div>
-            </div>
-
-            <div class="bor-title-text m-col-start-7 m-col-end-13">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
-                </div>
-            </div>
-
-            <div class="bor-title-text m-col-start-1 m-col-end-7">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF                        
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
-                </div>
-            </div>
-
-            <div class="bor-title-text m-col-start-7 m-col-end-13">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
-                </div>
-            </div>
-
-            <div class="bor-title-text m-col-start-1 m-col-end-7">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF                        
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
-                </div>
-            </div>
-
-            <div class="bor-title-text m-col-start-7 m-col-end-13">
-                <img src="images/" alt="alt text here">
-                <div>
-                    <h3>ROY BRUCE FORBES</h3>
-                    <p>Rank: Flying Officer <br>
-                        Branch: RCAF <br>
-                        Squadron: # 224 Squadron RAF
-                    </p>
-                    <input type="submit" value="Learn More" class="submit-btn">
-                </div>
-            </div>
+        
         </section>
+        </div>
 
         <section class="section-header">
             <span class="line"></span>
@@ -223,9 +167,9 @@
 
         <article class="grid-con court-line">
             <h3 class="hidden">Archival Material Acknowledgement</h3>
-            <span class="m-col-start-2 m-col-span-full">❛❜</span>
-            <p class="m-col-start-3 m-col-end-12"> The archival materials presented here from the Book of Remembrance have been provided courtesy of The Corporation of the City of London. We gratefully acknowledge the City of London for granting permission to use these historical records for educational, informational, and commemorative purposes.</p>
-            <p class="m-col-start-3 m-col-end-12">
+            <span class="col-span-full m-col-start-2 m-col-span-full">❛❜</span>
+            <p class="col-span-full m-col-start-3 m-col-end-12"> The archival materials presented here from the Book of Remembrance have been provided courtesy of The Corporation of the City of London. We gratefully acknowledge the City of London for granting permission to use these historical records for educational, informational, and commemorative purposes.</p>
+            <p class="col-span-full m-col-start-3 m-col-end-12">
                 All rights, including copyright and intellectual property, remain with The Corporation of the City of London. These materials may not be reproduced, published, or distributed without express permission from the City. For more information, or to request permission for further use, please contact the City of London's Corporate Records Office.
             </p>
             <span class="m-col-end-12">❛❜</span>
@@ -235,11 +179,13 @@
    <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
                 <picture id="footer-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
                      <img src="images/light_logo_mobile.svg" alt="logo">
                 </picture>
+                </a>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>

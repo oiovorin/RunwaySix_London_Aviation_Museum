@@ -24,71 +24,97 @@ import { artifactVueDetailApp } from "./modules/vue_app.js";
 import { eventsBlogVueApp } from "./modules/vue_app.js";
 import { eventsBlogVueDetailApp } from "./modules/vue_app.js";
 import { modelCarousel } from "./modules/battle-of-britain.js";
+import { centralSlideshow } from "./modules/warime.js";
+import { borVueApp } from "./modules/vue_app.js";
+import { remembrancesVueDetailApp } from "./modules/vue_app.js";
+import { footerAnimation } from "./modules/gsap.js";
+import { privacyAnimations } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
   header();
   sectionTitle();
   homeAnimation();
+  footerAnimation();
 } else if (document.body.dataset.page === "about") {
     header();
     carousel();
     aboutAnimation();
     sectionTitle();
+    footerAnimation();
 } else if (document.body.dataset.page === "artifact-detail") {
     header();
     artifactVueDetailApp();
+    footerAnimation();
 } else if (document.body.dataset.page === "artifacts") {
     header();
     sectionTitle();
     artifactVueApp();
+    footerAnimation();
 } else if (document.body.dataset.page === "battle-of-britain") {
     header();
     selectDate();
     sectionTitle();
     bofbAnimation();
     modelCarousel();
+    footerAnimation();
 } else if (document.body.dataset.page === "pilot") {
     header();
     sectionTitle();
     londonPilotsAnimation();
+    footerAnimation();
 } else if (document.body.dataset.page === "book-of-remembrance") {
     header();
     sectionTitle();
+    borVueApp();
+    footerAnimation();
 } else if (document.body.dataset.page === "remembrance-pilot") {
     header();
     sectionTitle();
-    remPilotAnimation();
+    remembrancesVueDetailApp();
+    footerAnimation();
 } else if (document.body.dataset.page === "contact") {
     header();
     form();
     sectionTitle();
     contactAnimation();
+    footerAnimation();
 } else if (document.body.dataset.page === "education") {
     header();
     sectionTitle();
     educationAnimation();
+    footerAnimation();
 } else if (document.body.dataset.page === "error") {
     header();
+    footerAnimation();
 } else if (document.body.dataset.page === "events-blog") {
     header();
     eventsBlogVueApp();
+    footerAnimation();
 } else if (document.body.dataset.page === "post") {
     header();
     eventsBlogVueDetailApp();
+    footerAnimation();
 } else if (document.body.dataset.page === "FAQ") {
     header();
     sectionTitle();
     faqAnimation();
+    footerAnimation();
 } else if (document.body.dataset.page === "london-aviation") {
     header();
     timeline();
     timelineCarousel();
     sectionTitle();
+    footerAnimation();
 } else if (document.body.dataset.page === "privacy-policy") {
     header();
+    footerAnimation();
+    sectionTitle();
+    privacyAnimations();
 } else if (document.body.dataset.page === "wartime") {
     header();
     selectLocation();
     sectionTitle();
+    centralSlideshow();
+    footerAnimation();
 }
