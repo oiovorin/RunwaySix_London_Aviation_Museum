@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Artifacts</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
@@ -100,7 +102,7 @@
             </a>
 
             <a href="https://heyzine.com/flip-book/622334b75d.html" class="col-span-full m-col-span-6">
-                <p>Vol 1:</p>
+                <p>Vol 2:</p>
                 <img src="images/vol2.png" alt="Digital Book of Remembrance Vol 2">
             </a>
         </div>
@@ -132,6 +134,7 @@
         <!-- Book of Remembrance Display -->
          <div id="bor-app">
         <section class="grid-con">
+            <h2 class="hidden">Book of Remembrance Pilot List</h2>
             <div v-if="loadingRemembrances" class="loader col-span-full">
                     <img src="images/loader.svg" alt="Loading Artifacts">
                 </div>
@@ -139,8 +142,8 @@
                     <p>{{ remembrancesError }}</p>
                 </div>
                 <template v-else>
-                    <template v-if="remembrances">
-                    <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-start-1 m-col-end-7">
+                    <template v-for="remembrances in remembrancesData" :key="remembrances.id">
+                    <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-span-6">
                         <div class="bor-pilot-info">
                             <h3>{{ remembrances.full_name }}</h3>
                             <p><span>Rank:</span>{{ remembrances.rank_title }}</p>
