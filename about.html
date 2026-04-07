@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.8.4/plyr.css" />
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
 </head>
@@ -207,6 +208,21 @@
             </div>
         </div>
 
+        <section class="section-header">
+            <span class="line"></span>
+                <h2>Voices · Stories</h2>
+                <span class="line"></span>
+        </section>
+
+        <div class="grid-con">
+            <section id="about-player-container" class="col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
+                <h3 class="hidden">Video Player</h3>
+                <div class="plyr__video-embed" id="player">
+                    <iframe src="https://player.vimeo.com/video/1180711049?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LAM-interview-with-subtitle_1"></iframe>
+                </div>
+            </section>
+            </div>
+
 
     </main>
     
@@ -313,5 +329,10 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+
+    <script src="https://cdn.plyr.io/3.8.4/plyr.js"></script>
+    <script>
+    const player = new Plyr("#player");
+    </script>
 </body>
 </html>
