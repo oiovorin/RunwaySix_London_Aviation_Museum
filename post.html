@@ -6,10 +6,13 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
 </head>
-<body data-page="pilot">
+<body data-page="post">
 
 
       <header class="blue-header">
@@ -77,71 +80,87 @@
     </header>
 
    <main>
+    <div id="post-detail-app">
 
     <div class="grid-con">
 
-        <a href="battle-of-britain.html" class="col-span-full" id="back-to-bofb">← Back to Pilots of Honour</a>
+        <a href="events-blog.html" class="col-span-full" id="back-to-events_blog">← Back to Events & Blogs</a>
 
-        <h1 class="col-span-full">Flying Officer Robert Grassick</h1>
+        <div v-if="loadingEventsBlogDetails" class="loader col-span-full">
+                <img src="images/loader.svg" alt="Loading">
+            </div>
 
-        <img class="pilot-image col-span-full l-col-start-1 l-col-end-5">
+            <div v-else-if="eventsBlogDetailsError" class="col-span-full">
+                <p>{{ eventsBlogDetailsError }}</p>
+            </div>
 
-        <div class="pilot-bio l-col-start-5 l-col-end-13">
-            <h2>Military Service Record:</h2>
-            <p><span>Full Name: </span>Robert Davidson “Bob” Grassick</p>
-            <p><span>Born: </span>22 May 1917 — London, Ontario, Canada</p>
-            <p><span>Force: </span> Royal Air Force, 1938-1945; Royal Canadian Air Force, 1945</p>
-            <p><span>Service Number: </span>41579</p>
-            <p><span>Rank: </span>Flying Officer (later Flight Lieutenant)</p>
-            <p><span>Squadrons: </span>No. 242 Squadron RAF</p>
-            <p><span>Attachmen: </span>No. 607 Squadron RAF</p>
-            <p><span>Aircraft Flown: </span>Distinguished Flying Cross (15 July 1941)</p>
-            <p><span>Date of Death: </span>1978</p>
+        <template v-else>
+        <h1 id="post-title" class="col-span-full">{{ selectedEventsBlog.title }}</h1>
+        
+        <div class="col-span-full" id="post-category">
+            <p class="category">{{ selectedEventsBlog.postType }}</p>
+            <p class="publish-date">{{ formatDate(selectedEventsBlog.publishedDate) }}</p>
         </div>
+
+        <div class="col-span-full" id="post-info">
+            <div id="evnet-date" class="info">
+                <img src="images/calendar-fill.svg" alt="calendar icon">
+                <p><span>Date: </span>{{ selectedEventsBlog.eventDate }}</p>
+            </div>
+
+            <div id="evnet-time" class="info">
+                <img src="images/time-fill.svg" alt="time icon">
+                <p><span>Time: </span>{{ selectedEventsBlog.eventTime }}</p>
+            </div>
+
+            <div id="evnet-location" class="info">
+                <img src="images/map-pin-fill.svg" alt="map pin icon">
+                <p><span>Location: </span>{{ selectedEventsBlog.location }}</p>
+            </div>
+        </div>
+
+        <img class="event-image col-span-full" :src="selectedEventsBlog.imagePath" :alt="selectedEventsBlog.title">
+
+        <div v-html="selectedEventsBlog.content" id="about-post" class="col-span-full"></div>
+
+        <a href="contact.html" class="button col-span-full" id="contact-cta">Contact Us</a>
+        </template>
     </div>
 
-        <div class="grid-con">
-            <div class="pilot-img-gallary col-span-full">
-                <div class="pilot-img-item">
-                    <img class="first">
-                    <p>Badge of No. 242 Squadron,<br>Royal Air Force.</p>
-                </div>
-                <div class="pilot-img-item">
-                    <img class="second">
-                    <p>Distinguished Flying Cross<br>(DFC).</p>
-                </div>
-                <div class="pilot-img-item">
-                    <img class="third">
-                    <p>Hawker Hurricane Mk I — primary fighter aircraft of<br>No. 242 Squadron, 1940.</p>
-                </div>
-            </div>
+    <div class="grid-con" id="share">
+        <h2 class="col-span-full m-col-start-1 m-col-end-5">Share this Event:</h2>
+        <div id="sns-icon" class="col-span-full m-col-start-11 m-col-end-13">
+            <a href="https://www.facebook.com/427winglondon/">
+                <img src="images/blue_facbook.svg" class="facebook" alt="facebook icon">
+            </a>
+            <a href="https://www.instagram.com/427wing/">
+                <img src="images/instagram-blue.svg" class="instagram" alt="instagram icon">
+            </a>
+            <a href="http://www.427wing.com">
+                <img src="images/x-blue.svg" class="x" alt="x icon">
+            </a>
         </div>
 
-        <article class="grid-con additional-info">
-            <h2 class="col-span-full">Additional Information:</h2>
-            
-            <div class="col-span-full">
-                <h3>Early Royal Air Force Service</h3>
-                <p>Robert Davidson Grassick was commissioned into the Royal Air Force in November 1938 on a short service commission. Following completion of his flying training, he was posted to No. 242 Squadron at RAF Church Fenton on 5 November 1939. At that time, the squadron was re-forming as Britain prepared for large-scale air operations in Europe.</p>
+        <hr class="col-span-full">
+    </div>
 
-                <h3>Operations in France, 1940</h3>
-                <p>In May 1940, during the German invasion of France, Grassick was attached to No. 607 Squadron and deployed overseas on 14 May 1940. During intensive combat operations on 15 and 16 May, he destroyed two Messerschmitt Bf 109 fighters and one Junkers Ju 88 bomber.<br>During the air operations supporting the evacuation at Dunkirk (Operation Dynamo), he destroyed two additional Bf 109 aircraft. Contemporary accounts describe his determined pursuit of enemy fighters amidst the complex and hazardous air battles over northern France.<br>On 8 June 1940, No. 242 Squadron was deployed to France to reinforce other RAF fighter units. The squadron returned to Britain on 16 June as the situation deteriorated and Allied forces withdrew.</p>
+    <div class="grid-con" id="others">
+        <h2 class="col-span-full">Relared Events</h2>
 
-                <h3>Battle of Britain Period</h3>
-                <p>While detailed individual combat records from the Battle of Britain period are limited in surviving documentation, historical accounts of No. 242 Squadron note Grassick's active participation during the critical early stages of the air war. His operational service in France and during the Dunkirk evacuation reflects the intensity and risk faced by RAF fighter pilots in 1940.</p>
-                
-                <h3>Distinguished Flying Cross</h3>
-                <p>On 15 July 1941, Grassick was awarded the Distinguished Flying Cross (DFC). The decoration recognized acts of valour, courage, and devotion to duty performed while flying in active operations against the enemy.</p>
-
-                <h3>Later Service and Life</h3>
-                <p>Grassick survived the Second World War and transferred to the Royal Canadian Air Force in 1945. Following his wartime service, he continued his life in the post-war period and died in 1978.</p>
-            </div>
-        </article>
+        <div class="other-post col-span-full m-col-span-4" v-for="eventsBlog in relatedEventsBlog" :key="eventsBlog.id">
+            <img :src="eventsBlog.image_path" :alt="eventsBlog.title">
+            <h3>{{eventsBlog.title }}</h3>
+            <p id="event-date">{{ eventsBlog.eventDate }}</p>
+            <p id="description">{{ eventsBlog.description }}</p>
+            <a :href="'post.html?id=' + eventsBlog.id" class="read-more" :alt="eventsBlog.title">Read More →</a>
+        </div>
+    </div>
+    </div>
 
    </main>
     
 
-     <footer>
+   <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
                 <picture id="footer-logo">
@@ -171,6 +190,7 @@
                 <p class="footer-nav-title">About Us</p>
                 <ul>
                     <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="education.html" aria-label="go to about page">Education</a></li>
                     <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
                     <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
                 </ul>
@@ -189,11 +209,11 @@
             <div id="contact-info" class="col-start-3 col-end-5">
                 <div class="footer-contact-icon">
                     <img src="images/email.svg" alt="email icon">
-                    <p>info@427wing.com</p>
+                    <a href="mailto:info@427wing.com">info@427wing.com</a>
                 </div>
                 <div class="footer-contact-icon">
                     <img src="images/phone.svg" alt="phone icon">
-                    <p>519-455-0430</p>
+                    <a href="tel:+5194550430">519-455-0430</a>
                 </div>
             </div>
             </div>
@@ -216,13 +236,21 @@
             </div>
             </div>
 
-            <div id="sns" class="col-span-full m-col-start-10 m-col-end-12">
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
                 <p>Social Media</p>
                 <div class="sns-icon">
-                    <img src="images/facebook.svg" class="facebook" alt="facebook icon">
-                    <img src="images/instagram.svg" class="instagram" alt="instagram icon">
-                    <img src="images/x.svg" class="x" alt="x icon">
-                    <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    <a href="https://www.facebook.com/427winglondon/">
+                        <img src="images/facebook.svg" class="facebook" alt="facebook icon">
+                    </a>
+                    <a href="https://www.instagram.com/427wing/">
+                        <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    </a>
+                    <a href="http://www.427wing.com">
+                        <img src="images/x.svg" class="x" alt="x icon">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8qWGIbfAr5cjSucEIKPpJw">
+                        <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    </a>
                 </div>
 
             </div>
