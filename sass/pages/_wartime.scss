@@ -1,9 +1,13 @@
 @use '../abstracts' as *;
 
 .wartime-hero-bg {
-    background-image: url(../images/wartime-hero.png);
+    background-image: url(../images/m-wartime-hero.jpg);
     width: 100%;
     height: 700px;
+
+    @include desktop {
+        background-image: url(../images/l-wartime-hero.jpg);
+    }
 }
 
 #map {

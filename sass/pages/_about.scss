@@ -5,9 +5,13 @@
 // ===========================================
 
 .about-hero-bg {
-    background-image: url(../images/home-hero.png);
+    background-image: url(../images/m-about-hero.jpg);
     width: 100%;
     height: 600px;
+
+    @include desktop {
+        background-image: url(../images/l-about-hero.jpg);
+    }
 }
 
 #overview, #service {
