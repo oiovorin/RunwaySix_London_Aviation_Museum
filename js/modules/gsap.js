@@ -753,3 +753,84 @@ export function footerAnimation() {
         }
     });
 }
+
+export function privacyAnimations() {
+const privacyIntro = document.querySelector("#privacy-intro");
+
+    gsap.from(privacyIntro, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: privacyIntro,
+            start: "top 70%"
+        }
+    });
+
+    const agreement = document.querySelector("#agreement");
+
+    gsap.from(agreement, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: agreement,
+            start: "top 70%"
+        }
+    });
+
+    const emailSub = document.querySelector("#email-sub");
+
+    gsap.from(emailSub, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: emailSub,
+            start: "top 70%"
+        }
+    });
+
+    const personalInfo = document.querySelector("#personalInfo");
+
+    gsap.from(personalInfo, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: personalInfo,
+            start: "top 70%"
+        }
+    });
+
+    const personalInfo2 = document.querySelector("#personalInfo2");
+
+    gsap.from(personalInfo2, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: personalInfo2,
+            start: "top 70%"
+        }
+    });
+
+    const update = document.querySelector("#update");
+
+    gsap.from(update, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: update,
+            start: "top 70%"
+        }
+    });
+
+}

@@ -28,6 +28,7 @@ import { centralSlideshow } from "./modules/warime.js";
 import { borVueApp } from "./modules/vue_app.js";
 import { remembrancesVueDetailApp } from "./modules/vue_app.js";
 import { footerAnimation } from "./modules/gsap.js";
+import { privacyAnimations } from "./modules/gsap.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -108,6 +109,8 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "privacy-policy") {
     header();
     footerAnimation();
+    sectionTitle();
+    privacyAnimations();
 } else if (document.body.dataset.page === "wartime") {
     header();
     selectLocation();
