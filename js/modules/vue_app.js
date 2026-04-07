@@ -486,7 +486,6 @@ export function borVueApp() {
     const app = Vue.createApp({
         data() {
             return {
-                remembrances: null, 
                 remembrancesData: [],
                 loadingRemembrances: true,
                 remembrancesError: null
@@ -513,6 +512,19 @@ export function borVueApp() {
                     })
                     .finally(() => {
                         this.loadingRemembrances = false;
+
+                        this.$nextTick(() => {
+                            gsap.fromTo(".bor-title-text",
+                                { opacity: 0, y: 16 },
+                                {
+                                    opacity: 1,
+                                    y: 0,
+                                    duration: 0.4,
+                                    stagger: 0.08,
+                                    ease: "power3.out"
+                                }
+                            );
+                        });
                     });
             }
         
@@ -568,7 +580,69 @@ export function remembrancesVueDetailApp() {
                     })
                     .finally(() => {
                         this.loadingRemembrancesDetails = false;
-                    });
+
+                        this.$nextTick(() => {
+                              const backToRem = document.querySelector("#back-to-rem");
+
+                                gsap.from(backToRem,  {
+                                    opacity: 0,
+                                    x: -30,
+                                    ease: "power1.out",
+                                    duration: 1,
+                                    stagger: 1
+                            })
+
+                            const remPilotImage = document.querySelector(".rem-pilot-image");
+
+                                gsap.from(remPilotImage,  {
+                                    opacity: 0,
+                                    y: 50,
+                                    ease: "power1.out",
+                                    duration: 1,
+                                    stagger: 1
+                            })
+
+
+                        const remPilotName = document.querySelector("#rem-pilot-name");
+
+                            gsap.from(remPilotName, {
+                            opacity: 0,
+                            y: 50,
+                            ease: "power1.out",
+                            duration: 1,
+                            scrollTrigger: {
+                                    trigger: remPilotName,
+                                    start: "top 90%"
+                                }
+                            });
+
+                            const pilotInfo = document.querySelector(".pilot-info");
+
+                            gsap.from(pilotInfo, {
+                            opacity: 0,
+                            x: -50,
+                            ease: "power1.out",
+                            duration: 1,
+                            scrollTrigger: {
+                                    trigger: pilotInfo,
+                                    start: "top 80%"
+                                }
+                            });
+
+                            const correctInfo = document.querySelector("#correct-info");
+
+                            gsap.from(correctInfo, {
+                                opacity: 0,
+                                y: 50,
+                                duration: 1,
+                                stagger: 0.3,
+                                scrollTrigger: {
+                                    trigger: correctInfo,
+                                    start: "top 80%",
+                                }
+                                });
+                        });
+                    });     
             },
         }
     });  
