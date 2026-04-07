@@ -1,0 +1,63 @@
+@use '../abstracts' as *;
+
+// ===========================================
+// 3D SECTION
+// ===========================================
+
+.hero-artifacts {
+    background-image: url(../images/m-artifact-hero.jpg);
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    height: 700px;
+
+    @include tablet {
+        background-image: url(../images/l-artifact-hero.jpg);
+    }
+}
+
+.artifact-3d-section {
+    margin-top: 100px;
+    img{
+        background-color: $chacoal;
+        height: 237px;
+        margin-bottom: 50px;
+
+        @include tablet {
+            height: 350px;
+            margin-bottom: 100px;
+        }
+        @include desktop {
+            height: 500px;
+        }
+    }
+}
+
+// ===========================================
+// ARTIFACT SECTION
+// ===========================================
+
+    .artifact-card {
+        margin: 50px auto;
+
+        .artifact-card-link {
+            &:hover .artifact-img {
+                transform: scale(1.1);
+                transition: all .3s ease-in-out;
+            }
+        }
+
+        .img-con {
+            overflow: hidden;
+        
+        .artifact-img {
+            background-color: $chacoal;
+        }
+    }
+
+        h3 {
+            margin: 10px auto;
+            color: $aviation_blue;
+            text-align: center;
+        }
+    }

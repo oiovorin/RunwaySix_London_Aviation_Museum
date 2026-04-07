@@ -1,0 +1,18 @@
+@use '../abstracts' as *;
+
+.button {
+    font-weight: 600;
+    color: $heritage_red;
+    text-decoration: none;
+    background-color: $archive_beige;
+    border: 3px solid $heritage_red;
+    border-radius: 30px;
+    padding: 5px 20px;
+    margin: auto;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        color: #fff;
+        background-color: $heritage_red;
+    }
+}

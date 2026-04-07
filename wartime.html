@@ -6,120 +6,410 @@
     <title>Wartime Experience</title>
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>London Aviation Museum Wartime Experience Page</title>
 </head>
-<body>
-     <section id="hero">
+<body data-page="wartime">
+     <section class="wartime-hero-bg">
 
-    <header>
+      <header>
         <div class="grid-con">
-            <a href="index.html" class="col-start-1 col-span-1 m-col-start-2 m-col-end-4" aria-label="home">
-                <img src="images/logo.svg" alt="logo" id="header-logo">
+
+            <div id="top-header" class="l-col-start-9 l-col-end-12">
+                <nav>
+                    <ul>
+                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
+                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div> 
+
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
+                 <picture id="header-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
             </a>
 
-
-            <input type="checkbox" id="hamburger" aria-label="mobile menu bar">
-            <div id="mob-menu" class="col-start-4 col-end-5 m-col-auto">
-            <label for="hamburger" id="menu-show">
-                <img src="images/hamburger-menu.svg" alt="menu" class="hamburger-menu-bar">
-            </label>
+            <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
-            <div id="header-nav" class="m-col-start-4 m-col-end-12 l-col-start-5 l-col-end-12">
-                <label for="hamburger" id="header-nav-close">X</label>
+            <div id="header-nav" class="l-col-start-5 l-col-end-12">
                 <nav aria-label="Header Navigation">
                     <ul>
-                        <li><a href="index.html" aria-label="go to home page">Home</a></li>
-                        <li><a href="about.html" aria-label="go to about page">About</a></li>
-                        <li><a href="london-aviation.html" aria-label="go to History page">History</a></li>
+                        <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
+                        <li id="about-nav">
+                            <div class="about-con">
+                                <a href="about.html">About</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="about-sub" class="hidden">
+                                <li><a href="education.html" aria-label="go to History page">Education</a></li>
+                            </ul>
+                        </li>
+                        <li id="history-nav">
+                            <div class="history-con">
+                                <a>History</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="history-sub" class="hidden">
+                                <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
+                                <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
+                                <li><a href="artifacts.html" aria-label="go to artifacts page">Artifacts</a></li>
+                                <li><a href="book_of_rem.html" aria-label="go to Book of Remembrance page">Book of Remembrance</a></li>
+                            </ul>
+                        </li>
                         <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
-                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
-                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                        <li class="tablet-hide"><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
+                        <li class="tablet-hide"><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
                     </ul>
                 </nav>
             </div>
         </div>
     </header>
 
-    <div class="grid-con">
-        <h1 id="hero-heading" class="col-span-full">
-            <span>Wartime Experience</span>
+       
+
+    <div class="grid-con" id="hero-text">
+        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13 l-col-start-2 m-col-end-12">
+            <span>London Aviation History</span>
         </h1>
-    
+
+        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-8 l-col-start-2 m-col-end-12">
+            From the early experimental flights in Lambeth to the operational airfields of Crumlin, London’s journey into the Air Age reflects a story of innovation, service, and ambition shaped by both local initiative and global events.
+        </p>
     </div>
     </section>
 
-    <footer>
+    <section class="section-header">
+            <span class="line"></span>
+                <h2>BCATP Training Bases</h2>
+                <span class="line"></span>  
+     </section>
+
+     <div class="grid-con" id="map">
+        <div class="map-con col-span-full">
+        <img src="images/map.jpg" alt="old london map">
+     
+
+     <!-- buttons on the map-->
+      <div id="button-popup-port-albert">
+        <button class="map-button" data-target="port-albert">1</button>
+        <div class="location-item popup-item-bottom" id="popup-port-albert">
+            <img src="images/Port-Albert.jpg" alt="image of old port albert">
+            <h2>1, Port Albert</h2>
+            <p>No. 31 Air Navigation School</p>
+        </div>
+      </div>
+
+      <div id="button-popup-goderich">
+        <button class="map-button" data-target="goderich">2</button>
+        <div class="location-item popup-item-bottom" id="popup-goderich">
+            <img src="images/Goderich.jpg" alt="image of old Goderich">
+            <h2>2. Goderich</h2>
+            <p>EFTS #12</p>
+        </div>
+      </div>
+
+      <div id="button-popup-clinton">
+        <button class="map-button" data-target="clinton">3</button>
+        <div class="location-item popup-item-bottom" id="popup-clinton">
+            <img src="images/Clinton.jpg" alt="image of old Clinton">
+            <h2>3. Clinton</h2>
+            <p>Radio Direction Finding <br>
+                (Radar) School No. 31 </p>
+        </div>
+      </div>
+
+      <div id="button-popup-centralia">
+        <button class="map-button" data-target="centralia">4</button>
+        <div class="location-item popup-item-bottom" id="popup-centralia">
+            <img src="images/Centralia.jpg" alt="image of old Centralia">
+            <h2>4. Centralia</h2>
+            <p>#8 SFTS</p>
+        </div>
+      </div>
+
+      <div id="button-popup-guelph">
+        <button class="map-button" data-target="guelph">5</button>
+        <div class="location-item popup-item-bottom" id="popup-guelph">
+            <img src="images/Guelph.jpg" alt="image of old Guelph">
+            <h2>5. Guelph</h2>
+            <p>#4 Wireless</p>
+        </div>
+      </div>
+
+      <div id="button-popup-london">
+        <button class="map-button" data-target="london">6</button>
+        <div class="location-item popup-item-london" id="popup-london">
+            <img src="images/London.jpg" alt="image of old London">
+            <h2>6. London</h2>
+            <p>#3 EFTS 1940-42<br>
+            #4 1940-44</p>
+        </div>
+      </div>
+
+      <div id="button-popup-windsor">
+        <button class="map-button" data-target="windsor">7</button>
+        <div class="location-item popup-item-windsor" id="popup-windsor">
+             <img src="images/Windsor.jpg" alt="image of old Windsor">
+            <h2>7. Windsor</h2>
+            <p>#7 EFTS</p>
+        </div>
+      </div>
+
+      <div id="button-popup-fingal">
+        <button class="map-button" data-target="fingal">8</button>
+        <div class="location-item popup-item-top" id="popup-fingal">
+            <img src="images/Fingal.jpg" alt="image of old Fingal.jpg">
+            <h2>8. Fingal</h2>
+            <p>#4 B&G</p>
+        </div>
+      </div>
+
+
+     <div id="button-popup-st-thomas">
+        <button class="map-button" data-target="st-thomas">9</button>
+        <div class="location-item popup-item-top" id="popup-st-thomas">
+            <img src="images/St-Thomas.jpg" alt="image of old St. Thomas">
+            <h2>9. St. Thomas</h2>
+            <p>#1 Technical Training School</p>
+        </div>
+      </div>
+
+      <div id="button-popup-aylmer">
+        <button class="map-button" data-target="aylmer">10</button>
+        <div class="location-item popup-item-top" id="popup-aylmer">
+            <img src="images/Aylmer.jpg" alt="image of old Aylmer">
+            <h2>10. Aylmer</h2>
+            <p>#14 SFTS</p>
+        </div>
+      </div>
+
+      <div id="button-popup-jarvis">
+        <button class="map-button" data-target="jarvis">11</button>
+        <div class="location-item popup-item-top" id="popup-jarvis">
+            <img src="images/Jarvis.jpg" alt="image of old Jarvis">
+            <h2>11. Jarvis</h2>
+            <p>#1 B&G</p>
+        </div>
+      </div>
+
+      <div id="button-popup-hagersville">
+        <button class="map-button" data-target="hagersville">12</button>
+        <div class="location-item popup-item-hagersville" id="popup-hagersville">
+             <img src="images/Hagersville.jpg" alt="image of old Hagersville">
+            <h2>12. Hagersville</h2>
+            <p>#16 SFTS</p>
+        </div>
+      </div>
+
+      <div id="button-popup-dunnville">
+        <button class="map-button" data-target="dunnville">13</button>
+        <div class="location-item popup-item-dunnville" id="popup-dunnville">
+              <img src="images/Dunnville.jpg" alt="image of old Dunnville">
+            <h2>13. Dunnville</h2>
+            <p>#6 SFTS</p>
+        </div>
+      </div>
+
+      <div id="button-popup-st-catharines">
+        <button class="map-button" data-target="st-catharines">14</button>
+        <div class="location-item popup-item-left" id="popup-st-catharines">
+            <img src="images/St-Catharines.jpg" alt="image of old St. Catharines">
+            <h2>14. St. Catharines</h2>
+            <p>#9 EFTS</p>
+        </div>
+      </div>
+
+      <div id="button-popup-mount-hope">
+        <button class="map-button" data-target="mount-hope">15</button>
+        <div class="location-item popup-item-mount-hope" id="popup-mount-hope">
+            <img src="images/Mount-Hope.jpg" alt="image of old Mount Hope">
+            <h2>15. Mount Hope</h2>
+            <p>No. 33 Air Navigation School<br>
+                #10 EFTS<br>
+                #1 Wireless School</p>
+        </div>
+      </div>
+
+      <div id="button-popup-brantford">
+        <button class="map-button" data-target="brantford">16</button>
+        <div class="location-item popup-item-brantford" id="popup-brantford">
+            <img src="images/Brantford.jpg" alt="image of old Brantford">
+            <h2>16. Brantford</h2>
+            <p>#5 SFTS</p>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+<section id="slide-bg">
+
+    <div class="top-slide-text">
+    <h2> No 3. Elementary Flying Training School</h2>
+    <p>An Elementary Flying Training School (EFTS) gave a trainee 50 hours of basic flying instruction on a simple trainer like the De Havilland Tiger Moth, Fleet Finch, or Fairchild Cornell over 8 weeks.<br>
+        Elementary schools were operated by civilian flying clubs under contract to the RCAF and most of the instructors were civilians.</p>
+        </div>
+
+            <div class="slideshow-container">
+                <div id="top-slideshow">
+                        <img src="images/war-carousel-1.jpg" alt="alt text here">
+                        <img src="images/war-carousel-2.jpg" alt="alt text here">
+                        <img src="images/war-carousel-3.jpg" alt="alt text here">
+                        <img src="images/war-carousel-4.jpg" alt="alt text here">
+                        <img src="images/war-carousel-5.jpg" alt="alt text here">
+                        <img src="images/war-carousel-6.jpg" alt="alt text here">
+
+
+                    <!-- for loop -->
+                        <img src="images/war-carousel-1.jpg" alt="alt text here">
+                        <img src="images/war-carousel-2.jpg" alt="alt text here">
+                        <img src="images/war-carousel-3.jpg" alt="alt text here">
+                        <img src="images/war-carousel-4.jpg" alt="alt text here">
+                        <img src="images/war-carousel-5.jpg" alt="alt text here">
+                        <img src="images/war-carousel-6.jpg" alt="alt text here">
+                </div>
+            </div>
+
+            <div class="bottom-slide-text">
+    <h2> #4 Air Observers School</h2>
+    <p>Air Observers were later called "navigators". For recruits in this stream, the training path after the Initial Training School was 8 weeks at an Air Observer School (AOS), 1 month at a Bombing & Gunnery School, and finally 1 month at a Navigation School.<br>
+    The Air Observer schools were operated by civilians under contract to the RCAF. However, the instructors were RCAF. They trained in the Avro Anson.</p>
+        </div>
+
+        </section>
+
+        <section class="section-header">
+            <span class="line"></span>
+                <h2>Central Aircraft Limited</h2>
+                <span class="line"></span>  
+     </section>
+
+     <div class="grid-con central-air">
+        <p class="col-span-full l-col-start-1 l-col-span-5">Central Aircraft Limited, a Crown-sponsored subsidiary of Fleet Aircraft Limited in Fort Erie, built 1941.
+        Serviced the aircraft used at the BCATP bases nearby and later became an assembly point for Mosquito bombers.</p>
+        <div id="central-slide" class="col-span-full l-col-start-6 l-col-end-13">
+            <img src="images/central-1.jpg" alt="central air 1" class="active">
+            <img src="images/central-2.jpg" alt="central air 2">
+            <img src="images/central-3.jpg" alt="central air 3">
+        </div>
+         </div>
+
+ <footer>
         <div class="grid-con">
-            <div class="col-span-3 m-col-start-1 m-col-end-5">
-            <div id="footer-logo">logo</div>
+            <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
+                <picture id="footer-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
+                </a>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
             </div>
-
-
-            <hr class="col-span-full m-col-start-5 m-col-end-6">
         
 
-            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10" aria-label="footer navigation">
+            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10 l-col-start-5 l-col-end-10" aria-label="footer navigation">
                 <div>
                 <p class="footer-nav-title">Quick Links</p>
                 <ul>
                     <li><a href="index.html" aria-label="go to home page">Home</a></li>
-                    <li><a href="about.html" aria-label="go to about page">About</a></li>
                     <li><a href="london-aviation.html"  aria-label="go to histry page">History</a></li>
                     <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                    <li><a href="FAQ.html" aria-label="go to FAQ page">FAQ</a></li>
+                    <li><a href="privacy-policy.html" aria-label="go to Privacy Policy page">Privacy Policy</a></li>
                 </ul>
                 </div>
 
                 <div>
                 <p class="footer-nav-title">About Us</p>
                 <ul>
-                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events</a></li>
+                    <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="education.html" aria-label="go to about page">Education</a></li>
+                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
                     <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
                 </ul>
                 </div>
             </nav>
 
-            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-12">
+            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-13">
             <div id="address">
+                <img src="images/location.svg" alt="location icon">
                 <p>2155 Crumlin Side Rd,<br>
                      London, Ontario <br>
-                     N5V 3Z9, Canada.</p>
-                     <a href="#">View on GG map</a>
+                     N5V 3Z9, Canada.<br>
+                     <a href="https://maps.app.goo.gl/JNsXHgoJZcLPed5u6">View on GG map</a></p>
             </div>
 
             <div id="contact-info" class="col-start-3 col-end-5">
-                <p>info@427wing.com</p>
-                <p>519-455-0430</p>
+                <div class="footer-contact-icon">
+                    <img src="images/email.svg" alt="email icon">
+                    <a href="mailto:info@427wing.com">info@427wing.com</a>
+                </div>
+                <div class="footer-contact-icon">
+                    <img src="images/phone.svg" alt="phone icon">
+                    <a href="tel:+5194550430">519-455-0430</a>
+                </div>
             </div>
             </div>
 
-            <div class="col-span-full m-col-start-6 m-col-end-10">
-            <p id="sub-header">
+            <p id="subscription-header" class="col-span-full m-col-start-6 m-col-end-10">
                 SUBSCRIBE TO OUR NEWSLETTER!
             </p>
 
             
+            <div class="col-span-full m-col-start-6 m-col-end-10">
             <div id="subscribe">
-            <p id="input">Enter email address</p>
-            <p id="sent">Subscribe</p>
+            <input type="text" id="emain-subscription" name="emain-subscription" placeholder="Enter email address">
+             <input type="submit" value="Submit" id="subscribe-btn">
+            </div>
+
+            <div id="agree">
+            <input type="checkbox">
+            <p>I have read and accept the <a href="privacy-policy.html">Plivacy Policy. *</a>
+            </p>
             </div>
             </div>
 
             <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
                 <p>Social Media</p>
                 <div class="sns-icon">
-                    <img src="images/facebook.svg" class="facebook" alt="facebook icon">
-                    <img src="images/instagram.svg" class="instagram" alt="instagram icon">
-                    <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    <a href="https://www.facebook.com/427winglondon/">
+                        <img src="images/facebook.svg" class="facebook" alt="facebook icon">
+                    </a>
+                    <a href="https://www.instagram.com/427wing/">
+                        <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    </a>
+                    <a href="http://www.427wing.com">
+                        <img src="images/x.svg" class="x" alt="x icon">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8qWGIbfAr5cjSucEIKPpJw">
+                        <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    </a>
                 </div>
 
             </div>
             
 
 
-        <small class="col-span-full">&copy; 2026 London Aviation Museum. All rights reserved.</small>
+        <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
 </body>

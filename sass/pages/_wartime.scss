@@ -1,0 +1,567 @@
+@use '../abstracts' as *;
+
+.wartime-hero-bg {
+    background-image: url(../images/m-wartime-hero.jpg);
+    width: 100%;
+    height: 700px;
+
+    @include desktop {
+        background-image: url(../images/l-wartime-hero.jpg);
+    }
+}
+
+#map {
+    
+    .map-con {
+        position: relative;
+        margin: 120px auto;
+        width: 100%;
+        overflow: visible;
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}
+
+// general map button styling
+.map-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 30px;
+    background-color: $military_green;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    
+
+    @include tablet {
+        width: 35px;
+        height: 35px;
+        font-size: 17px;
+    }
+
+    &:hover {
+        background-color: $heritage_red;
+        animation: selected 1s ease-in-out infinite;
+        z-index: 10;
+    }
+}
+
+@keyframes selected {
+  0%   { transform: scale(1.2); }
+  30%  { transform: scale(1.2); }
+  50%  { transform: scale(1.3); }
+  70%  { transform: scale(1.2); }
+  100% { transform: scale(1.2); }
+}
+
+.location-item {
+    position: relative;
+    background-color: $aviation_blue;
+    padding: 20px;
+    width: 280px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 2;
+    display: none;
+
+    @include tablet {
+        padding: 30px;
+        width: 360px;
+    }
+
+    img {
+        width: 250px;
+        height: 150px;
+        background-color: $chacoal;
+
+        @include tablet {
+            width: 300px;
+            height: 200px;
+        }
+    }
+
+    h2 {
+        color: #fff;
+        text-align: center;
+        margin-top: 10px;
+        font-size: 18px;
+
+        @include tablet {
+            font-size: 20px;
+        }
+    }
+
+    p {
+       color: #fff;
+       text-align: center; 
+       font-size: 14px;
+
+       @include tablet {
+            font-size: 16px;
+        }
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 15px;
+        background: $aviation_blue;
+    }
+}
+
+.popup-item-top::after {
+    bottom: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.popup-item-bottom::after {
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+}
+
+.popup-item-london::after {
+    top: -13px;
+    left: 50%;
+    transform: translateX(-50%);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+    @include tablet {
+       left: -13px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 30px;
+        clip-path: polygon(0 50%, 100% 0, 100% 100%);
+    }
+}
+
+.popup-item-left::after {
+    right: -13px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 30px;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.popup-item-windsor::after {
+    bottom: -13px;
+    left: 20%;
+    transform: translateX(-50%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+}
+
+.popup-item-hagersville::after {
+    bottom: -13px;
+    left: 60%;
+    transform: translateX(-50%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+    @include tablet {
+        bottom: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+}
+
+.popup-item-dunnville::after{
+    bottom: -13px;
+    left: 70%;
+    transform: translateX(-50%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+
+    @include tablet {
+        bottom: -13px;
+        left: 50%;
+        transform: translateX(-50%);
+        clip-path: polygon(0 0, 100% 0, 50% 100%);
+    }
+}
+
+.popup-item-mount-hope::after, .popup-item-brantford::after {
+    top: -13px;
+    left: 60%;
+    transform: translateX(-50%);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%);
+
+    @include tablet {
+        right: -13px;
+        top: 50%;
+        left: auto;
+        width: 15px;
+        height: 30px;
+        transform: translateY(-50%);
+        clip-path: polygon(0 0, 100% 50%, 0 100%);
+    }
+}
+
+.location-item.active {
+    display: block;
+}
+
+
+// position for each item
+#button-popup-port-albert {
+    position: absolute;
+    top: 5%;
+    left: 37%;
+
+    #popup-port-albert {
+        margin-left: -130px;
+        margin-top: 15px;
+
+        @include tablet {
+            margin-left: -163px;
+            margin-top: 18px;
+        }
+    }
+    
+}
+
+#button-popup-goderich {
+    position: absolute;
+    top: 12%;
+    left: 35%;
+
+    #popup-goderich {
+        margin-left: -131px;
+        margin-top: 15px;
+
+        @include tablet {
+            margin-left: -163px;
+            margin-top: 20px;
+        }
+    }
+    
+}
+
+#button-popup-clinton {
+    position: absolute;
+    top: 18%;
+    left: 39%;
+
+    #popup-clinton {
+        margin-top: 16px;
+        margin-left: -129px;
+
+        @include tablet {
+            margin-top: 16px;
+            margin-left: -163px;
+        }
+    }
+}
+
+#button-popup-centralia {
+    position: absolute;
+    top: 35%;
+    left: 37%;
+
+    #popup-centralia {
+        margin-top: 15px;
+        margin-left: -130px;
+
+        @include tablet {
+            margin-top: 20px;
+        margin-left: -162px;
+        }
+    }
+}
+
+#button-popup-guelph {
+    position: absolute;
+    top: 23%;
+    left: 59%;
+
+    #popup-guelph {
+        margin-top: 15px;
+        margin-left: -130px;
+
+        @include tablet {
+            margin-top: 20px;
+            margin-left: -162px;
+        }
+    }
+}
+
+
+#button-popup-london {
+    position: absolute;
+    top: 43%;
+    left: 46%;
+
+    #popup-london {
+        margin-left: -130px;
+        margin-top: 15px;
+
+        @include tablet {
+            margin-left: 58px;
+            margin-top: -195px;
+        }
+    }
+}
+
+
+#button-popup-windsor {
+    position: absolute;
+    top: 90%;
+    left: 9%;
+
+    #popup-windsor {
+        margin-top: -290px;
+        margin-left: -45px;
+
+        @include tablet {
+            margin-top: -390px;
+            margin-left: -55px;
+        }
+    }
+}
+
+
+#button-popup-fingal {
+    position: absolute;
+    top: 65%;
+    left: 40%;
+
+    #popup-fingal {
+        margin-top: -290px;
+        margin-left: -130px;
+
+        @include tablet {
+            margin-top: -390px;
+            margin-left: -163px;
+        }
+    }
+}
+
+#button-popup-st-thomas {
+    position: absolute;
+    top: 60%;
+    left: 45%;
+
+    #popup-st-thomas {
+        margin-top: -290px;
+        margin-left: -130px;
+
+        @include tablet {
+            margin-top: -385px;
+            margin-left: -163px;
+        }
+    }
+
+}
+
+#button-popup-aylmer {
+    position: absolute;
+    top: 55%;
+    left: 52%;
+
+    #popup-aylmer {
+        margin-top: -290px;
+        margin-left: -130px;
+
+        @include tablet {
+            margin-top: -390px;
+            margin-left: -163px;
+        }
+    }
+}
+
+
+#button-popup-jarvis {
+    position: absolute;
+    top: 57%;
+    left: 64%;
+
+    #popup-jarvis {
+        margin-top: -290px;
+        margin-left: -130px;
+
+        @include tablet {
+            margin-top: -390px;
+            margin-left: -162px;
+        }
+    }
+}
+
+
+#button-popup-hagersville {
+    position: absolute;
+    top: 51%;
+    left: 68%;
+
+    #popup-hagersville {
+        margin-top: -288px;
+        margin-left: -157px;
+
+        @include tablet {
+            margin-top: -390px;
+            margin-left: -163px;
+        }
+    }
+}
+
+#button-popup-dunnville {
+    position: absolute;
+    top: 53%;
+    left: 76%;
+
+    #popup-dunnville {
+        margin-top: -290px;
+        margin-left: -185px;
+
+        @include tablet {
+            margin-top: -390px;
+            margin-left: -163px;
+        }
+    }
+}
+
+#button-popup-st-catharines {
+    position: absolute;
+    top: 40%;
+    left: 85%;
+
+    #popup-st-catharines {
+        margin-top: -135px;
+        margin-left: -300px;
+
+        @include tablet {
+            margin-top: -185px;
+            margin-left: -385px;
+        }
+    }
+}
+#button-popup-mount-hope {
+    position: absolute;
+    top: 38%;
+    left: 68%;
+
+    #popup-mount-hope {
+        margin-top: 15px;
+        margin-left: -158px;
+
+        @include tablet {
+            margin-top: -210px;
+            margin-left: -380px;
+        }
+    }
+}
+
+#button-popup-brantford {
+    position: absolute;
+    top: 45%;
+    left: 63%;
+
+    #popup-brantford {
+        margin-top: 15px;
+        margin-left: -160px;
+
+        @include tablet {
+            margin-top: -185px;
+            margin-left: -380px;
+        }
+    }
+}
+
+
+// slideshow
+
+#slide-bg {
+  margin: 150px auto;
+  background-color: $aviation_blue;
+  color: white;
+}
+
+.top-slide-text {
+    padding: 20px 50px 0px 50px;
+    margin-top: 80px;
+
+    @include desktop {
+        padding-right: 450px;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin-top: 30px;
+    }
+}
+
+.bottom-slide-text {
+    padding: 20px 50px 50px 50px;
+    text-align: end;
+
+    @include desktop {
+        padding-left: 450px;
+    }
+
+    h2 {
+        font-size: 30px;
+        margin-top: 30px;
+    }
+}
+
+.slideshow-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#top-slideshow {
+  padding-top: 80px;
+  display: flex;
+  gap: 30px;
+  animation: topSlideshow 25s linear infinite;
+  margin-bottom: 30px;
+}
+
+
+@keyframes topSlideshow {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-2480px);
+  }
+}
+
+// central air craft
+.central-air {
+    margin-bottom: 100px;
+
+    p {
+        background-color: $military_green;
+        padding: 40px;
+        margin: 30px 80px;
+        color: #fff;
+    }
+
+    #central-slide {
+        position: relative;
+        height: 400px;
+
+        img {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        img.active {
+            opacity: 1;
+        }
+    }
+}

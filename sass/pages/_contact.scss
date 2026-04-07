@@ -1,0 +1,200 @@
+@use '../abstracts' as *;
+
+// ===========================================
+// CONTACT INFORMATION SECTION
+// ===========================================
+
+.contact-hero-bg {
+    background-image: url(../images/m-contact-hero.jpg);
+    width: 100%;
+    height: 600px;
+
+    @include desktop {
+        background-image: url(../images/l-contact-hero.jpg);
+    }
+}
+
+#contact {
+    margin-top: 50px;
+}
+
+#museum-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+
+    @include tablet {
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 50px auto;
+    }
+
+    @include desktop {
+        gap: 80px;
+    }
+
+    .icon-text {
+        background-color: $aviation_blue;
+        padding: 30px 0;
+
+        @include tablet {
+            width: 210px;
+            height: 240px;
+            padding: 15px;
+        }
+
+        @include desktop {
+            width: 300px;
+        }
+
+        .contact-icon {
+            width: 80px;
+            margin: 10px auto;
+        }
+
+        h3 {
+            color: #fff;
+            text-align: center;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        a {
+            color: #fff;
+            margin: 10px;
+            text-align: center;
+            display: block;
+            transition: all .3s ease-in-out;
+
+            &:hover {
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+// ===========================================
+// CONTACT FORM SECTION
+// ===========================================
+
+#contct-form-bg {
+    background-color: $military_green;
+    margin-bottom: 100px;
+
+    form {
+        margin: 50px auto;
+
+        input {
+            height: 40px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        textarea {
+            min-height: 195px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+
+        .input-flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field-error {
+            position: relative;
+            background-color: #fff;
+            font-size: 14px;
+            padding: 5px 10px;
+            margin-right: 40px;
+            border: 2px solid $heritage_red;
+
+            span {
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                background-color: $heritage_red;
+                padding: 1px 7px;
+                border-radius: 100px;
+                margin: 0 2px 5px 2px;
+            }
+
+             &::before {
+                content: "";
+                position: absolute;
+                top: -27px;
+                left: 8px;
+                width: 24px;
+                height: 27px;
+                background: $heritage_red;
+                clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -23px;
+                left: 10px;
+                width: 20px;
+                height: 24px;
+                background: #fff;
+                clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+            }
+        }
+    }
+
+    .fail {
+        color: #fff;
+        font-weight: 500;
+    }
+
+    label {
+        color: #fff;
+        font-size: 18px;
+        margin: 5px 0;
+    }
+
+    input::placeholder {
+        color: gray;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    textarea::placeholder {
+        color: gray;
+        font-family: "Montserrat", sans-serif;
+    }
+
+    [v-cloak] {
+  display: none;
+}
+
+.button svg {
+    max-width: 30px;
+    transition: all .5s;
+}
+  
+.buttonCircle {
+    width: 80px;
+    height: 80px;
+    background: mediumseagreen;
+    border-radius: 50%;
+    border: none;
+}
+
+.button, .tick {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    appearance: none;
+}
+
+.tick {
+    font-size: 20px;
+    padding: 10px 20px;
+}
+}
+

@@ -1,87 +1,117 @@
-// video
-const playerCon = document.querySelector("#player-container");
-const player = document.querySelector("video");
-const videoControls = document.querySelector("#video-controls");
-const centerPlayButton = document.querySelector("#center-play-button");
-const playButton = document.querySelector("#play-button");
-const pauseButton = document.querySelector("#pause-button");
-const stopButton = document.querySelector("#stop-button");
-const timeline = document.querySelector("#timeline");
-const volumeSlider = document.querySelector("#change-vol");
-const fullScreen = document.querySelector("#full-screen");
+gsap.registerPlugin(ScrollTrigger);
+
+import { header } from "./modules/header.js";
+import { selectDate } from "./modules/battle-of-britain.js";
+import { timeline } from "./modules/timeline.js";
+import { carousel } from "./modules/about.js";
+import { timelineCarousel } from "./modules/history.js";
+import { selectLocation } from "./modules/warime.js";
+import { moveMap } from "./modules/warime.js";
+import { form } from "./modules/contact.js";
+import { aboutAnimation, ArtifactsAnimation } from "./modules/gsap.js";
+import { sectionTitle } from "./modules/gsap.js";
+import { bofbAnimation } from "./modules/gsap.js";
+import { educationAnimation } from "./modules/gsap.js";
+import { faqAnimation } from "./modules/gsap.js";
+import { homeAnimation } from "./modules/gsap.js";
+import { londonPilotsAnimation } from "./modules/gsap.js";
+import { contactAnimation } from "./modules/gsap.js";
+import { artifactCarousel } from "./modules/artifact.js";
+import { remPilotAnimation } from "./modules/gsap.js";
+import { postAnimation } from "./modules/gsap.js";
+import { artifactVueApp } from "./modules/vue_app.js";
+import { artifactVueDetailApp } from "./modules/vue_app.js";
+import { eventsBlogVueApp } from "./modules/vue_app.js";
+import { eventsBlogVueDetailApp } from "./modules/vue_app.js";
+import { modelCarousel } from "./modules/battle-of-britain.js";
+import { centralSlideshow } from "./modules/warime.js";
+import { borVueApp } from "./modules/vue_app.js";
+import { remembrancesVueDetailApp } from "./modules/vue_app.js";
+import { footerAnimation } from "./modules/gsap.js";
 
 
-if (player && playerCon && videoControls) {
-player.controls = false;
-videoControls.classList.remove('hidden');
-
-function playVideo() {
-    player.play();
-    centerPlayButton.style.display = "none";
-}
-
-function pauseVideo () {
-    player.pause();
-    centerPlayButton.style.display = "block";
-}
-
-function stopVideo () {
-    player.pause();
-    player.currentTime = 0;
-    centerPlayButton.style.display = "block";
-    player.load();
-}
-
-
-function showCenterPlay () {
-    centerPlayButton.style.display = "block";
-}
-
-function loadTimelineLength () {
-    timeline.max = player.duration;
-}
-
-function updateTimeline () {
-    timeline.value = player.currentTime;
-}
-
-function changeTimeline () {
-    player.currentTime = timeline.value;
-}
-
-function changeVolume () {
-    player.volume = volumeSlider.value;
-}
-
-function toggleFullScreen () {
-    if(document.fullscreenElement) {
-        document.exitFullscreen();
-    } else {
-        playerCon.requestFullscreen();
-    }
-}
-
-function showControls () {
-    videoControls.classList.remove('hide');
-}
-
-function hideControls () {
-    videoControls.classList.add('hide');
-}
-
-
-centerPlayButton.addEventListener("click", playVideo);
-playButton.addEventListener("click", playVideo);
-player.addEventListener("ended", showCenterPlay)
-pauseButton.addEventListener("click", pauseVideo);
-stopButton.addEventListener("click", stopVideo);
-volumeSlider.addEventListener("change", changeVolume);
-player.addEventListener("loadedmetadata", loadTimelineLength);
-player.addEventListener("timeupdate", updateTimeline)
-timeline.addEventListener("change", changeTimeline)
-fullScreen.addEventListener("click", toggleFullScreen);
-videoControls.addEventListener("mouseenter", showControls);
-videoControls.addEventListener("mouseleave", hideControls);
-player.addEventListener("mouseenter", showControls);
-player.addEventListener("mouseleave", hideControls);
+if(document.body.dataset.page === "home") {
+  header();
+  sectionTitle();
+  homeAnimation();
+  footerAnimation();
+} else if (document.body.dataset.page === "about") {
+    header();
+    carousel();
+    aboutAnimation();
+    sectionTitle();
+    footerAnimation();
+} else if (document.body.dataset.page === "artifact-detail") {
+    header();
+    artifactVueDetailApp();
+    footerAnimation();
+} else if (document.body.dataset.page === "artifacts") {
+    header();
+    sectionTitle();
+    artifactVueApp();
+    footerAnimation();
+} else if (document.body.dataset.page === "battle-of-britain") {
+    header();
+    selectDate();
+    sectionTitle();
+    bofbAnimation();
+    modelCarousel();
+    footerAnimation();
+} else if (document.body.dataset.page === "pilot") {
+    header();
+    sectionTitle();
+    londonPilotsAnimation();
+    footerAnimation();
+} else if (document.body.dataset.page === "book-of-remembrance") {
+    header();
+    sectionTitle();
+    borVueApp();
+    footerAnimation();
+} else if (document.body.dataset.page === "remembrance-pilot") {
+    header();
+    sectionTitle();
+    remembrancesVueDetailApp();
+    footerAnimation();
+} else if (document.body.dataset.page === "contact") {
+    header();
+    form();
+    sectionTitle();
+    contactAnimation();
+    footerAnimation();
+} else if (document.body.dataset.page === "education") {
+    header();
+    sectionTitle();
+    educationAnimation();
+    footerAnimation();
+} else if (document.body.dataset.page === "error") {
+    header();
+    footerAnimation();
+} else if (document.body.dataset.page === "events-blog") {
+    header();
+    eventsBlogVueApp();
+    footerAnimation();
+} else if (document.body.dataset.page === "post") {
+    header();
+    eventsBlogVueDetailApp();
+    footerAnimation();
+} else if (document.body.dataset.page === "FAQ") {
+    header();
+    sectionTitle();
+    faqAnimation();
+    footerAnimation();
+} else if (document.body.dataset.page === "london-aviation") {
+    header();
+    timeline();
+    timelineCarousel();
+    sectionTitle();
+    footerAnimation();
+} else if (document.body.dataset.page === "privacy-policy") {
+    header();
+    footerAnimation();
+} else if (document.body.dataset.page === "wartime") {
+    header();
+    selectLocation();
+    sectionTitle();
+    centralSlideshow();
+    footerAnimation();
 }

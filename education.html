@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>London Aviation History Education Page</title>
+</head>
+<body data-page="education">
+
+    <header class="blue-header">
+        <div class="grid-con">
+
+            <div id="top-header" class="l-col-start-9 l-col-end-12">
+                <nav>
+                    <ul>
+                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
+                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div> 
+
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
+                 <picture id="header-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
+            </a>
+
+            <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div id="header-nav" class="l-col-start-5 l-col-end-12">
+                <nav aria-label="Header Navigation">
+                    <ul>
+                        <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
+                        <li id="about-nav">
+                            <div class="about-con">
+                                <a>About</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="about-sub" class="hidden">
+                                <li><a href="education.html" aria-label="go to History page">Education</a></li>
+                            </ul>
+                        </li>
+                        <li id="history-nav">
+                            <div class="history-con">
+                                <a>History</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="history-sub" class="hidden">
+                                <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
+                                <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
+                                <li><a href="artifacts.html" aria-label="go to artifacts page">Artifacts</a></li>
+                                <li><a href="book_of_rem.html" aria-label="go to Book of Remembrance page">Book of Remembrance</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                        <li class="tablet-hide"><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
+                        <li class="tablet-hide"><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="full-width-grid-con" id="education-intro">
+    <div class="grid-con">
+        <img src="images/school.svg" alt="icon of school" class="col-span-full m-col-start-2 m-col-end-4">
+        <div class="col-span-full m-col-start-4 m-col-emd-12">
+        <h1 id="education-title">Educational Resources</h1>
+        <p id="education-subline">Explore, Learn, Take Flight</p>
+        <p id="education-text">Interactive lessons, downloadable resources, and virtual experiences designed for teachers and students.</p>
+        </div>
+    </div>
+    </div>
+
+    <div class="grid-con" id="intro-text">
+        <p class="col-span-full m-col-start-2 m-col-end-12">
+            Our educational programming is thoughtfully designed to support Ontario curriculum outcomes in History, Science, and STEM learning. The London Aviation Museum provides teachers with ready-to-use lesson plans, printable worksheets, discussion prompts, and virtual resources that make it easy to integrate aviation history into classroom instruction.<br><br>
+
+            Each resource encourages inquiry-based learning, critical thinking, and real-world application. Whether teaching the evolution of flight technology or exploring the impact of aviation on society, educators can rely on our materials to deliver meaningful and engaging learning experiences.<br><br>
+
+            Primary : Students aged 10-18 (grades 5-12)<br>
+            Secondary : Teachers and homeschool educators looking for historical content and STEM integration
+        </p>
+    </div>
+
+        <div class="section-header">
+                <span class="line"></span>
+                <h2>Digital Resources</h2>
+                <span class="line"></span>
+            </div>
+
+        <div class="full-width-grid-con" id="education-download">
+            <div class="grid-con">
+                <img src="images/old-airplane.svg" alt="airplaine icon" class="col-span-full m-col-start-9">
+                <p id="download-title" class="col-span-full m-col-span-full">Take Flight in Your Classroom</p>
+                <p class="text col-span-full m-col-start-2 m-col-end-9">Our downloadable Teacher Guide transforms aviation history into an interactive learning experience. Inside, you'll find artifact spotlights, critical thinking prompts, STEM challenges, and printable activities designed to spark curiosity and imagination.<br><br>
+                Whether your students are exploring virtually or preparing for a future museum visit, this guide makes the story of flight accessible, engaging, and memorable.</p>
+
+                <p id="download" class="col-span-full m-col-start-2 m-col-end-12">Download the guide and start exploring today.</p>
+                <a href="PDF/Educational-Digital-Resource.pdf" download class="col-span-full m-col-start-2 m-col-end-12 button">Download Teacher Guide PDF</a>
+            </div>
+        </div>
+
+         <div class="grid-con" id="virtual-museum">
+                <img src="images/museum.svg" alt="museum icon" class="col-span-full m-col-start-2 m-col-end-5">
+                <div class="col-span-full m-col-start-5 m-col-end-12">
+                <p id="virtual-title">Explore the Virtual Museum</p>
+                <p>Discover the stories behind our historic aircraft and artifacts from anywhere. Our virtual museum experience allows students, educators, and aviation enthusiasts to explore exhibits online through curated galleries, artifact spotlights, and interactive content.<br><br>
+                Whether preparing for a lesson, completing a classroom assignment, or simply exploring out of curiosity, our digital collections make aviation history accessible beyond the hangar.</p>
+                </div>
+
+                <p class="col-span-full m-col-start-5 m-col-end-12" id="virtual">Start your virtual tour today.</p>
+                <a href="#" class="col-span-full m-col-start-5 m-col-end-12 button">Explore the Virtual Museum</a>
+            </div>
+
+            <div class="full-width-grid-con" id="tresure-hant">
+            <div class="grid-con">
+                <img src="images/mobile-phone.svg" alt="phone icon" class="col-span-full m-col-start-9 m-col-end-12">
+                <p id="tresure-title" class="col-span-full">Interactive Scavenger Hunt App | Flight Paths</p>
+                <div class="text col-span-full m-col-start-2 m-col-end-9">
+                <p>Our interactive scavenger hunt app is designed to reinforce classroom learning through gamified exploration. Students complete challenges tied to real museum artifacts, answer critical thinking questions, and unlock aviation facts as they progress.<br><br>
+                The app supports:</p>
+                <ul>
+                    <li>Inquiry-based learning</li>
+                    <li>STEM and history curriculum integration</li>
+                    <li>Collaborative classroom participation</li>
+                    <li>Independent exploration</li>
+                </ul>
+                </div>
+
+                <p id="tresure" class="col-span-full">Explore. Discover. Take flight.</p>
+                <a href="#" class="col-span-full button">Start the Scavenger Hunt</a>
+            </div>
+        </div>
+
+        <section>
+        <div class="section-header">
+                <span class="line"></span>
+                <h2>Classroom Sessions</h2>
+                <span class="line"></span>
+            </div>
+
+            <div class="grid-con" id="classroom-session">
+                <p class="col-span-full m-col-start-2 m-col-end-12">
+                    The London Aviation Museum offers engaging classroom sessions designed to connect students directly with aviation history. Whether delivered virtually or in person, each session is interactive, curriculum-aligned, and tailored to your grade level.<br>
+                    Led by knowledgeable presenters, students will explore historic aircraft, uncover the stories behind artifacts, and learn how aviation has shaped the world we live in today. 
+                </p>
+
+                <p id="classroom-title" class="col-span-full m-col-start-2 m-col-end-12">Classroom Sessions | Bring London's Aviation History to Life</p>
+                <p class="col-span-full m-col-start-2 m-col-end-12">Session Formats:</p>
+                <ul class="col-span-full m-col-start-2 m-col-end-12">
+                    <li>In Person Classroom Visits</li>
+                    <li>Virtual Classroom Sessions (perfect for remote learning or schools outside the area.)</li>
+                </ul>
+
+                <p class="col-span-full m-col-start-2 m-col-end-12">Each session encourages curiosity, discussion, and hands-on learning.</p>
+                <ul class="col-span-full m-col-start-2 m-col-end-12">
+                    <li>30-60 minute live interactive sessions</li>
+                    <li>Behind-the-scenes artifact showcases</li>
+                    <li>Real-time Q&A with museum staff</li>
+                    <li>Artifact Spotlight Presentations</li>
+                    <li>Virtual exhibit walk throughs</li>
+                    <li>Curriculum-aligned themes (History, STEM, Engineering)</li>
+                </ul>
+
+                <p id="classroom" class="col-span-full m-col-start-2 m-col-end-12">Inspire the next generation of explorers, engineers, and historians.</p>
+                <a href="#" class="col-span-full m-col-start-2 m-col-end-12 button">Book Now</a>
+            </div>
+        </section>
+    <main>
+        
+
+    </main>
+    
+
+    <footer>
+        <div class="grid-con">
+            <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
+                <picture id="footer-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
+                </a>
+            <p id="footer-quote">
+                “Preserving the Skies. <br>
+                Honouring the Sacrifice.”</p>
+            </div>
+        
+
+            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10 l-col-start-5 l-col-end-10" aria-label="footer navigation">
+                <div>
+                <p class="footer-nav-title">Quick Links</p>
+                <ul>
+                    <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                    <li><a href="london-aviation.html"  aria-label="go to histry page">History</a></li>
+                    <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                    <li><a href="FAQ.html" aria-label="go to FAQ page">FAQ</a></li>
+                    <li><a href="privacy-policy.html" aria-label="go to Privacy Policy page">Privacy Policy</a></li>
+                </ul>
+                </div>
+
+                <div>
+                <p class="footer-nav-title">About Us</p>
+                <ul>
+                    <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="education.html" aria-label="go to about page">Education</a></li>
+                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
+                    <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
+                </ul>
+                </div>
+            </nav>
+
+            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-13">
+            <div id="address">
+                <img src="images/location.svg" alt="location icon">
+                <p>2155 Crumlin Side Rd,<br>
+                     London, Ontario <br>
+                     N5V 3Z9, Canada.<br>
+                     <a href="https://maps.app.goo.gl/JNsXHgoJZcLPed5u6">View on GG map</a></p>
+            </div>
+
+            <div id="contact-info" class="col-start-3 col-end-5">
+                <div class="footer-contact-icon">
+                    <img src="images/email.svg" alt="email icon">
+                    <a href="mailto:info@427wing.com">info@427wing.com</a>
+                </div>
+                <div class="footer-contact-icon">
+                    <img src="images/phone.svg" alt="phone icon">
+                    <a href="tel:+5194550430">519-455-0430</a>
+                </div>
+            </div>
+            </div>
+
+            <p id="subscription-header" class="col-span-full m-col-start-6 m-col-end-10">
+                SUBSCRIBE TO OUR NEWSLETTER!
+            </p>
+
+            
+            <div class="col-span-full m-col-start-6 m-col-end-10">
+            <div id="subscribe">
+            <input type="text" id="emain-subscription" name="emain-subscription" placeholder="Enter email address">
+             <input type="submit" value="Submit" id="subscribe-btn">
+            </div>
+
+            <div id="agree">
+            <input type="checkbox">
+            <p>I have read and accept the <a href="privacy-policy.html">Plivacy Policy. *</a>
+            </p>
+            </div>
+            </div>
+
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
+                <p>Social Media</p>
+                <div class="sns-icon">
+                    <a href="https://www.facebook.com/427winglondon/">
+                        <img src="images/facebook.svg" class="facebook" alt="facebook icon">
+                    </a>
+                    <a href="https://www.instagram.com/427wing/">
+                        <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    </a>
+                    <a href="http://www.427wing.com">
+                        <img src="images/x.svg" class="x" alt="x icon">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8qWGIbfAr5cjSucEIKPpJw">
+                        <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    </a>
+                </div>
+
+            </div>
+            
+
+
+        <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
+        </div>
+    </footer>
+</body>
+</html>
