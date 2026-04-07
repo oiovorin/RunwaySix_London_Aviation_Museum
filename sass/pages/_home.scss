@@ -5,15 +5,16 @@
 // ===========================================
 .hero-loop-video {
     position: absolute;
-    z-index: -1;
+    z-index: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    pointer-events: none;
     video {
        width: 300%;
 
        @include tablet {
-        width: 150%;
+        width: 180%;
        }
 
        @include desktop {
@@ -28,13 +29,13 @@
 // ===========================================
 
 #home-hero-text {
+    position: relative;
     height: 200px;
     margin-bottom: 540px;
     margin-left: 20px;
 
     @include desktop {
-        margin-bottom: 500px;
-        margin-left: 30px;
+        margin-bottom: 570px;
     }
 
 
@@ -44,6 +45,7 @@
         font-size: 23px;
         line-height: 30px;
         line-height: 50px;
+
 
         @include tablet {
             font-size: 25px;
@@ -63,6 +65,7 @@
         margin-top: 0;
         padding-bottom: 20px;
         font-size: 18px;
+        margin-right: 20px;
 
         @include tablet {
             margin-top: 15px;
@@ -102,7 +105,7 @@
     .button {
         padding: 10px 30px;
     }
-}
+
 
 .about-text {
     h2 {
@@ -126,6 +129,7 @@
         line-height: 1.7;
         color: $chacoal;
         margin-bottom: 20px;
+        order: 2;
 
         @include tablet {
             font-size: 15px;
@@ -133,21 +137,27 @@
             margin-bottom: 25px;
         }
     }
+
 }
 
-.about-image {
-    margin-top: 25px;
+    a {
+        margin-top: 20px;
+
+        @include tablet {
+            margin-top: 0px;
+        }
+    }
+
+    .about-image {
+        margin-top: 25px;
 
     @include tablet {
-        margin-top: 0;
+        margin-top: 40px;
     }
 
-    img {
-        width: 100%;
-        object-fit: cover;
-        border-radius: 4px;
-    }
 }
+}
+
 
 // ===========================================
 // VISIT LEARN REMEMBER SECTION
@@ -195,12 +205,12 @@
 #slider-container {
     width: 100%;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
     cursor: grab;
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: $military_green;
+    padding-top: 20px;
 
     &:active {
         cursor: grabbing;
@@ -243,6 +253,7 @@
 
     @include desktop {
         gap: 30px;
+        justify-content: center;
     }
 }
 
@@ -256,13 +267,22 @@
     width: 280px;
     @include transition;
 
-    @include tablet {
-        width: 230px;
-        border-radius: 8px;
-    }
-
     @include desktop {
         width: 340px;
+    }
+
+    .card-image {
+        width: 90%;
+        height: 170px;
+        overflow: hidden;
+        margin: 10px auto;
+
+        img {
+            object-fit: cover;
+            display: block;
+            transform: scale(1);
+            transition: transform 0.3s ease-in-out;
+        }
     }
 
     &:hover {
@@ -279,28 +299,6 @@
     }
 }
 
-.card-image {
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-
-    @include tablet {
-        height: 170px;
-    }
-
-    @include desktop {
-        height: 200px;
-    }
-
-    img {
-        width: 90%;
-        height: 90%;
-        margin: 10px auto;
-        object-fit: cover;
-        @include transition(transform);
-        pointer-events: none; // Prevent image dragging
-    }
-}
 
 .card-content {
     padding: 18px 15px 22px;
@@ -360,6 +358,10 @@
         margin-top: 32px;
 
         @include tablet {
+            margin-top: 15px;
+        }
+
+        @include desktop {
             margin-top: 40px;
         }
     }
@@ -527,8 +529,28 @@
     font-size: 12px;
     color: #fff;
     font-weight: 500;
-    text-decoration: underline;
     @include transition(color);
+    position: relative;
+    text-decoration: none;
+    width: 85px;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: $heritage_red;
+
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+        }
 
     @include tablet {
         font-size: 13px;
@@ -569,7 +591,7 @@
     font-size: 12px;
     color: $aviation_blue;
     font-weight: 500;
-    text-decoration: underline;
+    text-decoration: none;
     @include transition(color);
 
     @include tablet {

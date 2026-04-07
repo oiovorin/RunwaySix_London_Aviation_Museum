@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>London Aviation History About Page</title>
+</head>
+<body data-page="pilot">
+
+
+      <header class="blue-header">
+        <div class="grid-con">
+
+            <div id="top-header" class="l-col-start-9 l-col-end-12">
+                <nav>
+                    <ul>
+                        <li><a href="events-blog.html" aria-label="go to Events & Blog page">Event & Blog</a></li>
+                        <li><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div> 
+
+            <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
+                 <picture id="header-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
+            </a>
+
+            <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div id="header-nav" class="l-col-start-5 l-col-end-12">
+                <nav aria-label="Header Navigation">
+                    <ul>
+                        <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
+                        <li id="about-nav">
+                            <div class="about-con">
+                                <a href="about.html">About</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="about-sub" class="hidden">
+                                <li><a href="education.html" aria-label="go to History page">Education</a></li>
+                            </ul>
+                        </li>
+                        <li id="history-nav">
+                            <div class="history-con">
+                                <a>History</a>
+                                <div class="submenu-toggle">
+                                    <img src="images/toggle-arrow.svg" alt="toggle arrow">
+                                </div>
+                            </div>
+                            <ul id="history-sub" class="hidden">
+                                <li><a href="london-aviation.html" aria-label="go to History page">London Aviation History</a></li>
+                                <li><a href="battle-of-britain.html" aria-label="go to battle of britain page">Battle of Britain</a></li>
+                                <li><a href="artifacts.html" aria-label="go to artifacts page">Artifacts</a></li>
+                                <li><a href="book_of_rem.html" aria-label="go to Book of Remembrance page">Book of Remembrance</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                        <li class="tablet-hide"><a href="events-blog.html" aria-label="go to Events & Blog page">Events & Blog</a></li>
+                        <li class="tablet-hide"><a href="contact.html" aria-label="go to contsct page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+   <main>
+
+    <div class="grid-con">
+
+        <a href="battle-of-britain.html" class="col-span-full" id="back-to-bofb">← Back to Pilots of Honour</a>
+
+        <h1 id="pilot-name" class="col-span-full">Flying Officer Robert R. Smith</h1>
+
+        <img src="images/detail-robert-s.jpg" alt="Robert Rutherford Smith" class="pilot-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5">
+
+        <div class="pilot-bio col-span-full m-col-start-6 m-col-end-13 l-col-start-5 l-col-end-13">
+            <h2>Military Service Record:</h2>
+            <p><span>Full Name: </span>Robert Rutherford Smith</p>
+            <p><span>Born: </span>August 17, 1915 - London, Ontario, Canada</p>
+            <p><span>Force: </span> Royal Air Force</p>
+            <p><span>Service Number: </span>41665/C94080</p>
+            <p><span>Rank: </span>Flying Officer (later Flight Lieutenant)</p>
+            <p><span>Squadrons: </span>No. 229 Squadron RAF</p>
+            <p><span>Aircraft Flown: </span>Hawker Hurricane Mk I </p>
+            <p><span>Decorations: </span>Distinguished Flying Cross (February 23, 1943)</p>
+            <p><span>Date of Death: </span>November 17, 1965</p>
+        </div>
+    </div>
+
+        <div class="grid-con">
+            <div class="pilot-img-gallary col-span-full">
+                <div class="pilot-img-item">
+                    <img src="images/no229-squadron.jpg" alt="Badge of No. 229 Squadron" class="first">
+                    <p>Badge of No. 229 Squadron,<br>Royal Air Force.</p>
+                </div>
+                <div class="pilot-img-item">
+                    <img src="images/flying-cross.jpg" alt="Distinguished Flying Cross" class="second">
+                    <p>Distinguished Flying Cross <br>(DFC).</p>
+                </div>
+                <div class="pilot-img-item">
+                    <img src="images/hawker.jpg" alt="Hawker Hurricane Mk I" class="third">
+                    <p>Hawker Hurricane Mk I </p>
+                </div>
+            </div>
+        </div>
+
+        <article class="grid-con" id="additional-info">
+            <h2 class="col-span-full">Additional Information:</h2>
+            
+            <div class="col-span-full additional-item">
+                <h3>Early Royal Air Force Service</h3>
+                <p>Robert R. Smith was born in London, Ontario, on 17 August 1915. He joined the Royal Air Force on a short service commission in May 1938.<br>On 6 October 1939, he was posted to No. 229 Squadron at RAF Digby when the unit was re-formed as part of the expansion of Fighter Command prior to large-scale air operations in Europe.</p>
+            </div>
+
+            <div class="col-span-full additional-item">
+                <h3>Operations in France and Dunkirk, 1940</h3>
+                <p>During the German invasion of France, Smith took part in operations over northern France and the Channel.<br>On 29 May 1940, during the evacuation at Dunkirk (Operation Dynamo), he probably destroyed a Messerschmitt Bf 109. On 1 June, he destroyed one Junkers Ju 87 and probably a second during combat operations.<br>These engagements took place during the intense air fighting that accompanied the evacuation of Allied forces from France.</p>
+            </div>
+
+            <div class="col-span-full additional-item">
+                <h3>Battle of Britain</h3>
+                <p>During the Battle of Britain, Smith continued to serve with No. 229 Squadron.<br>On 11 September 1940, he claimed a Heinkel He 111 probably destroyed. On 15 September, he was shot down while attacking formations of Dornier Do 17 and Messerschmitt Bf 110 aircraft over Sevenoaks. He baled out of Hurricane V6616 with leg wounds.<br>During the same engagement, he damaged a Messerschmitt Bf 109.</p>
+            </div>
+                
+            <div class="col-span-full additional-item">
+                <h3>Service in North Africa and Captivity</h3>
+                <p>Smith later served in the Western Desert campaign in North Africa, flying Curtiss Kittyhawk aircraft with No. 112 Squadron.<br>During operations in this theatre, he was shot down and captured, becoming a prisoner of war.</p>
+            </div>
+
+            <div class="col-span-full additional-item">
+                <h3>Later Life and Legacy</h3>
+                <p>Smith survived the Second World War. He was awarded the Distinguished Flying Cross (DFC) in recognition of his operational service.<br>Flying Officer Robert R. Smith is remembered as one of the Canadian pilots who served with the Royal Air Force during the early years of the war, taking part in operations over France, the Battle of Britain, and later in North Africa.</p>
+            </div>
+        </article>
+
+   </main>
+    
+
+   <footer>
+        <div class="grid-con">
+            <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
+                <picture id="footer-logo">
+                     <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                     <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                     <img src="images/light_logo_mobile.svg" alt="logo">
+                </picture>
+                </a>
+            <p id="footer-quote">
+                “Preserving the Skies. <br>
+                Honouring the Sacrifice.”</p>
+            </div>
+        
+
+            <nav id="footer-nav" class="col-span-full m-col-start-6 m-col-end-10 l-col-start-5 l-col-end-10" aria-label="footer navigation">
+                <div>
+                <p class="footer-nav-title">Quick Links</p>
+                <ul>
+                    <li><a href="index.html" aria-label="go to home page">Home</a></li>
+                    <li><a href="london-aviation.html"  aria-label="go to histry page">History</a></li>
+                    <li><a href="wartime.html" aria-label="go to Wartime Experience page">Wartime Experience</a></li>
+                    <li><a href="FAQ.html" aria-label="go to FAQ page">FAQ</a></li>
+                    <li><a href="privacy-policy.html" aria-label="go to Privacy Policy page">Privacy Policy</a></li>
+                </ul>
+                </div>
+
+                <div>
+                <p class="footer-nav-title">About Us</p>
+                <ul>
+                    <li><a href="about.html" aria-label="go to about page">About</a></li>
+                    <li><a href="education.html" aria-label="go to about page">Education</a></li>
+                    <li><a href="events-blog.html" aria-label="go to events & blog page">Events / Blog</a></li>
+                    <li><a href="contact.html" aria-label="go to contact page">Contact</a></li>
+                </ul>
+                </div>
+            </nav>
+
+            <div id="address-info" class="col-span-full m-col-start-10 m-col-end-13">
+            <div id="address">
+                <img src="images/location.svg" alt="location icon">
+                <p>2155 Crumlin Side Rd,<br>
+                     London, Ontario <br>
+                     N5V 3Z9, Canada.<br>
+                     <a href="https://maps.app.goo.gl/JNsXHgoJZcLPed5u6">View on GG map</a></p>
+            </div>
+
+            <div id="contact-info" class="col-start-3 col-end-5">
+                <div class="footer-contact-icon">
+                    <img src="images/email.svg" alt="email icon">
+                    <a href="mailto:info@427wing.com">info@427wing.com</a>
+                </div>
+                <div class="footer-contact-icon">
+                    <img src="images/phone.svg" alt="phone icon">
+                    <a href="tel:+5194550430">519-455-0430</a>
+                </div>
+            </div>
+            </div>
+
+            <p id="subscription-header" class="col-span-full m-col-start-6 m-col-end-10">
+                SUBSCRIBE TO OUR NEWSLETTER!
+            </p>
+
+            
+            <div class="col-span-full m-col-start-6 m-col-end-10">
+            <div id="subscribe">
+            <input type="text" id="emain-subscription" name="emain-subscription" placeholder="Enter email address">
+             <input type="submit" value="Submit" id="subscribe-btn">
+            </div>
+
+            <div id="agree">
+            <input type="checkbox">
+            <p>I have read and accept the <a href="privacy-policy.html">Plivacy Policy. *</a>
+            </p>
+            </div>
+            </div>
+
+            <div id="sns" class="col-span-full m-col-start-10 m-col-end-13">
+                <p>Social Media</p>
+                <div class="sns-icon">
+                    <a href="https://www.facebook.com/427winglondon/">
+                        <img src="images/facebook.svg" class="facebook" alt="facebook icon">
+                    </a>
+                    <a href="https://www.instagram.com/427wing/">
+                        <img src="images/instagram.svg" class="instagram" alt="instagram icon">
+                    </a>
+                    <a href="http://www.427wing.com">
+                        <img src="images/x.svg" class="x" alt="x icon">
+                    </a>
+                    <a href="https://www.youtube.com/channel/UC8qWGIbfAr5cjSucEIKPpJw">
+                        <img src="images/youtube.svg" class="youtube" alt="youtube icon">
+                    </a>
+                </div>
+
+            </div>
+            
+
+
+        <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
+        </div>
+    </footer>
+</body>
+</html>

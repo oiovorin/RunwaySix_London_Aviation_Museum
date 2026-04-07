@@ -43,3 +43,4 @@ export function carousel () {
     nextBtn.addEventListener("click", nextImg);
     preBtn.addEventListener("click", prevImg);
 }
+
