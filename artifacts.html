@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Artifacts</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/grid.css" rel="stylesheet">
@@ -14,7 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
-    <title>London Aviation Museum Aircraft Page</title>
+    <title>London Aviation Museum Artifacts Page</title>
 </head>
 
 
@@ -99,6 +98,7 @@
         <!-- Artifacts Gallery -->
         <div id="artifact-app">
             <section class="grid-con">
+                <h2 class="hidden">Artifact List</h2>
                 <div v-if="loadingArtifacts" class="loader col-span-full">
                     <img src="images/loader.svg" alt="Loading Artifacts">
                 </div>

@@ -57,7 +57,7 @@
     border: 5px solid #fff;
     border-radius: 50%;
     transform: translateX(-41%);
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
 
 
     @include tablet {
@@ -71,7 +71,7 @@
 }
 
 .active {
-    transition: all 0.3 ease-in-out;
+    transition: all 0.3s ease-in-out;
 
     .timeline-dot {
         background-color: $aviation_blue;
