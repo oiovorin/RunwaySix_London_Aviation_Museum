@@ -5,10 +5,14 @@
 // ===========================================
 
 .hero-bor {
-    background-image: url(../images/hero-BOR.png);
+    background-image: url(../images/m-bor-hero.jpg);
     background-size: cover;
     background-position: center;
     overflow: hidden;
+
+    @include desktop {
+        background-image: url(../images/l-bor-hero.jpg);
+    }
 }
 
 #search-egn {

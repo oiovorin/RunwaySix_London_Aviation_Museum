@@ -1,9 +1,13 @@
 @use '../abstracts' as *;
 
 .event-hero-bg {
-    background-image: url(../images/event-hero.png);
+    background-image: url(../images/m-event-hero.jpg);
     width: 100%;
     height: 600px;
+
+    @include desktop {
+        background-image: url(../images/l-event-hero.jpg);
+    }
 }
 
 // ===========================================

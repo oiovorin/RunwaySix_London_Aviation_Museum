@@ -24,6 +24,7 @@ import { artifactVueDetailApp } from "./modules/vue_app.js";
 import { eventsBlogVueApp } from "./modules/vue_app.js";
 import { eventsBlogVueDetailApp } from "./modules/vue_app.js";
 import { modelCarousel } from "./modules/battle-of-britain.js";
+import { centralSlideshow } from "./modules/warime.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -91,4 +92,5 @@ if(document.body.dataset.page === "home") {
     header();
     selectLocation();
     sectionTitle();
+    centralSlideshow();
 }
