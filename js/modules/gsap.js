@@ -87,8 +87,7 @@ export function bofbAnimation () {
       stagger: 1,
       scrollTrigger: {
             trigger: battleIntro,
-            start: "top 80%",
-            markers: true
+            start: "top 80%"
         }
     })
 
@@ -116,8 +115,7 @@ export function bofbAnimation () {
             stagger: 1,
             scrollTrigger: {
                 trigger: dateSelection,
-                start: "top 80%",
-                markers: true
+                start: "top 80%"
             }
     })
 
@@ -174,6 +172,20 @@ export function bofbAnimation () {
             trigger: "#honor-slide",
             start: "top 80%",
             toggleActions: "play none none none"
+        }
+        });
+
+        const modelDefault = document.querySelector(".model-card.active");
+
+        gsap.from(modelDefault.children, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: modelDefault,
+            start: "top 80%",
         }
         });
 }
@@ -477,4 +489,267 @@ export function contactAnimation () {
         stagger: 0.25,
         ease: "power2.out"
         });
+}
+
+export function ArtifactsAnimation () {
+
+     const backToArtifacts = document.querySelector("#back-to-artifacts");
+
+        gsap.from(backToArtifacts,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+    const artifactName = document.querySelector("#artifact-name");
+
+        gsap.from(artifactName,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+
+   const artifactImage = document.querySelector("#artifact-image");
+
+    gsap.from(artifactImage, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: artifactImage,
+            start: "top 85%"
+        }
+    });
+
+    const aboutArtifact = document.querySelector(".about-artifact");
+
+    gsap.from(aboutArtifact, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: aboutArtifact,
+            start: "top 80%"
+        }
+    });
+
+    const artifactImgGallary = document.querySelectorAll("#artifact-gallery .artifact-item");
+
+    gsap.from(artifactImgGallary, {
+        opacity: 0,
+        y: 100,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#artifact-gallery",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+}
+
+export function postAnimation () {
+
+     const backToEventsBlog = document.querySelector("#back-to-events_blog");
+
+        gsap.from(backToEventsBlog,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+    const postTitle = document.querySelector("#post-title");
+
+        gsap.from(postTitle,  {
+            opacity: 0,
+            y: 50,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+
+   const postCategory = document.querySelector("#post-category");
+
+    gsap.from(postCategory, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: postCategory,
+            start: "top 90%"
+        }
+    });
+
+
+    const postInfo = document.querySelectorAll("#post-info .info");
+
+    gsap.from(postInfo, {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#post-info",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+    const eventImage = document.querySelector(".event-image");
+
+    gsap.from(eventImage, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: eventImage,
+            start: "top 80%"
+        }
+    });
+
+    const aboutPost = document.querySelector("#about-post");
+
+    gsap.from(aboutPost, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: aboutPost,
+            start: "top 80%",
+        }
+        });
+
+    const contactCta = document.querySelector("#contact-cta");
+
+    gsap.from(contactCta, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.8,
+        scrollTrigger: {
+            trigger: contactCta,
+            start: "top 80%"
+        }
+        });
+
+        
+
+        const share = document.querySelector("#share");
+
+    gsap.from(share, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: share,
+            start: "top 90%"
+        }
+    });
+
+    const otherPost = document.querySelectorAll("#others .other-post");
+
+    gsap.from(otherPost, {
+        opacity: 0,
+        y: 50,
+        duration: 0.6,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: "#others",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        }
+        });
+
+}
+
+export function remPilotAnimation () {
+
+     const backToRem = document.querySelector("#back-to-rem");
+
+        gsap.from(backToRem,  {
+            opacity: 0,
+            x: -30,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+    const remPilotImage = document.querySelector(".rem-pilot-image");
+
+        gsap.from(remPilotImage,  {
+            opacity: 0,
+            y: 50,
+            ease: "power1.out",
+            duration: 1,
+            stagger: 1
+    })
+
+
+   const remPilotName = document.querySelector("#rem-pilot-name");
+
+    gsap.from(remPilotName, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: remPilotName,
+            start: "top 90%"
+        }
+    });
+
+    const pilotInfo = document.querySelector(".pilot-info");
+
+    gsap.from(pilotInfo, {
+    opacity: 0,
+    x: -50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: pilotInfo,
+            start: "top 80%"
+        }
+    });
+
+    const correctInfo = document.querySelector("#correct-info");
+
+    gsap.from(correctInfo, {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        stagger: 0.3,
+        scrollTrigger: {
+            trigger: correctInfo,
+            start: "top 80%",
+        }
+        });
+
+}
+
+export function footerAnimation() {
+    gsap.from("footer", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "footer",
+            start: "top 90%",
+        }
+    });
 }

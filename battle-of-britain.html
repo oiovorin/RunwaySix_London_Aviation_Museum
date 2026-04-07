@@ -6,6 +6,9 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
@@ -80,13 +83,12 @@
     </header>
 
        
-
     <div class="grid-con" id="hero-text">
-        <h1 id="hero-heading" class="col-span-full m-col-start-2 m-col-end-13">
+        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13 l-col-start-2 m-col-end-12">
             <span>The Battle of Britain</span>
         </h1>
 
-        <p id="hero-p" class="col-span-full m-col-start-2 m-col-end-8">
+        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12 l-col-start-2 m-col-end-12">
             An overview of Britain's decisive air campaign from July to October 1940, examining the strategy, key turning points, and human cost of the battle that determined the nation's survival.
         </p>
     </div>
@@ -116,25 +118,25 @@
             <div id="battle-phases" class="grid-con">
                 <div class="phase-card blue col-span-full m-col-span-6 l-col-span-3">
                     <h3 class="phase">Phase 1 - Channel & Convoys </h3>
-                    <img src="images/phrase1.png" alt="image of Channel & Convoys">
+                    <img src="images/phase1.jpg" alt="image of Channel & Convoys">
                     <p class="phase-detail">Germany aimed for air superiority to enable Operation Sea Lion, targeting shipping convoys and conducting fighter sweeps over southern England. Aircraft losses rose, but increased production kept squadrons operational while pilot shortages worsened.</p>
                 </div>
 
                  <div class="phase-card green col-span-full m-col-span-6 l-col-span-3">
                     <h3 class="phase">Phase 2 - Radar & Airfields </h3>
-                    <img src="images/phrase2.png" alt="image of Radar & Airfields ">
+                    <img src="images/phase2.jpg" alt="image of Radar & Airfields ">
                     <p class="phase-detail">From mid-August, attacks focused on radar stations and airfields in southern England, bringing RAF Fighter Command closest to defeat.</p>
                 </div>
 
                 <div class="phase-card blue col-span-full m-col-span-6 l-col-span-3">
                     <h3 class="phase">Phase 3 — London</h3>
-                    <img src="images/phrase3.png" alt="image of London">
+                    <img src="images/phase3.jpg" alt="image of London">
                     <p class="phase-detail">From 7 September, the German assault shifted to London, with major daylight raids and intensified night bombing of cities and ports, including Liverpool.</p>
                 </div>
 
                 <div class="phase-card green col-span-full m-col-span-6 l-col-span-3">
                     <h3 class="phase">Phase 4 — Night Bombing</h3>
-                    <img src="images/phrase4.png" alt="image of Night Bombing">
+                    <img src="images/phase4.jpg" alt="image of Night Bombing">
                     <p class="phase-detail">After Operation Sea Lion was cancelled, the Luftwaffe concentrated on night bombing, while daylight operations were limited to fighter sweeps and fighter-bomber raids.</p>
                 </div>
             </div>
@@ -305,7 +307,12 @@
 
             <div id="honor-slide" class="grid-con">
                 <div class="pilot-card col-span-full m-col-span-6">
-                    <img src="images/ross-smither.png" alt="image of  Robert Grassick">
+                    <img src="images/ross.jpg"
+                    srcset="images/mob-ross.jpg 1199w,
+                            images/ross.jpg 1200w"
+                    sizes="(max-width: 1199px) 1199px,
+                        1200px"
+                    alt="Ross Smither">
                     <div>
                         <p class="title">Flying Officer</p>
                         <p class="name">Ross Smither</p>
@@ -314,16 +321,26 @@
                 </div>
 
                 <div class="pilot-card col-span-full m-col-span-6">
-                    <img src="images/hugh-reilley.png" alt="image of  Robert Grassick">
+                    <img src="images/robert-g.jpg"
+                    srcset="images/mob-robert-g.jpg 1199w,
+                            images/robert-g.jpg 1200w"
+                    sizes="(max-width: 1199px) 1199px,
+                        1200px"
+                    alt="Robert Grassick">
                     <div>
-                        <p class="title">Pilot Officer</p>
-                        <p class="name">Hugh Reilley</p>
-                        <a href="reilley.html" class="button">Learn More</a>
+                        <p class="title">Flying Officer</p>
+                        <p class="name"> Robert Grassick</p>
+                        <a href="grassick.html" class="button">Learn More</a>
                     </div>
                 </div>
 
                 <div class="pilot-card col-span-full m-col-span-6">
-                    <img src="images/robert-grassick.png" alt="image of  Robert Grassick">
+                    <img src="images/robert-g.jpg"
+                    srcset="images/mob-robert-g.jpg 1199w,
+                            images/mob-robert-g.jpg 1200w"
+                    sizes="(max-width: 1199px) 1199px,
+                        1200px"
+                    alt="Robert Grassick">
                     <div>
                         <p class="title">Flying Officer</p>
                         <p class="name">Robert Grassick</p>
@@ -332,7 +349,12 @@
                 </div>
 
                 <div class="pilot-card col-span-full m-col-span-6">
-                    <img src="images/neil-campbell.png" alt="image of  Robert Grassick">
+                    <img src="images/neil.jpg"
+                    srcset="images/mob-robert-g.jpg 1199w,
+                            images/mob-neil.jpg 1200w"
+                    sizes="(max-width: 1199px) 1199px,
+                        1200px"
+                    alt="Neil Campbell">
                     <div>
                         <p class="title">Pilot Officer</p>
                         <p class="name">Neil Campbell</p>
@@ -341,7 +363,12 @@
                 </div>
 
                 <div class="pilot-card col-span-full m-col-span-6">
-                    <img src="images/robert-smith.png" alt="image of  Robert Grassick">
+                    <img src="images/robert-s.jpg"
+                    srcset="images/mob-robert-r.jpg 1199w,
+                            images/robert-s.jpg 1200w"
+                    sizes="(max-width: 1199px) 1199px,
+                        1200px"
+                    alt="Robert R. Smith">
                     <div>
                         <p class="title">Flying Officer</p>
                         <p class="name">Robert R. Smith</p>
@@ -351,16 +378,84 @@
             </div>
         </section>
 
+        <section>
+            <div class="section-header">
+                <span class="line"></span>
+                <h2>Battle of Britain Aircraft</h2>
+                <span class="line"></span>
+            </div>
+
+
+        <div id="airplane-model" class="grid-con">
+            <button id="model-previous" class="col-start-1 col-end-2">&lt;</button>
+            <div class="col-span-full model-card active">
+                <img src="images/plane_1.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Supermarine Spitfire Mk I</h3>
+                <p>British single-engine fighter aircraft renowned for its speed and agility during the Battle of Britain.</p>
+            </div>
+
+            <div class="col-span-full model-card">
+                <img src="images/plane_2.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Hawker Hurricane Mk I</h3>
+                <p>British fighter aircraft that formed the backbone of RAF Fighter Command during the Battle of Britain.</p>
+            </div>
+
+            <div class="col-span-full model-card">
+                <img src="images/plane_3.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Junkers Ju 88</h3>
+                <p>German twin-engine bomber known for its versatility and use in a wide range of combat roles..</p>
+            </div>
+
+            <div class="col-span-full model-card">
+                <img src="images/plane_4.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Heinkel He 111</h3>
+                <p>German medium bomber widely used by the Luftwaffe during the early years of the Second World War.</p>
+            </div>
+
+            <div class="col-span-full model-card">
+                <img src="images/plane_5.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Dornier Do 17</h3>
+                <p>German light bomber, nicknamed the “Flying Pencil” for its slender fuselage design.</p>
+            </div>
+
+            <div class="col-span-full model-card">
+                <img src="images/plane_6.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Messerschmitt Bf 110</h3>
+                <p>German twin-engine heavy fighter designed for long-range escort and ground attack missions.</p>
+            </div>
+
+            <div class="col-span-full model-card">
+                <img src="images/plane_7.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Messerschmitt Bf 109</h3>
+                <p>German single-engine fighter and one of the Luftwaffe's primary aircraft during the Battle of Britain.</p>
+            </div>
+
+            <div class="col-span-full model-card">
+                <img src="images/plane_8.svg" alt="Supermarine Spitfire Mk I">
+                <h3>Junkers Ju 87</h3>
+                <p>German dive bomber, known as the “Stuka,” used for precision bombing in early wartime campaigns.</p>
+            </div>
+
+        
+            <button id="model-next" class="col-start-4 col-end-5 m-col-srart-12 m-col-end-13">&gt;</button>
+
+            </div>
+
+
+        </section>
+
     </main>
 
     <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
                 <picture id="footer-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
                      <img src="images/light_logo_mobile.svg" alt="logo">
                 </picture>
+                </a>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
