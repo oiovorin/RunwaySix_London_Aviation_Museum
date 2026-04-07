@@ -24,6 +24,9 @@ import { artifactVueDetailApp } from "./modules/vue_app.js";
 import { eventsBlogVueApp } from "./modules/vue_app.js";
 import { eventsBlogVueDetailApp } from "./modules/vue_app.js";
 import { modelCarousel } from "./modules/battle-of-britain.js";
+import { centralSlideshow } from "./modules/warime.js";
+import { borVueApp } from "./modules/vue_app.js";
+import { remembrancesVueDetailApp } from "./modules/vue_app.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -55,10 +58,11 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "book-of-remembrance") {
     header();
     sectionTitle();
+    borVueApp();
 } else if (document.body.dataset.page === "remembrance-pilot") {
     header();
     sectionTitle();
-    remPilotAnimation();
+    remembrancesVueDetailApp();
 } else if (document.body.dataset.page === "contact") {
     header();
     form();
@@ -91,4 +95,5 @@ if(document.body.dataset.page === "home") {
     header();
     selectLocation();
     sectionTitle();
+    centralSlideshow();
 }

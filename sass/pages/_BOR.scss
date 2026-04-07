@@ -5,10 +5,39 @@
 // ===========================================
 
 .hero-bor {
-    background-image: url(../images/hero-BOR.png);
+    background-image: url(../images/m-bor-hero.jpg);
     background-size: cover;
     background-position: center;
     overflow: hidden;
+    height: 900px;
+
+    @include tablet {
+        height: 700px;
+    }
+
+    @include desktop {
+        background-image: url(../images/l-bor-hero.jpg);
+    }
+}
+
+#digital-book {
+    margin: 50px auto;
+
+    a {
+
+        &:hover img {
+            transform: scale(1.03);
+        }
+
+        img {
+            transition: all .3s ease-in-out;
+        }
+        p {
+            font-size: 18px;
+            font-weight: 500;
+            color: $aviation_blue;
+        }
+    }
 }
 
 #search-egn {
@@ -85,20 +114,16 @@
 
 .bor-title-text {
     display: flex;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
     background-color: $aviation_blue;
     margin-bottom: 20px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
 
-    img{
-        background-color: $chacoal;
-        @include desktop{
-            height: 180px;
-            width: 180px;
-            margin-left: 20px;
-            margin-top: 20px;
-            margin-bottom: 20px;
-        }
-        
+    &:hover {
+        transform: scale(1.03);
     }
 
     h3 {
@@ -116,21 +141,19 @@
         margin: 5px 40px;
     }
 
-    .submit-btn {
-        background-color: $archive_beige;
-        color: $heritage_red;
-        border: 3px solid $heritage_red;
-        border-radius: 30px;
-        padding: 10px 20px;
-        font-size: 15px;
-        font-weight: 800;
-        margin: 5px 40px;
+    .learn-more {
+        color: #fff;
+        font-size: 50px;
+        margin-right: 20px;
+        margin-top: -20px;
+        transition: all .3s ease-in-out;
 
         &:hover {
-        color: #fff;
-        background-color: $heritage_red;
+            color: $heritage_red;
+            font-weight: 600;
+        }
     }
-    }
+ 
 }
 
 
