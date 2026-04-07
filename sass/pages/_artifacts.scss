@@ -5,11 +5,15 @@
 // ===========================================
 
 .hero-artifacts {
-    background-image: url(../images/hero-artifacts.png);
+    background-image: url(../images/m-artifact-hero.jpg);
     background-size: cover;
     background-position: center;
     overflow: hidden;
     height: 700px;
+
+    @include tablet {
+        background-image: url(../images/l-artifact-hero.jpg);
+    }
 }
 
 .artifact-3d-section {
