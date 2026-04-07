@@ -740,3 +740,16 @@ export function remPilotAnimation () {
         });
 
 }
+
+export function footerAnimation() {
+    gsap.from("footer", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "footer",
+            start: "top 90%",
+        }
+    });
+}
