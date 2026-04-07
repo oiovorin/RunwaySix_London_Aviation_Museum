@@ -7,6 +7,7 @@
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
@@ -80,18 +81,29 @@
 
    <main>
 
+    <div id="bor-detail-app">
     <div class="grid-con">
 
         <a href="book_of_rem.html" class="col-span-full" id="back-to-rem">← Back to Book of Remembrance</a>
 
-        <img class="rem-pilot-image col-span-full">
+        <div v-if="loadingRemembrancesDetails" class="loader col-span-full">
+                <img src="images/loader.svg" alt="Loading">
+            </div>
 
-        <h1 id="rem-pilot-name" class="col-span-full">Flying Officer Robert R. Smith</h1>
+            <div v-else-if="remembrancesDetailsError" class="col-span-full">
+                <p>{{ remembrancesDetailsError }}</p>
+            </div>
 
-        <div class="pilot-info col-span-full">
-            <p><span>Military Rank: </span></p>
-            <p><span>Brand of Service: </span></p>
-        </div>
+        <template v-else>
+            <img :src="selectedRemembrances.imagePath" :alt="selectedRemembrances.fullName" class="rem-pilot-image col-span-full">
+
+            <h1 id="rem-pilot-name" class="col-span-full">{{ selectedRemembrances.fullName }}</h1>
+
+            <div class="pilot-info col-span-full">
+                <p><span>Military Rank: </span>{{ selectedRemembrances.rankTitle }}</p>
+                <p><span>Brand of Service: </span>{{ selectedRemembrances.branch }}</p>
+            </div>
+        </template>
     </div>
 
     <div class="grid-con" id="correct-info">
@@ -99,6 +111,7 @@
             <img src="images/blue-email.svg" alt="email icon">
             <p>If you possess verified or additional information regarding this individual, we kindly invite you to submit it via our <a href="contact.html">Contact Form.</a></p>
         </div>
+    </div>
     </div>
 
    </main>
