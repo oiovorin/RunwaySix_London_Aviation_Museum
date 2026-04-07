@@ -572,7 +572,7 @@ export function remembrancesVueDetailApp() {
                             rankTitle: remembrances.rank_title || "Unknown",
                             branch: remembrances.branch || "Unknown",
                             squadron: remembrances.squadron || "Unknown",
-                            imagePath: remembrances.image_path || ""
+                            imagePath: remembrances.page?.image_path || ""
                         };
                     })
                     .catch(err => {
