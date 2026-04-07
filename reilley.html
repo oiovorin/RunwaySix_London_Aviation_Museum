@@ -6,6 +6,8 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
 </head>
@@ -82,7 +84,7 @@
 
         <a href="battle-of-britain.html" class="col-span-full" id="back-to-bofb">← Back to Pilots of Honour</a>
 
-        <h1 class="col-span-full">Pilot Officer Hugh Reilley</h1>
+        <h1 id="pilot-name" class="col-span-full">Pilot Officer Hugh Reilley</h1>
 
         <img class="pilot-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5">
 
@@ -117,22 +119,30 @@
             </div>
         </div>
 
-        <article class="grid-con additional-info">
+        <article class="grid-con" id="additional-info">
             <h2 class="col-span-full">Additional Information:</h2>
             
-            <div class="col-span-full">
+            <div class="col-span-full additional-item">
                 <h3>Early Life and Enlistment</h3>
                 <p>Hugh Reilley was born in London, Ontario, on 26 May 1918. After completing his schooling in 1938, he worked at the Highland Golf Club and the London Winery.<br>In May 1939, prior to the outbreak of the Second World War, he travelled to England with a friend to enlist in the Royal Air Force, joining a number of Canadians who sought to serve overseas.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Training and Commission</h3>
                 <p>Reilley was granted a commission in the Royal Air Force Volunteer Reserve and completed his flying training in August 1940.<br>He then underwent conversion training to Supermarine Spitfires at No. 7 Operational Training Unit (OTU) at RAF Hawarden, preparing for operational service with Fighter Command during a critical stage of the air war.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Operational Service, 1940</h3>
                 <p>Following his training, Reilley was posted to No. 64 Squadron at RAF Leconfield in early September 1940.<br>On 15 September, he was transferred to No. 66 Squadron at RAF Gravesend, joining the unit during the height of the Battle of Britain, when fighter squadrons were engaged daily in defending southern England against Luftwaffe attacks.<br>On 27 September 1940, he claimed a Messerschmitt Bf 109 destroyed, which was confirmed.</p>
+            </div>
                 
+            <div class="col-span-full additional-item">
                 <h3>Final Mission - 17 October 1940</h3>
                 <p>On 17 October 1940, Reilley was flying Supermarine Spitfire R6800 when he was shot down near Crockham Hill, Sevenoaks.<br>He was killed in the resulting crash during ongoing fighter operations over southern England.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Burial and Legacy</h3>
                 <p>Pilot Officer Hugh Reilley is buried at Gravesend Cemetery, Kent, England.<br>He is remembered as one of the Canadian pilots who travelled overseas to serve with the Royal Air Force, contributing to the defence of Britain during a critical period of the Second World War.</p>
             </div>

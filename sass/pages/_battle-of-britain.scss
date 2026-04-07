@@ -49,11 +49,6 @@
             width: auto;
         }
 
-        img {
-            background-color: $chacoal;
-            height: 260px;
-        }
-
         &.blue {
 
         .phase {
@@ -130,11 +125,14 @@
         
 
         button {
-            width: 15px;
-            height: 15px;
-            border-radius: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
             background-color: rgba(128, 128, 128, 0.814);
             cursor: pointer;
+            outline: none;
+            box-shadow: none;
+            border: none;
         }
 
         button.active {
@@ -319,14 +317,14 @@
         }
 
         img {
-            width: 140px;
+            width: 120px;
             height: 160px;
-            
+
             @include desktop {
-                width: 180px;
-                height: 300px;
-                margin-bottom: 15px;
+                width: 150px;
+                height: 200px;
             }
+            
         }
 
         .title {
@@ -361,4 +359,84 @@
             }
         }
     }
+}
+
+#airplane-model {
+    position: relative;
+    width: 100%;
+    height: 500px;
+
+    @include tablet {
+        height: 800px;
+    }
+
+    .model-card {
+        position: absolute;
+        opacity: 0;
+        left: 30px;
+        right: 30px;
+
+        @include tablet {
+             margin: 0 50px;
+        }
+
+        @include desktop {
+             margin: 0 100px;
+        }
+
+        img {
+            margin: 0 auto;
+        }
+
+
+        h3 {
+            font-size: 24px;
+            color: $aviation_blue;
+            text-align: center;
+            margin: 10px auto;
+
+            @include tablet {
+                font-size: 30px;
+            }
+        }
+
+        p {
+            text-align: center;
+        }
+    }
+
+    .model-card.active {
+        opacity: 1;
+    }
+
+    button {
+            color: $heritage_red;
+            padding: 5px;
+            height: 30px;
+            margin-top: 110px;
+            width: 20px;
+            background-color: transparent;
+            border: 1px solid $heritage_red;
+            cursor: pointer;
+            transition: all .3s ease-in-out;
+
+            @include tablet {
+                margin-top: 230px;
+                transform: scale(1.1);
+            }
+
+            @include desktop {
+                margin-top: 280px;
+                transform: scale(1.2);
+            }
+
+            &:hover {
+                color: #fff;
+                background-color: $heritage_red;
+            }
+        }
+
+        #model-next {
+            justify-self: end;
+        }
 }

@@ -6,6 +6,8 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
 </head>
@@ -82,7 +84,7 @@
 
         <a href="battle-of-britain.html" class="col-span-full" id="back-to-bofb">← Back to Pilots of Honour</a>
 
-        <h1 class="col-span-full">Flying Officer Robert R. Smith</h1>
+        <h1 id="pilot-name" class="col-span-full">Flying Officer Robert R. Smith</h1>
 
         <img class="pilot-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5">
 
@@ -117,22 +119,30 @@
             </div>
         </div>
 
-        <article class="grid-con additional-info">
+        <article class="grid-con" id="additional-info">
             <h2 class="col-span-full">Additional Information:</h2>
             
-            <div class="col-span-full">
+            <div class="col-span-full additional-item">
                 <h3>Early Royal Air Force Service</h3>
                 <p>Robert R. Smith was born in London, Ontario, on 17 August 1915. He joined the Royal Air Force on a short service commission in May 1938.<br>On 6 October 1939, he was posted to No. 229 Squadron at RAF Digby when the unit was re-formed as part of the expansion of Fighter Command prior to large-scale air operations in Europe.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Operations in France and Dunkirk, 1940</h3>
                 <p>During the German invasion of France, Smith took part in operations over northern France and the Channel.<br>On 29 May 1940, during the evacuation at Dunkirk (Operation Dynamo), he probably destroyed a Messerschmitt Bf 109. On 1 June, he destroyed one Junkers Ju 87 and probably a second during combat operations.<br>These engagements took place during the intense air fighting that accompanied the evacuation of Allied forces from France.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Battle of Britain</h3>
                 <p>During the Battle of Britain, Smith continued to serve with No. 229 Squadron.<br>On 11 September 1940, he claimed a Heinkel He 111 probably destroyed. On 15 September, he was shot down while attacking formations of Dornier Do 17 and Messerschmitt Bf 110 aircraft over Sevenoaks. He baled out of Hurricane V6616 with leg wounds.<br>During the same engagement, he damaged a Messerschmitt Bf 109.</p>
+            </div>
                 
+            <div class="col-span-full additional-item">
                 <h3>Service in North Africa and Captivity</h3>
                 <p>Smith later served in the Western Desert campaign in North Africa, flying Curtiss Kittyhawk aircraft with No. 112 Squadron.<br>During operations in this theatre, he was shot down and captured, becoming a prisoner of war.</p>
+            </div>
 
+            <div class="col-span-full additional-item">
                 <h3>Later Life and Legacy</h3>
                 <p>Smith survived the Second World War. He was awarded the Distinguished Flying Cross (DFC) in recognition of his operational service.<br>Flying Officer Robert R. Smith is remembered as one of the Canadian pilots who served with the Royal Air Force during the early years of the war, taking part in operations over France, the Battle of Britain, and later in North Africa.</p>
             </div>
