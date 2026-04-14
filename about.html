@@ -19,7 +19,14 @@
 </head>
 <body data-page="about">
 
-    <section class="about-hero-bg">
+    <div class="hero-section">
+
+        <div class="hero-bg">
+            <picture>
+                <source media="(min-width: 1200px)" srcset="images/l-about-hero.jpg">
+                <img src="images/m-about-hero.jpg" alt="About Hero">
+                </picture>
+        </div>
 
       <header>
         <div class="grid-con">
@@ -87,16 +94,17 @@
 
        
 
-    <div class="grid-con" id="hero-text">
-        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13 l-col-start-2 m-col-end-12">
-            <span>About the Museum</span>
-        </h1>
-
-        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-10 l-col-start-2 m-col-end-12">
-            A historic place of service, memory, and living legacy
-        </p>
+     <div class="grid-con" id="hero-grid">
+    <div class="hero-text col-span-full m-col-start-1 m-col-end-13 l-col-start-1 l-col-end-12">
+      <h1 id="hero-heading">
+        <span>About the Museum</span>
+      </h1>
+      <p id="hero-p">
+        A historic place of service, memory, and living legacy
+      </p>
     </div>
-    </section>
+  </div>
+    </div>
 
     <main>
         <section class="section-header">
