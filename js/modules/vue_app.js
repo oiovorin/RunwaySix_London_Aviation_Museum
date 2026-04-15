@@ -313,7 +313,7 @@ export function eventsBlogVueDetailApp() {
                             title: eventsBlog.title || "NOT available",
                             postType: eventsBlog.post_type || "NOT available",
                             eventDate: eventsBlog.event_date || "NOT available",
-                            eventTime: eventsBlog.evnet_time || "NOT available",
+                            eventTime: eventsBlog.event_time || "NOT available",
                             location: eventsBlog.location || "NOT available",
                             description: eventsBlog.description || "NOT available",
                             content: eventsBlog.content || "NOT available",
