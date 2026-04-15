@@ -37,13 +37,15 @@
 .rem-pilot-image {
     background-color: gray;
     border: 20px solid $aviation_blue;
-    height: 510px;
-    width: 300px;
     margin: 80px auto 30px auto;
+    width: 80%;
 
     @include tablet {
-        height: 490px;
-        width: 310px;
+        width: 60%;
+    }
+    
+    @include desktop {
+        width: 40%;
     }
 }
 
