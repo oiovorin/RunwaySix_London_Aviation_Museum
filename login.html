@@ -29,13 +29,7 @@
                         </picture>
                     </a>
 
-                    <div id="mob-menu" class="col-start-4 col-end-5 m-col-start-13">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-
-                    <div id="header-nav" class="l-col-start-5 l-col-end-12">
+                    <div id="login-nav" class="col-span-full m-col-start-8 m-col-span-4 ">
                         <nav aria-label="Header Navigation">
                             <ul>
                                 <li id="home"><a href="index.html" aria-label="go to home page">Back to Main Page</a></li>
@@ -48,18 +42,18 @@
     </header>
 
     <main>
-        <div id="app">
+        <div id="login-app">
             <div class="grid-con">
             <div id="login-bg" class="grid-con col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
                 <h2 class="col-span-full">Welcome Back!</h2>
-                <form id="contactForm" @submit.prevent="submitForm" class="grid-con col-span-full l-col-start-2 l-col-end-12">
+                <form id="loginForm" @submit.prevent="submitForm" class="grid-con col-span-full l-col-start-2 l-col-end-12">
 
-                    <label for="email" class="col-span-full m-col-start-2 m-col-end-12">Email:</label>
-                    <input type="email" id="email" v-model="formData.email" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Email Address">
+                    <label for="email" class="col-span-full m-col-start-2 m-col-end-12">Enter Email:</label>
+                    <input type="email" id="email" v-model="formData.email" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Your Email">
                     <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.email" ><span class="error-icon">!</span> {{errors.email}}</p>
 
                     <label for="password" class="col-span-full m-col-start-2 m-col-end-12">Enter Password:</label>
-                    <input type="password" id="password" v-model="formData.password" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Password">
+                    <input type="password" id="password" v-model="formData.password" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Your Password">
                     <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.password" ><span class="error-icon">!</span> {{errors.password}}</p>
 
                     <input type="text" id="honeypot" v-model="formData.honeypot" class="hidden">
