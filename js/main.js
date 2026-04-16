@@ -117,7 +117,4 @@ if(document.body.dataset.page === "home") {
     sectionTitle();
     centralSlideshow();
     footerAnimation();
-} else if (document.body.dataset.page === "login") {
-    header();
 }
-
