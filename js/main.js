@@ -32,6 +32,7 @@ import { privacyAnimations } from "./modules/gsap.js";
 import { adminMenu } from "./modules/dashbord.js";
 import { addPost } from "./modules/dashbord.js";
 import { deletePost } from "./modules/dashbord.js";
+import { postListVueApp } from "./modules/vue_app.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -124,4 +125,5 @@ if(document.body.dataset.page === "home") {
     adminMenu();
     addPost();
     deletePost();
+    postListVueApp();
 }

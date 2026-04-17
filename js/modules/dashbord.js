@@ -33,18 +33,26 @@ export function addPost () {
 }
 
 export function deletePost () {
-    const deletePostBtn = document.querySelector(".delete-post");
     const warningLightbox = document.querySelector("#delete-lightbox");
     const cancelDelete = document.querySelector("#cancel");
+    const postListApp = document.querySelector("#post-list-app");
 
-    function openWarning () {
+    function openWarning() {
         warningLightbox.classList.add("active");
     }
 
-    function closeWarning () {
+    function closeWarning() {
         warningLightbox.classList.remove("active");
     }
 
-    deletePostBtn.addEventListener("click", openWarning);
+    function handlePostListClick(e) {
+        if (e.target.closest(".delete-post")) {
+            openWarning();
+        }
+        if (e.target.closest(".edit-post")) {
+        }
+    }
+
+    postListApp.addEventListener("click", handlePostListClick);
     cancelDelete.addEventListener("click", closeWarning);
 }
