@@ -15,7 +15,7 @@ function mobMenuOpen () {
     }
 }
 
-hamburger.addEventListener("click", mobMenuOpen)
+hamburger.addEventListener("click", mobMenuOpen);
 
 const aboutNav = document.querySelector("#about-nav");
 const aboutSubMenu = document.querySelector('#about-sub');

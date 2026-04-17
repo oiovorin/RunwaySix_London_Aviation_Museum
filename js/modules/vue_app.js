@@ -313,7 +313,7 @@ export function eventsBlogVueDetailApp() {
                             title: eventsBlog.title || "NOT available",
                             postType: eventsBlog.post_type || "NOT available",
                             eventDate: eventsBlog.event_date || "NOT available",
-                            eventTime: eventsBlog.evnet_time || "NOT available",
+                            eventTime: eventsBlog.event_time || "NOT available",
                             location: eventsBlog.location || "NOT available",
                             description: eventsBlog.description || "NOT available",
                             content: eventsBlog.content || "NOT available",
@@ -647,4 +647,51 @@ export function remembrancesVueDetailApp() {
         }
     });  
     app.mount("#bor-detail-app");
+}
+
+
+export function postListVueApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                eventsBlogData: [],
+                loadingEventsBlog: true,
+                eventsBlogError: null
+            };
+        },
+        created() {
+            this.getEventsBlog();
+        },
+        methods: {
+            getEventsBlog() {
+                this.eventsBlogError = null;
+                fetch("http://127.0.0.1:8000/api/events-blogs")
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch the events and blogs.");
+                        }
+                        return res.json();
+                    })
+                    .then(eventsBlog => {
+                        this.eventsBlogData = eventsBlog;
+                    })
+                    .catch(err => {
+                        this.eventsBlogError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingEventsBlog = false;
+                    });
+            },
+            formatDate(dateStr) {
+                const date = new Date(dateStr);
+                return date.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric"
+                });
+            }
+        
+        }
+    });
+    app.mount("#post-list-app");
 }
