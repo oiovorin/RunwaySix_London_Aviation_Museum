@@ -33,6 +33,7 @@ import { adminMenu } from "./modules/dashbord.js";
 import { addPost } from "./modules/dashbord.js";
 import { deletePost } from "./modules/dashbord.js";
 import { postListVueApp } from "./modules/vue_app.js";
+import { editPost } from "./modules/dashbord.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -126,4 +127,5 @@ if(document.body.dataset.page === "home") {
     addPost();
     deletePost();
     postListVueApp();
+    editPost();
 }

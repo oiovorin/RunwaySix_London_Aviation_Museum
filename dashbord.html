@@ -187,6 +187,73 @@
                 </div>
         </div>
 
+        <div id="edit-content-lightbox" class="lightbox">
+            <div class="lightbox-wrapper"> 
+                <button id="edit-lightbox-close" class="lightbox-close" aria-label="close">← Back</button>
+                <div class="lightbox-inner">
+                    <h2>Edit Post</h2>
+
+                        <form class="add-post-form">
+                            <div class="one-item">
+                                <label for="edit-title">title</label>
+                                <input type="text" id="edit-title" placeholder="Enter the title">
+                            </div>
+
+                            <div class="two-items">
+                                <div>
+                                    <label for="edit-post-type">Post Type</label>
+                                    <select id="edit-post-type" aria-placeholder="Event / Blog">
+                                        <option value="">Event / Blog</option>
+                                        <option value="event">Event</option>
+                                        <option value="blog">Blog</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="edit-event-date">Event Date</label>
+                                    <input type="date" id="editevent-date">
+                                </div>
+                            </div>
+
+                            <div class="one-item">
+                                <label for="edit-description">Description</label>
+                                <textarea id="edit-description" placeholder="Short description for cards"></textarea>
+                            </div>
+
+                            <div class="one-item">
+                                <label for="edit-content">Content</label>
+                                <textarea id="edit-content" placeholder="Full body text"></textarea>
+                            </div>
+
+                            <div class="one-item">
+                                <label for="edit-image">Image Path</label>
+                                <input type="text" id="edit-image" placeholder="Enter the URL">
+                            </div>
+
+                            <div class="two-items">
+                                <div>
+                                    <label for="edit-featured-post">Featured Post</label>
+                                    <select id="edit-featured-post" aria-placeholder="Yes / No">
+                                        <option value="">Yes / No</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">NO</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="edit-active-status">Active Status</label>
+                                    <select id="edit-active-status" aria-placeholder="Yes / No">
+                                        <option value="">Yes / No</option>
+                                        <option value="yes">Yes</option>
+                                        <option value="no">NO</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
         <div id="delete-lightbox" class="lightbox">
             <div class="delete-inner">
                 <h2>Delete Media?</h2>
