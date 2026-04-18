@@ -16,7 +16,14 @@
 </head>
 <body data-page="battle-of-britain">
 
-    <section class="bofb-hero-bg">
+     <div class="hero-section">
+
+        <div class="hero-bg">
+            <picture>
+                <source media="(min-width: 1200px)" srcset="images/l-bofb-hero.jpg">
+                <img src="images/m-bofb-hero.jpg" alt="Battle of Britain Hero Image">
+                </picture>
+        </div>
 
       <header>
         <div class="grid-con">
@@ -83,16 +90,18 @@
     </header>
 
        
-    <div class="grid-con" id="hero-text">
-        <h1 id="hero-heading" class="col-span-full m-col-start-1 m-col-end-13 l-col-start-2 m-col-end-12">
+    <div class="grid-con" id="hero-grid">
+        <div class="hero-text col-span-full m-col-start-1 m-col-end-13 l-col-start-1 l-col-end-12">
+        <h1 id="hero-heading">
             <span>The Battle of Britain</span>
         </h1>
 
-        <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12 l-col-start-2 m-col-end-12">
+        <p id="hero-p">
             An overview of Britain's decisive air campaign from July to October 1940, examining the strategy, key turning points, and human cost of the battle that determined the nation's survival.
         </p>
     </div>
-    </section>
+    </div>
+</div>
 
     <main>
         <div id="battle-intro" class="grid-con">
