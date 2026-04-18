@@ -1,5 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
+import { loginVueApp } from "./modules/auth.js";
 import { header } from "./modules/header.js";
 import { selectDate } from "./modules/battle-of-britain.js";
 import { timeline } from "./modules/timeline.js";
@@ -117,7 +118,13 @@ if(document.body.dataset.page === "home") {
     sectionTitle();
     centralSlideshow();
     footerAnimation();
+} else if (document.body.dataset.page === "dashbord") {
+    adminMenu();
+    addPost();
+    deletePost();
+    postListVueApp();
+    editPost();
 } else if (document.body.dataset.page === "login") {
-    header();
+    loginVueApp();
 }
 
