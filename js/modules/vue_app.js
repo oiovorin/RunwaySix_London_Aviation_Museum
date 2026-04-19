@@ -1,3 +1,5 @@
+import { getToken } from "./auth.js";
+
 export function artifactVueApp() {
     const app = Vue.createApp({
         data() {
@@ -665,7 +667,12 @@ export function postListVueApp() {
         methods: {
             getEventsBlog() {
                 this.eventsBlogError = null;
-                fetch("http://127.0.0.1:8000/api/events-blogs")
+                fetch("http://127.0.0.1:8000/api/events-blogs/admin", {
+                headers: {
+                    'Authorization': 'Bearer ' + getToken(),
+                    'Accept': 'application/json'
+                }
+                })
                     .then(res => {
                         if (!res.ok) {
                             throw new Error("Failed to fetch the events and blogs.");
