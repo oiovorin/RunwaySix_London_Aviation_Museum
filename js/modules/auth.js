@@ -46,7 +46,7 @@ const app = Vue.createApp({
                 this.submitted = true;
 
                 setTimeout(() => {
-                    window.location.href = 'admin-artifacts.html';
+                    window.location.href = 'dashbord.html';
                 }, 800);
             })
             .catch(data => {
@@ -66,3 +66,30 @@ const app = Vue.createApp({
 })
 .mount("#login-app")
 }
+
+export function getToken() {
+    return localStorage.getItem('authToken');
+}
+
+export function requireAuth() {
+    if (!getToken()) {
+        window.location.href = 'login.html';
+    }
+}
+
+export function logout() {
+    const token = getToken();
+
+    fetch('http://127.0.0.1:8000/api/logout', {
+        method: 'POST',
+        headers: {
+            'Authorization': 'Bearer ' + token,
+            'Accept': 'application/json'
+        }
+    })
+    .finally(() => {
+        localStorage.removeItem('authToken');
+        window.location.href = 'login.html';
+    });
+}
+
