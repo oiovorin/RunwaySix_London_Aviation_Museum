@@ -151,14 +151,14 @@ header {
 // ABOUT SECTION
 // ===========================================
 #about-museum {
-    margin: 60px 0;
+    margin: 100px 0 50px 0;
 
     @include tablet {
-        margin: 80px 0;
+        margin: 150px 0 50px 0;
     }
 
     @include desktop {
-        margin: 120px 0;
+        margin: 200px 0 50px 0;
     }
 
     .grid-con {
