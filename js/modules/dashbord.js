@@ -15,22 +15,22 @@ export function adminMenu () {
     dashbordMenuOpen.addEventListener("click", adminMenuOpen);
 }
 
-export function addPost () {
-    const addContentBtn = document.querySelector(".add-content");
-    const lightbox = document.querySelector("#add-content-lightbox");
-    const lightboxClose = document.querySelector(".lightbox-close");
+// export function addPost () {
+//     const addContentBtn = document.querySelector(".add-content");
+//     const lightbox = document.querySelector("#add-content-lightbox");
+//     const lightboxClose = document.querySelector(".lightbox-close");
 
-    function openLightbox () {
-        lightbox.classList.add("active");
-    }
+//     function openLightbox () {
+//         lightbox.classList.add("active");
+//     }
 
-    function closeLightbox () {
-        lightbox.classList.remove("active");
-    }
+//     function closeLightbox () {
+//         lightbox.classList.remove("active");
+//     }
 
-    addContentBtn.addEventListener("click", openLightbox);
-    lightboxClose.addEventListener("click", closeLightbox);
-}
+//     addContentBtn.addEventListener("click", openLightbox);
+//     lightboxClose.addEventListener("click", closeLightbox);
+// }
 
 export function editPost () {
      const editLightbox = document.querySelector("#edit-content-lightbox");

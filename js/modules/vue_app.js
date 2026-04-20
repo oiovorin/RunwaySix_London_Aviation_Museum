@@ -658,7 +658,17 @@ export function postListVueApp() {
             return {
                 eventsBlogData: [],
                 loadingEventsBlog: true,
-                eventsBlogError: null
+                eventsBlogError: null,
+                showAddForm: false,
+                newPost: {
+                    title: '',
+                    post_type: '',
+                    event_date: '',
+                    description: '',
+                    content: '',
+                    image_path: ''
+                },
+                addErrors: {},
             };
         },
         created() {
@@ -696,8 +706,53 @@ export function postListVueApp() {
                     month: "long",
                     day: "numeric"
                 });
-            }
-        
+            },
+            createPost() {
+                this.eventsBlogError = null;
+                fetch("http://127.0.0.1:8000/api/events-blogs", {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + getToken(),
+                    'Accept': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify(this.newPost)
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(data => {
+                                throw data;
+                            });
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        this.showAddForm = false;
+                        this.newPost = {
+                            title: '',
+                            post_type: '',
+                            event_date: '',
+                            description: '',
+                            content: '',
+                            image_path: ''
+                        };
+                        this.addErrors = {};
+                        this.getEventsBlog();
+                    })
+                    .catch(err => {
+                        if (err.errors) {
+                            this.addErrors = {};
+                            if (err.errors.title) this.addErrors.title = err.errors.title[0];
+                            if (err.errors.post_type) this.addErrors.post_type = err.errors.post_type[0];
+                            if (err.errors.event_date) this.addErrors.event_date = err.errors.event_date[0];
+                            if (err.errors.description) this.addErrors.description = err.errors.description[0];
+                            if (err.errors.content) this.addErrors.content = err.errors.content[0];
+                            if (err.errors.image_path) this.addErrors.image_path = err.errors.image_path[0];
+                        } else {
+                            this.eventsBlogError = "It seems you have lost your internet connection. Please try again later";
+                        }
+                    });
+            },
         }
     });
     app.mount("#post-list-app");
