@@ -1,5 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
+import { loginVueApp, requireAuth, logout } from "./modules/auth.js";
 import { header } from "./modules/header.js";
 import { selectDate } from "./modules/battle-of-britain.js";
 import { timeline } from "./modules/timeline.js";
@@ -123,9 +124,14 @@ if(document.body.dataset.page === "home") {
     centralSlideshow();
     footerAnimation();
 } else if (document.body.dataset.page === "dashbord") {
+    requireAuth();
     adminMenu();
     addPost();
     deletePost();
     postListVueApp();
     editPost();
+
+    document.querySelector('#logout').addEventListener('click', logout);
+} else if (document.body.dataset.page === "login") {
+    loginVueApp();
 }
