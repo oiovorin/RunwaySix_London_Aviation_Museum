@@ -31,7 +31,7 @@ import { remembrancesVueDetailApp } from "./modules/vue_app.js";
 import { footerAnimation } from "./modules/gsap.js";
 import { privacyAnimations } from "./modules/gsap.js";
 import { adminMenu } from "./modules/dashbord.js";
-import { addPost } from "./modules/dashbord.js";
+// import { addPost } from "./modules/dashbord.js";
 import { deletePost } from "./modules/dashbord.js";
 import { postListVueApp } from "./modules/vue_app.js";
 import { editPost } from "./modules/dashbord.js";
@@ -126,7 +126,7 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "dashbord") {
     requireAuth();
     adminMenu();
-    addPost();
+    // addPost();
     deletePost();
     postListVueApp();
     editPost();
