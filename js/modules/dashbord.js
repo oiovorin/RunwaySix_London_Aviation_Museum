@@ -36,6 +36,7 @@ export function editPost () {
      const editLightbox = document.querySelector("#edit-content-lightbox");
     const EditLightboxClose = document.querySelector("#edit-lightbox-close");
     const postListApp = document.querySelector("#post-list-app");
+    const artifactsPostListApp = document.querySelector("#artifacts-post-list-app");
 
     function openEditLlightbox() {
         editLightbox.classList.add("active");
@@ -53,7 +54,11 @@ export function editPost () {
         }
     }
 
-    postListApp.addEventListener("click", handlePostListClick);
+    if(postListApp) {
+        postListApp.addEventListener("click", handlePostListClick);
+    } else if (artifactsPostListApp) {
+        artifactsPostListApp.addEventListener("click", handlePostListClick);
+    }
     EditLightboxClose.addEventListener("click", closeEditLightbox);
 }
 
@@ -61,6 +66,7 @@ export function deletePost () {
     const warningLightbox = document.querySelector("#delete-lightbox");
     const cancelDelete = document.querySelector("#cancel");
     const postListApp = document.querySelector("#post-list-app");
+    const artifactsPostListApp = document.querySelector("#artifacts-post-list-app");
 
     function openWarning() {
         warningLightbox.classList.add("active");
@@ -78,6 +84,10 @@ export function deletePost () {
         }
     }
 
-    postListApp.addEventListener("click", handlePostListClick);
+    if (postListApp) {
+        postListApp.addEventListener("click", handlePostListClick);
+    } else if(artifactsPostListApp) {
+        artifactsPostListApp.addEventListener("click", handlePostListClick);
+    }
     cancelDelete.addEventListener("click", closeWarning);
 }

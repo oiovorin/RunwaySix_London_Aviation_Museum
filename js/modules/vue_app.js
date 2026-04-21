@@ -757,3 +757,41 @@ export function postListVueApp() {
     });
     app.mount("#post-list-app");
 }
+
+export function artifactsPostListVueApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                artifactsData: [],
+                loadingArtifacts: true,
+                artifactsError: null
+            };
+        },
+        created() {
+            this.getArtifacts();
+        },
+        methods: {
+            getArtifacts() {
+                this.artifactsError = null;
+                fetch("http://127.0.0.1:8000/api/artifacts")
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch the artifacts.");
+                        }
+                        return res.json();
+                    })
+                    .then(artifacts => {
+                        this.artifactsData = artifacts;
+                    })
+                    .catch(err => {
+                        this.artifactsError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingArtifacts = false;
+                    });
+            }
+        
+        }
+    });
+    app.mount("#artifacts-post-list-app");
+}
