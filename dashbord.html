@@ -106,16 +106,21 @@
                         </div>
 
                         <div class="edit-delete">
-                            <button class="edit-post">
+                            <button class="edit-post" v-if="!eventsBlog.deleted_at">
                                 <img src="images/edit.svg" alt="edit icon">
                                 Edit
                             </button>
-                            <button class="delete-post">
+                            <button class="delete-post" v-if="!eventsBlog.deleted_at" @click="confirmDelete(eventsBlog)">
                                 <img src="images/trash.svg" alt="trash icon">
                                 Delete
                             </button>
+                            <button class="restore-post" v-if="eventsBlog.deleted_at" @click="restorePost(eventsBlog)">
+                                Restore
+                            </button>
+
+                            <div v-for="eventsBlog in eventsBlogData" :key="eventsBlog.id" class="post-item col-span-full l-col-span-6" :class="{ 'soft-deleted': eventsBlog.deleted_at }">
+                            </div>
                         </div>
-                        
                     </div>
                 </template>
             </div>
@@ -260,27 +265,27 @@
                 </div>
         </div>
 
-        <div id="delete-lightbox" class="lightbox">
+        <div id="delete-lightbox" :class="{ active: showDeleteConfirm }">
             <div class="delete-inner">
                 <h2>Delete Media?</h2>
                 <p>Are you sure you want to delete <br>
-                    <span>“Events & Blog Posts” ?</span></p>
+                    <span>"{{ deleteTarget?.title }}" ?</span></p>
                 
-                    <div id="warning">
-                        <img src="images/circle-alert.svg" alt="warning icon">
-                        <div>
-                            <h3>Warning!</h3>
-                            <p>All contents of this post would be <br>permanently deleted.</p>
-                        </div>
-                    </div>
-
-                    <div class="two-items">
-                        <button id="cancel">Cancel</button>
-                        <button id="delete">
-                            <img src="images/trash-white.svg" alt="trash icon">Delete
-                        </button>
+                <div id="warning">
+                    <img src="images/circle-alert.svg" alt="warning icon">
+                    <div>
+                        <h3>Warning!</h3>
+                        <p>This post will be soft-deleted and<br>can be restored later.</p>
                     </div>
                 </div>
+
+                <div class="two-items">
+                    <button id="cancel" @click="showDeleteConfirm = false">Cancel</button>
+                    <button id="delete" @click="deletePost">
+                        <img src="images/trash-white.svg" alt="trash icon">Delete
+                    </button>
+                </div>
+            </div>
         </div>
         </div>
     </main>

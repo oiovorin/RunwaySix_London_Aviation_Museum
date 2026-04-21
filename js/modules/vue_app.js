@@ -668,6 +668,8 @@ export function postListVueApp() {
                     content: '',
                     image_path: ''
                 },
+                showDeleteConfirm: false,
+                deleteTarget: null,
                 addErrors: {},
             };
         },
@@ -752,6 +754,49 @@ export function postListVueApp() {
                             this.eventsBlogError = "It seems you have lost your internet connection. Please try again later";
                         }
                     });
+            },
+            confirmDelete(eventsBlog) {
+                this.deleteTarget = eventsBlog;
+                this.showDeleteConfirm = true;
+            },
+
+            deletePost() {
+                fetch(`http://127.0.0.1:8000/api/events-blogs/${this.deleteTarget.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Failed to delete post.');
+                    }
+                    this.showDeleteConfirm = false;
+                    this.deleteTarget = null;
+                    this.getEventsBlog();
+                })
+                .catch(err => {
+                    this.eventsBlogError = err.message;
+                });
+            },
+            restorePost(eventsBlog) {
+                fetch(`http://127.0.0.1:8000/api/events-blogs/${eventsBlog.id}/restore`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Failed to restore post.');
+                    }
+                    this.getEventsBlog();
+                })
+                .catch(err => {
+                    this.eventsBlogError = err.message;
+                });
             },
         }
     });
