@@ -879,7 +879,32 @@ export function artifactsPostListVueApp() {
             return {
                 artifactsData: [],
                 loadingArtifacts: true,
-                artifactsError: null
+                artifactsError: null,
+                showAddArtifactForm: false,
+                newArtifact: {
+                    name: '',
+                    object_type: '',
+                    period: '',
+                    origin: '',
+                    material: '',
+                    description: '',
+                    image_path: ''
+                },
+                showEditArtifactForm: false,
+                editArtifact: {
+                    id: null,
+                    name: '',
+                    object_type: '',
+                    period: '',
+                    origin: '',
+                    material: '',
+                    description: '',
+                    image_path: ''
+                },
+                editErrors: {},
+                showDeleteConfirm: false,
+                deleteTarget: null,
+                addErrors: {},
             };
         },
         created() {
@@ -888,7 +913,12 @@ export function artifactsPostListVueApp() {
         methods: {
             getArtifacts() {
                 this.artifactsError = null;
-                fetch("http://127.0.0.1:8000/api/artifacts")
+                fetch("http://127.0.0.1:8000/api/artifacts/admin", {
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
                     .then(res => {
                         if (!res.ok) {
                             throw new Error("Failed to fetch the artifacts.");
@@ -904,8 +934,158 @@ export function artifactsPostListVueApp() {
                     .finally(() => {
                         this.loadingArtifacts = false;
                     });
+            },
+        createArtifact() {
+                this.artifactsError = null;
+                fetch("http://127.0.0.1:8000/api/artifacts", {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(this.newArtifact)
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(data => {
+                                throw data;
+                            });
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        this.showAddArtifactForm = false;
+                        this.newArtifact = {
+                            name: '',
+                            object_type: '',
+                            period: '',
+                            origin: '',
+                            material: '',
+                            description: '',
+                            image_path: ''
+                        };
+                        this.addErrors = {};
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        if (err.errors) {
+                            this.addErrors = {};
+                            if (err.errors.name) this.addErrors.name = err.errors.name[0];
+                            if (err.errors.object_type) this.addErrors.object_type = err.errors.object_type[0];
+                            if (err.errors.period) this.addErrors.period = err.errors.period[0];
+                            if (err.errors.origin) this.addErrors.origin = err.errors.origin[0];
+                            if (err.errors.material) this.addErrors.material = err.errors.material[0];
+                            if (err.errors.description) this.addErrors.description = err.errors.description[0];
+                            if (err.errors.image_path) this.addErrors.image_path = err.errors.image_path[0];
+                        } else {
+                            this.artifactsError = "It seems you have lost your internet connection. Please try again later";
+                        }
+                    });
+            },
+            openEdit(artifact) {
+                this.editArtifact = {
+                    id: artifact.id,
+                    name: artifact.name || '',
+                    object_type: artifact.object_type || '',
+                    period: artifact.period || '',
+                    origin: artifact.origin || '',
+                    material: artifact.material || '',
+                    description: artifact.description || '',
+                    image_path: artifact.image_path || ''
+                };
+                this.editErrors = {};
+                this.showEditArtifactForm = true;
+            },
+            updateArtifact() {
+                fetch(`http://127.0.0.1:8000/api/artifacts/${this.editArtifact.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: this.editArtifact.name,
+                        object_type: this.editArtifact.object_type,
+                        period: this.editArtifact.period,
+                        origin: this.editArtifact.origin,
+                        material: this.editArtifact.material,
+                        description: this.editArtifact.description,
+                        image_path: this.editArtifact.image_path
+                    })
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(data => {
+                                throw data;
+                            });
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        this.showEditArtifactForm = false;
+                        this.editErrors = {};
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        if (err.errors) {
+                            this.editErrors = {};
+                            if (err.errors.name) this.editErrors.name = err.errors.name[0];
+                            if (err.errors.object_type) this.editErrors.object_type = err.errors.object_type[0];
+                            if (err.errors.period) this.editErrors.period = err.errors.period[0];
+                            if (err.errors.origin) this.editErrors.origin = err.errors.origin[0];
+                            if (err.errors.material) this.editErrors.material = err.errors.material[0];
+                            if (err.errors.description) this.editErrors.description = err.errors.description[0];
+                            if (err.errors.image_path) this.editErrors.image_path = err.errors.image_path[0];
+                        } else {
+                            this.artifactsError = "It seems you have lost your internet connection. Please try again later";
+                        }
+                    });
+            },
+            confirmDelete(artifact) {
+                this.deleteTarget = artifact;
+                this.showDeleteConfirm = true;
+            },
+            deleteArtifact() {
+                fetch(`http://127.0.0.1:8000/api/artifacts/${this.deleteTarget.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error('Failed to delete artifact');
+                        }
+                        this.showDeleteConfirm = false;
+                        this.deleteTarget = null;
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        this.artifactsError = err.message;
+                    });
+            },
+                restoreArtifact(artifact) {
+                fetch(`http://127.0.0.1:8000/api/artifacts/${artifact.id}/restore`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error('Failed to restore artifact');
+                        }
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        this.artifactsError = err.message;
+                    });
             }
-        
+
         }
     });
     app.mount("#artifacts-post-list-app");

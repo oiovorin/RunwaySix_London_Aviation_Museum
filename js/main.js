@@ -31,11 +31,11 @@ import { remembrancesVueDetailApp } from "./modules/vue_app.js";
 import { footerAnimation } from "./modules/gsap.js";
 import { privacyAnimations } from "./modules/gsap.js";
 import { adminMenu } from "./modules/dashbord.js";
+import { postListVueApp } from "./modules/vue_app.js";
+import { artifactsPostListVueApp } from "./modules/vue_app.js";
 // import { addPost } from "./modules/dashbord.js";
 // import { deletePost } from "./modules/dashbord.js";
-import { postListVueApp } from "./modules/vue_app.js";
 // import { editPost } from "./modules/dashbord.js";
-import { artifactsPostListVueApp } from "./modules/vue_app.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -127,18 +127,22 @@ if(document.body.dataset.page === "home") {
 } else if (document.body.dataset.page === "dashbord") {
     requireAuth();
     adminMenu();
+    postListVueApp();
     // addPost();
     // deletePost();
-    postListVueApp();
     // editPost();
+
+    document.querySelector('#logout').addEventListener('click', logout);
+} else if (document.body.dataset.page === "dashbord-artifacts") {
+    requireAuth();
+    adminMenu();
+    artifactsPostListVueApp();
+    // addPost();
+    // editPost();
+    // deletePost();
 
     document.querySelector('#logout').addEventListener('click', logout);
 } else if (document.body.dataset.page === "login") {
     loginVueApp();
-} else if (document.body.dataset.page === "dashbord-artifacts") {
-    artifactsPostListVueApp();
-    adminMenu();
-    // addPost();
-    editPost();
-    deletePost();
 }
+    
