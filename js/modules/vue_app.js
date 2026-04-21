@@ -668,6 +668,17 @@ export function postListVueApp() {
                     content: '',
                     image_path: ''
                 },
+                showEditForm: false,
+                editPost: {
+                    id: null,
+                    title: '',
+                    post_type: '',
+                    event_date: '',
+                    description: '',
+                    content: '',
+                    image_path: ''
+                },
+                editErrors: {},
                 showDeleteConfirm: false,
                 deleteTarget: null,
                 addErrors: {},
@@ -755,6 +766,65 @@ export function postListVueApp() {
                         }
                     });
             },
+            openEdit(eventsBlog) {
+                this.editPost = {
+                    id: eventsBlog.id,
+                    title: eventsBlog.title || '',
+                    post_type: eventsBlog.post_type || '',
+                    event_date: eventsBlog.event_date || '',
+                    description: eventsBlog.description || '',
+                    content: eventsBlog.content || '',
+                    image_path: eventsBlog.image_path || ''
+                };
+                this.editErrors = {};
+                this.showEditForm = true;
+            },
+
+            updatePost() {
+                fetch(`http://127.0.0.1:8000/api/events-blogs/${this.editPost.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        title: this.editPost.title,
+                        post_type: this.editPost.post_type,
+                        event_date: this.editPost.event_date,
+                        description: this.editPost.description,
+                        content: this.editPost.content,
+                        image_path: this.editPost.image_path
+                    })
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(data => {
+                            throw data;
+                        });
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    this.showEditForm = false;
+                    this.editErrors = {};
+                    this.getEventsBlog();
+                })
+                .catch(err => {
+                    if (err.errors) {
+                        this.editErrors = {};
+                        if (err.errors.title) this.editErrors.title = err.errors.title[0];
+                        if (err.errors.post_type) this.editErrors.post_type = err.errors.post_type[0];
+                        if (err.errors.event_date) this.editErrors.event_date = err.errors.event_date[0];
+                        if (err.errors.description) this.editErrors.description = err.errors.description[0];
+                        if (err.errors.content) this.editErrors.content = err.errors.content[0];
+                        if (err.errors.image_path) this.editErrors.image_path = err.errors.image_path[0];
+                    } else {
+                        this.eventsBlogError = "Failed to update post. Please try again.";
+                    }
+                });
+            },
+            
             confirmDelete(eventsBlog) {
                 this.deleteTarget = eventsBlog;
                 this.showDeleteConfirm = true;
