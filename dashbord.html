@@ -106,7 +106,7 @@
                         </div>
 
                         <div class="edit-delete">
-                            <button class="edit-post" v-if="!eventsBlog.deleted_at">
+                            <button class="edit-post" v-if="!eventsBlog.deleted_at" @click="openEdit(eventsBlog)">
                                 <img src="images/edit.svg" alt="edit icon">
                                 Edit
                             </button>
@@ -198,71 +198,58 @@
         </div>
 
 
-        <div id="edit-content-lightbox" class="lightbox">
-            <div class="lightbox-wrapper"> 
-                <button id="edit-lightbox-close" class="lightbox-close" aria-label="close">← Back</button>
+        <div id="edit-content-lightbox" :class="{ active: showEditForm }">
+            <div class="lightbox-wrapper">
+                <button class="lightbox-close" @click="showEditForm = false">← Back</button>
                 <div class="lightbox-inner">
                     <h2>Edit Post</h2>
 
-                        <form class="add-post-form">
-                            <div class="one-item">
-                                <label for="edit-title">title</label>
-                                <input type="text" id="edit-title" placeholder="Enter the title">
-                            </div>
+                    <form class="add-post-form" @submit.prevent="updatePost">
+                        <div class="one-item">
+                            <label for="edit-title">Title</label>
+                            <input type="text" id="edit-title" v-model="editPost.title" placeholder="Enter the title">
+                            <p class="field-error" v-if="editErrors.title">{{ editErrors.title }}</p>
+                        </div>
 
-                            <div class="two-items">
-                                <div>
-                                    <label for="edit-post-type">Post Type</label>
-                                    <select id="edit-post-type" aria-placeholder="Event / Blog">
-                                        <option value="">Event / Blog</option>
-                                        <option value="event">Event</option>
-                                        <option value="blog">Blog</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="edit-event-date">Event Date</label>
-                                    <input type="date" id="editevent-date">
-                                </div>
+                        <div class="two-items">
+                            <div>
+                                <label for="edit-post-type">Post Type</label>
+                                <select id="edit-post-type" v-model="editPost.post_type">
+                                    <option value="">Select type</option>
+                                    <option value="event">Event</option>
+                                    <option value="blog">Blog</option>
+                                </select>
+                                <p class="field-error" v-if="editErrors.post_type">{{ editErrors.post_type }}</p>
                             </div>
-
-                            <div class="one-item">
-                                <label for="edit-description">Description</label>
-                                <textarea id="edit-description" placeholder="Short description for cards"></textarea>
+                            <div>
+                                <label for="edit-event-date">Event Date</label>
+                                <input type="date" id="edit-event-date" v-model="editPost.event_date">
+                                <p class="field-error" v-if="editErrors.event_date">{{ editErrors.event_date }}</p>
                             </div>
+                        </div>
 
-                            <div class="one-item">
-                                <label for="edit-content">Content</label>
-                                <textarea id="edit-content" placeholder="Full body text"></textarea>
-                            </div>
+                        <div class="one-item">
+                            <label for="edit-description">Description</label>
+                            <textarea id="edit-description" v-model="editPost.description" placeholder="Short description"></textarea>
+                            <p class="field-error" v-if="editErrors.description">{{ editErrors.description }}</p>
+                        </div>
 
-                            <div class="one-item">
-                                <label for="edit-image">Image Path</label>
-                                <input type="text" id="edit-image" placeholder="Enter the URL">
-                            </div>
+                        <div class="one-item">
+                            <label for="edit-content">Content</label>
+                            <textarea id="edit-content" v-model="editPost.content" placeholder="Full body text"></textarea>
+                            <p class="field-error" v-if="editErrors.content">{{ editErrors.content }}</p>
+                        </div>
 
-                            <div class="two-items">
-                                <div>
-                                    <label for="edit-featured-post">Featured Post</label>
-                                    <select id="edit-featured-post" aria-placeholder="Yes / No">
-                                        <option value="">Yes / No</option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">NO</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label for="edit-active-status">Active Status</label>
-                                    <select id="edit-active-status" aria-placeholder="Yes / No">
-                                        <option value="">Yes / No</option>
-                                        <option value="yes">Yes</option>
-                                        <option value="no">NO</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="one-item">
+                            <label for="edit-image">Image Path</label>
+                            <input type="text" id="edit-image" v-model="editPost.image_path" placeholder="Enter the URL">
+                            <p class="field-error" v-if="editErrors.image_path">{{ editErrors.image_path }}</p>
+                        </div>
 
-                            <button type="submit">Save</button>
-                        </form>
-                    </div>
+                        <button type="submit">Save</button>
+                    </form>
                 </div>
+            </div>
         </div>
 
         <div id="delete-lightbox" :class="{ active: showDeleteConfirm }">
