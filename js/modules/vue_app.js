@@ -490,7 +490,9 @@ export function borVueApp() {
             return {
                 remembrancesData: [],
                 loadingRemembrances: true,
-                remembrancesError: null
+                remembrancesError: null,
+                searchQuery: '',
+                isSearching: false
             };
         },
         created() {
@@ -528,8 +530,34 @@ export function borVueApp() {
                             );
                         });
                     });
-            }
-        
+            },
+            searchRemembrances() {
+                if (!this.searchQuery.trim()) return;
+                this.isSearching = true;
+                this.loadingRemembrances = true;
+                fetch(`http://127.0.0.1:8000/api/remembrances/search?full_name=${encodeURIComponent(this.searchQuery)}`)
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("No results found.");
+                        }
+                        return res.json();
+                    })
+                    .then(results => {
+                        this.remembrancesData = results;
+                    })
+                    .catch(err => {
+                        this.remembrancesError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingRemembrances = false;
+                    });
+            },
+
+            resetSearch() {
+                this.searchQuery = '';
+                this.isSearching = false;
+                this.getRemembrances();
+            },
         }
     });
     app.mount("#bor-app");
