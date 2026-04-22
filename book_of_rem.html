@@ -135,7 +135,7 @@
         <section class="grid-con">
             <h2 class="hidden">Book of Remembrance Pilot List</h2>
             <div v-if="loadingRemembrances" class="loader col-span-full">
-                    <img src="images/loader.svg" alt="Loading Artifacts">
+                <img src="images/loader.svg" alt="Loading Artifacts">
                 </div>
                 <div v-else-if="remembrancesError" class="remembrances-error col-span-full">
                     <p>{{ remembrancesError }}</p>
@@ -144,19 +144,28 @@
                     <p v-if="remembrancesData.length === 0 && isSearching" class="col-span-full">
                         No results found for "{{ searchQuery }}". Try a different name.
                     </p>
-                    <template v-for="remembrances in remembrancesData" :key="remembrances.id">
-                    <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-span-6">
-                        <div class="bor-pilot-info">
-                            <h3>{{ remembrances.full_name }}</h3>
-                            <p><span>Rank:</span>{{ remembrances.rank_title }}</p>
-                            <p><span>Branch:</span>{{ remembrances.branch }}</p>
-                            <p><span>Squadron:</span>{{ remembrances.squadron }}</p>                       
-                        </div>
-                        <p class="learn-more">&#8599;</p>
-                    </a>
-                </template>
-            </template>
+                    <template v-for="remembrances in paginatedData" :key="remembrances.id">
+                        <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-span-6">
+                            <div class="bor-pilot-info">
+                                <h3>{{ remembrances.full_name }}</h3>
+                                <p><span>Rank:</span>{{ remembrances.rank_title }}</p>
+                                <p><span>Branch:</span>{{ remembrances.branch }}</p>
+                                <p><span>Squadron:</span>{{ remembrances.squadron }}</p>
+                            </div>
+                            <p class="learn-more">&#8599;</p>
+                        </a>
+                    </template>
 
+                    <div v-if="totalPages > 1" class="pagination col-span-full">
+                        <button @click="goToPage(currentPage - 1)" :disabled="currentPage === 1">← Prev</button>
+                        <button v-for="page in totalPages" :key="page"
+                                @click="goToPage(page)"
+                                :class="{ active: currentPage === page }">
+                            {{ page }}
+                        </button>
+                        <button @click="goToPage(currentPage + 1)" :disabled="currentPage === totalPages">Next →</button>
+                    </div>
+                </template>
         
         </section>
         </div>
