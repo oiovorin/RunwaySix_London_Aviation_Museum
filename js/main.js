@@ -126,7 +126,7 @@ if(document.body.dataset.page === "home") {
     footerAnimation();
 } else if (document.body.dataset.page === "dashbord") {
     requireAuth();
-    adminMenu();
+    setTimeout(() => { adminMenu(); }, 100);
     postListVueApp();
     // addPost();
     // deletePost();
@@ -135,7 +135,7 @@ if(document.body.dataset.page === "home") {
     document.querySelector('#logout').addEventListener('click', logout);
 } else if (document.body.dataset.page === "dashbord-artifacts") {
     requireAuth();
-    adminMenu();
+    setTimeout(() => { adminMenu(); }, 100);
     artifactsPostListVueApp();
     // addPost();
     // editPost();

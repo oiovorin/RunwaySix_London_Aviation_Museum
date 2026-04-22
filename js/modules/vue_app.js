@@ -490,8 +490,21 @@ export function borVueApp() {
             return {
                 remembrancesData: [],
                 loadingRemembrances: true,
-                remembrancesError: null
+                remembrancesError: null,
+                searchQuery: '',
+                isSearching: false,
+                currentPage: 1,
+                perPage: 12
             };
+        },
+        computed: {
+            totalPages() {
+                return Math.ceil(this.remembrancesData.length / this.perPage);
+            },
+            paginatedData() {
+                const start = (this.currentPage - 1) * this.perPage;
+                return this.remembrancesData.slice(start, start + this.perPage);
+            }
         },
         created() {
             this.getRemembrances();
@@ -528,8 +541,43 @@ export function borVueApp() {
                             );
                         });
                     });
-            }
-        
+            },
+            searchRemembrances() {
+                if (!this.searchQuery.trim()) return;
+                this.currentPage = 1;
+                this.isSearching = true;
+                this.loadingRemembrances = true;
+                fetch(`http://127.0.0.1:8000/api/remembrances/search?full_name=${encodeURIComponent(this.searchQuery)}`)
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("No results found.");
+                        }
+                        return res.json();
+                    })
+                    .then(results => {
+                        this.remembrancesData = results;
+                    })
+                    .catch(err => {
+                        this.remembrancesError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingRemembrances = false;
+                    });
+            },
+
+            resetSearch() {
+                this.searchQuery = '';
+                this.isSearching = false;
+                this.currentPage = 1;
+                this.getRemembrances();
+            },
+
+            goToPage(page) {
+                if (page >= 1 && page <= this.totalPages) {
+                    this.currentPage = page;
+                    window.scrollTo({ top: document.querySelector('#bor-app').offsetTop, behavior: 'smooth' });
+                }
+            },
         }
     });
     app.mount("#bor-app");

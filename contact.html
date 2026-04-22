@@ -141,7 +141,7 @@
 
         
 
-        <div id="app">
+        <div id="contact-app">
             <div id="contct-form-bg" class="full-width-grid-con">
 
                 <div class="grid-con" id="contact-header">
@@ -152,8 +152,8 @@
             <form id="contactForm" @submit.prevent="submitForm" class="grid-con">
             <div class="input-flex col-span-full m-col-start-2 m-col-span-5">
             <label>Your Full Name:</label>
-            <input type="text" id="fullName" v-model="formData.fullName" placeholder="Enter Full Name">
-            <p class="field-error" v-if="errors.fullName"><span class="error-icon">!</span> {{errors.fullName}}</p>
+            <input type="text" id="name" v-model="formData.name" placeholder="Enter Full Name">
+            <p class="field-error" v-if="errors.name"><span class="error-icon">!</span> {{errors.name}}</p>
             </div>
 
             <div class="input-flex col-span-full m-col-span-5">
