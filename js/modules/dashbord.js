@@ -3,7 +3,7 @@ export function adminMenu () {
     const dashbordMenu = document.querySelector("#dashbord-menu");
 
     function adminMenuOpen () {
-        if(dashbordMenuOpen.classList.contains("active") && dashbordMenu.classList.contains) {
+        if(dashbordMenuOpen.classList.contains("active") && dashbordMenu.classList.contains("active")) {
             dashbordMenuOpen.classList.remove("active");
             dashbordMenu.classList.remove("active");
         } else {
