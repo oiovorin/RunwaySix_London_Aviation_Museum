@@ -114,33 +114,24 @@
                 <img src="images/vol2.png" alt="Digital Book of Remembrance Vol 2">
             </a>
         </div>
+
+        <div id="bor-app">
         <!-- Search Engine -->
         <section id="search-egn">
             <h2 class="hidden">Search Specific Pilot</h2>
-            <form action="/action_page.php" class="grid-con">
-                <div class="form-label m-col-start-1 m-col-end-5" id="name-input">
+            <form class="grid-con" @submit.prevent="searchRemembrances">
+                <div class="form-label col-span-full" id="name-input">
                     <label for="fname" class="input-title">Full Name:</label>
-                    <input type="text" id="fname" name="fname" class="input-box">
-                </div>
-
-                <div class="form-label m-col-start-5 m-col-end-9">
-                    <label for="gname" class="input-title">Email: </label>
-                    <input type="text" id="gname" name="gname" class="input-box">
-                </div>
-
-                <div class="form-label m-col-start-9 m-col-end-13">
-                    <label for="a-z" class="input-title">Email: </label>
-                    <input type="text" id="a-z" name="a-z" class="input-box">
+                    <input type="text" id="fname" name="fname" class="input-box" v-model="searchQuery" placeholder="Enter full name...">
                 </div>
                 <div class="search-btn">
-                    <input type="submit" value="Reset ↻" class="submit-btn">
+                    <input type="button" value="Reset ↻" class="submit-btn" @click="resetSearch">
                     <input type="submit" value="Search ⌕" class="submit-btn">
                 </div>
             </form> 
         </section>
 
         <!-- Book of Remembrance Display -->
-         <div id="bor-app">
         <section class="grid-con">
             <h2 class="hidden">Book of Remembrance Pilot List</h2>
             <div v-if="loadingRemembrances" class="loader col-span-full">
@@ -150,6 +141,9 @@
                     <p>{{ remembrancesError }}</p>
                 </div>
                 <template v-else>
+                    <p v-if="remembrancesData.length === 0 && isSearching" class="col-span-full">
+                        No results found for "{{ searchQuery }}". Try a different name.
+                    </p>
                     <template v-for="remembrances in remembrancesData" :key="remembrances.id">
                     <a :href="'all-pilots.html?id=' + remembrances.id" class="bor-title-text col-span-full m-col-span-6">
                         <div class="bor-pilot-info">
