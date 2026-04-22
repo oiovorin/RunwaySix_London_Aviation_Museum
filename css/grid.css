@@ -357,6 +357,72 @@ ___________________________________________ */
    .l-col-end-auto	{grid-column-end: auto;}
 }
 
+/* ---Extra Large Library Grid Styles--- */
+
+@media screen and (min-width: 1500px) { 
+
+   .grid-con { 
+      display: grid; 
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      max-width: 1800px;
+      grid-column-gap: 30px;
+      padding-left: 15px;
+      padding-right: 15px;
+   }
+
+   .xl-col-auto {grid-column: auto;}
+   .xl-col-span-1	{grid-column: span 1 / span 1;}
+   .xl-col-span-2	{grid-column: span 2 / span 2;}
+   .xl-col-span-3	{grid-column: span 3 / span 3;}
+   .xl-col-span-4	{grid-column: span 4 / span 4;}
+   .xl-col-span-5	{grid-column: span 5 / span 5;}
+   .xl-col-span-6	{grid-column: span 6 / span 6;}
+   .xl-col-span-7	{grid-column: span 7 / span 7;}
+   .xl-col-span-8	{grid-column: span 8 / span 8;}
+   .xl-col-span-9	{grid-column: span 9 / span 9;}
+   .xl-col-span-10 {grid-column: span 10 / span 10;}
+   .xl-col-span-11 {grid-column: span 11 / span 11;}
+   .xl-col-span-12 {grid-column: span 12 / span 12;}
+   .xl-col-span-full {grid-column: 1 / -1;}
+
+   .xl-col-start-1	{grid-column-start: 1;}
+   .xl-col-start-2	{grid-column-start: 2;}
+   .xl-col-start-3	{grid-column-start: 3;}
+   .xl-col-start-4	{grid-column-start: 4;}
+   .xl-col-start-5	{grid-column-start: 5;}
+   .xl-col-start-6	{grid-column-start: 6;}
+   .xl-col-start-7	{grid-column-start: 7;}
+   .xl-col-start-8	{grid-column-start: 8;}
+   .xl-col-start-9	{grid-column-start: 9;}
+   .xl-col-start-10	{grid-column-start: 10;}
+   .xl-col-start-11	{grid-column-start: 11;}
+   .xl-col-start-12	{grid-column-start: 12;}
+   .xl-col-start-13	{grid-column-start: 13;}
+   .xl-col-start-auto {grid-column-start: auto;}
+
+   .xl-col-end-1	{grid-column-end: 1;}
+   .xl-col-end-2	{grid-column-end: 2;}
+   .xl-col-end-3	{grid-column-end: 3;}
+   .xl-col-end-4	{grid-column-end: 4;}
+   .xl-col-end-5	{grid-column-end: 5;}
+   .xl-col-end-6	{grid-column-end: 6;}
+   .xl-col-end-7	{grid-column-end: 7;}
+   .xl-col-end-8	{grid-column-end: 8;}
+   .xl-col-end-9	{grid-column-end: 9;}
+   .xl-col-end-10	{grid-column-end: 10;}
+   .xl-col-end-11	{grid-column-end: 11;}
+   .xl-col-end-12	{grid-column-end: 12;}
+   .xl-col-end-13	{grid-column-end: 13;}
+   .xl-col-end-auto	{grid-column-end: auto;}
+
+        .full-width-grid-con {
+   /* set this container as a grid, with 3 columns
+   the other grid will sit in the middle column, this allows for overlapping content */
+   display: grid; 
+	grid-template-columns: 1fr minmax(0, 1800px) 1fr;  
+}
+}
+
    /* _____________________________________
 
        End of CSS Grid Layout   */

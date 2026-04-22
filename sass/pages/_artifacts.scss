@@ -1,32 +1,20 @@
 @use '../abstracts' as *;
 
 // ===========================================
-// 3D SECTION
-// ===========================================
-
-.artifact-3d-section {
-    margin-top: 100px;
-    img{
-        background-color: $chacoal;
-        height: 237px;
-        margin-bottom: 50px;
-
-        @include tablet {
-            height: 350px;
-            margin-bottom: 100px;
-        }
-        @include desktop {
-            height: 500px;
-        }
-    }
-}
-
-// ===========================================
 // ARTIFACT SECTION
 // ===========================================
 
+#artifact-app {
+    margin: 50px 0;
+
+    @include xl {
+        margin-top: 100px;
+    }
+}
+
     .artifact-card {
         margin: 50px auto;
+
 
         .artifact-card-link {
             &:hover .artifact-img {
@@ -39,7 +27,8 @@
             overflow: hidden;
         
         .artifact-img {
-            background-color: $chacoal;
+            display: block;
+            margin: auto;
         }
     }
 
@@ -47,5 +36,9 @@
             margin: 10px auto;
             color: $aviation_blue;
             text-align: center;
+
+            @include xl {
+                font-size: 25px;
+            }
         }
     }

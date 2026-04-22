@@ -1,19 +1,5 @@
 @use '../abstracts' as *;
 
-.history-hero-bg {
-    background-image: url(../images/m-history-hero.jpg);
-    width: 100%;
-    height: 800px;
-
-    @include tablet {
-        height: 700px;
-    }
-
-    @include desktop {
-        background-image: url(../images/l-history-hero.jpg);
-    }
-}
-
 #hero-text {
     margin-left: 20px;
 }
@@ -42,7 +28,14 @@
     }
 
     @include desktop {
-        height: 6000px;
+        height: 5900px;
+        top: 150px;
+    }
+
+    @include xl {
+        width: 8px;
+        height: 6350px;
+        top: 150px;
     }
 }
 
@@ -68,6 +61,11 @@
     @include desktop {
         top: 45px;
     }
+
+    @include xl {
+        width: 30px;
+        height: 30px;
+    }
 }
 
 .active {
@@ -88,6 +86,10 @@
     width: 4px;
     background-color: $aviation_blue;
     z-index: -1;
+
+    @include xl {
+        width: 8px;
+    }
 }
 
 .timeline {
@@ -111,6 +113,11 @@
         font-size: 30px;
         margin-top: 100px;
     }
+
+    @include xl {
+        font-size: 40px !important;
+        margin: 10px auto;
+    }
 }
 
     .time-card {
@@ -129,6 +136,10 @@
         margin: 70px 20px;
     }
 
+    @include xl {
+        margin: 70px 20px 200px 20px;
+    }
+
 
         .timeline-text {
             order: 2;
@@ -141,6 +152,10 @@
 .card-title {
     color: $aviation_blue;
     margin: 10px auto;
+
+    @include xl {
+        font-size: 30px;
+    }
     
 
         .card-description {
@@ -157,6 +172,7 @@
 .carousel {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     margin-top: 30px;
 
@@ -176,6 +192,12 @@
             border: 1px solid $heritage_red;
             cursor: pointer;
             transition: all .3s ease-in-out;
+
+            @include xl {
+                font-size: 18px;
+                height: 40px;
+                padding: 8px;
+            }
 
         &:hover {
                 color: #fff;

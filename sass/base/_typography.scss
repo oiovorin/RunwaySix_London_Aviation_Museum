@@ -2,6 +2,12 @@
 
 @use '../abstracts' as *;
 
+@include xl {
+   p {
+      font-size: 20px !important;
+   }
+}
+
 // Section Headers with Lines
 .section-header {
     display: flex;
@@ -43,6 +49,10 @@
 
         @include desktop {
             font-size: 32px;
+        }
+
+        @include xl {
+            font-size: 40px;
         }
     }
 }
