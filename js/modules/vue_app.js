@@ -492,8 +492,19 @@ export function borVueApp() {
                 loadingRemembrances: true,
                 remembrancesError: null,
                 searchQuery: '',
-                isSearching: false
+                isSearching: false,
+                currentPage: 1,
+                perPage: 12
             };
+        },
+        computed: {
+            totalPages() {
+                return Math.ceil(this.remembrancesData.length / this.perPage);
+            },
+            paginatedData() {
+                const start = (this.currentPage - 1) * this.perPage;
+                return this.remembrancesData.slice(start, start + this.perPage);
+            }
         },
         created() {
             this.getRemembrances();
@@ -533,6 +544,7 @@ export function borVueApp() {
             },
             searchRemembrances() {
                 if (!this.searchQuery.trim()) return;
+                this.currentPage = 1;
                 this.isSearching = true;
                 this.loadingRemembrances = true;
                 fetch(`http://127.0.0.1:8000/api/remembrances/search?full_name=${encodeURIComponent(this.searchQuery)}`)
@@ -556,7 +568,15 @@ export function borVueApp() {
             resetSearch() {
                 this.searchQuery = '';
                 this.isSearching = false;
+                this.currentPage = 1;
                 this.getRemembrances();
+            },
+
+            goToPage(page) {
+                if (page >= 1 && page <= this.totalPages) {
+                    this.currentPage = page;
+                    window.scrollTo({ top: document.querySelector('#bor-app').offsetTop, behavior: 'smooth' });
+                }
             },
         }
     });
