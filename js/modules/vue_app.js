@@ -1,4 +1,5 @@
 import { getToken } from "./auth.js";
+import { postFilter } from "./events-blog.js";
 
 export function artifactVueApp() {
     const app = Vue.createApp({
@@ -259,6 +260,7 @@ export function eventsBlogVueApp() {
                                 stagger: 0.3,
                                 ease: "power2.out"
                             });
+                            postFilter();
                         });
                     });
             },
