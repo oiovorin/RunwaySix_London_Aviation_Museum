@@ -105,11 +105,11 @@
     <main>
         <div class="grid-con">
             <div id="category-btn" class="col-span-full">
-                <button class="active">All</button>
-                <button>Events</button>
-                <button>Blog</button>
-                <button>Education</button>
-                <button>Community</button>
+                <button id="all" class="active">All</button>
+                <button id="event">Events</button>
+                <button id="blog">Blog</button>
+                <button id="education">Education</button>
+                <button id="community">Community</button>
             </div>
         </div>
 
@@ -122,7 +122,7 @@
                     <p>{{ eventsBlogError }}</p>
                 </div>
                 <template v-else>
-                    <div v-for="eventsBlog in eventsBlogData" :key="eventsBlog.id" class="col-span-full m-col-span-6 post-card">
+                    <div v-for="eventsBlog in eventsBlogData" :key="eventsBlog.id" class="col-span-full m-col-span-6 post-card" :class="eventsBlog.post_type">
                         <img :src="eventsBlog.image_path" :alt="eventsBlog.name" alt="alt text here">
                         <div class="detail">
                             <span class="tag tag-event">{{ eventsBlog.post_type }}</span>
