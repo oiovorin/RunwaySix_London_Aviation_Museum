@@ -146,3 +146,12 @@ if(document.body.dataset.page === "home") {
     loginVueApp();
 }
     
+
+// back to top button 
+const btn = document.querySelector("#back-to-top");
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+btn.addEventListener('click', scrollToTop);

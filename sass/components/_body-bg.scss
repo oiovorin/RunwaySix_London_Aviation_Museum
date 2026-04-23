@@ -7,3 +7,24 @@
 body {
     background-color: $archive_beige;
 }
+
+#back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid $aviation_blue;
+  color: $aviation_blue;
+  cursor: pointer;
+  font-size: 25px;
+  z-index: 999;
+}
+
+#back-to-top:hover {
+  background: $aviation_blue;
+  color: #fff;
+  border: none;
+}
