@@ -174,6 +174,20 @@ export function bofbAnimation () {
             toggleActions: "play none none none"
         }
         });
+
+        const modelDefault = document.querySelector(".model-card.active");
+
+        gsap.from(modelDefault.children, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: modelDefault,
+            start: "top 80%",
+        }
+        });
 }
 
 export function educationAnimation () {
@@ -289,7 +303,7 @@ export function homeAnimation () {
             stagger: 1,
             scrollTrigger: {
                 trigger: aboutMuseum,
-                start: "top 85%"
+                start: "top bottom"
             }
     })
 
@@ -724,5 +738,99 @@ export function remPilotAnimation () {
             start: "top 80%",
         }
         });
+
+}
+
+export function footerAnimation() {
+    gsap.from("footer", {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: "footer",
+            start: "top 90%",
+        }
+    });
+}
+
+export function privacyAnimations() {
+const privacyIntro = document.querySelector("#privacy-intro");
+
+    gsap.from(privacyIntro, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: privacyIntro,
+            start: "top 70%"
+        }
+    });
+
+    const agreement = document.querySelector("#agreement");
+
+    gsap.from(agreement, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: agreement,
+            start: "top 70%"
+        }
+    });
+
+    const emailSub = document.querySelector("#email-sub");
+
+    gsap.from(emailSub, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: emailSub,
+            start: "top 70%"
+        }
+    });
+
+    const personalInfo = document.querySelector("#personalInfo");
+
+    gsap.from(personalInfo, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: personalInfo,
+            start: "top 70%"
+        }
+    });
+
+    const personalInfo2 = document.querySelector("#personalInfo2");
+
+    gsap.from(personalInfo2, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: personalInfo2,
+            start: "top 70%"
+        }
+    });
+
+    const update = document.querySelector("#update");
+
+    gsap.from(update, {
+    opacity: 0,
+    y: 50,
+    ease: "power1.out",
+    duration: 1,
+    scrollTrigger: {
+            trigger: update,
+            start: "top 70%"
+        }
+    });
 
 }

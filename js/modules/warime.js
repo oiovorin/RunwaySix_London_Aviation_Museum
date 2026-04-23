@@ -40,3 +40,19 @@ export function moveMap () {
     });
 }
 
+export function centralSlideshow () {
+    const slides = document.querySelectorAll("#central-slide img");
+    let currentIndex = 0;
+
+    function showSlide() {
+        slides.forEach(slide => slide.classList.remove("active"));
+        slides[currentIndex].classList.add("active");
+
+        currentIndex++;
+        if (currentIndex >= slides.length) {
+            currentIndex = 0;
+        }
+    }
+
+    setInterval(showSlide, 3000); 
+}

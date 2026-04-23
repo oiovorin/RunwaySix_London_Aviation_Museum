@@ -1,101 +1,194 @@
 @use '../abstracts' as *;
 
 // ===========================================
-// HERO VIDEO
+// HERO SECTION
+// ===========================================
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+// ===========================================
+// HERO VIDEO & IMAGE
 // ===========================================
 .hero-loop-video {
-    position: absolute;
-    z-index: 0;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  pointer-events: none;
+
+  video {
+    width: 200%;
+    display: block;
+    height: 500px;
+    object-fit: cover; 
+
+    @include tablet {
+      width: 120%;
+      height: 500px;
+    }
+
+    @include desktop {
+      width: 100%;
+      height: 500px;
+    }
+
+    @include xl {
+      height: 600px;
+    }
+  }
+}
+
+.hero-bg {
+  width: 100%;
+  height: 400px;
+
+  @include tablet {
+    height: 500px;
+  }
+
+  @include desktop {
+    height: 630px;
+  }
+
+  img {
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-    video {
-       width: 300%;
+    object-fit: cover;
+  }
+}
 
-       @include tablet {
-        width: 180%;
-       }
-
-       @include desktop {
-        width: 110%;
-       }
-
-    }
+// ===========================================
+// HEADER
+// ===========================================
+header {
+  background-color: $aviation_blue;
+  padding-bottom: 30px;
 }
 
 // ===========================================
 // HERO TEXT
 // ===========================================
+#hero-grid {
+  position: absolute;
+  bottom: 40px;
+  left: 5px;
+  right: 0;
+  width: 100%;
+  z-index: 0;
 
-#home-hero-text {
-    position: relative;
-    height: 200px;
-    margin-bottom: 540px;
-    margin-left: 20px;
-
-    @include desktop {
-        margin-bottom: 570px;
-    }
-
+  @include tablet {
+    bottom: 150px;
+  }
+}
 
     #hero-heading {
         color: #fff;
-        margin-top: 250px;
-        font-size: 23px;
-        line-height: 30px;
-        line-height: 50px;
+        margin-bottom: 20px;
 
-
-        @include tablet {
-            font-size: 25px;
-        }
-
-        span {
-            font-size: 45px;
-
-            @include tablet {
-                font-size: 48px;
-            }
+        @include xl {
+            font-size: 60px;
         }
     }
 
     #hero-p {
         color: #fff;
-        margin-top: 0;
-        padding-bottom: 20px;
-        font-size: 18px;
-        margin-right: 20px;
 
-        @include tablet {
-            margin-top: 15px;
-            font-size: 20px;
-        }
-
+        @include xl {
+        font-size: 24px !important;
+    }
     }
 
-    a {
-        font-size: 18px;
-        margin: 10px 150px 0 0;
-        width: 220px;
-        padding: 10px 20px;
+
+
+.home-hero-text {
+  position: absolute;
+  z-index: 0;
+  padding-bottom: 30px;
+  bottom: 35px;
+  left: 5px;
+  right: 0;
+  width: 100%;
+
+  @include tablet {
+    bottom: 10px;
+  }
+
+  @include desktop {
+    bottom: 50px;
+  }
+
+  @include xl {
+    bottom: 50px;
+  }
+
+  #hero-heading {
+    color: #fff;
+    font-size: 22px;
+    line-height: 50px;
+    margin-bottom: 10px;
+
+    @include xl {
+        font-size: 26px;
     }
+
+    span {
+      font-size: 40px;
+
+      @include desktop {
+        font-size: 48px;
+      }
+
+      @include xl {
+        font-size: 60px;
+      }
+    }
+  }
+
+  #hero-p {
+    color: #fff;
+    margin-top: 0;
+    padding-bottom: 20px;
+    font-size: 18px;
+    margin-right: 20px;
+
+    @include tablet {
+      margin-top: 15px;
+      font-size: 20px;
+    }
+
+    @include xl {
+        font-size: 24px !important;
+    }
+  }
+
+  a {
+    font-size: 16px;
+    margin: 10px 150px 0 0;
+    width: 200px;
+    padding: 10px 20px;
+    display: block;
+
+    @include xl {
+        font-size: 20px;
+        width: 235px;
+    }
+  }
 }
-
 
 
 // ===========================================
 // ABOUT SECTION
 // ===========================================
 #about-museum {
-    padding: 40px 0;
+    margin: 100px 0 50px 0;
 
     @include tablet {
-        padding: 60px 0;
+        margin: 150px 0 50px 0;
     }
 
     @include desktop {
-        padding: 80px 0;
+        margin: 100px 0 50px 0;
     }
 
     .grid-con {
@@ -125,14 +218,12 @@
     }
 
     p {
-        font-size: 14px;
         line-height: 1.7;
         color: $chacoal;
         margin-bottom: 20px;
         order: 2;
 
         @include tablet {
-            font-size: 15px;
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -145,6 +236,17 @@
 
         @include tablet {
             margin-top: 0px;
+            margin: 0;
+            width: 155px;
+        }
+
+        @include desktop {
+            width: 160px;
+        }
+
+        @include xl {
+            font-size: 18px;
+            width: 175px;
         }
     }
 
@@ -153,6 +255,10 @@
 
     @include tablet {
         margin-top: 40px;
+    }
+
+    @include xl {
+        transform: scale(1.3);
     }
 
 }
@@ -210,7 +316,6 @@
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: thin;
-    scrollbar-color: $military_green;
     padding-top: 20px;
 
     &:active {
@@ -256,6 +361,10 @@
         gap: 30px;
         justify-content: center;
     }
+
+    @include xl {
+        gap: 70px;
+    }
 }
 
 // Cards
@@ -272,17 +381,27 @@
         width: 340px;
     }
 
+    @include xl {
+        width: 400px;
+    }
+
     .card-image {
         width: 90%;
         height: 170px;
         overflow: hidden;
         margin: 10px auto;
 
+        @include xl {
+            height: auto;
+            margin: 30px auto;
+        }
+
         img {
             object-fit: cover;
             display: block;
             transform: scale(1);
             transition: transform 0.3s ease-in-out;
+            margin: auto;
         }
     }
 
@@ -312,6 +431,10 @@
         padding: 25px 20px 30px;
     }
 
+    @include xl {
+       padding: 25px 30px 30px; 
+    }
+
     h3 {
         color: #fff;
         font-size: 18px;
@@ -325,6 +448,11 @@
 
         @include desktop {
             font-size: 22px;
+        }
+
+        @include xl {
+            font-size: 24px;
+            text-align: center;
         }
     }
 
@@ -343,6 +471,10 @@
         @include desktop {
             font-size: 14px;
             margin-bottom: 20px;
+        }
+
+        @include xl {
+            text-align: center;
         }
     }
 
@@ -364,6 +496,10 @@
 
         @include desktop {
             margin-top: 40px;
+        }
+
+        @include xl {
+            margin-top: 20px;
         }
     }
 }
@@ -557,6 +693,11 @@
         font-size: 13px;
     }
 
+    @include xl {
+        font-size: 16px;
+        width: 110px;
+    }
+
     &:hover {
         color: $heritage_red;
     }
@@ -598,6 +739,10 @@
     @include tablet {
         font-size: 13px;
     }
+    @include xl {
+        font-size: 16px;
+        width: 110px;
+    }
 
     &:hover {
         color: $heritage_red;
@@ -607,6 +752,7 @@
     @include tablet {
     order: 1;
     }
+    
 
 }
 .events-cta {
@@ -619,7 +765,15 @@
 
     .button {
         padding: 10px 30px;
+
+        @include xl {
+            font-size: 22px;
+            padding: 20px 40px;
+            border-radius: 200px;
+        }
     }
+
+
 }
 
 

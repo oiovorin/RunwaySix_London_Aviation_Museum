@@ -6,6 +6,9 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
@@ -79,76 +82,79 @@
     </header>
 
     <main>
-        <div class="grid-con">
 
-        <a href="artifacts.html" class="col-span-full" id="back-to-artifacts">← Back to Artifacts</a>
+        <div id="artifact-detail-app">
 
-        <h1 id="artifact-name" class="col-span-full">RCAF “Wing” Insignias</h1>
+            <div class="grid-con header-space">
+            <a href="artifacts.html" id="back-to-artifacts" class="col-span-full">← Back to Artifacts</a>
 
-        <!-- <img class="artifact-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5"> -->
-         <div id="artifact-image" class="col-span-full m-col-start-1 m-col-end-7 l-col-start-1 l-col-end-7">
-            <div id="img-con">
-                <img src="images/" alt="1" class="active">
-                <img src="images/" alt="2">
-                <img src="images/" alt="3">
-                <img src="images/" alt="4">
-                <img  src="images/" alt="5">
-                <img src="images/" alt="6">
+            <div v-if="loadingArtifactsDetails" class="loader col-span-full">
+                <img src="images/loader.svg" alt="Loading">
             </div>
 
-            <div class="artifact-gallery-arrow">
-            <button id="previous" class="button">&lt;</button>
-            <button id="next" class="button">&gt;</button>
+            <div v-else-if="artifactDetailsError" class="col-span-full">
+                <p>{{ artifactDetailsError }}</p>
             </div>
-        </div>
+            </div>
 
-         <div class="about-artifact col-span-full m-col-start-7 m-col-end-13 l-col-start-7 l-col-end-13">
-            <p><span>Object Type: </span>Robert Davidson “Bob” Grassick</p>
-            <p><span>Period: </span>22 May 1917 — London, Ontario, Canada</p>
-            <p><span>Origin: </span> Royal Air Force, 1938-1945; Royal Canadian Air Force, 1945</p>
-            <p><span>Material: </span>41579</p>
-            <p><span>Description: </span>Flying Officer (later Flight Lieutenant)</p>
-        </div>
-    </div>
+            <div v-else-if="selectedArtifact" class="grid-con">
+                <h1 id="artifact-name" class="col-span-full">{{ selectedArtifact.name }}</h1>
 
-    <section class="section-header">
-            <span class="line"></span>
-                <h2>Discover More</h2>
+                <img class="artifact-image col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" :src="selectedArtifact.imagePath" :alt="selectedArtifact.name">
+                <!-- <div id="artifact-image" class="col-span-full m-col-start-1 m-col-end-7 l-col-start-1 l-col-end-7">
+                    <div id="img-con">
+                        <img src="images/" alt="1" class="active">
+                        <img src="images/" alt="2">
+                        <img src="images/" alt="3">
+                        <img src="images/" alt="4">
+                        <img  src="images/" alt="5">
+                        <img src="images/" alt="6">
+                    </div>
+
+                    <div class="artifact-gallery-arrow">
+                    <button id="previous" class="button">&lt;</button>
+                    <button id="next" class="button">&gt;</button>
+                    </div>
+                </div> -->
+
+                <div class="about-artifact col-span-full m-col-start-7 m-col-end-13 l-col-start-7 l-col-end-13">
+                    <p><span>Object Type: </span>{{ selectedArtifact.objectType }}</p>
+                    <p><span>Period: </span>{{ selectedArtifact.period }}</p>
+                    <p><span>Origin: </span>{{ selectedArtifact.origin }}</p>
+                    <p><span>Material: </span>{{ selectedArtifact.material }}</p>
+                    <p v-html="selectedArtifact.description"><span>Description: </span></p>
+                </div>
+            </div>
+        
+
+        <section class="section-header">
                 <span class="line"></span>
-        </section>
+                    <h2>Discover More</h2>
+                    <span class="line"></span>
+            </section>
 
-        <div class="grid-con" id="artifact-gallery">
-                <div class="artifact-item col-span-2 m-col-span-3 l-col-span-3">
-                    <img src="images/artifact.jpg" alt="artifact image">
-                    <p>Spitfire Model</p>
-                </div>
-
-                <div class="artifact-item col-span-2 m-col-span-3 l-col-span-3">
-                    <img src="images/artifact.jpg" alt="artifact image">
-                    <p>Spitfire Model</p>
-                </div>
-
-                <div class="artifact-item col-span-2 m-col-span-3 l-col-span-3">
-                    <img src="images/artifact.jpg" alt="artifact image">
-                    <p>Spitfire Model</p>
-                </div>
-
-                <div class="artifact-item col-span-2 m-col-span-3 l-col-span-3">
-                    <img src="images/artifact.jpg" alt="artifact image">
-                    <p>Spitfire Model</p>
-                </div>
+            <div class="grid-con" id="artifact-gallery">
+                <div class="artifact-item col-span-2 m-col-span-3 l-col-span-3" v-for="artifact in relatedArtifacts" :key="artifact.id">
+                    <a :href="'artifact_detail.html?id=' + artifact.id">
+                        <img :src="artifact.image_path" :alt="artifact.name">
+                        <p>{{ artifact.name }}</p>
+                    </a>
+                 </div>
             </div>
+        </div>
     </main>
     
 
   <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
                 <picture id="footer-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
                      <img src="images/light_logo_mobile.svg" alt="logo">
                 </picture>
+                </a>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
@@ -241,5 +247,7 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
 </body>
 </html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>London Aviation Museum Admin Dashboard Page</title>
+</head>
+<body data-page="dashbord">
+
+    <header id="admin-header" class="full-width-grid-con">
+
+        <div class="grid-con">
+
+            <div id="header-flex" class="col-span-full">
+                <a href="dashbord.html" aria-label="dashbord">
+                    <picture id="header-logo">
+                        <source media="(min-width: 768px)" srcset="images/lam_logo_blue.svg">
+                        <source media="(min-width:300px)" srcset="images/blue_logo_mobile.svg">
+                        <img src="images/blue_logo_mobile.svg" alt="logo">
+                    </picture>
+                </a>
+
+                <h1>Admin Dashboard</h1>
+
+                <div id="user">
+                    <div>
+                        <h2 id="username">Hello <!-- display login user name --></h2>
+                        <a href="#">Edit Profile</a>
+                    </div>
+                    <img src="images/user.svg" alt="user profile">
+                </div>
+        </div>
+
+        <button id="logout" class="col-end-5 m-col-end-13">
+            <img src="images/logout.svg" alt="logout">
+            Logout
+        </button>
+    </div>
+</header>
+    
+
+    <main>
+        <div id="post-list-app">
+        <section id="admin-submenu" class="grid-con">
+            <div id="dashbord-menu-open" class="col-start-1 col-end-2">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav id="dashbord-menu" class="">
+                <h3>LAM CMS</h3>
+                <ul>
+                    <li>Dashboard</li>
+                    <li><a href="dashbord.html">Events</a></li>
+                    <li><a href="dashbord.html">Blogs</a></li>
+                    <li><a href="dashbord-artifacts.html">Artifacts</a></li>
+                    <li>Settings</li>
+                </ul>
+            </nav>
+
+            <h2 id="post-header" class="col-start-2 col-span-4">Recently added</h2>
+
+            <button class="add-content col-span-2 m-col-end-13" @click="showAddForm = true" aria-label="add content">
+                <img src="images/add.svg" alt="plus icon">
+                Add Content
+            </button>
+        </section>
+
+        <section id="post-list">
+            <h2 class="hidden">Post list</h2>
+
+            <div class="grid-con">
+                <div v-if="loadingEventsBlog" class="loader col-span-full">
+                    <img src="images/loader.svg" alt="Loading Post" class="col-span-full">
+                </div>
+                <div v-else-if="eventsBlogError" class="events-blog-error col-span-full">
+                    <p>{{ eventsBlogError }}</p>
+                </div>
+                <template v-else>
+                    <div v-for="eventsBlog in eventsBlogData" :key="eventsBlog.id" class="post-item col-span-full l-col-span-6">
+                        <div class="post-info">
+                            <div>
+                                <span class="label">{{ eventsBlog.post_type }}</span>
+                                <img :src="eventsBlog.image_path" :alt="eventsBlog.name">
+                            </div>
+                            <div class="post-detail">
+                                <h2 class="title">{{ eventsBlog.title }}</h2>
+                                <div class="content-date">
+                                    <img src="images/calendar-days.svg" alt="calendar icon">
+                                    <p class="date">{{ formatDate(eventsBlog.event_date) }}</p>
+                                </div>
+                                <p class="description">{{ eventsBlog.description }}</p>
+                                <a class="content-link" :href="'post.html?id=' + eventsBlog.id">Read More →</a>
+                            </div>
+                        </div>
+
+                        <div class="edit-delete">
+                            <button class="edit-post" v-if="!eventsBlog.deleted_at" @click="openEdit(eventsBlog)">
+                                <img src="images/edit.svg" alt="edit icon">
+                                Edit
+                            </button>
+                            <button class="delete-post" v-if="!eventsBlog.deleted_at" @click="confirmDelete(eventsBlog)">
+                                <img src="images/trash.svg" alt="trash icon">
+                                Delete
+                            </button>
+                            <button class="restore-post" v-if="eventsBlog.deleted_at" @click="restorePost(eventsBlog)">
+                                Restore
+                            </button>
+
+                            <div v-for="eventsBlog in eventsBlogData" :key="eventsBlog.id" class="post-item col-span-full l-col-span-6" :class="{ 'soft-deleted': eventsBlog.deleted_at }">
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <div id="add-content-lightbox" :class="{ active: showAddForm }">
+            <div class="lightbox-wrapper">
+                <button class="lightbox-close" @click="showAddForm = false">← Back</button>
+                <div class="lightbox-inner">
+                    <h2>Add New Post</h2>
+
+                    <form class="add-post-form" @submit.prevent="createPost">
+                        <div class="one-item">
+                            <label for="title">Title</label>
+                            <input type="text" id="title" v-model="newPost.title" placeholder="Enter the title">
+                            <p class="field-error" v-if="addErrors.title">{{ addErrors.title }}</p>
+                        </div>
+
+                        <div class="two-items">
+                            <div>
+                                <label for="post-type">Post Type</label>
+                                <select id="post-type" v-model="newPost.post_type">
+                                    <option value="">Select type</option>
+                                    <option value="event">Event</option>
+                                    <option value="blog">Blog</option>
+                                </select>
+                                <p class="field-error" v-if="addErrors.post_type">{{ addErrors.post_type }}</p>
+                            </div>
+                            <div>
+                                <label for="event-date">Event Date</label>
+                                <input type="date" id="event-date" v-model="newPost.event_date">
+                                <p class="field-error" v-if="addErrors.event_date">{{ addErrors.event_date }}</p>
+                            </div>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="description">Description</label>
+                            <textarea id="description" v-model="newPost.description" placeholder="Short description for cards"></textarea>
+                            <p class="field-error" v-if="addErrors.description">{{ addErrors.description }}</p>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="content">Content</label>
+                            <textarea id="content" v-model="newPost.content" placeholder="Full body text"></textarea>
+                            <p class="field-error" v-if="addErrors.content">{{ addErrors.content }}</p>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="image">Image Path</label>
+                            <input type="text" id="image" v-model="newPost.image_path" placeholder="Enter the URL">
+                            <p class="field-error" v-if="addErrors.image_path">{{ addErrors.image_path }}</p>
+                        </div>
+                        <!-- <div class="two-items">
+                            <div>
+                                <label for="featured-post">Featured Post</label>
+                                <select id="featured-post" aria-placeholder="Yes / No">
+                                    <option value="">Yes / No</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">NO</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="active-status">Active Status</label>
+                                <select id="active-status" aria-placeholder="Yes / No">
+                                    <option value="">Yes / No</option>
+                                    <option value="yes">Yes</option>
+                                    <option value="no">NO</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="edit-content-lightbox" :class="{ active: showEditForm }">
+            <div class="lightbox-wrapper">
+                <button class="lightbox-close" @click="showEditForm = false">← Back</button>
+                <div class="lightbox-inner">
+                    <h2>Edit Post</h2>
+
+                    <form class="add-post-form" @submit.prevent="updatePost">
+                        <div class="one-item">
+                            <label for="edit-title">Title</label>
+                            <input type="text" id="edit-title" v-model="editPost.title" placeholder="Enter the title">
+                            <p class="field-error" v-if="editErrors.title">{{ editErrors.title }}</p>
+                        </div>
+
+                        <div class="two-items">
+                            <div>
+                                <label for="edit-post-type">Post Type</label>
+                                <select id="edit-post-type" v-model="editPost.post_type">
+                                    <option value="">Select type</option>
+                                    <option value="event">Event</option>
+                                    <option value="blog">Blog</option>
+                                </select>
+                                <p class="field-error" v-if="editErrors.post_type">{{ editErrors.post_type }}</p>
+                            </div>
+                            <div>
+                                <label for="edit-event-date">Event Date</label>
+                                <input type="date" id="edit-event-date" v-model="editPost.event_date">
+                                <p class="field-error" v-if="editErrors.event_date">{{ editErrors.event_date }}</p>
+                            </div>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="edit-description">Description</label>
+                            <textarea id="edit-description" v-model="editPost.description" placeholder="Short description"></textarea>
+                            <p class="field-error" v-if="editErrors.description">{{ editErrors.description }}</p>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="edit-content">Content</label>
+                            <textarea id="edit-content" v-model="editPost.content" placeholder="Full body text"></textarea>
+                            <p class="field-error" v-if="editErrors.content">{{ editErrors.content }}</p>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="edit-image">Image Path</label>
+                            <input type="text" id="edit-image" v-model="editPost.image_path" placeholder="Enter the URL">
+                            <p class="field-error" v-if="editErrors.image_path">{{ editErrors.image_path }}</p>
+                        </div>
+
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="delete-lightbox" :class="{ active: showDeleteConfirm }">
+            <div class="delete-inner">
+                <h2>Delete Media?</h2>
+                <p>Are you sure you want to delete <br>
+                    <span>"{{ deleteTarget?.title }}" ?</span></p>
+                
+                <div id="warning">
+                    <img src="images/circle-alert.svg" alt="warning icon">
+                    <div>
+                        <h3>Warning!</h3>
+                        <p>This post will be soft-deleted and<br>can be restored later.</p>
+                    </div>
+                </div>
+
+                <div class="two-items">
+                    <button id="cancel" @click="showDeleteConfirm = false">Cancel</button>
+                    <button id="delete" @click="deletePost">
+                        <img src="images/trash-white.svg" alt="trash icon">Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
+</body>
+</html>

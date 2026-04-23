@@ -1,0 +1,154 @@
+@use '../abstracts' as *;
+
+// ===========================================
+// LOGIN PAGE
+// ===========================================
+
+body[data-page="login"] {
+    background-image: url("../images/login-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+
+    #header-logo img {
+        @include desktop {
+        margin-top: 20px;
+        }
+    }
+}
+
+#login-nav {
+    opacity: 1;
+    transform: translateX(0);
+    background-color: transparent;
+    position: static;
+    height: auto;
+    width: auto;
+    transition: none;
+    margin-top: 10px;
+
+        &.active {
+            transform: translateX(0);
+            opacity: 1;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        nav ul {
+            text-align: center;
+            gap: 20px;
+            list-style: none;
+
+            li {
+                margin-top: 20px;
+
+                @include tablet {
+                    margin-top: 30px;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: #fff;
+                    font-size: 20px;
+                    font-weight: 600;
+                    transform: scale(1);
+                    transition: scale 0.3s ease-in-out;
+                    position: relative;
+                    text-decoration: none;
+
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        left: 0;
+                        bottom: -5px;
+                        width: 100%;
+                        height: 2px;
+                        background-color: white;
+                        transform: scaleX(0);
+                        transform-origin: left;
+                        transition: transform 0.3s ease;
+                    }
+                    &:hover::after {
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+
+
+#login-bg {
+    margin-top: 200px;
+    background-color: white;
+    margin-bottom: 100px;
+    border-radius: 5px;
+
+    h2 {
+        margin-top: 50px;
+        text-align: center;
+        font-size: 32px;
+        font-weight: 700;
+        color: $aviation_blue;
+    }
+
+    form {
+        margin: 50px auto;
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input {
+            height: 40px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        .input-flex {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .field-error {
+            position: relative;
+            background-color: #fff;
+            font-size: 14px;
+            padding: 5px 10px;
+            margin-right: 40px;
+            border: 2px solid $heritage_red;
+
+            span {
+                font-size: 12px;
+                font-weight: 500;
+                color: #fff;
+                background-color: $heritage_red;
+                padding: 1px 7px;
+                border-radius: 100px;
+                margin: 0 2px 5px 2px;
+            }
+
+             &::before {
+                content: "";
+                position: absolute;
+                top: -27px;
+                left: 8px;
+                width: 24px;
+                height: 27px;
+                background: $heritage_red;
+                clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: -23px;
+                left: 10px;
+                width: 20px;
+                height: 24px;
+                background: #fff;
+                clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+            }
+        }
+    }
+}

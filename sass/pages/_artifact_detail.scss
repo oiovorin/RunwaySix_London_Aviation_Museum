@@ -1,5 +1,15 @@
 @use '../abstracts' as *;
 
+.loader {
+    margin: 50px auto;
+    
+    img {
+        width: 100px;
+        display: block;
+    }
+
+}
+
 #back-to-artifacts {
     margin-top: 20px;
     margin-left: -10px;
@@ -79,11 +89,39 @@
 
 
 #artifact-gallery {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: visible;
+    cursor: grab;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    margin-top: 100px;
     margin-bottom: 100px;
+    padding-bottom: 30px;
+
+    &:active {
+        cursor: grabbing;
+    }
 
     .artifact-item {
+        flex: 0 0 auto;
+        width: 200px;
+
+        @include tablet {
+            width: 250px;
+        }
+        
         img {
+            width: 200px;
+            height: 165px;
+            object-fit: cover;
             background-color: $chacoal;
+
+            @include tablet {
+                width: 280px;
+                height: 245px;
+            }
         }
 
         p {

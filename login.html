@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>London Aviation Login</title>
+</head>
+<body data-page="login">
+    <h1 class="hidden">Login Page</h1>
+    <header>
+        <div class="hero-section">
+            <div>
+                <div class="grid-con">
+                    <a href="index.html" class="col-start-1 col-span-3 m-col-start-1 m-col-span-4" aria-label="home">
+                        <picture id="header-logo">
+                            <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
+                            <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
+                            <img src="images/light_logo_mobile.svg" alt="logo">
+                        </picture>
+                    </a>
+
+                    <div id="login-nav" class="col-span-full m-col-start-8 m-col-span-4 ">
+                        <nav aria-label="Header Navigation">
+                            <ul>
+                                <li id="home"><a href="index.html" aria-label="go to home page">Back to Main Page</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div id="login-app">
+            <div class="grid-con">
+            <div id="login-bg" class="grid-con col-span-full m-col-start-2 m-col-end-12 l-col-start-3 l-col-end-11">
+                <h2 class="col-span-full">Welcome Back!</h2>
+                <form id="loginForm" @submit.prevent="submitForm" class="grid-con col-span-full l-col-start-2 l-col-end-12">
+
+                    <label for="email" class="col-span-full m-col-start-2 m-col-end-12">Enter Email:</label>
+                    <input type="email" id="email" v-model="formData.email" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Your Email">
+                    <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.email" ><span class="error-icon">!</span> {{errors.email}}</p>
+
+                    <label for="password" class="col-span-full m-col-start-2 m-col-end-12">Enter Password:</label>
+                    <input type="password" id="password" v-model="formData.password" class="col-span-full m-col-start-2 m-col-end-12" placeholder="Enter Your Password">
+                    <p class="field-error col-span-full m-col-start-2 m-col-end-6" v-if="errors.password" ><span class="error-icon">!</span> {{errors.password}}</p>
+
+                    <input type="text" id="honeypot" v-model="formData.honeypot" class="hidden">
+
+                    <p class="fail col-span-full m-col-start-2 m-col-end-12" v-if="errors.general"><span class="error-icon">!</span> {{errors.general}}</p>
+                    <div v-if="responseMessage" class="fail col-span-full m-col-start-2 m-col-end-12">
+                    {{responseMessage}}
+                    </div>
+
+                    <div class="col-span-full m-col-start-2 m-col-end-12">
+                    <button :class="{'buttonCircle': submitted, 'button': true}" type="submit">
+                        <div class="container">
+                            <span class="tick">
+                            <svg v-if="submitted" width="58" height="45" viewBox="0 0 58 45" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#fff" fill-rule="nonzero"
+                            d="M19.11 44.64L.27 25.81l5.66-5.66 13.18 13.18L52.07.38l5.65 5.65" />
+                            </svg>
+                            <span v-else>{{buttonText}}</span>
+                            </span>
+                        </div>
+                    </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </main>
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
+</body>
+</html>

@@ -84,3 +84,53 @@ export function selectDate () {
     prevBtn.addEventListener("click", prevDate);
     nextBtn.addEventListener("click", nextDate);
 }
+
+export function modelCarousel () {
+    const modelCards = document.querySelectorAll("#airplane-model .model-card");
+    const preBtn = document.querySelector("#model-previous");
+    const nextBtn = document.querySelector("#model-next");
+
+    let currentIndex = 0;
+
+    function showItem () {
+        modelCards.forEach(model => {
+            model.classList.remove("active");
+            });
+            modelCards[currentIndex].classList.add("active");
+
+            const modelDefault = document.querySelector(".model-card.active");
+
+        gsap.from(modelDefault.children, {
+        opacity: 0,
+        y: 30,
+        duration: 0.6,
+        stagger: 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: modelDefault,
+            start: "top 80%",
+        }
+        });
+    }
+
+    function nextImg () {
+        currentIndex++;
+        if(currentIndex >= modelCards.length) {
+            currentIndex = 0;
+        }
+        showItem(currentIndex);
+    }
+
+    function prevImg () {
+        currentIndex--;
+        if(currentIndex < 0) {
+            currentIndex = modelCards.length - 1;
+        }
+
+        showItem(currentIndex);
+    }
+
+    nextBtn.addEventListener("click", nextImg);
+    preBtn.addEventListener("click", prevImg);
+}
+

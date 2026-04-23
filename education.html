@@ -6,6 +6,9 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script type="module" src="js/main.js"></script>
@@ -45,7 +48,7 @@
                         <li id="home"><a href="index.html" aria-label="go to home page">Home</a></li>
                         <li id="about-nav">
                             <div class="about-con">
-                                <a>About</a>
+                                <a href="about.html">About</a>
                                 <div class="submenu-toggle">
                                     <img src="images/toggle-arrow.svg" alt="toggle arrow">
                                 </div>
@@ -76,7 +79,7 @@
             </div>
         </div>
     </header>
-
+<main class="header-space">
     <div class="full-width-grid-con" id="education-intro">
     <div class="grid-con">
         <img src="images/school.svg" alt="icon of school" class="col-span-full m-col-start-2 m-col-end-4">
@@ -183,7 +186,6 @@
                 <a href="#" class="col-span-full m-col-start-2 m-col-end-12 button">Book Now</a>
             </div>
         </section>
-    <main>
         
 
     </main>
@@ -192,11 +194,13 @@
     <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
                 <picture id="footer-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
                      <img src="images/light_logo_mobile.svg" alt="logo">
                 </picture>
+                </a>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
@@ -289,5 +293,7 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
 </body>
 </html>

@@ -6,15 +6,18 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
-    <title>London Aviation History Education Page</title>
+    <title>London Aviation History Contact Page</title>
 </head>
 <body data-page="contact">
 
-    <header class="blue-header">
+    <header>
         <div class="grid-con">
 
             <div id="top-header" class="l-col-start-9 l-col-end-12">
@@ -78,7 +81,31 @@
         </div>
     </header>
 
+     <div class="hero-section">
+
+        <div class="hero-bg">
+            <picture>
+                <source media="(min-width: 1200px)" srcset="images/l-contact-hero.jpg">
+                <img src="images/m-contact-hero.jpg" alt="Contact Page Hero Image">
+                </picture>
+        </div>
+
+    <div class="grid-con" id="hero-grid">
+        <div class="hero-text col-span-full m-col-start-1 m-col-end-13 l-col-start-1 l-col-end-12">
+        <h1 id="hero-heading">
+            <span>Contact the Museum</span>
+        </h1>
+
+        <p id="hero-p">
+            If you have questions about the London Aviation Museum, our exhibitions, or the website, please get in touch.<br> We're happy to assist and connect with our community.
+        </p>
+    </div>
+    </div>
+    </div>
+
     <main>
+
+        <h1 class="hidden">Contact</h1>
 
         <section class="section-header" id="contact">
             <span class="line"></span>
@@ -106,19 +133,27 @@
             </div>
         </div>
 
-        <section class="section-header">
+        <section class="section-header" id="jump-from-bor">
             <span class="line"></span>
                 <h2>Send Us a Message</h2>
                 <span class="line"></span>
         </section>
 
-        <div id="app">
+        
+
+        <div id="contact-app">
             <div id="contct-form-bg" class="full-width-grid-con">
+
+                <div class="grid-con" id="contact-header">
+                    <h3 class="col-span-full m-col-start-2 m-col-end-12">Where stories take flight, conversations begin.</h3>
+                    <p class="col-span-full m-col-start-2 m-col-end-12">Every message carries a story. Whether you're curious about our exhibits, interested in aviation history, are a family member of a late pilot with information, or simply want to connect, send us a note and we'll help point you in the right direction. 
+                    </p>
+                </div>
             <form id="contactForm" @submit.prevent="submitForm" class="grid-con">
             <div class="input-flex col-span-full m-col-start-2 m-col-span-5">
             <label>Your Full Name:</label>
-            <input type="text" id="fullName" v-model="formData.fullName" placeholder="Enter Full Name">
-            <p class="field-error" v-if="errors.fullName"><span class="error-icon">!</span> {{errors.fullName}}</p>
+            <input type="text" id="name" v-model="formData.name" placeholder="Enter Full Name">
+            <p class="field-error" v-if="errors.name"><span class="error-icon">!</span> {{errors.name}}</p>
             </div>
 
             <div class="input-flex col-span-full m-col-span-5">
@@ -165,11 +200,13 @@
   <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
                 <picture id="footer-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
                      <img src="images/light_logo_mobile.svg" alt="logo">
                 </picture>
+                </a>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
@@ -262,5 +299,7 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
 </body>
 </html>

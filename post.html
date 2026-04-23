@@ -6,8 +6,12 @@
     <link href="css/grid.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script type="module" src="js/main.js"></script>
     <title>London Aviation History About Page</title>
 </head>
@@ -79,46 +83,52 @@
     </header>
 
    <main>
+    <h1 class="hidden">Events & Blog Post</h1>
+    <div id="post-detail-app">
 
-    <div class="grid-con">
+    <div class="grid-con header-space">
 
         <a href="events-blog.html" class="col-span-full" id="back-to-events_blog">← Back to Events & Blogs</a>
 
-        <h1 id="post-title" class="col-span-full">Remembrance Day:<br>
-            Honouring RACF Airmen</h1>
+        <div v-if="loadingEventsBlogDetails" class="loader col-span-full">
+                <img src="images/loader.svg" alt="Loading">
+            </div>
+
+            <div v-else-if="eventsBlogDetailsError" class="col-span-full">
+                <p>{{ eventsBlogDetailsError }}</p>
+            </div>
+
+        <template v-else>
+        <h1 id="post-title" class="col-span-full">{{ selectedEventsBlog.title }}</h1>
         
         <div class="col-span-full" id="post-category">
-            <p class="category">EVENT</p>
-            <p class="publish-date">Published April 7, 2026</p>
+            <p class="category">{{ selectedEventsBlog.postType }}</p>
+            <p class="publish-date">{{ formatDate(selectedEventsBlog.publishedDate) }}</p>
         </div>
 
         <div class="col-span-full" id="post-info">
             <div id="evnet-date" class="info">
                 <img src="images/calendar-fill.svg" alt="calendar icon">
-                <p><span>Date: </span>November 11, 2026</p>
+                <p><span>Date: </span>{{ selectedEventsBlog.eventDate }}</p>
             </div>
 
             <div id="evnet-time" class="info">
                 <img src="images/time-fill.svg" alt="time icon">
-                <p><span>Time: </span>10:00 AM - 5:00 PM</p>
+                <p><span>Time: </span>{{ selectedEventsBlog.eventTime }}</p>
             </div>
 
             <div id="evnet-location" class="info">
                 <img src="images/map-pin-fill.svg" alt="map pin icon">
-                <p><span>Location: </span>London Aviation Museum</p>
+                <p><span>Location: </span>{{ selectedEventsBlog.location }}</p>
             </div>
         </div>
 
-        <img class="event-image col-span-full">
+        <img class="event-image col-span-full" :src="selectedEventsBlog.imagePath" :alt="selectedEventsBlog.title">
 
-        <div id="about-post" class="col-span-full">
-            <h2>About the Event</h2>
-            <p>Remembrance Day is dedicated to commemorating the service and sacrifice of Royal Canadian Air Force airmen from London who served during the Second World War.<br><br>
-            Held at the London Aviation Museum, this event brings together visitors, historians, and members of the community to reflect on the contributions of those who served. It highlights the role of the Royal Canadian Air Force and the experiences of local airmen who took part in the air war.<br><br>
-            Through a combination of remembrance activities and historical interpretation, the event offers an opportunity to honour their legacy and better understand the impact of their service during a critical period of the war.</p>
-        </div>
+        <div v-html="selectedEventsBlog.content" id="about-post" class="col-span-full"></div>
 
         <a href="contact.html" class="button col-span-full" id="contact-cta">Contact Us</a>
+        </template>
     </div>
 
     <div class="grid-con" id="share">
@@ -141,13 +151,16 @@
     <div class="grid-con" id="others">
         <h2 class="col-span-full">Relared Events</h2>
 
-        <div class="other-post col-span-full m-col-span-4">
-            <img src="images/" alt="">
-            <h3>Battle of Britain Commemoration</h3>
-            <p id="event-date">September 21, 2026</p>
-            <p id="description">Honouring the courage of RCAF pilots who played a vital role in the defence of Britain.</p>
-            <a href="#" class="read-more" aria-label="read more about ">Read More →</a>
+        <div class="post-gallery col-span-full">
+            <div class="other-post" v-for="eventsBlog in relatedEventsBlog" :key="eventsBlog.id">
+                <img :src="eventsBlog.image_path" :alt="eventsBlog.title">
+                <h3>{{eventsBlog.title }}</h3>
+                <p id="event-date">{{ eventsBlog.eventDate }}</p>
+                <p id="description">{{ eventsBlog.description }}</p>
+                <a :href="'post.html?id=' + eventsBlog.id" class="read-more" :alt="eventsBlog.title">Read More →</a>
+            </div>
         </div>
+    </div>
     </div>
 
    </main>
@@ -156,11 +169,13 @@
    <footer>
         <div class="grid-con">
             <div class="col-span-full m-col-start-1 m-col-end-6 l-col-start-1 l-col-end-5" id="hr-right">
+                <a href="index.html">
                 <picture id="footer-logo">
                      <source media="(min-width: 768px)" srcset="images/lam_logo_light.svg">
                      <source media="(min-width:300px)" srcset="images/light_logo_mobile.svg">
                      <img src="images/light_logo_mobile.svg" alt="logo">
                 </picture>
+                </a>
             <p id="footer-quote">
                 “Preserving the Skies. <br>
                 Honouring the Sacrifice.”</p>
@@ -253,5 +268,7 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
 </body>
 </html>
