@@ -48,6 +48,7 @@
     .form-label {
         display: flex;
         flex-direction: column;
+        align-items: center;
 
         @include tablet {
             margin-top: 50px;
@@ -64,14 +65,26 @@
     }
 
     label {
+        text-align: center;
         color: #fff;
         font-size: 18px;
+        @include desktop {
+            font-size: 20px;
+        }
         margin: 5px 0;
     }
 
 
     .input-box {
         height: 40px;
+        width: 400px;
+        @include tablet {
+            width: 500px;
+        }
+        @include desktop {
+            height: 50px;
+            width: 600px;
+        }
         margin-bottom: 20px;
     }
 
@@ -88,10 +101,17 @@
         color: $heritage_red;
         border: 3px solid $heritage_red;
         border-radius: 30px;
-        padding: 20px 80px;
-        font-size: 20px;
+        padding: 10px 50px;
+        font-size: 15px;
         font-weight: 800;
         margin: 0;
+        @include tablet {
+            border-radius: 30px;
+            padding: 20px 80px;
+            font-size: 20px;
+            font-weight: 800;
+            margin: 0;
+        }
         &:hover {
         color: #fff;
         background-color: $heritage_red;
@@ -103,8 +123,55 @@
     display: flex;
     justify-content: center;
     grid-column: 1 / -1;
-    margin: 20px 0 50px;
-    gap: 16px;
+    margin: 10px 0 30px;
+    gap: 10px;
+    @include tablet {
+        margin: 20px 0 50px;
+        gap: 16px;
+    }
+}
+
+#bor-app {
+    min-height: 50vh;
+}
+
+
+// ===========================================
+// PAGINATION
+// ===========================================
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 50px 0;
+
+    button {
+        background-color: transparent;
+        border: 2px solid $aviation_blue;
+        color: $aviation_blue;
+        padding: 8px 16px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+
+        &:hover:not(:disabled) {
+            background-color: $aviation_blue;
+            color: #fff;
+        }
+
+        &.active {
+            background-color: $aviation_blue;
+            color: #fff;
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+    }
 }
 
 // ===========================================

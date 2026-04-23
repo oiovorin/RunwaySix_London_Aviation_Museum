@@ -19,13 +19,6 @@
 
 <body data-page="home">
 
-    <div class="hero-section">
-        <div class="hero-loop-video">
-            <video autoplay loop muted playsinline>
-                <source src="videos/Main-Looping_video.mp4" type="video/mp4">
-            </video>
-        </div>
-
         <header>
             <div class="grid-con">
 
@@ -90,17 +83,22 @@
             </div>
         </header>
 
-        <div class="grid-con" id="hero-grid">
-        <div id="home-hero-text" class="col-span-full m-col-start-1 m-col-end-13 l-col-start-1 l-col-end-12">
-            <h1 id="hero-heading">
+        <div class="hero-section">
+        <div class="hero-loop-video">
+            <video autoplay loop muted playsinline>
+                <source src="videos/Main-Looping_video.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="grid-con home-hero-text">
+            <h1 id="hero-heading" class="col-span-full">
                 Welcome to the<br>
                 <span>London Aviation Museum</span>
             </h1>
-            <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-12 l-col-start-2 l-col-end-12">
+            <p id="hero-p" class="col-span-full m-col-start-1 m-col-end-9 l-col-start-1 l-col-end-6">
                 Discover the stories that shaped the skies, through the lens of service and sacrifice.
             </p>
-            <a href="artifacts.html" class="button col-span-full l-col-start-2 l-col-end-12">Explore Artifacts &#x25B6;</a>
-        </div>
+            <a href="artifacts.html" class="button col-span-full l-col-start-1 l-col-end-12">Explore Artifacts &#x25B6;</a>
         </div>
     </div>
     
@@ -115,7 +113,7 @@
                         The London Aviation Museum preserves and shares the aviation history of London, Ontario. Closely connected to the legacy of RCAF Station Crumlin and the historic Airman's Canteen, the museum highlights the city's role in the British Commonwealth Air Training Plan and honours local Royal Canadian Air Force members who served during the Second World War, ensuring their contributions are remembered for future generations.
                     </p>
                 </div>
-                <div class="about-image col-span-full m-col-start-7 m-col-end-13 l-col-start-7 l-col-end-12">
+                <div class="about-image col-span-full m-col-start-7 m-col-end-13 l-col-start-7 l-col-end-12 xl-col-start-8">
                     <img src="images/restaurant.png" alt="Museum Interior">
                 </div>
 
@@ -349,10 +347,14 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
+
     <script src="https://cdn.plyr.io/3.8.4/plyr.js"></script>
 
     <script>
     const player = new Plyr("#player");
     </script>
+
 </body>
 </html>

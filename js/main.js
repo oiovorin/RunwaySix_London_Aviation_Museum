@@ -1,5 +1,6 @@
 gsap.registerPlugin(ScrollTrigger);
 
+import { loginVueApp, requireAuth, logout } from "./modules/auth.js";
 import { header } from "./modules/header.js";
 import { selectDate } from "./modules/battle-of-britain.js";
 import { timeline } from "./modules/timeline.js";
@@ -30,10 +31,11 @@ import { remembrancesVueDetailApp } from "./modules/vue_app.js";
 import { footerAnimation } from "./modules/gsap.js";
 import { privacyAnimations } from "./modules/gsap.js";
 import { adminMenu } from "./modules/dashbord.js";
-import { addPost } from "./modules/dashbord.js";
-import { deletePost } from "./modules/dashbord.js";
 import { postListVueApp } from "./modules/vue_app.js";
-import { editPost } from "./modules/dashbord.js";
+import { artifactsPostListVueApp } from "./modules/vue_app.js";
+// import { addPost } from "./modules/dashbord.js";
+// import { deletePost } from "./modules/dashbord.js";
+// import { editPost } from "./modules/dashbord.js";
 
 
 if(document.body.dataset.page === "home") {
@@ -123,9 +125,33 @@ if(document.body.dataset.page === "home") {
     centralSlideshow();
     footerAnimation();
 } else if (document.body.dataset.page === "dashbord") {
-    adminMenu();
-    addPost();
-    deletePost();
+    requireAuth();
+    setTimeout(() => { adminMenu(); }, 100);
     postListVueApp();
-    editPost();
+    // addPost();
+    // deletePost();
+    // editPost();
+
+    document.querySelector('#logout').addEventListener('click', logout);
+} else if (document.body.dataset.page === "dashbord-artifacts") {
+    requireAuth();
+    setTimeout(() => { adminMenu(); }, 100);
+    artifactsPostListVueApp();
+    // addPost();
+    // editPost();
+    // deletePost();
+
+    document.querySelector('#logout').addEventListener('click', logout);
+} else if (document.body.dataset.page === "login") {
+    loginVueApp();
 }
+    
+
+// back to top button 
+const btn = document.querySelector("#back-to-top");
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+btn.addEventListener('click', scrollToTop);

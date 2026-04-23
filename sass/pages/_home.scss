@@ -9,7 +9,7 @@
 }
 
 // ===========================================
-// HERO VIDEO
+// HERO VIDEO & IMAGE
 // ===========================================
 .hero-loop-video {
   position: relative;
@@ -18,18 +18,43 @@
   pointer-events: none;
 
   video {
-    width: 300%;
+    width: 200%;
     display: block;
-    max-height: 750px;
+    height: 500px;
     object-fit: cover; 
 
     @include tablet {
-      width: 180%;
+      width: 120%;
+      height: 500px;
     }
 
     @include desktop {
-      width: 110%;
+      width: 100%;
+      height: 500px;
     }
+
+    @include xl {
+      height: 600px;
+    }
+  }
+}
+
+.hero-bg {
+  width: 100%;
+  height: 400px;
+
+  @include tablet {
+    height: 500px;
+  }
+
+  @include desktop {
+    height: 630px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -37,11 +62,8 @@
 // HEADER
 // ===========================================
 header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
+  background-color: $aviation_blue;
+  padding-bottom: 30px;
 }
 
 // ===========================================
@@ -53,36 +75,52 @@ header {
   left: 5px;
   right: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 0;
 
   @include tablet {
-    bottom: 80px;
+    bottom: 150px;
   }
 }
-
-.hero-text {
-    color: #fff;
 
     #hero-heading {
         color: #fff;
         margin-bottom: 20px;
+
+        @include xl {
+            font-size: 60px;
+        }
     }
-}
 
-.hero-bg {
-  width: 100%;
-  height: 700px;
+    #hero-p {
+        color: #fff;
 
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
+        @include xl {
+        font-size: 24px !important;
+    }
+    }
 
-#home-hero-text {
-  z-index: 1;
+
+
+.home-hero-text {
+  position: absolute;
+  z-index: 0;
   padding-bottom: 30px;
+  bottom: 35px;
+  left: 5px;
+  right: 0;
+  width: 100%;
+
+  @include tablet {
+    bottom: 10px;
+  }
+
+  @include desktop {
+    bottom: 50px;
+  }
+
+  @include xl {
+    bottom: 50px;
+  }
 
   #hero-heading {
     color: #fff;
@@ -90,14 +128,19 @@ header {
     line-height: 50px;
     margin-bottom: 10px;
 
-    @include tablet {
-      font-size: 25px;
+    @include xl {
+        font-size: 26px;
     }
 
     span {
       font-size: 40px;
-      @include tablet {
+
+      @include desktop {
         font-size: 48px;
+      }
+
+      @include xl {
+        font-size: 60px;
       }
     }
   }
@@ -113,6 +156,10 @@ header {
       margin-top: 15px;
       font-size: 20px;
     }
+
+    @include xl {
+        font-size: 24px !important;
+    }
   }
 
   a {
@@ -121,6 +168,11 @@ header {
     width: 200px;
     padding: 10px 20px;
     display: block;
+
+    @include xl {
+        font-size: 20px;
+        width: 235px;
+    }
   }
 }
 
@@ -129,14 +181,14 @@ header {
 // ABOUT SECTION
 // ===========================================
 #about-museum {
-    margin: 60px 0;
+    margin: 100px 0 50px 0;
 
     @include tablet {
-        margin: 80px 0;
+        margin: 150px 0 50px 0;
     }
 
     @include desktop {
-        margin: 120px 0;
+        margin: 100px 0 50px 0;
     }
 
     .grid-con {
@@ -166,14 +218,12 @@ header {
     }
 
     p {
-        font-size: 14px;
         line-height: 1.7;
         color: $chacoal;
         margin-bottom: 20px;
         order: 2;
 
         @include tablet {
-            font-size: 15px;
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -193,6 +243,11 @@ header {
         @include desktop {
             width: 160px;
         }
+
+        @include xl {
+            font-size: 18px;
+            width: 175px;
+        }
     }
 
     .about-image {
@@ -200,6 +255,10 @@ header {
 
     @include tablet {
         margin-top: 40px;
+    }
+
+    @include xl {
+        transform: scale(1.3);
     }
 
 }
@@ -302,6 +361,10 @@ header {
         gap: 30px;
         justify-content: center;
     }
+
+    @include xl {
+        gap: 70px;
+    }
 }
 
 // Cards
@@ -318,17 +381,27 @@ header {
         width: 340px;
     }
 
+    @include xl {
+        width: 400px;
+    }
+
     .card-image {
         width: 90%;
         height: 170px;
         overflow: hidden;
         margin: 10px auto;
 
+        @include xl {
+            height: auto;
+            margin: 30px auto;
+        }
+
         img {
             object-fit: cover;
             display: block;
             transform: scale(1);
             transition: transform 0.3s ease-in-out;
+            margin: auto;
         }
     }
 
@@ -358,6 +431,10 @@ header {
         padding: 25px 20px 30px;
     }
 
+    @include xl {
+       padding: 25px 30px 30px; 
+    }
+
     h3 {
         color: #fff;
         font-size: 18px;
@@ -371,6 +448,11 @@ header {
 
         @include desktop {
             font-size: 22px;
+        }
+
+        @include xl {
+            font-size: 24px;
+            text-align: center;
         }
     }
 
@@ -389,6 +471,10 @@ header {
         @include desktop {
             font-size: 14px;
             margin-bottom: 20px;
+        }
+
+        @include xl {
+            text-align: center;
         }
     }
 
@@ -410,6 +496,10 @@ header {
 
         @include desktop {
             margin-top: 40px;
+        }
+
+        @include xl {
+            margin-top: 20px;
         }
     }
 }
@@ -603,6 +693,11 @@ header {
         font-size: 13px;
     }
 
+    @include xl {
+        font-size: 16px;
+        width: 110px;
+    }
+
     &:hover {
         color: $heritage_red;
     }
@@ -644,6 +739,10 @@ header {
     @include tablet {
         font-size: 13px;
     }
+    @include xl {
+        font-size: 16px;
+        width: 110px;
+    }
 
     &:hover {
         color: $heritage_red;
@@ -653,6 +752,7 @@ header {
     @include tablet {
     order: 1;
     }
+    
 
 }
 .events-cta {
@@ -665,7 +765,15 @@ header {
 
     .button {
         padding: 10px 30px;
+
+        @include xl {
+            font-size: 22px;
+            padding: 20px 40px;
+            border-radius: 200px;
+        }
     }
+
+
 }
 
 

@@ -3,7 +3,7 @@ export function adminMenu () {
     const dashbordMenu = document.querySelector("#dashbord-menu");
 
     function adminMenuOpen () {
-        if(dashbordMenuOpen.classList.contains("active") && dashbordMenu.classList.contains) {
+        if(dashbordMenuOpen.classList.contains("active") && dashbordMenu.classList.contains("active")) {
             dashbordMenuOpen.classList.remove("active");
             dashbordMenu.classList.remove("active");
         } else {
@@ -15,27 +15,28 @@ export function adminMenu () {
     dashbordMenuOpen.addEventListener("click", adminMenuOpen);
 }
 
-export function addPost () {
-    const addContentBtn = document.querySelector(".add-content");
-    const lightbox = document.querySelector("#add-content-lightbox");
-    const lightboxClose = document.querySelector(".lightbox-close");
+// export function addPost () {
+//     const addContentBtn = document.querySelector(".add-content");
+//     const lightbox = document.querySelector("#add-content-lightbox");
+//     const lightboxClose = document.querySelector(".lightbox-close");
 
-    function openLightbox () {
-        lightbox.classList.add("active");
-    }
+//     function openLightbox () {
+//         lightbox.classList.add("active");
+//     }
 
-    function closeLightbox () {
-        lightbox.classList.remove("active");
-    }
+//     function closeLightbox () {
+//         lightbox.classList.remove("active");
+//     }
 
-    addContentBtn.addEventListener("click", openLightbox);
-    lightboxClose.addEventListener("click", closeLightbox);
-}
+//     addContentBtn.addEventListener("click", openLightbox);
+//     lightboxClose.addEventListener("click", closeLightbox);
+// }
 
 export function editPost () {
      const editLightbox = document.querySelector("#edit-content-lightbox");
     const EditLightboxClose = document.querySelector("#edit-lightbox-close");
     const postListApp = document.querySelector("#post-list-app");
+    const artifactsPostListApp = document.querySelector("#artifacts-post-list-app");
 
     function openEditLlightbox() {
         editLightbox.classList.add("active");
@@ -53,7 +54,11 @@ export function editPost () {
         }
     }
 
-    postListApp.addEventListener("click", handlePostListClick);
+    if(postListApp) {
+        postListApp.addEventListener("click", handlePostListClick);
+    } else if (artifactsPostListApp) {
+        artifactsPostListApp.addEventListener("click", handlePostListClick);
+    }
     EditLightboxClose.addEventListener("click", closeEditLightbox);
 }
 
@@ -61,6 +66,7 @@ export function deletePost () {
     const warningLightbox = document.querySelector("#delete-lightbox");
     const cancelDelete = document.querySelector("#cancel");
     const postListApp = document.querySelector("#post-list-app");
+    const artifactsPostListApp = document.querySelector("#artifacts-post-list-app");
 
     function openWarning() {
         warningLightbox.classList.add("active");
@@ -78,6 +84,10 @@ export function deletePost () {
         }
     }
 
-    postListApp.addEventListener("click", handlePostListClick);
+    if (postListApp) {
+        postListApp.addEventListener("click", handlePostListClick);
+    } else if(artifactsPostListApp) {
+        artifactsPostListApp.addEventListener("click", handlePostListClick);
+    }
     cancelDelete.addEventListener("click", closeWarning);
 }

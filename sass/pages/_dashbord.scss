@@ -466,6 +466,30 @@
         padding: 10px 30px;
         cursor: pointer;
     }
+}
 
+.soft-deleted {
+    opacity: 0.5;
+    pointer-events: none;
 
+    .restore-post {
+        pointer-events: all;
+    }
+}
+
+.restore-post {
+    color: $aviation_blue;
+    border: 1px solid $aviation_blue;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 18px;
+    flex: 1;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+        color: $heritage_red;
+    }
 }

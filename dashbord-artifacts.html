@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="/lam-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/lam-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/lam-favicon/apple-touch-icon.png" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.0/ScrollTrigger.js"></script>
+    <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="js/main.js"></script>
+    <title>London Aviation Museum Admin Artifacs Dashboard Page</title>
+</head>
+<body data-page="dashbord-artifacts">
+
+    <header id="admin-header" class="full-width-grid-con">
+
+        <div class="grid-con">
+
+            <div id="header-flex" class="col-span-full">
+                <a href="dashbord.html" aria-label="dashbord">
+                    <picture id="header-logo">
+                        <source media="(min-width: 768px)" srcset="images/lam_logo_blue.svg">
+                        <source media="(min-width:300px)" srcset="images/blue_logo_mobile.svg">
+                        <img src="images/blue_logo_mobile.svg" alt="logo">
+                    </picture>
+                </a>
+
+                <h1>Admin Dashboard</h1>
+
+                <div id="user">
+                    <div>
+                        <h2 id="username">Hello <!-- display login user name --></h2>
+                        <a href="#">Edit Profile</a>
+                    </div>
+                    <img src="images/user.svg" alt="user profile">
+                </div>
+        </div>
+
+        <button id="logout" class="col-end-5 m-col-end-13">
+            <img src="images/logout.svg" alt="logout">
+            Logout
+        </button>
+    </div>
+</header>
+    
+
+    <main>
+        <div id="artifacts-post-list-app">
+        <section id="admin-submenu" class="grid-con">
+            <div id="dashbord-menu-open" class="col-start-1 col-end-2">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+             <nav id="dashbord-menu" class="">
+                <h3>LAM CMS</h3>
+                <ul>
+                    <li>Dashboard</li>
+                    <li><a href="dashbord.html">Events</a></li>
+                    <li><a href="dashbord.html">Blogs</a></li>
+                    <li><a href="dashbord-artifacts.html">Artifacts</a></li>
+                    <li>Settings</li>
+                </ul>
+            </nav>
+
+            <h2 id="post-header" class="col-start-2 col-span-4">Recently added</h2>
+
+            <button class="add-content col-span-2 m-col-end-13" @click="showAddArtifactForm = true" aria-label="add content">
+                <img src="images/add.svg" alt="plus icon">
+                Add Content
+            </button>
+        </section>
+
+        <section id="post-list">
+            <h2 class="hidden">Post list</h2>
+
+            <div class="grid-con">
+                <div v-if="loadingArtifacts" class="loader col-span-full">
+                    <img src="images/loader.svg" alt="Loading Post" class="col-span-full">
+                </div>
+                <div v-else-if="artifactsError" class="events-blog-error col-span-full">
+                    <p>{{ artifactsError }}</p>
+                </div>
+                <template v-else>
+                    <div class="artifact-card col-span-full m-col-span-4" v-for="artifact in artifactsData" :key="artifact.id">
+                        <div class="img-con">
+                            <img class="artifact-img" :src="artifact.image_path" :alt="artifact.name">
+                        </div>
+                        <h3>{{ artifact.name }}</h3>
+
+                        <div class="edit-delete">
+                            <button class="edit-post" v-if="!artifact.deleted_at" @click="openEdit(artifact)">
+                                <img src="images/edit.svg" alt="edit icon">
+                                Edit
+                            </button>
+                            <button class="delete-post" v-if="!artifact.deleted_at" @click="confirmDelete(artifact)">
+                                <img src="images/trash.svg" alt="trash icon">
+                                Delete
+                            </button>
+                            <button class="restore-post" v-if="artifact.deleted_at" @click="restoreArtifact(artifact)">
+                                Restore
+                            </button>
+                            <div v-for="artifact in artifactsData" :key="artifact.id" class="post-item col-span-full l-col-span-6" :class="{ 'soft-deleted': artifact.deleted_at }">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </template>
+            </div>
+        </section>
+
+        <div id="add-content-lightbox" :class="{ active: showAddArtifactForm }">
+            <div class="lightbox-wrapper">
+                <button class="lightbox-close" @click="showAddArtifactForm = false">← Back</button>
+                <div class="lightbox-inner">
+                    <h2>Add New Artifact</h2>
+
+                    <form class="add-post-form" @submit.prevent="createArtifact">
+                        <div class="one-item">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" v-model="newArtifact.name" placeholder="Enter the name">
+                            <p class="field-error" v-if="addErrors.name">{{ addErrors.name }}</p>
+                        </div>
+
+                        <div class="two-items">
+                            <div>
+                                <label for="object-type">Object Type</label>
+                               <input type="text" id="object-type" placeholder="Enter the object type" v-model="newArtifact.object_type">
+                                <p class="field-error" v-if="addErrors.object_type">{{ addErrors.object_type }}</p>
+                            </div>
+                            <div>
+                                <label for="period">Period</label>
+                                <input type="text" id="period" v-model="newArtifact.period">
+                                <p class="field-error" v-if="addErrors.period">{{ addErrors.period }}</p>
+                            </div>
+                        </div>
+
+                        <div class="two-items">
+                            <div>
+                                <label for="origin">Origin</label>
+                               <input type="text" id="origin" placeholder="Enter the origin" v-model="newArtifact.origin">
+                                <p class="field-error" v-if="addErrors.origin">{{ addErrors.origin }}</p>
+                            </div>
+                            <div>
+                                <label for="image">Image Path</label>
+                                <input type="text" id="image" placeholder="Enter the URL" v-model="newArtifact.image_path">
+                                <p class="field-error" v-if="addErrors.image_path">{{ addErrors.image_path }}</p>
+                            </div>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="material">Material</label>
+                            <textarea id="material" placeholder="Description for the material" v-model="newArtifact.material"></textarea>
+                            <p class="field-error" v-if="addErrors.material">{{ addErrors.material }}</p>
+                        </div>
+
+                    
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div id="edit-content-lightbox" :class="{ active: showEditArtifactForm }">
+            <div class="lightbox-wrapper">
+                <button class="lightbox-close" @click="showEditArtifactForm = false">← Back</button>
+                <div class="lightbox-inner">
+                    <h2>Edit Artifact</h2>
+
+                    <form class="add-post-form" @submit.prevent="updateArtifact">
+                        <div class="one-item">
+                            <label for="edit-name">Name</label>
+                            <input type="text" id="edit-name" placeholder="Enter the name" v-model="editArtifact.name">
+                            <p class="field-error" v-if="editErrors.name">{{ editErrors.name }}</p>
+                        </div>
+
+                        <div class="two-items">
+                            <div>
+                                <label for="edit-object-type">Object Type</label>
+                               <input type="text" id="edit-object-type" placeholder="Enter the object type" v-model="editArtifact.object_type">
+                                <p class="field-error" v-if="editErrors.object_type">{{ editErrors.object_type }}</p>
+                            </div>
+                            <div>
+                                <label for="edit-period">Period</label>
+                                <input type="text" id="edit-period" v-model="editArtifact.period">
+                                <p class="field-error" v-if="editErrors.period">{{ editErrors.period }}</p>
+                            </div>
+                        </div>
+
+                        <div class="two-items">
+                            <div>
+                                <label for="edit-origin">Origin</label>
+                               <input type="text" id="edit-origin" placeholder="Enter the origin" v-model="editArtifact.origin">
+                                <p class="field-error" v-if="editErrors.origin">{{ editErrors.origin }}</p>
+                            </div>
+                            <div>
+                                <label for="edit-image">Image Path</label>
+                                <input type="text" id="edit-image" placeholder="Enter the URL" v-model="editArtifact.image_path">
+                                <p class="field-error" v-if="editErrors.image_path">{{ editErrors.image_path }}</p>
+                            </div>
+                        </div>
+
+                        <div class="one-item">
+                            <label for="edit-material">Material</label>
+                            <textarea id="edit-material" placeholder="Description for the material" v-model="editArtifact.material"></textarea>
+                            <p class="field-error" v-if="editErrors.material">{{ editErrors.material }}</p>
+                        </div>
+                        <div class="one-item">
+                            <label for="description">Description</label>
+                            <textarea id="description" v-model="newArtifact.description" placeholder="Enter description"></textarea>
+                            <p class="field-error" v-if="addErrors.description">{{ addErrors.description }}</p>
+                        </div>
+
+                    
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="delete-lightbox" class="lightbox" :class="{ active: showDeleteConfirm }">
+            <div class="delete-inner">
+                <h2>Delete Artifact?</h2>
+                <p>Are you sure you want to delete <br>
+                    <span>{{ deleteTarget?.name }}</span></p>
+                
+                    <div id="warning">
+                        <img src="images/circle-alert.svg" alt="warning icon">
+                        <div>
+                            <h3>Warning!</h3>
+                            <p>This artifact post will be soft-deleted and<br>can be restored later.</p>
+                        </div>
+                    </div>
+
+                    <div class="two-items">
+                        <button id="cancel" @click="showDeleteConfirm = false">Cancel</button>
+                        <button id="delete" @click="deleteArtifact">
+                            <img src="images/trash-white.svg" alt="trash icon">Delete
+                        </button>
+                    </div>
+                </div>
+        </div>
+        </div>
+    </main>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
+</body>
+</html>

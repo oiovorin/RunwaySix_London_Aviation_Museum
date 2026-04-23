@@ -85,7 +85,7 @@
 
         <div id="artifact-detail-app">
 
-            <div class="grid-con">
+            <div class="grid-con header-space">
             <a href="artifacts.html" id="back-to-artifacts" class="col-span-full">← Back to Artifacts</a>
 
             <div v-if="loadingArtifactsDetails" class="loader col-span-full">
@@ -122,7 +122,7 @@
                     <p><span>Period: </span>{{ selectedArtifact.period }}</p>
                     <p><span>Origin: </span>{{ selectedArtifact.origin }}</p>
                     <p><span>Material: </span>{{ selectedArtifact.material }}</p>
-                    <p><span>Description: </span>{{ selectedArtifact.description }}</p>
+                    <p v-html="selectedArtifact.description"><span>Description: </span></p>
                 </div>
             </div>
         
@@ -247,5 +247,7 @@
         <small class="col-span-full">&copy; 2026 London Aviation Museum | Designed and Developed by Team Runway Six</small>
         </div>
     </footer>
+
+    <button id="back-to-top" aria-label="Scroll back to top">&#8593;</button>
 </body>
 </html>

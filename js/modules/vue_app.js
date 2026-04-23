@@ -1,3 +1,5 @@
+import { getToken } from "./auth.js";
+
 export function artifactVueApp() {
     const app = Vue.createApp({
         data() {
@@ -488,8 +490,21 @@ export function borVueApp() {
             return {
                 remembrancesData: [],
                 loadingRemembrances: true,
-                remembrancesError: null
+                remembrancesError: null,
+                searchQuery: '',
+                isSearching: false,
+                currentPage: 1,
+                perPage: 12
             };
+        },
+        computed: {
+            totalPages() {
+                return Math.ceil(this.remembrancesData.length / this.perPage);
+            },
+            paginatedData() {
+                const start = (this.currentPage - 1) * this.perPage;
+                return this.remembrancesData.slice(start, start + this.perPage);
+            }
         },
         created() {
             this.getRemembrances();
@@ -526,8 +541,43 @@ export function borVueApp() {
                             );
                         });
                     });
-            }
-        
+            },
+            searchRemembrances() {
+                if (!this.searchQuery.trim()) return;
+                this.currentPage = 1;
+                this.isSearching = true;
+                this.loadingRemembrances = true;
+                fetch(`http://127.0.0.1:8000/api/remembrances/search?full_name=${encodeURIComponent(this.searchQuery)}`)
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("No results found.");
+                        }
+                        return res.json();
+                    })
+                    .then(results => {
+                        this.remembrancesData = results;
+                    })
+                    .catch(err => {
+                        this.remembrancesError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingRemembrances = false;
+                    });
+            },
+
+            resetSearch() {
+                this.searchQuery = '';
+                this.isSearching = false;
+                this.currentPage = 1;
+                this.getRemembrances();
+            },
+
+            goToPage(page) {
+                if (page >= 1 && page <= this.totalPages) {
+                    this.currentPage = page;
+                    window.scrollTo({ top: document.querySelector('#bor-app').offsetTop, behavior: 'smooth' });
+                }
+            },
         }
     });
     app.mount("#bor-app");
@@ -656,7 +706,30 @@ export function postListVueApp() {
             return {
                 eventsBlogData: [],
                 loadingEventsBlog: true,
-                eventsBlogError: null
+                eventsBlogError: null,
+                showAddForm: false,
+                newPost: {
+                    title: '',
+                    post_type: '',
+                    event_date: '',
+                    description: '',
+                    content: '',
+                    image_path: ''
+                },
+                showEditForm: false,
+                editPost: {
+                    id: null,
+                    title: '',
+                    post_type: '',
+                    event_date: '',
+                    description: '',
+                    content: '',
+                    image_path: ''
+                },
+                editErrors: {},
+                showDeleteConfirm: false,
+                deleteTarget: null,
+                addErrors: {},
             };
         },
         created() {
@@ -665,7 +738,12 @@ export function postListVueApp() {
         methods: {
             getEventsBlog() {
                 this.eventsBlogError = null;
-                fetch("http://127.0.0.1:8000/api/events-blogs")
+                fetch("http://127.0.0.1:8000/api/events-blogs/admin", {
+                headers: {
+                    'Authorization': 'Bearer ' + getToken(),
+                    'Accept': 'application/json'
+                }
+                })
                     .then(res => {
                         if (!res.ok) {
                             throw new Error("Failed to fetch the events and blogs.");
@@ -689,9 +767,374 @@ export function postListVueApp() {
                     month: "long",
                     day: "numeric"
                 });
-            }
-        
+            },
+            createPost() {
+                this.eventsBlogError = null;
+                fetch("http://127.0.0.1:8000/api/events-blogs", {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + getToken(),
+                    'Accept': 'application/json'
+                },
+                method: 'POST',
+                body: JSON.stringify(this.newPost)
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(data => {
+                                throw data;
+                            });
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        this.showAddForm = false;
+                        this.newPost = {
+                            title: '',
+                            post_type: '',
+                            event_date: '',
+                            description: '',
+                            content: '',
+                            image_path: ''
+                        };
+                        this.addErrors = {};
+                        this.getEventsBlog();
+                    })
+                    .catch(err => {
+                        if (err.errors) {
+                            this.addErrors = {};
+                            if (err.errors.title) this.addErrors.title = err.errors.title[0];
+                            if (err.errors.post_type) this.addErrors.post_type = err.errors.post_type[0];
+                            if (err.errors.event_date) this.addErrors.event_date = err.errors.event_date[0];
+                            if (err.errors.description) this.addErrors.description = err.errors.description[0];
+                            if (err.errors.content) this.addErrors.content = err.errors.content[0];
+                            if (err.errors.image_path) this.addErrors.image_path = err.errors.image_path[0];
+                        } else {
+                            this.eventsBlogError = "It seems you have lost your internet connection. Please try again later";
+                        }
+                    });
+            },
+            openEdit(eventsBlog) {
+                this.editPost = {
+                    id: eventsBlog.id,
+                    title: eventsBlog.title || '',
+                    post_type: eventsBlog.post_type || '',
+                    event_date: eventsBlog.event_date || '',
+                    description: eventsBlog.description || '',
+                    content: eventsBlog.content || '',
+                    image_path: eventsBlog.image_path || ''
+                };
+                this.editErrors = {};
+                this.showEditForm = true;
+            },
+
+            updatePost() {
+                fetch(`http://127.0.0.1:8000/api/events-blogs/${this.editPost.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        title: this.editPost.title,
+                        post_type: this.editPost.post_type,
+                        event_date: this.editPost.event_date,
+                        description: this.editPost.description,
+                        content: this.editPost.content,
+                        image_path: this.editPost.image_path
+                    })
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(data => {
+                            throw data;
+                        });
+                    }
+                    return res.json();
+                })
+                .then(data => {
+                    this.showEditForm = false;
+                    this.editErrors = {};
+                    this.getEventsBlog();
+                })
+                .catch(err => {
+                    if (err.errors) {
+                        this.editErrors = {};
+                        if (err.errors.title) this.editErrors.title = err.errors.title[0];
+                        if (err.errors.post_type) this.editErrors.post_type = err.errors.post_type[0];
+                        if (err.errors.event_date) this.editErrors.event_date = err.errors.event_date[0];
+                        if (err.errors.description) this.editErrors.description = err.errors.description[0];
+                        if (err.errors.content) this.editErrors.content = err.errors.content[0];
+                        if (err.errors.image_path) this.editErrors.image_path = err.errors.image_path[0];
+                    } else {
+                        this.eventsBlogError = "Failed to update post. Please try again.";
+                    }
+                });
+            },
+            
+            confirmDelete(eventsBlog) {
+                this.deleteTarget = eventsBlog;
+                this.showDeleteConfirm = true;
+            },
+
+            deletePost() {
+                fetch(`http://127.0.0.1:8000/api/events-blogs/${this.deleteTarget.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Failed to delete post.');
+                    }
+                    this.showDeleteConfirm = false;
+                    this.deleteTarget = null;
+                    this.getEventsBlog();
+                })
+                .catch(err => {
+                    this.eventsBlogError = err.message;
+                });
+            },
+            restorePost(eventsBlog) {
+                fetch(`http://127.0.0.1:8000/api/events-blogs/${eventsBlog.id}/restore`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error('Failed to restore post.');
+                    }
+                    this.getEventsBlog();
+                })
+                .catch(err => {
+                    this.eventsBlogError = err.message;
+                });
+            },
         }
     });
     app.mount("#post-list-app");
+}
+
+export function artifactsPostListVueApp() {
+    const app = Vue.createApp({
+        data() {
+            return {
+                artifactsData: [],
+                loadingArtifacts: true,
+                artifactsError: null,
+                showAddArtifactForm: false,
+                newArtifact: {
+                    name: '',
+                    object_type: '',
+                    period: '',
+                    origin: '',
+                    material: '',
+                    description: '',
+                    image_path: ''
+                },
+                showEditArtifactForm: false,
+                editArtifact: {
+                    id: null,
+                    name: '',
+                    object_type: '',
+                    period: '',
+                    origin: '',
+                    material: '',
+                    description: '',
+                    image_path: ''
+                },
+                editErrors: {},
+                showDeleteConfirm: false,
+                deleteTarget: null,
+                addErrors: {},
+            };
+        },
+        created() {
+            this.getArtifacts();
+        },
+        methods: {
+            getArtifacts() {
+                this.artifactsError = null;
+                fetch("http://127.0.0.1:8000/api/artifacts/admin", {
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error("Failed to fetch the artifacts.");
+                        }
+                        return res.json();
+                    })
+                    .then(artifacts => {
+                        this.artifactsData = artifacts;
+                    })
+                    .catch(err => {
+                        this.artifactsError = err.message;
+                    })
+                    .finally(() => {
+                        this.loadingArtifacts = false;
+                    });
+            },
+        createArtifact() {
+                this.artifactsError = null;
+                fetch("http://127.0.0.1:8000/api/artifacts", {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(this.newArtifact)
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(data => {
+                                throw data;
+                            });
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        this.showAddArtifactForm = false;
+                        this.newArtifact = {
+                            name: '',
+                            object_type: '',
+                            period: '',
+                            origin: '',
+                            material: '',
+                            description: '',
+                            image_path: ''
+                        };
+                        this.addErrors = {};
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        if (err.errors) {
+                            this.addErrors = {};
+                            if (err.errors.name) this.addErrors.name = err.errors.name[0];
+                            if (err.errors.object_type) this.addErrors.object_type = err.errors.object_type[0];
+                            if (err.errors.period) this.addErrors.period = err.errors.period[0];
+                            if (err.errors.origin) this.addErrors.origin = err.errors.origin[0];
+                            if (err.errors.material) this.addErrors.material = err.errors.material[0];
+                            if (err.errors.description) this.addErrors.description = err.errors.description[0];
+                            if (err.errors.image_path) this.addErrors.image_path = err.errors.image_path[0];
+                        } else {
+                            this.artifactsError = "It seems you have lost your internet connection. Please try again later";
+                        }
+                    });
+            },
+            openEdit(artifact) {
+                this.editArtifact = {
+                    id: artifact.id,
+                    name: artifact.name || '',
+                    object_type: artifact.object_type || '',
+                    period: artifact.period || '',
+                    origin: artifact.origin || '',
+                    material: artifact.material || '',
+                    description: artifact.description || '',
+                    image_path: artifact.image_path || ''
+                };
+                this.editErrors = {};
+                this.showEditArtifactForm = true;
+            },
+            updateArtifact() {
+                fetch(`http://127.0.0.1:8000/api/artifacts/${this.editArtifact.id}`, {
+                    method: 'PATCH',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: this.editArtifact.name,
+                        object_type: this.editArtifact.object_type,
+                        period: this.editArtifact.period,
+                        origin: this.editArtifact.origin,
+                        material: this.editArtifact.material,
+                        description: this.editArtifact.description,
+                        image_path: this.editArtifact.image_path
+                    })
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(data => {
+                                throw data;
+                            });
+                        }
+                        return res.json();
+                    })
+                    .then(data => {
+                        this.showEditArtifactForm = false;
+                        this.editErrors = {};
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        if (err.errors) {
+                            this.editErrors = {};
+                            if (err.errors.name) this.editErrors.name = err.errors.name[0];
+                            if (err.errors.object_type) this.editErrors.object_type = err.errors.object_type[0];
+                            if (err.errors.period) this.editErrors.period = err.errors.period[0];
+                            if (err.errors.origin) this.editErrors.origin = err.errors.origin[0];
+                            if (err.errors.material) this.editErrors.material = err.errors.material[0];
+                            if (err.errors.description) this.editErrors.description = err.errors.description[0];
+                            if (err.errors.image_path) this.editErrors.image_path = err.errors.image_path[0];
+                        } else {
+                            this.artifactsError = "It seems you have lost your internet connection. Please try again later";
+                        }
+                    });
+            },
+            confirmDelete(artifact) {
+                this.deleteTarget = artifact;
+                this.showDeleteConfirm = true;
+            },
+            deleteArtifact() {
+                fetch(`http://127.0.0.1:8000/api/artifacts/${this.deleteTarget.id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error('Failed to delete artifact');
+                        }
+                        this.showDeleteConfirm = false;
+                        this.deleteTarget = null;
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        this.artifactsError = err.message;
+                    });
+            },
+                restoreArtifact(artifact) {
+                fetch(`http://127.0.0.1:8000/api/artifacts/${artifact.id}/restore`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': 'Bearer ' + getToken(),
+                        'Accept': 'application/json'
+                    }
+                })
+                    .then(res => {
+                        if (!res.ok) {
+                            throw new Error('Failed to restore artifact');
+                        }
+                        this.getArtifacts();
+                    })
+                    .catch(err => {
+                        this.artifactsError = err.message;
+                    });
+            }
+
+        }
+    });
+    app.mount("#artifacts-post-list-app");
 }
